@@ -1,77 +1,77 @@
 # If you add a page, you must add it to the index here
 nav:
   - Home: 'index.md'
-  - Style Guide: 'styleguide.md'
-  - Getting Started:
-    - Home: 'gettingstarted/index.md'
-    - Structuring Your Mod: 'gettingstarted/structuring.md'
-    - Forge Update Checker: 'gettingstarted/autoupdate.md'
-    - Debug Profiler: 'gettingstarted/debugprofiler.md'
-  - Concepts:
-    - Sides: 'concepts/sides.md'
-    - Resources: 'concepts/resources.md'
-    - Data: 'concepts/data.md'
-    - Registries: 'concepts/registries.md'
-    - Mod Lifecycle: 'concepts/lifecycle.md'
-    - Internationalization and localization: 'concepts/internationalization.md'
-  - Blocks:
-    - Home: 'blocks/blocks.md'
-    - Blockstates: 'blocks/states.md'
-    - Interaction: 'blocks/interaction.md'
+  - 문서 스타일 가이드: 'styleguide.md'
+  - 시작하기:
+    - Home: '시작하기/index.md'
+    - 모드 기본 구조 작성하기: '시작하기/structuring.md'
+    - 포지 자동 업데이트 표시기: '시작하기/autoupdate.md'
+    - 디버그 프로파일러: '시작하기/debugprofiler.md'
+  - 개념들:
+    - 사이드: '개념들/사이드.md'
+    - 리소스: '개념들/리소스.md'
+    - 데이터: '개념들/데이터.md'
+    - 레지스트리: '개념들/레지스트리.md'
+    - 모드 생명주기: '개념들/생명주기.md'
+    - 국제화와 현지화: '개념들/국제화.md'
+  - 블록:
+    - Home: '블록/블록.md'
+    - 블록의 상태: '블록/상태.md'
+    - 상호작용: '블록/상호작용.md'
 #  - Animation API:
-#    - Intro to the Animation API: 'animation/intro.md'
+#    - Intro to the Animation API: 'animation/소개.md'
 #    - Armatures: 'animation/armature.md'
 #    - Animation State Machines: 'animation/asm.md'
 #    - Using the API: 'animation/implementing.md'
-  - Tile Entities:
-    - Home: 'tileentities/tileentity.md'
-    - Renderer: 'tileentities/tesr.md'
-  - Items:
-    - Home: 'items/items.md'
-    - Loot Modification: 'items/globallootmodifiers.md'
-  - Models:
-    - Intro to Models: 'models/introduction.md'
-    - Model Files: 'models/files.md'
-    - Blockstates:
-      - Intro to Blockstate JSONs: 'models/blockstates/introduction.md'
-    - Coloring Textures: 'models/color.md'
-    - Item Property Overrides: 'models/overrides.md'
-    - Advanced Models:
-      - IBakedModel: 'models/advanced/ibakedmodel.md'
-      - Perspective: 'models/advanced/perspective.md'
-      - ItemOverrideList: 'models/advanced/itemoverridelist.md'
-  - Rendering:
-    - ItemStackTileEntityRenderer: 'rendering/ister.md'
-  - Data Generation:
-    - Introduction: 'datagen/intro.md'
-    - Model Providers: 'datagen/modelproviders.md'
-  - Events:
-    - Basic Usage: 'events/intro.md'
-  - Networking:
-    - Home: 'networking/index.md'
-    - Overview: 'networking/overview.md'
-    - SimpleImpl: 'networking/simpleimpl.md'
-    - Entities: 'networking/entities.md'
-  - Data Storage:
-    - Capabilities: 'datastorage/capabilities.md'
-    - World Saved Data: 'datastorage/worldsaveddata.md'
-  - Utilities:
-    - Recipes: 'utilities/recipes.md'
-    - Tags: 'utilities/tags.md'
-  - Effects:
-    - Particles: 'effects/particles.md'
-    - Sounds: 'effects/sounds.md'
-  - Conventions:
-    - Versioning: 'conventions/versioning.md'
-    - Locations: 'conventions/locations.md'
-  - Advanced Topics:
-    - Access Transformers: 'advanced/accesstransformers.md'
-  - Contributing to Forge:
-    - Getting Started: 'forgedev/index.md'
-    - PR Guidelines: 'forgedev/prguidelines.md'
-  - Legacy Versions:
-    - Home: 'legacy/index.md'
-    - Porting to 1.16: 'legacy/porting.md'
+  - 타일 엔티티:
+    - Home: '타일엔티티/tileentity.md'
+    - 렌더러: '타일엔티티/tesr.md'
+  - 아이템:
+    - Home: '아이템/아이템.md'
+    - Loot Modification: '아이템/globallootmodifiers.md'
+  - 모델:
+    - 모델 소개: '모델/introduction.md'
+    - 모델 파일: '모델/files.md'
+    - BlockState:
+      - BlockState JSON 소개: '모델/blockstates/introduction.md'
+    - 텍스쳐 색칠하기: '모델/color.md'
+    - 아이템 성질 오버라이드: '모델/overrides.md'#TODO 이거 이름 변경하기
+    - 고급 모델:
+      - IBakedModel: '모델/advanced/ibakedmodel.md'
+      - Perspective: '모델/advanced/perspective.md'
+      - ItemOverrideList: '모델/advanced/itemoverridelist.md'
+  - 렌더링:
+    - ItemStackTileEntityRenderer: '렌더링/ister.md'
+  - 데이터 생성:
+    - 소개: '데이터생성기/소개.md'
+    - 모델 제공자: '데이터생성기/모델제공자.md'
+  - 이벤트:
+    - 기본적인 사용법: '이벤트/소개.md'
+  - 네트워킹:
+    - Home: '네트워킹/index.md'
+    - 개요: '네트워킹/overview.md'
+    - SimpleImpl: '네트워킹/simpleimpl.md'
+    - 엔티티 네트워킹: '네트워킹/entities.md'
+  - 데이터 저장소:
+    - Capabilities: '데이터저장소/캐패빌리티.md'
+    - 월드에 저장되는 데이터: '데이터저장소/월드저장데이터.md'
+  - 유틸리티:
+    - 조합법: '유틸리티/recipes.md'
+    - 태그: '유틸리티/tags.md'
+  - 효과:
+    - 파티클: '효과들/파티클.md'
+    - 소리: '효과들/소리.md'
+  - 협약:
+    - 버전 명명: '협약들/버전명명.md'
+    - 파일 위치: '협약들/파일위치.md'
+  - 고급 주제:
+    - 접근 변환자: '고급/접근 변환자.md'
+  - 포지에 기여하기:
+    - 시작하기: '포지개발/index.md'
+    - PR 가이드라인: '포지개발/prguidelines.md'
+  - 이전 버전:
+    - Home: '레거시/index.md'
+    - 1.16으로 포팅하기: '레거시/porting.md'
 
 # Do not edit in PRs below here
 site_name: Forge Documentation
