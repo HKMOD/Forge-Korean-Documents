@@ -35,7 +35,7 @@ nav:
     - BlockState:
       - BlockState JSON 소개: '모델/blockstates/introduction.md'
     - 텍스쳐 색칠하기: '모델/color.md'
-    - 아이템 성질 오버라이드: '모델/overrides.md'#TODO 이거 이름 변경하기
+    - 아이템 특성 오버라이드: '모델/overrides.md'#TODO 이거 이름 변경하기
     - 고급 모델:
       - IBakedModel: '모델/advanced/ibakedmodel.md'
       - Perspective: '모델/advanced/perspective.md'
