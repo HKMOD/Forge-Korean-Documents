@@ -1,10 +1,10 @@
-# Documentation
-This is the official MinecraftForge documentation, located at https://mcforge.readthedocs.org.
+# 포지 한국어 문서
+이 리포지토리는 비공식 포지 한국어 문서입니다, 임시적으로 https://tmvkrpxl0.github.io/Forge-Korean-Documents 에 호스팅 되고 있습니다.
 
-It is intended to provide detailed documentation of Forge development concepts. This does not include javadocs.
+이 문서의 목적은 포지 개발에서 사용하는 개념들에 대한 자세한 문서화 입니다. Javadoc 은 기술되어 있지 않습니다.
 
-The intent with this is to create a curated *definitive* source of documentation for developing mods with Forge. It is not a Java language tutorial, and basic concepts of Java should not be part of this documentation. Excessive example code will be avoided in lieu of more thorough explanations.
+그렇기에, 이는 포지 모드 개발을 위한 *확실한* 정보 제공을 위해 존재합니다. Java 언어 가이드가 아니기에 기본적인 Java 개념들은 다루어 지지 않았습니다.
 
-Feel free to submit pull requests related to documentation of Forge development here. See [CONTRIBUTING.md](/CONTRIBUTING.md)
+자유롭게 포지 문서에 pull request 하셔도 됩니다. 이에 관한 자세한 내용은 [기여하기.md](/기여하기.md) 를 참고하세요
 
-Don't expect this to be constantly being updated, though we will try and remedy egregious errors more quickly.
+공식 포지 문서처럼 내용이 자주 추가되진 않으나 오타나 번역 오류와 같은 문서상 문제는 빠른 시일내에 수정하겠습니다.
