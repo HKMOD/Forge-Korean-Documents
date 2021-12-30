@@ -1,7 +1,7 @@
 # If you add a page, you must add it to the index here
 nav:
   - Home: 'index.md'
-  - 문서 스타일 가이드: 'styleguide.md'
+  - 문서 스타일 가이드: '스타일가이드.md'
   - 시작하기:
     - Home: '시작하기/index.md'
     - 모드 기본 구조 작성하기: '시작하기/structuring.md'
