@@ -132,7 +132,7 @@ Also take note of the `read` method in the serializer. The conditions are alread
 
 Additional [examples] can be found on the Forge Git repository, including silk touch and smelting effects.
 
-[tags]: ../유틸리티/tags.md
+[tags]: ../유틸리티/태그.md
 [resloc]: ../개념들/리소스.md#ResourceLocation
 [registered]: ../개념들/레지스트리.md#registering-things
 [datagen]: ../데이터생성기/소개.md
