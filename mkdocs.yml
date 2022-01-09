@@ -36,10 +36,10 @@ nav:
       - BlockState JSON 소개: '모델/blockstates/introduction.md'
     - 텍스쳐 색칠하기: '모델/color.md'
     - 아이템 특성 오버라이드: '모델/overrides.md'#TODO 이거 이름 변경하기
-    - 고급 모델:
-      - IBakedModel: '모델/advanced/ibakedmodel.md'
-      - Perspective: '모델/advanced/perspective.md'
-      - ItemOverrideList: '모델/advanced/itemoverridelist.md'
+    - 심화 모델:
+      - IBakedModel: '모델/심화/ibakedmodel.md'
+      - Perspective: '모델/심화/perspective.md'
+      - ItemOverrideList: '모델/심화/itemoverridelist.md'
   - 렌더링:
     - ItemStackTileEntityRenderer: '렌더링/ister.md'
   - 데이터 생성:
@@ -64,8 +64,8 @@ nav:
   - 협약:
     - 버전 명명: '협약들/버전명명.md'
     - 파일 위치: '협약들/파일위치.md'
-  - 고급 주제:
-    - 접근 변환자: '고급/접근 변환자.md'
+  - 심화 주제:
+    - 접근 변환자: '심화/접근 변환자.md'
   - 포지에 기여하기:
     - 시작하기: '포지개발/index.md'
     - PR 가이드라인: '포지개발/prguidelines.md'
