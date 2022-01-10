@@ -49,7 +49,7 @@ nav:
     - 기본적인 사용법: '이벤트/소개.md'
   - 네트워킹:
     - Home: '네트워킹/index.md'
-    - 개요: '네트워킹/overview.md'
+    - 개요: '네트워킹/개요.md'
     - SimpleImpl: '네트워킹/simpleimpl.md'
     - 엔티티 네트워킹: '네트워킹/entities.md'
   - 데이터 저장소:
