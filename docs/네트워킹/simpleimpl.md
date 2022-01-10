@@ -19,17 +19,17 @@ public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 ```
 
 첫번째 인자는 채널의 이름입니다. 두번째 인자는 현재 프로토콜 버전을 반환하는 `Supplier<String>` 입니다. 세번째 인자는 연결을 시도하는 측의 프로토콜 버전이 클라이언트와 호환되는지 확인하는 `Predicate<String>`, 네번째 인자는 연결을 시도하는 측의 프로토콜 버전이 서버와 호환되는지 확인하는 `Predicate<String>` 입니다.
-이 예제에서는 단순한게 `PROTOCOL_VERSION` 과 바로 비교합니다, 즉 서버와 클라이언트의 `PROTOCOL_VERSION` 이 일치해야만 FML 이 로그인을 허용해 줍니다.
+이 예제에서는 단순하게 접속하는 측의 프로토콜 버전이 `PROTOCOL_VERSION` 과 동일한지 바로 비교합니다, 즉 이 경우에서는 서버와 클라이언트의 `PROTOCOL_VERSION` 이 일치해야만 FML 이 로그인을 허용해 줍니다.
 
 버전 확인
 -------------------
 
-만약 모드에서 만든 네트워크 채널이 반대쪽에 없어도 된다면, 또는 아예 포지가 없어도 된다면 버전 확인자들 (`Predicate<String>` 인수들)을 적절하게 정의하여 추가적인 "메타-버전" 들 또한 처리하도록 만들어야 합니다 (메타 버전들은 `NetworkRegistry` 에 정의되어 있습니다, 아래 나와있는 것은 String 이 아니고 필드 이름입니다). 이 버전들의 종류와 의미는 다음과 같습니다:
+만약 모드에서 만든 네트워크 채널이 반대쪽에 없어도 된다면, 또는 아예 포지가 없어도 된다면 버전 확인자들 (`Predicate<String>` 파라미터들)을 적절하게 정의하여 추가적인 "메타-버전" 들 또한 처리하도록 만들어야 합니다 (메타 버전들은 `NetworkRegistry` 에 정의되어 있습니다, 아래 나와있는 것은 String 이 아니고 필드 이름입니다). 이 버전들의 종류와 의미는 다음과 같습니다:
 
 * `ABSENT` - 채널이 반대쪽에 없는 경우, 이때 반대쪽은 포지가 설치되어 있으며 다른 모드가 있을 수 있습니다.
 * `ACCEPTVANILLA` - 반대쪽이 바닐라거나 포지가 없는 경우.
 
-위 두 필드들은 반대쪽에 채널이 없는 경우 버전 확인자 인수로 대신 사용됩니다. 이 두 경우에 다 `false` 를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.
+위 두 필드들은 반대쪽에 채널이 아예 없어 버전 확인자에서 비교할 프로토콜 버전이 없는 경우 대신 사용됩니다. 이 두 경우에 다 `false` 를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.
 
 패캣 등록하기
 -------------------
@@ -38,7 +38,7 @@ public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 
 - 첫번째 인자는 패캣을 판별할 때 사용할 판별자 입니다. ID 라고 부르기도 합니다. 이 판별자는 같은 채널에서는 고유하여야 합니다, 다른 채널끼리는 판별자가 같아도 문제가 발생하지 않습니다. 판별자로는 어떤 값을 사용하셔도 고유하기만 한다면 상관 없으니 지역 변수를 사용하여 메세지 하나 등록할 때 마다 `id++` 를 하여 늘 고유한 값이 나오도록 하세요.
 - 두번째 인자는 패캣 클래스 `MSG` 입니다.
-- 세번째 인자는 `BiConsumer<MSG, PacketBuffer>` 입니다, 패캣 클래스를 제공되는 `PacketBuffer` 에 작성하는 역할을 합니다.
+- 세번째 인자는 `BiConsumer<MSG, PacketBuffer>` 입니다, 패캣 클래스를 `PacketBuffer` 에 작성하는 역할을 합니다.
 - 네번째 인자는 `Function<PacketBuffer, MSG>` 입니다, `PacketBuffer` 로 부터 패캣 클래스를 읽어들이는 역할을 합니다.
 - 마지막 인자는 `BiConsumer<MSG, Supplier<NetworkEvent.Context>>` 입니다, 패캣을 받을시 사용할 핸들러 입니다.
 
@@ -47,7 +47,7 @@ public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 패캣 핸들링 하기
 ----------------
 
-패캣 핸들러에는 몇가지 강조할 사항이 있습니다: 패캣 핸들러는 메세지 클래스 뿐만 아니라, 네트워크 콘텍스트도 같이 반습니다. 이 콘텍스트를 사용해서, (서버에서 핸들링 한다면) 패캣을 보낸 플레이어에 접근할 수 있고 스레드 안전성을 준수해야만 하는 작업들을 요청할 수 있습니다.
+패캣 핸들러에는 몇가지 강조할 사항이 있습니다: 패캣 핸들러는 메세지 클래스 뿐만 아니라, 네트워크 콘텍스트도 같이 반습니다. 이 콘텍스트를 사용해서, (서버에서 패캣을 받았다면) 패캣을 보낸 플레이어에 접근할 수 있고 스레드 안전성을 준수해야만 하는 작업들을 요청할 수 있습니다.
 
 ```java
 public static void handle(MyMessage msg, Supplier<NetworkEvent.Context> ctx) {
@@ -86,7 +86,7 @@ public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Conte
 
     즉 패캣 핸들러는 게임과 직접적으로 상호작용할 수 _없습니다_.
     포지에서는 `NetworkEvent$Context` 를 통해 간단하게 코드를 메인 스레드에서 실행하는 방법을 제공합니다.
-    단순히 `NetworkEvent$Context#enqueueWork(Runnable)` 을 호출하는 것으로 충분합니다, 메인 스레드는 이때 전달된  `Runnable` 을 빠른 시일내에 실행합니다.
+    이는 단순하게 `NetworkEvent$Context#enqueueWork(Runnable)` 을 호출하는 것인데, 메인 스레드는 이때 전달된  `Runnable` 을 빠른 시일내에 실행합니다.
 
 !!! warning
 
@@ -106,7 +106,9 @@ public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Conte
 
 ### 클라이언트(들)에 보내기
 
-패캣을 `SimpleChannel` 을 사용해 직접적으로 클라이언트에 전송할 수 있습니다: `INSTANCE.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)`. 그러나 이 방식은 사용하기 불편할 수 있는데, 포지에서는 조금 더 쉽게 패캣을 보내주는 함수들을 제공합니다:
+패캣을 `SimpleChannel` 을 사용해 직접적으로 클라이언트에 전송할 수 있습니다:
+
+`INSTANCE.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)`. 그러나 이 방식은 사용하기 불편할 수 있는데, 포지에서는 조금 더 쉽게 패캣을 보내주는 함수들을 제공합니다:
 
 ```java
 // 플레이어 한명에게 보내기
