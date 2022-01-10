@@ -17,7 +17,7 @@
 5. IDE 를 고르세요:
     * 포지에서 명시적으로 지원되는 IDE 는 Eclipse 가 유일합니다. 그러나 Intellij IDEA 나 Visual Studio Code 에서 개발하기 위해 추가적인 run 작업들 또한 제공합니다. 사실 어떤 IDE 든 모드 개발에 사용할 수 있도록 만들 수 있긴 합니다.
     * Eclipse 와 Intellij IDEA 는 Gradle 을 관리해 주기 때문에 초기 개발환경 설정을 간단하게 하실 수 있습니다. 그 초기 개발환경 설정에는, 모장 또는 포지와 같은 여러 소프트웨어 공유 사이트에서 패키지를 받는 것이 포함됩니다. VSCode 는 `Gradle Tasks` 플러그인을 사용해 초기 개발환경 설정을 관리하도록 할 수 있습니다.
-    * 대부분, 또는 모든 상황에선, build.gradle 을 수정하고 이를 적용하기 위해서는 Gradle 을 호출하여 프로젝트를 다시 처리하도록 해야 합니다. 위에서 언급한 2 IDE 는 Gradle 패널의 새로고침 버튼으로 프로젝트를 다시 처리할 수 있습니다.
+    * 대부분, 또는 모든 상황에선, build.gradle 을 수정하고 이를 적용하기 위해서는 Gradle 을 호출하여 프로젝트를 다시 처리하도록 해야 합니다. 위에서 언급한 두 IDE 는 Gradle 패널의 새로고침 버튼으로 프로젝트를 다시 처리할 수 있습니다.
 7. IDE 실행 설정 생성:
     * 이클립스: `runEclipseRuns` 를 실행하세요(`gradlew genEclipseRuns`). 이는 게임 실행 설정을 생성하고 게임에 필요한 에셋들을 다운받습니다. 이 작업이 끝난 이후 프로젝트를 새로고치세요.
     * Intellij: `genIntellijRuns` 를 실행하세요(`gradlew genIntellijRuns`). 이는 게임 실행 설정을 생성하고 게임에 필요한 에셋들을 다운받습니다. 만약 "module not specified" 와 같은 오류가 난다면 설정을 수정하여 "main" 모듈을 선택하시거나 `ideaModule` 속성을 사용해 모듈을 선택하실 수 있습니다.
