@@ -81,7 +81,6 @@ public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Conte
 `#setPacketHandled` 를 여러번 사용하는 것을 보셨을텐데, 이는 네트워크 시스템에게 패킷이 성공적으로 처리되었음을 알리는 것입니다.
 
 !!! warning
-
     마인크래프트 1.8 이후로는 패킷은 네트워크 스레드에서 처리됩니다.
 
     즉 패킷 핸들러는 게임과 직접적으로 상호작용할 수 _없습니다_.
@@ -89,7 +88,6 @@ public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Conte
     이는 단순하게 `NetworkEvent$Context#enqueueWork(Runnable)` 을 호출하는 것인데, 메인 스레드는 이때 전달된  `Runnable` 을 빠른 시일내에 실행합니다.
 
 !!! warning
-
     서버에서 클라이언트에서 보낸 패킷을 처리하는 패킷 핸들러를 만들 때 주의하도록 하세요, 클라이언트가 서버에서 예기치 못한 데이터를 보내 취약점을 악용할 수 있습니다.
 
     가장 흔한 사례는 **무작위 청크 생성** 입니다. 서버가 클라이언트에서 보낸 블록의 위치를 그대로 믿고 이를 이용해 블록/타일 엔티티에 접근하려고 할 때 문제가 발생할 수 있는데, 만약 아직 청크가 메모리 상에 존재하지 않는 곳에 접근하려고 하면 서버에서는 디스크에서 불러오거나 새로 청크를 생성합니다. 이는 **심각한** 보안 취약점중 하나로, 서버 성능과 디스크 용량에 흔적도 남기지 않고 **매우 큰** 피해를 끼칠 수 있습니다.

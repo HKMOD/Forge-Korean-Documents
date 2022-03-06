@@ -217,9 +217,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 [comment]: <> (TODO 윗 문장 다시 번역하기)
 [comment]: <> (원문: The DeferredRegister method is once again another wrapper around the above event. Once a DeferredRegister is created in a constant field, the registry can be constructed via DeferredRegister#makeRegistry. This takes in the name of the registry along with a supplied RegistryBuilder containing any additional configurations. The method already populates #setName and #setType by default. Since this method can be returned at any time, a supplied version of an IForgeRegistry is returned instead. This will be unresolvable until RegistryEvent$NewRegistry passes.)
 !!! important
-
-  `DeferredRegister#makeRegistry` 는 무조건 `DeferredRegister#register` 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, `#makeRegistry` 는 `#register` 를 통해 등록 되어야만 `RegistryEvent$NewRegistry` 이벤트 도중 레지스트리를 만들 수 있습니다.
-  그러니 `#makeRegistry` 를 먼저 하시고 `#register` 를 이후에 하는 것을 잊지 마세요.
+    `DeferredRegister#makeRegistry` 는 무조건 `DeferredRegister#register` 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, `#makeRegistry` 는 `#register` 를 통해 등록 되어야만 `RegistryEvent$NewRegistry` 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 `#makeRegistry` 를 먼저 하시고 `#register` 를 이후에 하는 것을 잊지 마세요.
 
 누락된 항목 처리하기
 ------------------------

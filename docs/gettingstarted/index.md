@@ -29,7 +29,6 @@
 `build.gradle` 파일을 수정해 모드가 어떻게 빌드되어야 할지 설정할 수 있습니다(모드 파일 이름, 버전, 등).
 
 !!! important
-
     `buildscript {}` 부분을 **절때 수정하지 마세요.** 기본적으로 적혀있는 내용은 ForgeGradle 이 동작하기 위해 필요합니다.
 
 `// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.` 아래 있는 내용들은 거의 수정하셔도 괜찮은 것들입니다.
@@ -63,7 +62,6 @@ minecraft {
 3. 또한 `gradlew runServer` 를 통해 전용 서버를 실행하실 수도 있습니다. 전용 서버를 이렇게 실행하시면 GUI 와 함께 마인크래프트 서버를 실행합니다. 최초 실행시 EULA 동의를 위해 서버가 바로 꺼지는데, `run/eula.txt` 에 동의하신 이후에는 서버가 정상적으로 실행될 것입니다. 이후 주소 `localhost` 를 통해 접속하실 수 있습니다.
 
 !!! note
-
     만약 모드가 전용 서버에서도 사용되어야 한다면, 전용 서버에서도 모드를 테스트해보는 것이 늘 권장됩니다.
     
 [files]: https://files.minecraftforge.net "포지 파일 배포 사이트"
