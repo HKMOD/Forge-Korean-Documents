@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Tests - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" selected>1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#game-tests" class="elem-text">Game Tests</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#creating-a-game-test">Creating a Game Test</a></li>
+        
+        <li class="toc-subitem"><a href="#registering-a-game-test">Registering a Game Test</a></li>
+        
+        <li class="toc-subitem"><a href="#structure-templates">Structure Templates</a></li>
+        
+        <li class="toc-subitem"><a href="#running-game-tests">Running Game Tests</a></li>
+        
+        <li class="toc-subitem"><a href="#buildscript-configurations">Buildscript Configurations</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="game-tests">Game Tests<a class="headerlink" href="#game-tests" title="Permanent link"> </a></h1>
+<p>Game Tests are a way to run in-game unit tests. The system was designed to be scalable and in parallel to run large numbers of different tests efficiently. Testing object interactions and behaviors are simply a few of the many applications of this framework.</p>
+<h2 id="creating-a-game-test">Creating a Game Test<a class="headerlink" href="#creating-a-game-test" title="Permanent link"> </a></h2>
+<p>A standard Game Test follows three basic steps:</p>
+<ol>
+<li>A structure, or template, is loaded holding the scene on which the interaction or behavior is tested.</li>
+<li>A method conducts the logic to perform on the scene.</li>
+<li>The method logic executes. If a successful state is reached, then the test succeeds. Otherwise, the test fails and the result is stored within a lectern adjacent to the scene.</li>
+</ol>
+<p>As such, to create a Game Test, there must be an existing template holding the initial start state of the scene and a method which provides the logic of execution.</p>
+<h3 id="the-test-method">The Test Method<a class="headerlink" href="#the-test-method" title="Permanent link"> </a></h3>
+<p>A Game Test method is a <code>Consumer&lt;GameTestHelper&gt;</code> reference, meaning it takes in a <code>GameTestHelper</code> and returns nothing. For a Game Test method to be recognized, it must have a <code>@GameTest</code> annotation:</p>
+<pre class="highlight"><code class="language-java">public class ExampleGameTests {
+  @GameTest
+  public static void exampleTest(GameTestHelper helper) {
+    // Do stuff
+  }
+}</code></pre>
+<p>The <code>@GameTest</code> annotation also contains members which configure how the game test should run.</p>
+<pre class="highlight"><code class="language-java">// In some class
+@GameTest(
+  setupTicks = 20L, // The test spends 20 ticks to set up for execution
+  required = false // The failure is logged but does not affect the execution of the batch
+)
+public static void exampleConfiguredTest(GameTestHelper helper) {
+  // Do stuff
+}</code></pre>
+<h4 id="relative-positioning">Relative Positioning<a class="headerlink" href="#relative-positioning" title="Permanent link"> </a></h4>
+<p>All <code>GameTestHelper</code> methods translate relative coordinates within the structure template scene to its absolute coordinates using the structure block&rsquo;s current location. To allow for easy conversion between relative and absolute positioning, <code>GameTestHelper#absolutePos</code> and <code>GameTestHelper#relativePos</code> can be used respectively.</p>
+<p>The relative position of a structure template can be obtained in-game by loading the structure via the <a href="#running-game-tests">test command</a>, placing the player at the wanted location, and finally running the <code>/test pos</code> command. This will grab the coordinates of the player relative to the closest structure within 200 blocks of the player. The command will export the relative position as a copyable text component in the chat to be used as a final local variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The local variable generated by <code>/test pos</code> can specify its reference name by appending it to the end of the command:</p>
+<pre class="highlight"><code class="language-bash">/test pos &lt;var&gt; # Exports 'final BlockPos &lt;var&gt; = new BlockPos(...);'</code></pre>
+</div>
+<h4 id="successful-completion">Successful Completion<a class="headerlink" href="#successful-completion" title="Permanent link"> </a></h4>
+<p>A Game Test method is responsible for one thing: marking the test was successful on a valid completion. If no success state was achieved before the timeout is reached (as defined by <code>GameTest#timeoutTicks</code>), then the test automatically fails.</p>
+<p>There are many abstracted methods within <code>GameTestHelper</code> which can be used to define a successful state; however, four are extremely important to be aware of.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>#succeed</code></td>
+<td align="left">The test is marked as successful.</td>
+</tr>
+<tr>
+<td align="center"><code>#succeedIf</code></td>
+<td align="left">The supplied <code>Runnable</code> is tested immediately and succeeds if no <code>GameTestAssertException</code> is thrown. If the test does not succeed on the immediate tick, then it is marked as a failure.</td>
+</tr>
+<tr>
+<td align="center"><code>#succeedWhen</code></td>
+<td align="left">The supplied <code>Runnable</code> is tested every tick until timeout and succeeds if the check on one of the ticks does not throw a <code>GameTestAssertException</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>#succeedOnTickWhen</code></td>
+<td align="left">The supplied <code>Runnable</code> is tested on the specified tick and will succeed if no <code>GameTestAssertException</code> is thrown. If the <code>Runnable</code> succeeds on any other tick, then it is marked as a failure.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Game Tests are executed every tick until the test is marked as a success. As such, methods which schedule success on a given tick must be careful to always fail on any previous tick.</p>
+</div>
+<h4 id="scheduling-actions">Scheduling Actions<a class="headerlink" href="#scheduling-actions" title="Permanent link"> </a></h4>
+<p>Not all actions will occur when a test begins. Actions can be scheduled to occur at specific times or intervals:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>#runAtTickTime</code></td>
+<td align="left">The action is ran on the specified tick.</td>
+</tr>
+<tr>
+<td align="center"><code>#runAfterDelay</code></td>
+<td align="left">The action is ran <code>x</code> ticks after the current tick.</td>
+</tr>
+<tr>
+<td align="center"><code>#onEachTick</code></td>
+<td align="left">The action is ran every tick.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="assertions">Assertions<a class="headerlink" href="#assertions" title="Permanent link"> </a></h4>
+<p>At any time during a Game Test, an assertion can be made to check if a given condition is true. There are numerous assertion methods within <code>GameTestHelper</code>; however, it simplifies to throwing a <code>GameTestAssertException</code> whenever the appropriate state is not met.</p>
+<h3 id="generated-test-methods">Generated Test Methods<a class="headerlink" href="#generated-test-methods" title="Permanent link"> </a></h3>
+<p>If Game Test methods need to be generated dynamically, a test method generator can be created. These methods take in no parameters and return a collection of <code>TestFunction</code>s. For a test method generator to be recognized, it must have a <code>@GameTestGenerator</code> annotation:</p>
+<pre class="highlight"><code class="language-java">public class ExampleGameTests {
+  @GameTestGenerator
+  public static Collection&lt;TestFunction&gt; exampleTests() {
+    // Return a collection of TestFunctions
+  }
+}</code></pre>
+<h4 id="testfunction">TestFunction<a class="headerlink" href="#testfunction" title="Permanent link"> </a></h4>
+<p>A <code>TestFunction</code> is the boxed information held by the <code>@GameTest</code> annotation and the method running the test.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Any methods annotated using <code>@GameTest</code> are translated into a <code>TestFunction</code> using <code>GameTestRegistry#turnMethodIntoTestFunction</code>. That method can be used as a reference for creating <code>TestFunction</code>s without the use of the annotation.</p>
+</div>
+<h3 id="batching">Batching<a class="headerlink" href="#batching" title="Permanent link"> </a></h3>
+<p>Game Tests can be executed in batches instead of registration order. A test can be added to a batch by having the same supplied <code>GameTest#batch</code> string.</p>
+<p>On its own, batching does not provide anything useful. However, batching can be used to perform setup and teardown states on the current level the tests are running in. This is done by annotating a method with either <code>@BeforeBatch</code> for setup or <code>@AfterBatch</code> for takedown. The <code>#batch</code> methods must match the string supplied to the game test.</p>
+<p>Batch methods are <code>Consumer&lt;ServerLevel&gt;</code> references, meaning they take in a <code>ServerLevel</code> and return nothing:</p>
+<pre class="highlight"><code class="language-java">public class ExampleGameTests {
+  @BeforeBatch(batch = "firstBatch")
+  public static void beforeTest(ServerLevel level) {
+    // Perform setup
+  }
+
+  @GameTest(batch = "firstBatch")
+  public static void exampleTest2(GameTestHelper helper) {
+    // Do stuff
+  }
+}</code></pre>
+<h2 id="registering-a-game-test">Registering a Game Test<a class="headerlink" href="#registering-a-game-test" title="Permanent link"> </a></h2>
+<p>A Game Test must be registered to be ran in-game. There are two methods of doing so: via the <code>@GameTestHolder</code> annotation or <code>RegisterGameTestsEvent</code>. Both registration methods still require the test methods to be annotated with either <code>@GameTest</code>, <code>@GameTestGenerator</code>, <code>@BeforeBatch</code>, or <code>@AfterBatch</code>.</p>
+<h3 id="gametestholder">GameTestHolder<a class="headerlink" href="#gametestholder" title="Permanent link"> </a></h3>
+<p>The <code>@GameTestHolder</code> annotation registers any test methods within the type (class, interface, enum, or record). <code>@GameTestHolder</code> contains a single method which has multiple uses. In this instance, the supplied <code>#value</code> must be the mod id of the mod; otherwise, the test will not run under default configurations.</p>
+<pre class="highlight"><code class="language-java">@GameTestHolder(MODID)
+public class ExampleGameTests {
+  // ...
+}</code></pre>
+<h3 id="registergametestsevent">RegisterGameTestsEvent<a class="headerlink" href="#registergametestsevent" title="Permanent link"> </a></h3>
+<p><code>RegisterGameTestEvent</code> can also register either classes or methods using <code>#register</code>. The event listener must be <a href="../../concepts/events/#creating-an-event-handler">added</a> to the mod event bus. Test methods registered this way must supply their mod id to <code>GameTest#templateNamespace</code> on every method annotated with <code>@GameTest</code>.</p>
+<pre class="highlight"><code class="language-java">// In some class
+public void registerTests(RegisterGameTestsEvent event) {
+  event.register(ExampleGameTests.class);
+}
+
+// In ExampleGameTests
+@GameTest(templateNamespace = MODID)
+public static void exampleTest3(GameTestHelper helper) {
+  // Perform setup
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value supplied to <code>GameTestHolder#value</code> and <code>GameTest#templateNamespace</code> can be different from the current mod id. The configuration within the <a href="#enabling-other-namespaces">buildscript</a> would need to be changed.</p>
+</div>
+<h2 id="structure-templates">Structure Templates<a class="headerlink" href="#structure-templates" title="Permanent link"> </a></h2>
+<p>Game Tests are performed within scenes loaded by structures, or templates. All templates define the dimensions of the scene and the initial data (blocks and entities) that will be loaded. The template must be stored as an <code>.nbt</code> file within <code>data/&lt;namespace&gt;/structures</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A structure template can be created and saved using a structure block.</p>
+</div>
+<p>The location of the template is specified by a few factors:</p>
+<ul>
+<li>If the namespace of the template is specified.</li>
+<li>If the class should be prepended to the name of the template.</li>
+<li>If the name of the template is specified.</li>
+</ul>
+<p>The namespace of the template is determined by <code>GameTest#templateNamespace</code>, then <code>GameTestHolder#value</code> if not specified, then <code>minecraft</code> if neither is specified.</p>
+<p>The simple class name is not prepended to the name of the template if the <code>@PrefixGameTestTemplate</code> is applied to a class or method with the test annotations and set to <code>false</code>. Otherwise, the simple class name is made lowercase and prepended and followed by a dot before the template name.</p>
+<p>The name of the template is determined by <code>GameTest#template</code>. If not specified, then the lowercase name of the method is used instead.</p>
+<pre class="highlight"><code class="language-java">// Modid for all structures will be MODID
+@GameTestHolder(MODID)
+public class ExampleGameTests {
+
+  // Class name is prepended, template name is not specified
+  // Template Location at 'modid:examplegametests.exampletest'
+  @GameTest
+  public static void exampleTest(GameTestHelper helper) { /*...*/ }
+
+  // Class name is not prepended, template name is not specified
+  // Template Location at 'modid:exampletest2'
+  @PrefixGameTestTemplate(false)
+  @GameTest
+  public static void exampleTest2(GameTestHelper helper) { /*...*/ }
+
+  // Class name is prepended, template name is specified
+  // Template Location at 'modid:examplegametests.test_template'
+  @GameTest(template = "test_template")
+  public static void exampleTest3(GameTestHelper helper) { /*...*/ }
+
+  // Class name is not prepended, template name is specified
+  // Template Location at 'modid:test_template2'
+  @PrefixGameTestTemplate(false)
+  @GameTest(template = "test_template2")
+  public static void exampleTest4(GameTestHelper helper) { /*...*/ }
+}</code></pre>
+<h2 id="running-game-tests">Running Game Tests<a class="headerlink" href="#running-game-tests" title="Permanent link"> </a></h2>
+<p>Game Tests can be run using the <code>/test</code> command. The <code>test</code> command is highly configurable; however, only a few are of importance to running tests:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Subcommand</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>run</code></td>
+<td align="left">Runs the specified test: <code>run &lt;test_name&gt;</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>runall</code></td>
+<td align="left">Runs all available tests.</td>
+</tr>
+<tr>
+<td align="center"><code>runthis</code></td>
+<td align="left">Runs the nearest test to the player within 15 blocks.</td>
+</tr>
+<tr>
+<td align="center"><code>runthese</code></td>
+<td align="left">Runs tests within 200 blocks of the player.</td>
+</tr>
+<tr>
+<td align="center"><code>runfailed</code></td>
+<td align="left">Runs all tests that failed in the previous run.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Subcommands follow the test command: <code>/test &lt;subcommand&gt;</code>.</p>
+</div>
+<h2 id="buildscript-configurations">Buildscript Configurations<a class="headerlink" href="#buildscript-configurations" title="Permanent link"> </a></h2>
+<p>Game Tests provide additional configuration settings within a buildscript (the <code>build.gradle</code> file) to run and integrate into different settings.</p>
+<h3 id="enabling-other-namespaces">Enabling Other Namespaces<a class="headerlink" href="#enabling-other-namespaces" title="Permanent link"> </a></h3>
+<p>If the buildscript was <a href="../../gettingstarted/#simple-buildgradle-customizations">setup as recommended</a>, then only Game Tests under the current mod id would be enabled. To enable other namespaces to load Game Tests from, a run configuration must set the property <code>forge.enabledGameTestNamespaces</code> to a string specifying each namespace separated by a comma. If the property is empty or not set, then all namespaces will be loaded.</p>
+<pre class="highlight"><code class="language-gradle">// Inside a run configuration
+property 'forge.enabledGameTestNamespaces', 'modid1,modid2,modid3'</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There must be no spaces in-between namespaces; otherwise, the namespace will not be loaded correctly.</p>
+</div>
+<h3 id="game-test-server-run-configuration">Game Test Server Run Configuration<a class="headerlink" href="#game-test-server-run-configuration" title="Permanent link"> </a></h3>
+<p>The Game Test Server is a special configuration which runs a build server. The build server returns an exit code of the number of required, failed Game Tests. All failed tests, whether required or optional, are logged. This server can be run using <code>gradlew runGameTestServer</code>.</p>
+<h3 id="enabling-game-tests-in-other-run-configurations">Enabling Game Tests in Other Run Configurations<a class="headerlink" href="#enabling-game-tests-in-other-run-configurations" title="Permanent link"> </a></h3>
+<p>By default, only the <code>client</code>, <code>server</code>, and <code>gameTestServer</code> run configurations have Game Tests enabled. If another run configuration should run Game Tests, then the <code>forge.enableGameTest</code> property must be set to <code>true</code>.</p>
+<pre class="highlight"><code class="language-gradle">// Inside a run configuration
+property 'forge.enableGameTest', 'true'</code></pre>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

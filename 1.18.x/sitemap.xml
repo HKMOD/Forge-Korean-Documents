@@ -1,267 +1,282 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/styleguide/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/contributing/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/advanced/accesstransformers/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/advanced/accesstransformers/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/animation/armature/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/blockentities/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/animation/asm/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/blockentities/ber/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/animation/implementing/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/blocks/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/animation/intro/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/blocks/states/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/blockentities/ber/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/events/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/blockentities/blockentity/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/internationalization/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/blocks/blocks/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/lifecycle/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/blocks/interaction/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/registries/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/blocks/states/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/resources/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/data/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/concepts/sides/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/internationalization/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/lifecycle/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/client/localization/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/registries/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/client/modelproviders/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/resources/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/client/sounds/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/concepts/sides/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/server/glm/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/conventions/loadstages/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/server/recipes/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/conventions/locations/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datagen/server/tags/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/conventions/versioning/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datastorage/capabilities/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/datagen/intro/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/datastorage/saveddata/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/datagen/modelproviders/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/forgedev/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/datastorage/capabilities/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/forgedev/prguidelines/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/datastorage/saveddata/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/gameeffects/particles/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/effects/particles/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/gameeffects/sounds/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/effects/sounds/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/gettingstarted/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/events/intro/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/gettingstarted/structuring/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/forgedev/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/gettingstarted/versioning/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/forgedev/prguidelines/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/items/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/gettingstarted/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/items/bewlr/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/gettingstarted/autoupdate/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/legacy/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/gettingstarted/debugprofiler/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/legacy/porting/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/gettingstarted/structuring/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/misc/config/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/items/globallootmodifiers/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/misc/debugprofiler/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/items/items/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/misc/gametest/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/legacy/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/misc/updatechecker/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/legacy/porting/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/networking/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/color/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/networking/entities/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/files/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/networking/simpleimpl/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/introduction/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/rendering/modelloaders/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/itemproperties/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/rendering/modelloaders/bakedmodel/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/advanced/bakedmodel/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/rendering/modelloaders/itemoverrides/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/advanced/itemoverrides/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/rendering/modelloaders/perspective/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/advanced/perspective/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/client/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/models/blockstates/introduction/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/client/models/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/networking/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/client/models/itemproperties/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/networking/entities/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/client/models/tinting/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/networking/overview/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/networking/simpleimpl/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/conditional/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/rendering/bewlr/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/glm/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/utilities/recipes/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/tags/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mcforge.readthedocs.io/en/1.17.x/utilities/tags/</loc>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/recipes/</loc>
+         <lastmod>2022-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/recipes/custom/</loc>
+         <lastmod>2022-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/recipes/incode/</loc>
+         <lastmod>2022-05-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mcforge.readthedocs.io/en/1.18.x/resources/server/recipes/ingredients/</loc>
          <lastmod>2022-05-08</lastmod>
          <changefreq>daily</changefreq>
     </url>

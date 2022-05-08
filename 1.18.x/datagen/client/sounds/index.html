@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sound Providers - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../../images/manifest.json">
+    <link rel="mask-icon" href="../../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../../js/theme.js"></script>
+
+    <script>var base_url = '../../..';</script>
+    
+    <script src="../../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../../.." class="logo-image"><img src="../../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" selected>1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../../" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#sound-definition-generation" class="elem-text">Sound Providers</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#adding-a-sound">Adding a Sound</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="sound-definition-generation">Sound Definition Generation<a class="headerlink" href="#sound-definition-generation" title="Permanent link"> </a></h1>
+<p>The <code>sounds.json</code> file can be generated for a mod by subclassing <code>SoundDefinitionsProvider</code> and implementing <code>#registerSounds</code>. After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<h2 id="adding-a-sound">Adding a Sound<a class="headerlink" href="#adding-a-sound" title="Permanent link"> </a></h2>
+<p>A sound definition can be generated by specifying the sound name and definition via <code>#add</code>. The sound name can either be provided from a <a href="../../../gameeffects/sounds/#creating-sound-events"><code>SoundEvent</code></a>, <code>ResourceLocation</code>, or string.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The sound name supplied will always assume the namespace is the mod id supplied to the constructor of the provider. There is no validation performed on the namespace of the sound name!</p>
+</div>
+<h3 id="sounddefinition"><code>SoundDefinition</code><a class="headerlink" href="#sounddefinition" title="Permanent link"> </a></h3>
+<p>The <code>SoundDefinition</code> can be created using <code>#definition</code>. The definition contains the data to define a sound instance.</p>
+<p>A definition specifies a few methods:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>with</code></td>
+<td align="left">Adds a sound(s) which may be played when the definition is selected.</td>
+</tr>
+<tr>
+<td align="center"><code>subtitle</code></td>
+<td align="left">Sets the translation key of the definition.</td>
+</tr>
+<tr>
+<td align="center"><code>replace</code></td>
+<td align="left">When <code>true</code>, removes the sounds already defined by other <code>sounds.json</code> for this definition instead of appending to it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sounddefinitionsound"><code>SoundDefinition$Sound</code><a class="headerlink" href="#sounddefinitionsound" title="Permanent link"> </a></h3>
+<p>A sound supplied to the <code>SoundDefinition</code> can be specified using <code>SoundDefinitionsProvider#sound</code>. These methods take in the reference of the sound and a <code>SoundType</code> if specified.</p>
+<p>The <code>SoundType</code> can be one of two values:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Sound Type</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>SOUND</code></td>
+<td align="left">Specifies a reference to the sound located at <code>assets/&lt;namespace&gt;/sounds/&lt;path&gt;.ogg</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>EVENT</code></td>
+<td align="left">Specifies a reference to the name of another sound defined by the <code>sounds.json</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Each <code>Sound</code> created from <code>SoundDefinitionsProvider#sound</code> can specify additional configurations on how to load and play the sound provided:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>volume</code></td>
+<td align="left">Sets the volume scale of the sound, must be greater than <code>0</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>pitch</code></td>
+<td align="left">Sets the pitch scale of the sound, must be greater than <code>0</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>weight</code></td>
+<td align="left">Sets the likelihood of the sound getting played when the sound is selected.</td>
+</tr>
+<tr>
+<td align="center"><code>stream</code></td>
+<td align="left">When <code>true</code>, reads the sound from file instead of loading the sound into memory. Recommended for long sounds: background music, music discs, etc.</td>
+</tr>
+<tr>
+<td align="center"><code>attenuationDistance</code></td>
+<td align="left">Sets the number of blocks the sound can be heard from.</td>
+</tr>
+<tr>
+<td align="center"><code>preload</code></td>
+<td align="left">When <code>true</code>, immediately loads the sound into memory as soon as the resource pack is loaded.</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight"><code class="language-java">// In some SoundDefinitionsProvider#registerSounds
+this.add(EXAMPLE_SOUND_EVENT, definition()
+  .subtitle("sound.examplemod.example_sound") // Set translation key
+  .with(
+    sound(new ResourceLocation(MODID, "example_sound_1")) // Set first sound
+      .weight(4) // Has a 4 / 5 = 80% chance of playing
+      .volume(0.5), // Scales all volumes called on this sound by half
+    sound(new ResourceLocation(MODID, "example_sound_2")) // Set second sound
+      .stream() // Streams the sound
+  )
+);
+
+this.add(EXAMPLE_SOUND_EVENT_2, definition()
+  .subtitle("sound.examplemod.example_sound") // Set translation key
+  .with(
+    sound(EXAMPLE_SOUND_EVENT.getLocation(), SoundType.EVENT) // Adds sounds from 'EXAMPLE_SOUND_EVENT'
+      .pitch(0.5) // Scales all pitches called on this sound by half
+  )
+);</code></pre>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

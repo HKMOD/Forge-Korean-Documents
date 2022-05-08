@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Recipes - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../../../images/manifest.json">
+    <link rel="mask-icon" href="../../../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../../../js/theme.js"></script>
+
+    <script>var base_url = '../../../..';</script>
+    
+    <script src="../../../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../../../.." class="logo-image"><img src="../../../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" selected>1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../../../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../rendering/modelloaders/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../../" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#custom-recipes" class="elem-text">Custom Recipes</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#recipe">Recipe</a></li>
+        
+        <li class="toc-subitem"><a href="#recipetype">RecipeType</a></li>
+        
+        <li class="toc-subitem"><a href="#recipeserializer">RecipeSerializer</a></li>
+        
+        <li class="toc-subitem"><a href="#building-the-json">Building the JSON</a></li>
+        
+        <li class="toc-subitem"><a href="#non-item-logic">Non-Item Logic</a></li>
+        
+        <li class="toc-subitem"><a href="#data-generation">Data Generation</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="custom-recipes">Custom Recipes<a class="headerlink" href="#custom-recipes" title="Permanent link"> </a></h1>
+<p>Every recipe definition is made up of three components: the <code>Recipe</code> implementation which holds the data and handles the execution logic with the provided inputs, the <code>RecipeType</code> which represents the category or context the recipe will be used in, and the <code>RecipeSerializer</code> which handles decoding and network communication of the recipe data. How one chooses to use the recipe is up to the implementor.</p>
+<h2 id="recipe">Recipe<a class="headerlink" href="#recipe" title="Permanent link"> </a></h2>
+<p>The <code>Recipe</code> interface describes the recipe data and the execution logic. This includes matching the inputs and providing the associated result. As the recipe subsystem performs item transformations by default, the inputs are supplied through a <code>Container</code> subtype.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code>Container</code>s passed into the recipe should be treated as if its contents were immutable. Any mutable operations should be performed on a copy of the input through <code>ItemStack#copy</code>.</p>
+</div>
+<p>To be able to obtain a recipe instance from the manager, <code>#matches</code> must return true. This method checks against the provided container to see whether the associated inputs are valid. <code>Ingredient</code>s can be used for validation by calling <code>Ingredient#test</code>.</p>
+<p>If the recipe has been chosen, it is then built using <code>#assemble</code> which may use data from the inputs to create the result.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>#assemble</code> should always produce a unique <code>ItemStack</code>. If unsure whether <code>#assemble</code> does so, call <code>ItemStack#copy</code> on the result before returning.</p>
+</div>
+<p>Most of the other methods are purely for integration with the recipe book.</p>
+<pre class="highlight"><code class="language-java">public record ExampleRecipe(Ingredient input, int data, ItemStack output) implements Recipe&lt;Container&gt; {
+  // Implement methods here
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While a record is used in the above example, it is not required to do so in your own implementation.</p>
+</div>
+<h2 id="recipetype">RecipeType<a class="headerlink" href="#recipetype" title="Permanent link"> </a></h2>
+<p><code>RecipeType</code> is responsible for defining the category or context the recipe will be used within. For example, if a recipe was going to be smelted in a furnace, it would have a type of <code>RecipeType#SMELTING</code>. Being blasted in a blast furnace would have a type of <code>RecipeType#BLASTING</code>.</p>
+<p>If none of the existing types match what context the recipe will be used within, then a new <code>RecipeType</code> must be <a href="../../../../concepts/registries/#registries-that-arent-forge-registries">registered</a>.</p>
+<p>The <code>RecipeType</code> instance must then be returned by <code>Recipe#getType</code> in the new recipe subtype.</p>
+<pre class="highlight"><code class="language-java">// For some RecipeType EXAMPLE_TYPE
+// In ExampleRecipe
+@Override
+public RecipeType&lt;?&gt; getType() {
+  return EXAMPLE_TYPE;
+}</code></pre>
+<h2 id="recipeserializer">RecipeSerializer<a class="headerlink" href="#recipeserializer" title="Permanent link"> </a></h2>
+<p>A <code>RecipeSerializer</code> is responsible for decoding JSONs and communicating across the network for an associated <code>Recipe</code> subtype. Each recipe decoded by the serializer is saved as a unique instance within the <code>RecipeManager</code>. A <code>RecipeSerializer</code> must be <a href="../../../../concepts/registries/#methods-for-registering">registered</a>.</p>
+<p>Only three methods need to be implemented for a <code>RecipeSerializer</code>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">fromJson</td>
+<td align="left">Decodes a JSON into the <code>Recipe</code> subtype.</td>
+</tr>
+<tr>
+<td align="center">toNetwork</td>
+<td align="left">Encodes a <code>Recipe</code> to the buffer to send to the client. The recipe identifier does not need to be encoded.</td>
+</tr>
+<tr>
+<td align="center">fromNetwork</td>
+<td align="left">Decodes a <code>Recipe</code> from the buffer sent from the server. The recipe identifier does not need to be decoded.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For ease of convenience, the <code>RecipeSerializer</code> subtype can extend <code>ForgeRegistryEntry</code> to implement the methods within <code>IForgeRegistryEntry</code>.</p>
+</div>
+<pre class="highlight"><code class="language-java">public class ExampleSerializer extends ForgeRegistryEntry&lt;RecipeSerializer&lt;?&gt;&gt; implements RecipeSerializer&lt;ExampleRecipe&gt; {
+  // Implement methods here
+}</code></pre>
+<p>The <code>RecipeSerializer</code> instance must then be returned by <code>Recipe#getSerializer</code> in the new recipe subtype.</p>
+<pre class="highlight"><code class="language-java">// For some RecipeSerializer EXAMPLE_SERIALIZER
+// In ExampleRecipe
+@Override
+public RecipeSerializer&lt;?&gt; getSerializer() {
+  return EXAMPLE_SERIALIZER;
+}</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There are some useful methods to make reading and writing data for recipes easier. <code>Ingredient</code>s can use <code>#fromJson</code>, <code>#toNetwork</code>, and <code>#fromNetwork</code> while <code>ItemStack</code>s can use <code>CraftingHelper#getItemStack</code>, <code>FriendlyByteBuf#writeItem</code>, and <code>FriendlyByteBuf# readItem</code>.</p>
+</div>
+<h2 id="building-the-json">Building the JSON<a class="headerlink" href="#building-the-json" title="Permanent link"> </a></h2>
+<p>Custom Recipe JSONs are stored in the same place as other <a href="https://minecraft.fandom.com/wiki/Recipe#JSON_format">recipes</a>. The specified <code>type</code> should represent the registry name of the <strong>recipe serializer</strong>. Any additional data is specified by the serializer during decoding.</p>
+<pre class="highlight"><code class="language-js">{
+  // The custom serializer registry name
+  "type": "examplemod:example_serializer",
+  "input": {
+    // Some ingredient input
+  },
+  "data": 0, // Some data wanted for the recipe
+  "output": {
+    // Some stack output
+  }
+}</code></pre>
+<h2 id="non-item-logic">Non-Item Logic<a class="headerlink" href="#non-item-logic" title="Permanent link"> </a></h2>
+<p>If items are not used as part of the input or result of a recipe, then the normal methods provided in <a href="../#recipe-manager"><code>RecipeManager</code></a> will not be useful. Instead, an additional method for testing a recipe&rsquo;s validity and/or supplying the result should be added to the custom <code>Recipe</code> instance. From there, all the recipes for that specific <code>RecipeType</code> can be obtained via <code>RecipeManager#getAllRecipesFor</code> and then checked and/or supplied the result using the newly implemented methods.</p>
+<pre class="highlight"><code class="language-java">// In some Recipe subimplementation ExampleRecipe
+
+// Checks the block at the position to see if it matches the stored data
+boolean matches(Level level, BlockPos pos);
+
+// Creates the block state to set the block at the specified position to
+BlockState assemble();
+
+// In some manager class
+public Optional&lt;ExampleRecipe&gt; getRecipeFor(Level level, BlockPos pos) {
+  return level.getRecipeManager()
+    .getAllRecipesFor(exampleRecipeType) // Gets all recipes
+    .stream() // Looks through all recipes for types
+    .filter(recipe -&gt; recipe.matches(level, pos)) // Checks if the recipe inputs are valid
+    .findFirst(); // Finds the first recipe whose inputs match
+}</code></pre>
+<h2 id="data-generation">Data Generation<a class="headerlink" href="#data-generation" title="Permanent link"> </a></h2>
+<p>All custom recipes, regardless of input or output data, can be created into a <code>FinishedRecipe</code> for <a href="../../../../datagen/server/recipes/#custom-recipe-serializers">data generation</a> using the <code>RecipeProvider</code>.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
