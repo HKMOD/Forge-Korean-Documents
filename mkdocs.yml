@@ -3,7 +3,7 @@ nav:
   - Home: 'index.md'
   - 문서 스타일 가이드: 'styleguide.md'
   - 시작하기:
-    - Home: 'gettingstarted/index.md'
+    - 시작하기: 'gettingstarted/index.md'
     - 모드 기본 구조 작성하기: 'gettingstarted/structuring.md'
     - 포지 자동 업데이트 표시기: 'gettingstarted/autoupdate.md'
     - 디버그 프로파일러: 'gettingstarted/debugprofiler.md'
@@ -15,7 +15,7 @@ nav:
     - 모드 생명주기: 'concepts/lifecycle.md'
     - 국제화와 현지화: 'concepts/internationalization.md'
   - 블록:
-    - Home: 'blocks/blocks.md'
+    - 블록: 'blocks/blocks.md'
     - 블록의 상태: 'blocks/states.md'
     - 상호작용: 'blocks/interaction.md'
 #  - Animation API:
@@ -24,10 +24,10 @@ nav:
 #    - Animation State Machines: 'animation/asm.md'
 #    - Using the API: 'animation/implementing.md'
   - 타일 엔티티:
-    - Home: 'tileentities/tileentity.md'
+    - 타일 엔티티: 'tileentities/tileentity.md'
     - 렌더러: 'tileentities/tesr.md'
   - 아이템:
-    - Home: 'items/items.md'
+    - 아이템: 'items/items.md'
     - Loot Modification: 'items/globallootmodifiers.md'
   - 모델:
     - 모델 소개: 'models/introduction.md'
@@ -48,12 +48,12 @@ nav:
   - 이벤트:
     - 기본적인 사용법: 'events/intro.md'
   - 네트워킹:
-    - Home: 'networking/index.md'
+    - 네트워킹: 'networking/index.md'
     - 개요: 'networking/overview.md'
     - SimpleImpl: 'networking/simpleimpl.md'
     - 엔티티 네트워킹: 'networking/entities.md'
   - 데이터 저장소:
-    - Capabilities: 'datastorage/capabilities.md'
+    - 캐패빌리티: 'datastorage/capabilities.md'
     - 월드 저장 데이터: 'datastorage/worldsaveddata.md'
   - 유틸리티:
     - 조합법: 'utilities/recipes.md'
@@ -70,7 +70,7 @@ nav:
     - 시작하기: 'forgedev/index.md'
     - PR 가이드라인: 'forgedev/prguidelines.md'
   - 이전 버전:
-    - Home: 'legacy/index.md'
+    - 이전 버전: 'legacy/index.md'
     - 1.16으로 포팅하기: 'legacy/porting.md'
 
 # PR 에서 이 아래 부분을 수정하지 마세요
