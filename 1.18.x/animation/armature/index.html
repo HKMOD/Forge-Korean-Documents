@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Armature - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.17.x" selected>1.17.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">Style Guide</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization and Localization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">BlockStates</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">Interaction</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/blockentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">Renderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">Intro to Models</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">Model Files</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockStates</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">Intro to BlockState JSON</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">Coloring Textures</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/bakedmodel/" class="elem-text">BakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Events</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">Basic Usage</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">Overview</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Utilities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Conventions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">Locations</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Getting Started</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to 1.17</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="armature-files">Armature Files<a class="headerlink" href="#armature-files" title="Permanent link"> </a></h1>
+<p>Armature Files define joints and clips for animating a model.</p>
+<h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link"> </a></h2>
+<p>An example armature file, taken from the forge debug mod
+<pre class="highlight"><code class="language-json">{
+  "joints": {
+    "stick": {"2": [1.0]},
+    "cube": {"3": [1.0]}
+  },
+  "clips": {
+    "default": {
+      "loop": true,
+      "joint_clips": {
+        "stick": [
+          {
+            "variable": "offset_x",
+            "type": "uniform",
+            "interpolation": "linear",
+            "samples": [0, 0.6875, 0]
+          }
+        ],
+        "cube": [
+          {
+            "variable": "offset_x",
+            "type": "uniform",
+            "interpolation": "linear",
+            "samples": [0, 0.6875, 0]
+          },
+          {
+            "variable": "axis_z",
+            "type": "uniform",
+            "interpolation": "nearest",
+            "samples": [ 1 ]
+          },
+          {
+            "variable": "origin_x",
+            "type": "uniform",
+            "interpolation": "nearest",
+            "samples": [ 0.15625 ]
+          },
+          {
+            "variable": "origin_y",
+            "type": "uniform",
+            "interpolation": "nearest",
+            "samples": [ 0.40625 ]
+          },
+          {
+            "variable": "angle",
+            "type": "uniform",
+            "interpolation": "linear",
+            "samples": [0, 120, 240, 0, 120, 240]
+          }
+        ]
+      },
+      "events": {}
+    }
+  }
+}
+</code></pre></p>
+<p>The file is organized in two sections, joints and clips.</p>
+<h2 id="joints">Joints<a class="headerlink" href="#joints" title="Permanent link"> </a></h2>
+<p>Each joint defines an object that animates together as a single unit in the animation. With Vanilla JSON models, this means that multiple elements can belong to the same joint.</p>
+<p>The format is like this:
+<pre class="highlight"><code class="language-javascript"> {
+    "joints": {
+        &lt;joint&gt;, ...
+    }
+}
+
+---
+
+&lt;joint&gt; ::= {
+    &lt;string&gt;: {  // joint name
+        &lt;joint_definition&gt;, ...
+    }
+}
+
+&lt;joint_definition&gt; ::= {
+    "&lt;index_model&gt;": [ &lt;float&gt; ] // index_model, joint_weight (only one value expected in array)
+}
+</code></pre></p>
+<ul>
+<li><code>joint_name</code> is the name of the joint</li>
+<li><code>index_model</code> is a 0-indexed number (where 0 is the first element defined in the model) denoting a model element this joint controls. Must be a string (see example)</li>
+<li><code>joint_weight</code> is a weight (0-1) of how much this joint will contribute to the element&rsquo;s final transformation if the element is used in multiple joints.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For simpler animations, the weight can usually just be set to 1.0, but if you want multiple joints in a clip to animate differently, this is one way to accomplish that.</p>
+</div>
+<p>Not all elements need to have a joint, only the ones you are animating.
+If an element occurs in multiple joint, the final transform is a weighted average of the transforms for each joint.</p>
+<h2 id="clips">Clips<a class="headerlink" href="#clips" title="Permanent link"> </a></h2>
+<p>Clips are essentially instructions on how to use a value to animate some collection of joints.
+They also include events to fire at certain points.</p>
+<p>They are formatted like this:
+<pre class="highlight"><code class="language-javascript">
+{
+    "clips": {
+        "clip_name": {
+            "loop": &lt;true/false&gt;,
+            "joint_clips": {
+                &lt;joint_clip_list&gt;, ...
+            },
+            "events": {
+                &lt;event&gt; ...
+            }
+
+        }
+    }
+}
+
+-------
+
+&lt;joint_clip_list&gt; ::= {
+    "joint_name": [
+        &lt;joint_clip&gt;, ...
+    ]
+}
+
+&lt;joint_clip&gt; ::= {
+    "variable": &lt;variable&gt;,
+    "type": "uniform",
+    "interpolation": &lt;interpolation&gt;,
+    "samples": [ float, ... ]
+}
+
+</code></pre></p>
+<ul>
+<li>loop: if true, the animation will wrap around when the parameter value goes above 1, if not it&rsquo;ll just clamp at the final state.</li>
+</ul>
+<h3 id="joint-clips">Joint Clips<a class="headerlink" href="#joint-clips" title="Permanent link"> </a></h3>
+<p>Each <code>joint_clip</code> is a set of variables to change for a joint. The <code>type</code> attribute is currently ignored, but must be <code>"uniform"</code>.</p>
+<p><code>samples</code> defines what value the animation will take on (think of keyframes in traditional animation), and its interpretation depends on the value of <code>interpolation</code>.</p>
+<p><code>interpolation</code>, which is how to convert the list of samples into a (possibly) continuous animation can be one of the following:</p>
+<ul>
+<li><code>nearest</code> - if value &lt; 0.5 use the first sample, else the second sample. Useful for static variables if only given one value.</li>
+<li><code>linear</code> - linearly interpolate between samples. Time between samples is 1 / number of samples.</li>
+</ul>
+<p><code>variable</code> can be one of the following:</p>
+<ul>
+<li><code>offset_x</code>, <code>offset_y</code>, <code>offset_z</code> - translation</li>
+<li><code>scale</code> - uniform scaling</li>
+<li><code>scale_x</code>, <code>scale_y</code>, <code>scale_x</code> - scaling on certain axes</li>
+<li><code>axis_x</code>, <code>axis_y</code>, <code>axis_z</code> - rotation axes</li>
+<li><code>angle</code> - rotation angle</li>
+<li><code>origin_x</code>, <code>origin_y</code>, <code>origin_z</code> - rotation origin</li>
+</ul>
+<h3 id="events">Events<a class="headerlink" href="#events" title="Permanent link"> </a></h3>
+<p>Each clip can fire events, formatted like this:
+<pre class="highlight"><code class="language-javascript">&lt;event&gt; :: {
+    &lt;event_time&gt;: "event_text"
+}</code></pre>
+For more information about events and what <code>event_text</code> means, see the page on <a href="../asm/">ASMs</a>.</p>
+<p><code>event_time</code> is a value (usually between 0 and 1 inclusive) denoting when to fire the event. When the parameter controlling this clip reaches a point equal to or greater than the <code>event_time</code>, the event is fired.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

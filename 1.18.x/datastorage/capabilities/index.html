@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capabilities - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.17.x" selected>1.17.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">Style Guide</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization and Localization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">BlockStates</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">Interaction</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/blockentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">Renderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">Intro to Models</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">Model Files</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockStates</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">Intro to BlockState JSON</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">Coloring Textures</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/bakedmodel/" class="elem-text">BakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Events</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">Basic Usage</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">Overview</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#the-capability-system" class="elem-text">Capabilities</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#forge-provided-capabilities">Forge-provided Capabilities</a></li>
+        
+        <li class="toc-subitem"><a href="#using-an-existing-capability">Using an Existing Capability</a></li>
+        
+        <li class="toc-subitem"><a href="#exposing-a-capability">Exposing a Capability</a></li>
+        
+        <li class="toc-subitem"><a href="#attaching-capabilities">Attaching Capabilities</a></li>
+        
+        <li class="toc-subitem"><a href="#creating-your-own-capability">Creating Your Own Capability</a></li>
+        
+        <li class="toc-subitem"><a href="#persisting-levelchunk-and-blockentity-capabilities">Persisting LevelChunk and BlockEntity capabilities</a></li>
+        
+        <li class="toc-subitem"><a href="#synchronizing-data-with-clients">Synchronizing Data with Clients</a></li>
+        
+        <li class="toc-subitem"><a href="#persisting-across-player-deaths">Persisting across Player Deaths</a></li>
+        
+        <li class="toc-subitem"><a href="#migrating-from-iextendedentityproperties">Migrating from IExtendedEntityProperties</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Utilities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Conventions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">Locations</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Getting Started</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to 1.17</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="the-capability-system">The Capability System<a class="headerlink" href="#the-capability-system" title="Permanent link"> </a></h1>
+<p>Capabilities allow exposing features in a dynamic and flexible way without having to resort to directly implementing many interfaces.</p>
+<p>In general terms, each capability provides a feature in the form of an interface, a default implementation which can be requested, and a storage handler for at least this default implementation. The storage handler can support other implementations, but this is up to the capability implementor, so look it up in their documentation before trying to use the default storage with non-default implementations.</p>
+<p>Forge adds capability support to BlockEntities, Entities, ItemStacks, Levels, and LevelChunks, which can be exposed either by attaching them through an event or by overriding the capability methods in your own implementations of the objects. This will be explained in more detail in the following sections.</p>
+<h2 id="forge-provided-capabilities">Forge-provided Capabilities<a class="headerlink" href="#forge-provided-capabilities" title="Permanent link"> </a></h2>
+<p>Forge provides three capabilities: <code>IItemHandler</code>, <code>IFluidHandler</code> and <code>IEnergyStorage</code></p>
+<p><code>IItemHandler</code> exposes an interface for handling inventory slots. It can be applied to BlockEntities (chests, machines, etc.), Entities (extra player slots, mob/creature inventories/bags), or ItemStacks (portable backpacks and such). It replaces the old <code>IInventory</code> and <code>ISidedInventory</code> with an automation-friendly system.</p>
+<p><code>IFluidHandler</code> exposes an interface for handling fluid inventories. It can also be applied to BlockEntities, Entities, or ItemStacks. It replaces the old <code>IFluidHandler</code> with a more consistent and automation-friendly system.</p>
+<p><code>IEnergyStorage</code> exposes an interface for handling energy containers. It can be applied to BlockEntities, Entities, or ItemStacks. It is based on the RedstoneFlux API by TeamCoFH.</p>
+<h2 id="using-an-existing-capability">Using an Existing Capability<a class="headerlink" href="#using-an-existing-capability" title="Permanent link"> </a></h2>
+<p>As mentioned earlier, BlockEntities, Entities, and ItemStacks implement the capability provider feature through the <code>ICapabilityProvider</code> interface. This interface adds the method <code>#getCapability</code>, which can be used to query the capabilities present in the associated provider objects.</p>
+<p>In order to obtain a capability, you will need to refer it by its unique instance. In the case of the <code>IItemHandler</code>, this capability is primarily stored in <code>CapabilityItemHandler#ITEM_HANDLER_CAPABILITY</code>, but it is possible to get other instance references by using <code>CapabilityManager#get</code></p>
+<pre class="highlight"><code class="language-java">static Capability&lt;IItemHandler&gt; ITEM_HANDLER_CAPABILITY = CapabilityManager.get(new CapabilityToken&lt;&gt;(){});</code></pre>
+<p>When called, <code>CapabilityManager#get</code> provides a non-null capability for your associated type. The anonymous <code>CapabilityToken</code> allows Forge to keep a soft dependency system while still having the necessary generic information to get the correct capability.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+</div>
+<p>Even if you have a non-null capability available to you at all times, it does not mean the capability itself is usable or registered yet. This can be checked via <code>Capability#isRegistered</code>.</p>
+<p>The <code>#getCapability</code> method has a second parameter, of type <code>Direction</code>, which can be used to request the specific instance for that one face. If passed <code>null</code>, it can be assumed that the request comes either from within the block or from some place where the side has no meaning, such as a different dimension. In this case a general capability instance that does not care about sides will be requested instead. The return type of <code>#getCapability</code> will correspond to a <code>LazyOptional</code> of the type declared in the capability passed to the method. For the Item Handler capability, this is <code>LazyOptional&lt;IItemHandler&gt;</code>. If the capability is not available for a particular provider, it will return an empty <code>LazyOptional</code> instead.</p>
+<h2 id="exposing-a-capability">Exposing a Capability<a class="headerlink" href="#exposing-a-capability" title="Permanent link"> </a></h2>
+<p>In order to expose a capability, you will first need an instance of the underlying capability type. Note that you should assign a separate instance to each object that keeps the capability, since the capability will most probably be tied to the containing object.</p>
+<p>In the case of <code>IItemHandler</code>, the default implementation uses the <code>ItemStackHandler</code> class, which has an optional argument in the constructor, to specify a number of slots. However, relying on the existence of these default implementations should be avoided, as the purpose of the capability system is to prevent loading errors in contexts where the capability is not present, so instantiation should be protected behind a check testing if the capability has been registered (see the remarks about <code>@CapabilityInject</code> in the previous section).</p>
+<p>Once you have your own instance of the capability interface, you will want to notify users of the capability system that you expose this capability and provide a <code>LazyOptional</code> of the interface reference. This is done by overriding the <code>#getCapability</code> method, and comparing the capability instance with the capability you are exposing. If your machine has different slots based on which side is being queried, you can test this with the <code>side</code> parameter. For Entities and ItemStacks, this parameter can be ignored, but it is still possible to have side as a context, such as different armor slots on a player (<code>Direction#UP</code> exposing the player&rsquo;s helmet slot), or about the surrounding blocks in the inventory (<code>Direction#WEST</code> exposing the input slot of a furnace). Do not forget to fall back to <code>super</code>, otherwise existing attached capabilities will stop working.</p>
+<p>Capabilities must be invalidated at the end of the provider&rsquo;s lifecycle via <code>LazyOptional#invalidate</code>. For owned BlockEntities and Entities, the <code>LazyOptional</code> can be invalidated within <code>#invalidateCaps</code>. For non-owned providers, a runnable supplying the invalidation should be passed into <code>AttachCapabilitiesEvent#addListener</code>.</p>
+<pre class="highlight"><code class="language-java">// Somewhere in your BlockEntity subclass
+LazyOptional&lt;IItemHandler&gt; inventoryHandlerLazyOptional;
+
+// Supplied instance (e.g. () -&gt; inventoryHandler)
+// Ensure laziness as initialization should only happen when needed
+inventoryHandlerLazyOptional = LazyOptional.of(inventoryHandlerSupplier);
+
+@Override
+public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(Capability&lt;T&gt; cap, Direction side) {
+  if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+    return inventoryHandlerLazyOptional.cast();
+  }
+  return super.getCapability(cap, side);
+}
+
+@Override
+public void invalidateCaps() {
+  super.invalidateCaps();
+  inventoryHandlerLazyOptional.invalidate();
+}</code></pre>
+<p><code>Item</code>s are a special case since their capability providers are stored on an <code>ItemStack</code>. Instead, a provider should be attached through <code>Item#initCapabilities</code>. This should hold your capabilities for the lifecycle of the stack.</p>
+<p>It is strongly suggested that direct checks in code are used to test for capabilities instead of attempting to rely on maps or other data structures, since capability tests can be done by many objects every tick, and they need to be as fast as possible in order to avoid slowing down the game.</p>
+<h2 id="attaching-capabilities">Attaching Capabilities<a class="headerlink" href="#attaching-capabilities" title="Permanent link"> </a></h2>
+<p>As mentioned, attaching capabilities to existing providers, <code>Level</code>s, and <code>LevelChunk</code>s can be done using <code>AttachCapabilitiesEvent</code>. The same event is used for all objects that can provide capabilities. <code>AttachCapabilitiesEvent</code> has 5 valid generic types providing the following events:</p>
+<ul>
+<li><code>AttachCapabilitiesEvent&lt;Entity&gt;</code>: Fires only for entities.</li>
+<li><code>AttachCapabilitiesEvent&lt;BlockEntity&gt;</code>: Fires only for block entities.</li>
+<li><code>AttachCapabilitiesEvent&lt;ItemStack&gt;</code>: Fires only for item stacks.</li>
+<li><code>AttachCapabilitiesEvent&lt;Level&gt;</code>: Fires only for levels.</li>
+<li><code>AttachCapabilitiesEvent&lt;LevelChunk&gt;</code>: Fires only for level chunks.</li>
+</ul>
+<p>The generic type cannot be more specific than the above types. For example: If you want to attach capabilities to <code>Player</code>, you have to subscribe to the <code>AttachCapabilitiesEvent&lt;Entity&gt;</code>, and then determine that the provided object is an <code>Player</code> before attaching the capability.</p>
+<p>In all cases, the event has a method <code>#addCapability</code> which can be used to attach capabilities to the target object. Instead of adding capabilities themselves to the list, you add capability providers, which have the chance to return capabilities only from certain sides. While the provider only needs to implement <code>ICapabilityProvider</code>, if the capability needs to store data persistently, it is possible to implement <code>ICapabilitySerializable&lt;T extends Tag&gt;</code> which, on top of returning the capabilities, will provide tag save/load functions.</p>
+<p>For information on how to implement <code>ICapabilityProvider</code>, refer to the <a href="#exposing-a-capability">Exposing a Capability</a> section.</p>
+<h2 id="creating-your-own-capability">Creating Your Own Capability<a class="headerlink" href="#creating-your-own-capability" title="Permanent link"> </a></h2>
+<p>In general terms, a capability is registered through the event <code>RegisterCapabilitiesEvent</code> on the mod event bus via the <code>#register</code> method.</p>
+<pre class="highlight"><code class="language-java">@SubscribeEvent
+public void registerCaps(RegisterCapabilitiesEvent event) {
+    event.register(IExampleCapability.class);
+}</code></pre>
+<h2 id="persisting-levelchunk-and-blockentity-capabilities">Persisting LevelChunk and BlockEntity capabilities<a class="headerlink" href="#persisting-levelchunk-and-blockentity-capabilities" title="Permanent link"> </a></h2>
+<p>Unlike Levels, Entities, and ItemStacks, LevelChunks and BlockEntities are only written to disk when they have been marked as dirty. A capability implementation with persistent state for a LevelChunk or a BlockEntity should therefore ensure that whenever its state changes, its owner is marked as dirty.</p>
+<p><code>ItemStackHandler</code>, commonly used for inventories in BlockEntities, has an overridable method <code>void onContentsChanged(int slot)</code> designed to be used to mark the BlockEntity as dirty.</p>
+<pre class="highlight"><code class="language-java">public class MyBlockEntity extends BlockEntity {
+
+  private final IItemHandler inventory = new ItemStackHandler(...) {
+    @Override
+    protected void onContentsChanged(int slot) {
+      super.onContentsChanged(slot);
+      setChanged();
+    }
+  }
+
+  ...
+}</code></pre>
+<h2 id="synchronizing-data-with-clients">Synchronizing Data with Clients<a class="headerlink" href="#synchronizing-data-with-clients" title="Permanent link"> </a></h2>
+<p>By default, capability data is not sent to clients. In order to change this, the mods have to manage their own synchronization code using packets.</p>
+<p>There are three different situations in which you may want to send synchronization packets, all of them optional:</p>
+<ol>
+<li>When the entity spawns in the level, or the block is placed, you may want to share the initialization-assigned values with the clients.</li>
+<li>When the stored data changes, you may want to notify some or all of the watching clients.</li>
+<li>When a new client starts viewing the entity or block, you may want to notify it of the existing data.</li>
+</ol>
+<p>Refer to the <a href="../../networking/">Networking</a> page for more information on implementing network packets.</p>
+<h2 id="persisting-across-player-deaths">Persisting across Player Deaths<a class="headerlink" href="#persisting-across-player-deaths" title="Permanent link"> </a></h2>
+<p>By default, the capability data does not persist on death. In order to change this, the data has to be manually copied when the player entity is cloned during the respawn process.</p>
+<p>This can be done via <code>PlayerEvent$Clone</code> by reading the data from the original entity and assigning it to the new entity. In this event, the <code>wasDead</code> field can be used to distinguish between respawning after death and returning from the End. This is important because the data will already exist when returning from the End, so care has to be taken to not duplicate values in this case.</p>
+<h2 id="migrating-from-iextendedentityproperties">Migrating from IExtendedEntityProperties<a class="headerlink" href="#migrating-from-iextendedentityproperties" title="Permanent link"> </a></h2>
+<p>Although the Capability system can do everything IEEPs (IExtendedEntityProperties) did and more, the two concepts don&rsquo;t fully match 1:1. This section will explain how to convert existing IEEPs into Capabilities.</p>
+<p>This is a quick list of IEEP concepts and their Capability equivalent:</p>
+<ul>
+<li>Property name/id (<code>String</code>): Capability key (<code>ResourceLocation</code>)</li>
+<li>Registration (<code>EntityConstructing</code>): Attaching (<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>), the real registration of the <code>Capability</code> happens during <code>FMLCommonSetupEvent</code>.</li>
+<li>Tag read/write methods: Does not happen automatically. Attach an <code>ICapabilitySerializable</code> in the event and run the read/write methods from the <code>serializeNBT</code>/<code>deserializeNBT</code>.</li>
+</ul>
+<p>Quick conversion guide:</p>
+<ol>
+<li>Convert the IEEP key/id string into a <code>ResourceLocation</code> (which will use your MODID as a namespace).</li>
+<li>In your handler class (not the class that implements your capability interface), create a field that will hold the Capability instance.</li>
+<li>Change the <code>EntityConstructing</code> event to <code>AttachCapabilitiesEvent</code>, and instead of querying the IEEP, you will want to attach an <code>ICapabilityProvider</code> (probably <code>ICapabilitySerializable</code>, which allows saving/loading from a tag).</li>
+<li>Create a registration method if you don&rsquo;t have one (you may have one where you registered your IEEP&rsquo;s event handlers) and in it, run the capability registration function.</li>
+</ol>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

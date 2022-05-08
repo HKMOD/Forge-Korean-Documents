@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Structuring Your Mod - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.17.x" selected>1.17.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">Style Guide</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#structuring-your-mod" class="elem-text">Structuring Your Mod</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#packaging">Packaging</a></li>
+        
+        <li class="toc-subitem"><a href="#the-modstoml-file">The mods.toml file</a></li>
+        
+        <li class="toc-subitem"><a href="#the-mod-file">The Mod File</a></li>
+        
+        <li class="toc-subitem"><a href="#what-is-mod">What is @Mod?</a></li>
+        
+        <li class="toc-subitem"><a href="#keeping-your-code-clean-using-sub-packages">Keeping Your Code Clean Using Sub-packages</a></li>
+        
+        <li class="toc-subitem"><a href="#class-naming-schemes">Class Naming Schemes</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../autoupdate/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization and Localization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">BlockStates</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">Interaction</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/blockentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">Renderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">Intro to Models</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">Model Files</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockStates</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">Intro to BlockState JSON</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">Coloring Textures</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/bakedmodel/" class="elem-text">BakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Events</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">Basic Usage</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">Overview</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Utilities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Conventions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">Locations</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Getting Started</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to 1.17</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="structuring-your-mod">Structuring Your Mod<a class="headerlink" href="#structuring-your-mod" title="Permanent link"> </a></h1>
+<p>Let us look at how to organize your mod into different files and what those files should do.</p>
+<h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link"> </a></h2>
+<p>Pick a unique package name. If you own a URL associated with your project, you can use it as your top level package. For example if you own &ldquo;example.com&rdquo;, you may use <code>com.example</code> as your top level package.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you do not own a domain, do not use it for your top level package. You can use your email, a subdomain of where you host a website, or your name/username as long as it can be unique.</p>
+</div>
+<p>After the top level package (if you have one), you append a unique name for your mod, such as <code>examplemod</code>. In our case it will end up as <code>com.example.examplemod</code>.</p>
+<h2 id="the-modstoml-file">The <code>mods.toml</code> file<a class="headerlink" href="#the-modstoml-file" title="Permanent link"> </a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The license field in the mods.toml is required. If it is not provided, an error will occur. See your choices at https://choosealicense.com/</p>
+</div>
+<p>This file defines the metadata of your mod. Its information may be viewed by users from the main screen of the game through the &lsquo;Mods&rsquo; button. A single info file can describe several mods.</p>
+<p>The <code>mods.toml</code> file is formatted as <a href="https://github.com/toml-lang/toml">TOML</a>, the example <code>mods.toml</code> file in the MDK provides comments explaining the contents of the file. It should be stored as <code>src/main/resources/META-INF/mods.toml</code>. A basic <code>mods.toml</code>, describing one mod, may look like this:
+<pre class="highlight"><code class="language-toml">    # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+    modLoader="javafml"
+    # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+    # Forge for 1.17.1 is version 37
+    loaderVersion="[37,)"
+    # The license for your mod. This is mandatory and allows for easier comprehension of your redistributive properties.
+    # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+    license="All Rights Reserved"
+    # A URL to refer people to when problems occur with this mod
+    issueTrackerURL="github.com/MinecraftForge/MinecraftForge/issues"
+    # If the mods defined in this file should show as separate resource packs
+    showAsResourcePack=false
+
+    [[mods]]
+      modId="examplemod"
+      version="1.0.0.0"
+      displayName="Example Mod"
+      updateJSONURL="minecraftforge.net/versions.json"
+      displayURL="minecraftforge.net"
+      logoFile="logo.png"
+      credits="I'd like to thank my mother and father."
+      authors="Author"
+      description='''
+      Lets you craft dirt into diamonds. This is a traditional mod that has existed for eons. It is ancient. The holy Notch created it. Jeb rainbowfied it. Dinnerbone made it upside down. Etc.
+      '''
+
+      [[dependencies.examplemod]]
+        modId="forge"
+        mandatory=true
+        versionRange="[37,)"
+        ordering="NONE"
+        side="BOTH"
+
+      [[dependencies.examplemod]]
+        modId="minecraft"
+        mandatory=true
+        versionRange="[1.17,1.18)"
+        ordering="NONE"
+        side="BOTH"</code></pre></p>
+<p>If any string is specified as <code>${file.jarVersion}</code>, Forge will replace the string with the <strong>Implementation Version</strong> specified in your jar manifest at runtime. Since the user development environment has no jar manifest to pull from, it will be <code>NONE</code> instead. As such, it is usually recommended to leave the <code>version</code> field alone. Here is a table of attributes that may be given to a mod, where <code>mandatory</code> means there is no default and the absence of the property causes an error.</p>
+<table>
+<thead>
+<tr>
+<th align="right">Property</th>
+<th align="center">Type</th>
+<th align="center">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">modid</td>
+<td align="center">string</td>
+<td align="center">mandatory</td>
+<td align="left">The modid this file is linked to.</td>
+</tr>
+<tr>
+<td align="right">version</td>
+<td align="center">string</td>
+<td align="center">mandatory</td>
+<td align="left">The version of the mod. It should be just numbers separated by dots, ideally conforming to Forge&rsquo;s <a href="../../conventions/versioning/">Semantic Versioning</a> structure.</td>
+</tr>
+<tr>
+<td align="right">displayName</td>
+<td align="center">string</td>
+<td align="center">mandatory</td>
+<td align="left">The user-friendly name of this mod.</td>
+</tr>
+<tr>
+<td align="right">updateJSONURL</td>
+<td align="center">string</td>
+<td align="center"><code>""</code></td>
+<td align="left">The URL to a <a href="../autoupdate/">version JSON</a>.</td>
+</tr>
+<tr>
+<td align="right">displayURL</td>
+<td align="center">string</td>
+<td align="center"><code>""</code></td>
+<td align="left">A link to the mod&rsquo;s homepage.</td>
+</tr>
+<tr>
+<td align="right">logoFile</td>
+<td align="center">string</td>
+<td align="center"><code>""</code></td>
+<td align="left">The filename of the mod&rsquo;s logo. It must be placed in the root resource folder, not in a subfolder.</td>
+</tr>
+<tr>
+<td align="right">credits</td>
+<td align="center">string</td>
+<td align="center"><code>""</code></td>
+<td align="left">A string that contains any acknowledgements you want to mention.</td>
+</tr>
+<tr>
+<td align="right">authors</td>
+<td align="center">string</td>
+<td align="center"><code>""</code></td>
+<td align="left">The authors of this mod.</td>
+</tr>
+<tr>
+<td align="right">description</td>
+<td align="center">string</td>
+<td align="center">mandatory</td>
+<td align="left">A description of this mod.</td>
+</tr>
+<tr>
+<td align="right">dependencies</td>
+<td align="center">[list]</td>
+<td align="center"><code>[]</code></td>
+<td align="left">A list of dependencies of this mod.</td>
+</tr>
+</tbody>
+</table>
+<p>* All version ranges use the <a href="https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html">Maven Version Range Specification</a>.</p>
+<h2 id="the-mod-file">The Mod File<a class="headerlink" href="#the-mod-file" title="Permanent link"> </a></h2>
+<p>Generally, we will start with a file named after your mod and put into your package. This is the <em>entry point</em> to your mod and will contain some special indicators marking it as such.</p>
+<h2 id="what-is-mod">What is <code>@Mod</code>?<a class="headerlink" href="#what-is-mod" title="Permanent link"> </a></h2>
+<p>This is an annotation indicating to the Forge Mod Loader that the class is a Mod entry point. The <code>@Mod</code> annotation&rsquo;s value should match a mod id in the <code>src/main/resources/META-INF/mods.toml</code> file.</p>
+<h2 id="keeping-your-code-clean-using-sub-packages">Keeping Your Code Clean Using Sub-packages<a class="headerlink" href="#keeping-your-code-clean-using-sub-packages" title="Permanent link"> </a></h2>
+<p>Rather than clutter up a single class and package with everything, it is recommended that you break your mod into subpackages.</p>
+<p>A common subpackage strategy has packages for <code>common</code> and <code>client</code> code, which is code that can be run on both server/client and only client, respectively. Inside the <code>common</code> package would go things like Items, Blocks, and Block Entities (which can each, in turn, be another subpackage). Things like Screens and Renderers would go inside the <code>client</code> package.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This package style is only a suggestion, though it is a commonly used style. Feel free to use your own packaging system.</p>
+</div>
+<p>By keeping your code in clean subpackages, you can grow your mod much more organically.</p>
+<h2 id="class-naming-schemes">Class Naming Schemes<a class="headerlink" href="#class-naming-schemes" title="Permanent link"> </a></h2>
+<p>A common class naming scheme allows easier deciphering of what a class is, and it also makes it easier for someone developing with your mod to find things.</p>
+<p>For Example:</p>
+<ul>
+<li>An <code>Item</code> called <code>PowerRing</code> would be in an <code>item</code> package, with a class name of <code>PowerRingItem</code>.</li>
+<li>A <code>Block</code> called <code>NotDirt</code> would be in a <code>block</code> package, with a class name of <code>NotDirtBlock</code>.</li>
+<li>Finally, a <code>BlockEntity</code> for a block called <code>SuperChewer</code> would be a <code>block.entity</code> or <code>blockentity</code> package, with a class name of <code>SuperChewerBlockEntity</code>.</li>
+</ul>
+<p>Appending your class names with what <em>kind</em> of object they are makes it easier to figure out what a class is or guess the class for an object.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BakedModel - Forge Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../../images/manifest.json">
+    <link rel="mask-icon" href="../../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../../js/theme.js"></script>
+
+    <script>var base_url = '../../..';</script>
+    
+    <script src="../../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../../.." class="logo-image"><img src="../../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.17.x" selected>1.17.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../../styleguide/" class="elem-text">Style Guide</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/autoupdate/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/data/" class="elem-text">Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/internationalization/" class="elem-text">Internationalization and Localization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blocks/states/" class="elem-text">BlockStates</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blocks/interaction/" class="elem-text">Interaction</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blockentities/blockentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blockentities/ber/" class="elem-text">Renderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../../introduction/" class="elem-text">Intro to Models</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../files/" class="elem-text">Model Files</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockStates</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockstates/introduction/" class="elem-text">Intro to BlockState JSON</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../color/" class="elem-text">Coloring Textures</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Models</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#bakedmodel" class="elem-text">BakedModel</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#getoverrides">getOverrides</a></li>
+        
+        <li class="toc-subitem"><a href="#useambientocclusion">useAmbientOcclusion</a></li>
+        
+        <li class="toc-subitem"><a href="#isgui3d">isGui3d</a></li>
+        
+        <li class="toc-subitem"><a href="#iscustomrenderer">isCustomRenderer</a></li>
+        
+        <li class="toc-subitem"><a href="#getparticleicon">getParticleIcon</a></li>
+        
+        <li class="toc-subitem"><a href="#gettransforms">getTransforms</a></li>
+        
+        <li class="toc-subitem"><a href="#handleperspective">handlePerspective</a></li>
+        
+        <li class="toc-subitem"><a href="#getquads">getQuads</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../rendering/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../datagen/intro/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datagen/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Events</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../events/intro/" class="elem-text">Basic Usage</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/overview/" class="elem-text">Overview</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/entities/" class="elem-text">Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Utilities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../utilities/recipes/" class="elem-text">Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../utilities/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../effects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../effects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Conventions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../conventions/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../conventions/locations/" class="elem-text">Locations</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../forgedev/" class="elem-text">Getting Started</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../forgedev/prguidelines/" class="elem-text">PR Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../legacy/porting/" class="elem-text">Porting to 1.17</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="bakedmodel"><code>BakedModel</code><a class="headerlink" href="#bakedmodel" title="Permanent link"> </a></h1>
+<p><code>BakedModel</code> is the result of calling <code>UnbakedModel#bake</code> for the vanilla model loader or <code>IModelGeometry#bake</code> for custom model loaders. Unlike <code>UnbakedModel</code> or <code>IModelGeometry</code>, which purely represents a shape without any concept of items or blocks, <code>BakedModel</code> is not as abstract. It represents geometry that has been optimized and reduced to a form where it is (almost) ready to go to the GPU. It can also process the state of an item or block to change the model.</p>
+<p>In a majority of cases, it is not really necessary to implement this interface manually. One can instead use one of the existing implementations.</p>
+<h3 id="getoverrides"><code>getOverrides</code><a class="headerlink" href="#getoverrides" title="Permanent link"> </a></h3>
+<p>Returns the <a href="../itemoverrides/"><code>ItemOverrides</code></a> to use for this model. This is only used if this model is being rendered as an item.</p>
+<h3 id="useambientocclusion"><code>useAmbientOcclusion</code><a class="headerlink" href="#useambientocclusion" title="Permanent link"> </a></h3>
+<p>If the model is rendered as a block in the level, the block in question does not emit any light, and ambient occlusion is enabled. This causes the model to be rendered with <a href="ambocc">ambient occlusion</a>.</p>
+<h3 id="isgui3d"><code>isGui3d</code><a class="headerlink" href="#isgui3d" title="Permanent link"> </a></h3>
+<p>If the model is rendered as an item in an inventory, on the ground as an entity, on an item frame, etc., this makes the model look &ldquo;flat.&rdquo; In GUIs, this also disables the lighting.</p>
+<h3 id="iscustomrenderer"><code>isCustomRenderer</code><a class="headerlink" href="#iscustomrenderer" title="Permanent link"> </a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Unless you know what you&rsquo;re doing, just <code>return false</code> from this and continue on.</p>
+</div>
+<p>When rendering this as an item, returning <code>true</code> causes the model to not be rendered, instead falling back to <code>BlockEntityWithoutLevelRenderer#renderByItem</code>. For certain vanilla items such as chests and banners, this method is hardcoded to copy data from the item into a <code>BlockEntity</code>, before using a <code>BlockEntityRenderer</code> to render that BE in place of the item. For all other items, it will use the <code>BlockEntityWithoutLevelRenderer</code> instance provided by <code>IItemRenderProperties#getItemStackRenderer</code>. Refer to <a href="../../../rendering/bewlr/">BlockEntityWithoutLevelRenderer</a> page for more information.</p>
+<h3 id="getparticleicon"><code>getParticleIcon</code><a class="headerlink" href="#getparticleicon" title="Permanent link"> </a></h3>
+<p>Whatever texture should be used for the particles. For blocks, this shows when an entity falls on it, when it breaks, etc. For items, this shows when it breaks or when it&rsquo;s eaten.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The vanilla method with no parameters has been deprecated in favor of <code>#getParticleIcon(IModelData)</code> since model data can have an effect on how a particular model might be rendered.</p>
+</div>
+<h3 id="gettransforms"><s><code>getTransforms</code></s><a class="headerlink" href="#gettransforms" title="Permanent link"> </a></h3>
+<p>Deprecated in favor of implementing <code>#handlePerspective</code>. The default implementation is fine if <code>#handlePerspective</code> is implemented. See <a href="../perspective/">Perspective</a>.</p>
+<h3 id="handleperspective"><code>handlePerspective</code><a class="headerlink" href="#handleperspective" title="Permanent link"> </a></h3>
+<p>See <a href="../perspective/">Perspective</a>.</p>
+<h3 id="getquads"><code>getQuads</code><a class="headerlink" href="#getquads" title="Permanent link"> </a></h3>
+<p>This is the main method of <code>BakedModel</code>. It returns a list of <code>BakedQuad</code>s: objects which contain the low-level vertex data that will be used to render the model. If the model is being rendered as a block, then the <code>BlockState</code> passed in is non-null. If the model is being rendered as an item, the <code>ItemOverrides</code> returned from <code>#getOverrides</code> is responsible for handling the state of the item, and the <code>BlockState</code> parameter will be <code>null</code>.</p>
+<p>The <code>Direction</code> passed in is used for face culling. If the block against the given side of another block being rendered is opaque, then the faces associated with that side are not rendered. If that parameter is <code>null</code>, all faces not associated with a side are returned (that will never be culled).</p>
+<p>The <code>rand</code> parameter is an instance of Random.</p>
+<p>It also takes in a non null <code>IModelData</code> instance. This can be used to define extra data when rendering the specific model via <code>ModelProperty</code>s. For example, one such property is <code>CompositeModelData</code>, which is used to store any additional submodel data for a model using the <code>forge:composite</code> model loader.</p>
+<p>Note that this method is called very often: once for every combination of non-culled face and supported block render layer (anywhere between 0 to 28 times) <em>per block in a level</em>. This method should be as fast as possible, and should probably cache heavily.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
