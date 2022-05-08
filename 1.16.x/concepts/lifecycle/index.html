@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>모드 생명주기 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#_1" class="elem-text">모드 생명주기</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#_2">레지스트리 이벤트</a></li>
+        
+        <li class="toc-subitem"><a href="#_3">데이터 생성</a></li>
+        
+        <li class="toc-subitem"><a href="#_4">일반 초기화</a></li>
+        
+        <li class="toc-subitem"><a href="#_5">사이드 초기화</a></li>
+        
+        <li class="toc-subitem"><a href="#intermodcomms">InterModComms</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="_1">모드 생명주기<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>모드를 불러오는 과정에서 여러 생명주기 이벤트들이 모드별 버스에 방송됩니다. 여러 초기화 작업들이 이 이벤트들 도중에 이루어 집니다. 이때 진행되는 초기화로는, <a href="../registries/#객체-등록하기">객체 등록하기</a>, <a href="../../datagen/intro/">데이터 생성 준비</a>, 또는 <a href="./#intermodcomms">다른 모드와의 통신</a> 등이 있습니다.</p>
+<p>이벤트 리스너들은 <code>@EventBusSubscriber(bus = Bus.MOD)</code> 어노테이션을 사용하거나 모드의 생성자에서 등록되어야 합니다:</p>
+<pre class="highlight"><code class="language-Java">@Mod.EventBusSubscriber(modid = "mymod", bus = Mod.EventBusSubscriber.Bus.MOD)
+public class MyModEventSubscriber {
+    @SubscribeEvent
+    static void onCommonSetup(FMLCommonSetupEvent event) { ... }
+}
+
+@Mod("mymod")
+public class MyMod {
+    public MyMod() {
+        FMLModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
+    } 
+
+    private void onCommonSetup(FMLCommonSetupEvent event) { ... }
+}</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>대부분의 생명주기 이벤트들은 병렬적으로 방송됩니다: 모든 모드들은 동시에 같은 이벤트에 반응합니다.</p>
+<p>모드들은 다른 모드의 API 또는 마인크래프트 시스템에 접근할 때, 스레드 안전성을 준수해야만 합니다. <code>ParallelDispatchEvent#enqueueWork</code> 를 이용해 코드 실행을 예약하여 나중에 실행되도록 하세요.</p>
+</div>
+<h2 id="_2">레지스트리 이벤트<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p><code>RegistryEvent</code> 들은 모드 인스턴스 초기화 이후에 방송됩니다. 이 이벤트들의 종류는 <code>NewRegistry</code> 그리고 <code>Register</code> 가 있습니다. 이 이벤트들은 모드들을 불러올때 동기적으로 방송됩니다.</p>
+<p><code>RegistryEvent$NewRegistry</code> 이벤트는 모드 개발자들이 직접 만든 레지스트리를 <code>RegistryBuilder</code> 를 사용해 등록할 수 있도록 해줍니다.</p>
+<p><code>RegistryEvent$Register&lt;?&gt;</code> 이벤트는 <a href="../registries/#객체-등록하기">객체들을 레지스트리에 등록할 때</a> 사용합니다. 이 이벤트는 각 레지스트리당 한번씩 방송됩니다, 이는 개발자가 직접 등록한 레지스트리도 포함됩니다.</p>
+<h2 id="_3">데이터 생성<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>만약 게임이 <a href="../../datagen/intro/">데이터 생성기</a>를 사용하도록 설정되어 실행되었다면, <code>GatherDataEvent</code> 가 가장 마지막에 방송됩니다. 이 이벤트는 모드들의 데이터 제공자를 데이터 생성기에 등록할때 사용합니다. 또한 이 이벤트는 동기적으로 방송됩니다.</p>
+<h2 id="_4">일반 초기화<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p><code>FMLCommonSetupEvent</code> 이벤트를 사용하여 클라이언트, 그리고 서버 사이드에 공통적으로 수행될 코드를 작성할 수 있습니다. 그 예로 <a href="../../datastorage/capabilities/">캐패빌리티</a>등록이 있습니다.</p>
+<h2 id="_5">사이드 초기화<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>사이드 초기화 이벤트는 각각 알맞는 <a href="../sides/">물리 사이드</a>에 방송됩니다: <code>FMLClientSetupEvent</code> 는 물리 클라이언트에, <code>FMLDedicatedServerSetupEvent</code>는 전용 서버에 사용됩니다. 이 이벤트를 사용하여 키바인드 등록과 같은 사이드 전용 초기화를 진행할 수 있습니다.</p>
+<h2 id="intermodcomms">InterModComms<a class="headerlink" href="#intermodcomms" title="Permanent link"> </a></h2>
+<p>이 생명주기 단계에서는 모드끼리 메세지를 보내 모드간 호환성을 유지할 수 있도록 합니다. 이때 방송되는 이벤트는 <code>InterModEnqueueEvent</code> 와 <code>InterModProcessEvent</code> 가 있습니다.</p>
+<p><code>InterModComms</code> 의 역할은 모드 통신에 사용되는 메세지를 보유하는 것입니다. 그리고 이 클래스의 메서드들은 <code>ConcurrentMap</code> 을 사용하기 때문에 병렬적으로 방송되는 생명주기 이벤트에서 호출하여도 안전합니다.</p>
+<p><code>InterModEnqueueEvent</code> 도중 <code>InterModComms#sendTo</code> 를 사용해 다른 모드에 메세지를 전송할 수 있습니다. <code>InterModComms#sendTo</code> 와 동일한 이름을 가진 메서드가 여럿 있는데, 이 메서드들은 메세지를 받을 모드의 아이디, 메세지들을 구분하기 위해 사용하는 키, 메세지의 데이터를 공급하는 <code>Supplier</code> 입니다. 추가적으로 메세지 송신자를 지정할 수도 있으나, 기본값으로는 메세지를 보내는 모드의 아이디 입니다.</p>
+<p>또, <code>InterModProcessEvent</code> 도중 <code>InterModComms#getMessages</code> 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 <code>Predicate</code> 를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 <code>Stream&lt;IMCMessage&gt;</code> 를 반환합니다, <code>IMCMessage</code> 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 <code>FMLConstructModEvent</code> 생명주기 이벤트와 <code>InterModComms</code> 이후에 방송되어 모드를 완전히 불러왔음을 알리는 <code>FMLLoadCompleteEvent</code> 생명주기 이벤트가 있습니다.</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

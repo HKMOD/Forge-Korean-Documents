@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>버전 명명 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#_1" class="elem-text">버전 명명</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#_2">예시</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="_1">버전 명명<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>일반적으로 프로젝트들은 <a href="https://semver.org/lang/ko/">유의적 버전</a>를 사용합니다(이는 <code>MAJOR.MINOR.PATH</code> 포맷을 사용합니다). 그러나 모드 개발에 있어서는 <code>MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATH</code> 를 사용하여 월드에 영향을 주거나 API 와 더이상 호환되지 않는 변경점을 구분하는 것이 더 나을 수 있습니다.</p>
+<h2 id="_2">예시<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>다음 상황들은 위에서 말한 포맷에서 사용하는 변수들의 값이 증가할 때 입니다:</p>
+<ul>
+<li><code>MCVERSION</code><ul>
+<li>모드가 만들어진 마인크래프트 버전과 동일해야 합니다.</li>
+</ul>
+</li>
+<li><code>MAJORMOD</code><ul>
+<li>아이템, 블록 또는 타일 엔티티 삭제.</li>
+<li>기존에 있던 메카닉 변경 또는 삭제.</li>
+<li>마인크래프트 버전 업데이트.</li>
+</ul>
+</li>
+<li><code>MAJORAPI</code><ul>
+<li>열거형의 변수 또는 순서 변경.</li>
+<li>메서드 반환 타입 변경.</li>
+<li>public 메서드 삭제.</li>
+</ul>
+</li>
+<li><code>MINOR</code><ul>
+<li>새로운 아이템, 블록, 타일 엔티티 등 추가.</li>
+<li>새로운 메카닉 추가.</li>
+<li>public 메서드에 @Deprecated 어노테이션 추가. (<code>MAJORAPI</code> 가 아닌 이유는 호환성이 유지되기 때문입니다.)</li>
+</ul>
+</li>
+<li><code>PATCH</code><ul>
+<li>버그 패치.</li>
+</ul>
+</li>
+</ul>
+<p>윗 변수중 하나라도 값이 증가하면 그 뒤에 따라오는 변수들의 값은 <code>0</code>으로 변경하셔야 합니다. 예를 들어, <code>MINOR</code> 값이 증가할 시 <code>PATCh</code> 는 <code>0</code> 이 되어야 합니다. 만약 <code>MAJORMOD</code> 값이 증가하면 그 뒤에 따라오는 모든 변수들은 <code>0</code> 이 되어야 합니다.</p>
+<h3 id="_3">작업중인 모드<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
+<p>모드 개발 초기에는 늘 <code>MAJORMOD</code> 와 <code>MAJORAPI</code> 가 <code>0</code> 이어야 합니다. <code>MINOR</code> 와 <code>PATCH</code> 만 빌드마다 증가해야 합니다.</p>
+<h3 id="_4">여러 마인크래프트 버전<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
+<p>만약 모드가 새로운 버전의 마인크래프트로 업그레이드되고, 이전 버전은 버그 패치만 이루어 진다고 할 때, <code>PATCH</code> 는 업그레이드 이전 버전 값에서 시작합니다. 만약 모드가 이전 버전과 새 버전 둘다 지원하며 적극적인 개발이 이루어 진다면 모드 버전 앞에 마인크래프트 버전을 추가하시는 것이 권장됩니다. 예를 들어 버전 <code>3.0.0.0</code> 인 모드가 새로운 마인크래프트 버전으로 업그레이드 한다면, 이전 버전의 모드 또한 버전 <code>3.0.0.0</code> 으로 다음 예시와 같이 업데이트 되어야 합니다: <code>1.7.10-3.0.0.0</code>, 그리고 새로운 버전은 다음 예시와 같습니다: <code>1.8-3.0.0.0</code>. 만약 마인크래프트 버전 업데이트 말고 추가적인 변경 사항이 없다면 앞의 마인크래프트 버전을 제외하고는 버전이 동일해야 합니다.</p>
+<h3 id="_5">최종 릴리즈<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
+<p>특정 마인크래프트 버전 지원을 중단할 때는 그 마지막 빌드에 <code>-final</code> 접미사를 붙여야 합니다. 이는 이 모드가 더 이상 지원을 받지 않을 것이며 업데이트와 버그 패치를 받기 위해서는 새로운 마인크래프트 버전으로 업그레이드 하여야 함을 뜻합니다.</p>
+<h3 id="_6">시험 릴리즈<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
+<p>아직 개발중인 기능을 시험판처럼 배포할 수도 있습니다, 이는 하나의 &ldquo;베타&rdquo; 테스트 처럼 볼 수 있으며 버전에 <code>-betaX</code> 접미사를 사용하셔야 합니다, 이때 <code>X</code> 는 출시된 시험판 갯수 입니다.(이 가이드에서는 현재로썬 <code>-pre</code> 를 사용하지 않습니다, 이는 <code>-beta</code> 의 이명이 아닙니다). 이미 출시된 버전 또는 초기 릴리즈 이전에 사용한 버전들은 시험판 버전으로 사용하실 수 없습니다; 그렇기에 버전 변수를 를 <code>-beta</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 초기 릴리즈 이전 빌드들은 작업중인 빌드입니다.</p>
+<h3 id="_7">출시 후보<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
+<p>출시 후보는 실제로 버전을 변경하기 이전에 출시하는 시험판과 같습니다. 이 버전들은 <code>-rcX</code> 접미사를 사용하여야 하며, 이때 <code>X</code> 는 출시 후보 갯수입니다, 이 값은 일반적으로 버그 패치 할때만 증가됩니다. 이미 출시된 버전은 출시 후보를 사용하실 수 없습니다; 그렇기에 버전 변수를 <code>rc</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 출시 후보를 안정 빌드로 릴리즈 할때 마지막 출시 후보와 완전히 똑같거나 몇몇 버그 패치를 포함할 수도 있습니다.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

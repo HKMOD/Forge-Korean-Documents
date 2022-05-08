@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capabilities - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#_1" class="elem-text">Capabilities</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#_2">포지에서 제공하는 캐패빌리티</a></li>
+        
+        <li class="toc-subitem"><a href="#_3">이미 존재하는 캐패빌리티 사용하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_4">캐패빌리티 노출하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_5">캐패빌리티 부착하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_6">캐패빌리티 직접 만들기</a></li>
+        
+        <li class="toc-subitem"><a href="#_7">청크와 타일 엔티티 캐패빌리티 데이터 유지시키지</a></li>
+        
+        <li class="toc-subitem"><a href="#_8">클라이언트와 데이터 동기화 하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_9">플레이어가 죽어도 데이터 유지시키기</a></li>
+        
+        <li class="toc-subitem"><a href="#iextendedentityproperties">IExtendedEntityProperties 로 부터 이전하기</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="_1">캐패빌리티<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>캐패빌리티는 여러 인터페이스 구현하느라 고생할 필요 없이 동적이고 유연하게 여러 기능들을 노출시킬 수 있도록 해줍니다. 이 시스템은 특정 객체에 캐패빌리티를 추가하거나 노출시켜, 동적으로 기능을 추가하거나 데이터를 추가할 수 있도록 합니다.</p>
+<p>일반적으로, 캐패빌리티는 규격을 정의하는 <em>인터페이스</em>, 그 인터페이스의 <em>기본 구현</em>, 그리고 <em>데이터 핸들러</em> 이 3가지로 이루어져 있습니다. 캐패빌리티의 인터페이스를 구현하는 클래스는 여러개 있을 수 있으나, 무조건 하나 이상은 있어야 하기에 기본 구현이 요구됩니다. 그리고 데이터 핸들러는 기본 구현만 지원할 수도 있습니다.</p>
+<p>포지는 TileEntity, Entity, ItemStack, World, 그리고 Chunk 가 기본적으로 캐패빌리티 시스템을 지원하도록 합니다, 그렇기에 이 객체들에는 캐패빌리티를 이벤트를 통해서 추가하거나, 객체들을 구현하며 노출시킬 수 있습니다. 이에 대해서는 아래 더 자세히 다루도록 하겠습니다.</p>
+<h2 id="_2">포지에서 제공하는 캐패빌리티<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>포지에서는 <code>IItemHandler</code>, <code>IFluidHandler</code>, 그리고 <code>IEnergyStorage</code> 캐패빌리티를 제공합니다.
+<code>IItemHandler</code> 는 인벤토리 슬롯을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 TileEntity, Entity, 또는 ItemStack 에 사용할 수 있습니다. <code>IInventory</code> 와 <code>ISidedInventory</code> 대신 사용하세요.</p>
+<p><code>IFluidHandler</code> 는 액체 저장 공간을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 TileEntity, Entity, 또는 ItemStack 에 적용할 수 있습니다.</p>
+<p><code>IEnergyStorage</code> 는 에너지 저장 공간을 관리하는 캐패빌리티의 규격입니다. 이는 TileEntity, Entity, 또는 ItemStack 에 적용할 수 있습니다. TeamCoFH 의 RedstoneFlux API 를 기반으로 하여 만들어 졌습니다.</p>
+<p>여담으로, 모드 개발자들 사이에선 캐패빌리티 인터페이스를 캐패빌리티 그 자체인것 처럼 표현하기도 합니다, <code>IItemHandler</code> 캐패빌리티라고 하면, <code>IItemHandler</code> 인터페이스를 규격으로 사용하는 캐패빌리티를 말하는 것입니다.</p>
+<h2 id="_3">이미 존재하는 캐패빌리티 사용하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>이미 이전에 말했다싶이, <code>TileEntity</code>, <code>Entity</code>, 그리고 <code>ItemStack</code> 은 캐패빌리티 시스템을 지원합니다. <code>ICapabilityProvider</code> 인터페이스를 구현하는 것으로 캐패빌리티 시스템을 지원할 수 있습니다. 이 인터페이스를 구현하는 객체들은 캐패빌리티 제공자라고 합니다. 이 인터페이스는 <code>#getCapability</code> 메서드를 정의하는데, 이 메서드는 제공자가 가진 캐패빌리티 인터페이스 구현의 인스턴스를 감싸는 <code>LazyOptional</code> 이 반환합니다. 이에 대해서는 아래에서 더 다루도록 하겠습니다.</p>
+<p>한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. 이 인스턴스는 각 캐패빌리티마다 고유합니다. <code>@CapabilityInject</code> 어노테이션을 아래처럼 활용하여 캐패빌리티의 인스턴스를 얻을 수 있습니다, 그러나 포지에서 기본적으로 제공하는 캐패빌리티는 어노테이션을 사용하는 것 이외에도 <code>CapabilityItemHandler#ITEM_HANDLER_CAPABILITY</code> 와 같은 정적 참조를 이용하여 캐패빌리티의 인스턴스를 얻을 수 있도록 합니다.</p>
+<pre class="highlight"><code class="language-Java">//IItemHandler 의 고유한 인스턴스를 얻는 방법중 하나
+@CapabilityInject(IItemHandler.class)
+static Capability&lt;IItemHandler&gt; ITEM_HANDLER_CAPABILITY = null;
+
+static Capability&lt;IItemHandler&gt; STATIC_REFERENCE = CapabilityItemHandler#ITEM_HANDLER_CAPABILITY;
+
+@CapabilityInject(IItemHandler.class)
+static Capability&lt;IItemHandler&gt; A = null;
+
+@CapabilityInject(IItemHandler.class)
+static Capability&lt;IItemHandler&gt; B = null;
+
+//이때 ITEM_HANDLER_CAPABILITY, STATIC_REFERENCE, A, 그리고 B 전부 정확히 동일한 인스턴스를 참조함.</code></pre>
+<p>이 어노테이션은 필드 말고도 메서드에도 적용할 수 있습니다. 필드에 적용할 경우, 캐패빌리티가 등록될때, 해당 필드에 단순히 그 캐패빌리티를 할당하기만 합니다. 만약 해당 캐패빌리티가 모종의 이유로 등록되지 않는다면 원래 존재하던 값 <code>null</code> 로 남아있게 됩니다. 메서드에 이 어노테이션을 적용할 경우, 그 메서드는 해당 캐패빌리티가 등록될 때 실행할 콜백이 됩니다. 이를 응용하여 특정 기능들을 조건적으로 활성화 시킬 수도 있습니다.</p>
+<p>이렇게 얻은 캐패빌리티 인스턴스를 <code>#getCapability</code> 의 인자로 사용하여 TileEntity, Entity, ItemStack 등에 호출하면 <code>LazyOptional&lt;T&gt;</code> 가 반환됩니다. 이때 <code>T</code> 는 캐패빌리티 인터페이스입니다, 캐패빌리티가 필요할 때 마다 <code>#getCapability</code> 를 호출하는 것은 성능 저하를 일으킬 수 있으니, 캐패빌리티에 자주 접근해야 한다면 이 <code>LazyOptional&lt;T&gt;</code> 를 특정 필드에 할당해 저장하는 것도 고려해보아야 합니다. </p>
+<p><code>#getCapability</code> 메서드는 <code>Direction</code> 또한 인자로 받는데, 이는 방향(또는 면)에 따라 다른 캐패빌리티를 사용할 수 있도록 해줍니다. 만약 방향으로 <code>null</code> 이 전달되었다면, 블록 안쪽에서 캐패빌리티를 요청하였거나, 맥락상 방향이 필요가 없어, 방향을 신경쓰지 않는 범용적인 캐패빌리티를 요청하였다고 볼 수 있습니다. 만약 <code>#getCapability</code> 메서드가 요청받은 캐패빌리티를 반환할 수 없다면, 비어있는 <code>LazyOptional</code> 이 대신 반환됩니다, 제공자에 존재하지 않는 캐패빌리티를 요청하는 것이 그 예입니다.</p>
+<h2 id="_4">캐패빌리티 노출하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>캐패빌리티를 노출하기 위해서는 첫번쨰로 캐패빌리티 인터페이스의 구현의 인스턴스가 필요합니다. 하나 알아두셔야 할 점은, 각 구현의 인스턴스들은 각자 다른 데이터를 가질 수 있다는 것입니다, 이를 활용한 예로, 캐패빌리티 인터페이스의 구현의 각기 다른 인스턴스들을 여러 엔티티에  각각 할당하여 각각의 엔티티가 다른 데이터를 가지도록 할 수 있습니다. 캐패빌리티를 이런식으로 활용하는 것은 보편적이며 권장됩니다.</p>
+<p>캐패빌리티 인터페이스의 구현의 인스턴스를 얻는 방법은 두가지가 있는데, <code>Capability</code> 를 통해서 기본 구현의 인스턴스를 얻거나, 또는 직접 그 구현의 인스턴스를 생성하는 것입니다. 전자의 경우는 <code>Capability#getDefaultInstance</code> 를 통해 기본 구현을 얻을 수 있습니다, 캐패빌리티의 기본 값을 사용해도 괜찮은 경우에 사용하세요. <code>IItemHandler</code> 캐패빌리티의 경우, 이 방법으로 기본 구현을 얻을 시 인벤토리가 한칸짜리인 것을 반환하기 때문에 별로 쓸모가 많진 않을겁니다.</p>
+<p>후자의 경우, 기본 구현 이외 다른 구현도 사용할 수 있습니다. <code>IItemHandler</code> 의 기본 구현은 <code>ItemStackhandler</code> 인데, 이 클래스의 생성자는 인벤토리 크기를 지정할 수 있으며, 그 기본값은 1입니다.</p>
+<p>캐패빌리티 인터페이스 구현의 인스턴스를 생성하는 것은 늘 주의를 기울여야 합니다, 존재하지 않는 캐패빌리티 인터페이스 구현의 인스턴스를 생성하려고 하면 문제가 발생합니다, 그러니 그 캐패빌리티가 존재하는지 먼저 확인하셔야만 합니다 (이전 섹션에서 <code>@CapabilityInject</code> 에 대한 부분을 참고하세요).</p>
+<p>이제 캐패빌리티 인터페이스 구현의 인스턴스를 생성하였으니, 캐패빌리티 시스템 사용자들에게 새로운 캐패빌리티를 노출한다고 알리고 <code>LazyOptional</code> 을 통한 참조를 제공해야 합니다. <code>#getCapability</code> 메서드를 오버라이드하고, 인자로 전달받은 캐패빌리티 인스턴스를 노출하고자 하는 캐패빌리티와 비교하세요. 만약 해당 제공자가 방향에 따라 다른 캐패빌리티를 반환해야 한다면 전달받은 <code>side</code> 인자를 사용하실 수 있습니다, 사용 예시로는 방향에 따라 다른 인벤토리 슬롯을 가지는 기계가 있습니다. 엔티티와 아이템 스택의 경우 <code>side</code> 를 무시할 수 있으나, 플레이어 갑옷 (<code>Direction#UP</code> 는 플레이어의 투구 슬롯의 캐패빌리티를 노출함) 등과 같은 용도에 사용하실 수도 있습니다. <code>super</code> 메서드 호출을 하는 것을 잊지 마세요, 그렇지 않으면 이미 부착된 캐패빌리티를 제공할 수 없게 됩니다.</p>
+<p>캐패빌리티는 제공자의 생명주기가 끝나면 무조건 <code>LazyOptional#invalidate</code> 를 호출하여 무효화 하여야만 합니다, 엔티티와 타일 엔티티의 경우 월드에서 제거될 때 <code>#invalidateCaps</code> 를 자동으로 호출하기 때문에, 만약 직접 이들을 구현하고 계신다면 <code>#invalidateCaps</code> 를 오버라이드하여 캐패빌리티를 무효화 시킬 수 있습니다. 그외 다른 제공자들은 캐패빌리티를 무효화시키는 <code>Runnable</code> 을 <code>AttachCapabilitiesEvent#addListener</code> 에 전달해야 합니다.</p>
+<pre class="highlight"><code class="language-java">// 타일 엔티티 자식 클래스 어딘가에 아래 내용을 추가하세요
+LazyOptional&lt;IItemHandler&gt; inventoryHandlerLazyOptional;
+
+// inventoryHandlerSupplier 는 캐패빌리티 인터페이스 구현을 반환하는 Supplier 입니다 (예: () -&gt; inventoryHandler).
+// 개으른 초기화를 하도록 하여 꼭 필요할 때만 초기화 되도록 합니다.
+inventoryHandlerLazyOptional = LazyOptional.of(inventoryHandlerSupplier);
+
+@Override
+public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(Capability&lt;T&gt; cap, Direction side) {
+  // cap 은 캐패빌리티 인스턴스
+  if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+    return inventoryHandlerLazyOptional.cast();
+  }
+  // super 를 호출하지 않으면 부착된 다른 캐패빌리티를 사용할 수 없게 됩니다!!
+  return super.getCapability(cap, side);
+}
+
+@Override
+public void invalidateCaps() {
+  super.invalidateCaps();
+  inventoryHandlerLazyOptional.invalidate();
+}</code></pre>
+<p><code>Item</code> 들은 조금 특이하게 다루어야 하는데, 캐패빌리티 제공자들을 <code>Item</code> 이 아니라 <code>ItemStack</code> 에 부착하기 때문입니다. 그렇기 때문에 <code>Item#initCapabilities</code> 에서 새로운 제공자들을 부착하여야 합니다. 이때 부착된 캐패빌리티들은 그 아이템 스택의 생명주기가 끝나면 무효화 됩니다. </p>
+<p>캐패빌리티 요청은 매 틱마다, 수십번씩 발생할 수 있으니, 캐패빌리티 제공자는 매우 빨라야만 합니다, 그렇지 않으면 게임의 전반적인 성능을 저해할 수 있습니다. 그렇기 때문에 외부 자료구조 등을 사용하는 것은 권장되지 않습니다.</p>
+<h2 id="_5">캐패빌리티 부착하기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>이미 이전에 언급했듯이, 캐패빌리티를 이미 존재하는 <code>World</code> 나 <code>Chunk</code> 와 같은 제공자에 부착하는 것은 <code>AttachCapabilitiesEvent</code> 를 통해 이루어집니다. 이 이벤트는 모든 캐패빌리티 제공자에 사용됩니다. <code>AttachCapabilitiesEvent</code> 는 5개의 제너릭 타입이 있는데, 이는 다음과 같습니다:</p>
+<ul>
+<li><code>AttachCapabilitiesEvent&lt;Entity&gt;</code>: 엔티티에만 방송됨.</li>
+<li><code>AttachCapabilitiesEvent&lt;TileEntity&gt;</code>: 타일 엔티티에만 방송됨.</li>
+<li><code>AttachCapabilitiesEvent&lt;ItemStack&gt;</code>: 아이템 스택에만 방송됨.</li>
+<li><code>AttachCapabilitiesEvent&lt;World&gt;</code>: 월드에만 방송됨.</li>
+<li><code>AttachCapabilitiesEvent&lt;Chunk&gt;</code>: 청크에만 방송됨.</li>
+</ul>
+<p>이 제너릭 타입들은 위에 지정된 타입들보다 더 구체적일 수는 없습니다, 예를 들어, <code>PlayerEntity</code> 에다가 캐패빌리티를 부착시키고 싶다면 <code>AttachCapabilitiesEvent&lt;Event&gt;</code> 이벤트를 구독한 이후, 전달된 제공자 객체가 <code>PlayerEntity</code> 인지 확인하여야 합니다.</p>
+<p>이 이벤트는 <code>#addCapability</code> 메서드가 있는데, 이 이벤트는 대상 제공자 객체에다가 새로운 캐패빌리티를 부착하는데 사용할 수 있습니다. 리스트에 캐패빌리티 그 자체를 추가하기 보다는 캐패빌리티 제공자를 추가합니다, 즉 이미 존재하는 제공자에다가 또 다른 제공자를 추가하는 것이지요. 이때, 추가되는 제공자들은 보편적으로 익명클래스입니다. 또한, 추가되는 제공자들은 방향에 따라 다른 캐패빌리티를 반환할 수도 있습니다. 캐패빌리티 제공자는 <code>ICapabilityProvider</code> 만 구현하면 되지만, 만약 캐패빌리티의 데이터가 유지되어야 할 경우, <code>ICapabilitySerializable&lt;T extends INBT&gt;</code> 를 대신 구현할 수도 있습니다, 이 인터페이스는 캐패빌리티를 제공하는 메서드 뿐만 아니라 NBT를 저장하고 불러오는 메서드 또한  가지고 있습니다.</p>
+<p><code>ICapabilityProvider</code> 구현에 관해서는 <a href="#캐패빌리티-노출하기">캐패빌리티 노출시키기</a> 섹션을 참고하세요.</p>
+<h2 id="_6">캐패빌리티 직접 만들기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
+<p>일반적으로, 캐패빌리티는 <code>CapabilityManager.INSTANCE.register(...)</code> 를 <code>FMLCommenSetupEvent</code> 도중 호출하여 등록합니다, 따로 클래스를 하나 만들어서 캐패빌리티와 관련 모든 코드를 그곳에 작성하는 것도 방법이긴 하나 선택사항입니다. 이 문서에서는 익명 클래스가 아닌 이름이 있는 클래스를 사용하도록 할 것이나, 익명 클래스를 사용하셔도 아무런 문제가 없습니다.</p>
+<pre class="highlight"><code class="language-java">public void onCommonSet(FMLCommonSetupEvent event) {
+    CapabilityManager.INSTANCE.register(&lt;캐패빌리티 인터페이스의 클래스&gt;, &lt;데이터 핸들러&gt;, &lt;기본 구현 Factory&gt;);
+}</code></pre>
+<p>이 메서드의 첫번째 인자는 캐패빌리티 인터페이스입니다, 캐패빌리티의 기능을 설명하는데 사용됩니다. 이 예시에서는 이 인터페이스를 <code>IExampleCapability.class</code> 라고 하겠습니다.</p>
+<p>두번째 인자는 <code>Capability$IStorage&lt;T&gt;</code> 를 구현하는 클래스 입니다, 이때 T는 첫번째 인자로 사용한 인터페이스 입니다. 이 클래스는 데이터 핸들러이며, 이 데이터 핸들러는 캐패빌리티 인터페이스 기본 구현의 데이터를 저장하고 불러오는 일을 할 것입니다. 데이터 핸들러는 기본 구현 이외의 구현들또한 지원할 수 있습니다. 이 클래스는 단순히 도우미 클래스 입니다, <code>ICapabilitySerializable</code> 에 의해 이 클래스의 메서드가 호출 되어어야지만 데이터를 읽거나 씁니다.</p>
+<pre class="highlight"><code class="language-java">private static class Storage
+    implements Capability.IStorage&lt;IExampleCapability&gt; {
+
+  @Override
+  public INBT writeNBT(Capability&lt;IExampleCapability&gt; capability, IExampleCapability instance, Direction side) {
+    // NBT 태그 반환
+  }
+
+  @Override
+  public void readNBT(Capability&lt;IExampleCapability&gt; capability, IExampleCapability instance, Direction side, INBT nbt) {
+    // NBT 태그로부터 읽어들임
+  }
+}</code></pre>
+<p>마짐가 인자는 기본 구현의 새로운 인스턴스를 생성하고 반환하는 factory 입니다.</p>
+<pre class="highlight"><code class="language-java">private static class Factory implements Callable&lt;IExampleCapability&gt; {
+
+  @Override
+  public IExampleCapability call() throws Exception {
+    return new Implementation();
+  }
+}</code></pre>
+<p>마지막으로 기본 구현을 만들어야 합니다, 그래야 방금 만든 Factory 에서 인스턴스를 생성할 수 있겠지요. 이 경우에는 기본 구현이 <code>Implementation</code> 이라는 클래스 입니다. 기본 구현을 디자인하는 것은 독자분에게 달려 있으나, 만약 기본 구현이 그렇게 쓸만하진 않다면 최소한 다른 사람들이 캐패빌리티를 테스트할 때 쓸 수 있도록 기본적인 뼈대는 잡아두셔야 합니다.</p>
+<h2 id="_7">청크와 타일 엔티티 캐패빌리티 데이터 유지시키지<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
+<p>월드, 엔티티, 아이템 스택과 다르게, 청크와 타일 엔티티들은 그 데이터가 수정되었다고 표기되었을 경우에만 디스크에 써집니다. 그렇기 때문에 청크 또는 타일 엔티티에 사용할 캐패빌리티의 데이터를 올바르게 유지시키지 위해서는 캐패빌리티의 데이터가 변경되었을 때 해당 객체의 데이터가 수정되었다고 표기하여야만 합니다.</p>
+<p>타일 엔티티에 인벤토리를 추가하는 <code>ItemStackHandler</code> 는 오버라이드할 수 있는 메서드인 <code>void onContentsChanged(int slot)</code> 이라는 메서드를 가지고 있습니다. 이 메서드는 타일 엔티티의 데이터가 수정되었다고 표기하기 위해 사용됩니다.</p>
+<pre class="highlight"><code class="language-java">public class MyTileEntity extends TileEntity {
+
+  private final IItemHandler inventory = new ItemStackHandler(...) {
+    @Override
+    protected void onContentsChanged(int slot) {
+      super.onContentsChanged(slot);
+      setChanged();
+    }
+  }
+
+  ...
+}</code></pre>
+<h2 id="_8">클라이언트와 데이터 동기화 하기<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
+<p>기본적으로, 캐패빌리티의 데이터는 클라이언트에게 전송되지 않습니다. 그렇기 때문에 모드들은 스스로 패킷을 사용해서 데이터를 직접 동기화 하여야 합니다.</p>
+<p>데이터를 동기화해야 하는 상황은 크게 아래 3가지가 있습니다, 이러한 상황들을 처리하는 것은 선택사항입니다.</p>
+<ol>
+<li>엔티티가 월드에 스폰될때나, 블록이 설치되는 경우. 이럴땐 클라이언트들에 초기 값을 보내볼 수 있습니다.</li>
+<li>저장된 데이터가 수정되는 경우, 이경우 데이터를 주시하고 있는 클라이언트들에 데이터를 보내볼 수 있습니다.</li>
+<li>클라이언트가 특정 엔티티나 블록을 처다보기 시작할 때, 이 경우 이미 존재하는 데이터를 보내볼 수 있습니다.</li>
+</ol>
+<p><a href="../../networking/">네트워킹</a>를 참고하여 네트워크 패킷을 구현하는 방법에 대해 자세히 알아보세요.
+Refer to the <a href="../../networking/">Networking</a> page for more information on implementing network packets.</p>
+<h2 id="_9">플레이어가 죽어도 데이터 유지시키기<a class="headerlink" href="#_9" title="Permanent link"> </a></h2>
+<p>기본적으로, 캐패빌리티의 데이터는 사망하면 다 사라집니다. 그렇기 때문에 플레이어가 사망시 캐패빌리티의 데이터를 리스폰 과정에서 수동으로 복사하여야만 합니다. </p>
+<p><code>PlayerEvent$Clone</code> 의 이벤트를 구독하여 이를 구현할 수 있는데, 죽기 전 플레이어 엔티티로 부터 데이터를 읽어 와 새로운 플레이어 엔티티에 데이터를 작성하는 것입니다. 이 이벤트는 <code>wasDead</code> 라는 필드를 제공하여, 플레이어가 진짜 죽은 것인지, 아니면 엔드에서 돌아오는 것인지 구분할 수 있도록 해줍니다. 이 필드가 중요한 이유는, 엔드에서 돌아올 때는 데이터가 그대로 남아있기 때문에 중복을 방지해야 하기 때문입니다.</p>
+<h2 id="iextendedentityproperties">IExtendedEntityProperties 로 부터 이전하기<a class="headerlink" href="#iextendedentityproperties" title="Permanent link"> </a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>이부분은 번역가가 익숙하지 않은 부분이라 번역이 완전하지 않을 수 있습니다, IEEP 를 캐패빌리티로 업그레이드해야 할 필요가 없다면 넘어가셔도 됩니다!</p>
+</div>
+<p>캐패빌리티 시스템은 이미 IEEP 보다 모든 방면에서 우월하지만, 이 두 시스템은 1대1로 대응되진 않습니다, 이 섹션에서는 IEEP 를 캐패빌리티로 바꾸는 방법에 대해 다루겠습니다.</p>
+<p>아래는 IEEP와 캐패빌리티에서 동일한 개념들입니다:</p>
+<ul>
+<li>속성 이름/아이디 (<code>String</code>): 캐패빌리티 키 (<code>ResourceLocation</code>)</li>
+<li>등록 (<code>EntityConstructing</code>): 부착 (<code>AttachCapabilitiesEvent&lt;Entity&gt;</code>), 캐패빌리티는 <code>FMLCommonSetupEvent</code> 이벤트 도중 등록합니다.</li>
+<li>NBT 읽기/쓰기 메서드: 데이터 읽기/쓰기는 자동으로 일어나지 않습니다. <code>ICapabilitySerializable</code> 를 <code>AttachCapabilitiesEvent&lt;T&gt;</code> 에서 부착시키고, <code>serializeNBT</code>/<code>deserializeNBT</code> 에서 <code>IStorage</code> 의 <code>writeNBT</code>/<code>readNBT</code> 를 호출하세요.</li>
+</ul>
+<p>(IEEP 를 모드 내부에서만 사용하였다면) 크게 필요하지 않을만한 기능들:</p>
+<ul>
+<li>캐패빌리티 시스템은 기본 구현이라는 개념을 통해, 제 3자가 독자분이 만든 캐패빌리티를 사용하기 편하도록 간편화 합니다. 하지만 모드 내부에서만 사용할 캐패빌리티의 경우 기본 구현이 크게 필요가 없기 때문에 <code>Factory</code> 에서 <code>null</code> 을 반환하셔도 됩니다.</li>
+<li>캐패빌리티의 <code>IStorage</code> 를 통해 기본 구현의 데이터를 읽거나 쓰는 도우미 클래스를 구현하는 것.</li>
+</ul>
+<p>아래 단계들은 이미 독자분이 이 문서 전체를 읽었고 캐패빌리티 시스템을 이해한다는 가정하에 작성되었습니다.</p>
+<p>IEEP 를 캐패빌리티로 변환하는법:</p>
+<ol>
+<li>IEEP의 키/아이디 문자열을 <code>ResourceLocation</code> 으로 바꾸세요. (modid 를 네임 스페이스로 사용하세요).</li>
+<li>데이터 핸들러에 캐패빌리티의 인스턴스를 참조하는 필드를 만드세요.</li>
+<li><code>EntityConstructing</code> 이벤트를 <code>AttachCapabilityEvent</code> 로 바꾸세요, 그리고 IEEP 를 바로 등록하는 대신 <code>ICapabilityProvider</code> 를 부착하세요(데이터를 디스크에 저장할 필요가 있다면 <code>ICapabilitySerializable</code> 을 대신 부착하세요).</li>
+<li>IEEP를 사용하셨다면, 아마 이벤트 핸들러를 등록하는 <code>register()</code> 라는 메서드를 IEEP 에 정의해 두셨을 텐데, 없다면 하나 만드세요. 이 메서드에서는 캐패빌리티를 등록하는 메서드를 호출하세요 (그리고 다시 한번 말씀들이지만, 이 메서드를 <code>FMLCommonSetupEvent</code> 도중 호출하는 것을 잊지 마세요).</li>
+</ol>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

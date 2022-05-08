@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SimpleImpl - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#simpleimpl" class="elem-text">SimpleImpl</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#_1">시작하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_2">버전 확인</a></li>
+        
+        <li class="toc-subitem"><a href="#_3">패킷 등록하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_4">패킷 핸들링 하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_5">패킷 보내기</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="simpleimpl">SimpleImpl<a class="headerlink" href="#simpleimpl" title="Permanent link"> </a></h1>
+<p>SimpleImpl 은 <code>SimpleChannel</code> 을 사용하는 패킷 통신 시스템에 주어진 이름입니다. 이 시스템을 사용하는 것은 가장 쉽게 서버와 클라이언트간 통신을 구현할 수 있는 방법입니다.</p>
+<h2 id="_1">시작하기<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
+<p>가장 첫번째로 <code>SimpleChannel</code> 객체를 만들어야 합니다. 이는 <code>ModidPacketHandler</code> 처럼 따로 클래스를 만든 이후 거기서 하시는 것을 추천드립니다. 이때 만드시는 <code>SimpleChannel</code> 객체는 다음처럼 정적 필드로 만드세요:</p>
+<pre class="highlight"><code class="language-java">private static final String PROTOCOL_VERSION = "1";
+public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
+    new ResourceLocation("mymodid", "main"),
+    () -&gt; PROTOCOL_VERSION,
+    PROTOCOL_VERSION::equals,
+    PROTOCOL_VERSION::equals
+);</code></pre>
+<p>첫번째 인자는 채널의 이름입니다. 두번째 인자는 현재 프로토콜 버전을 반환하는 <code>Supplier&lt;String&gt;</code> 입니다. 세번째 인자는 연결을 시도하는 측의 프로토콜 버전이 클라이언트와 호환되는지 확인하는 <code>Predicate&lt;String&gt;</code>, 네번째 인자는 연결을 시도하는 측의 프로토콜 버전이 서버와 호환되는지 확인하는 <code>Predicate&lt;String&gt;</code> 입니다.
+이 예제에서는 단순하게 접속하는 측의 프로토콜 버전이 <code>PROTOCOL_VERSION</code> 과 동일한지 바로 비교합니다, 즉 이 경우에서는 서버와 클라이언트의 <code>PROTOCOL_VERSION</code> 이 일치해야만 FML 이 로그인을 허용해 줍니다.</p>
+<h2 id="_2">버전 확인<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>만약 모드에서 만든 네트워크 채널이 반대쪽에 없어도 된다면, 또는 아예 포지가 없어도 된다면 버전 확인자들 (<code>Predicate&lt;String&gt;</code> 파라미터들)을 적절하게 정의하여 추가적인 &ldquo;메타-버전&rdquo; 들 또한 처리하도록 만들어야 합니다 (메타 버전들은 <code>NetworkRegistry</code> 에 정의되어 있습니다, 아래 나와있는 것은 String 이 아니고 필드 이름입니다). 이 버전들의 종류와 의미는 다음과 같습니다:</p>
+<ul>
+<li><code>ABSENT</code> - 채널이 반대쪽에 없는 경우, 이때 반대쪽은 포지가 설치되어 있으며 다른 모드가 있을 수 있습니다.</li>
+<li><code>ACCEPTVANILLA</code> - 반대쪽이 바닐라거나 포지가 없는 경우.</li>
+</ul>
+<p>위 두 필드들은 반대쪽에 채널이 아예 없어 버전 확인자에서 비교할 프로토콜 버전이 없는 경우 대신 사용됩니다. 이 두 경우에 다 <code>false</code> 를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.</p>
+<h2 id="_3">패킷 등록하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>그 다음으로 주고 받을 메세지들을 정의해야 합니다. 이는 <code>INSTANCE#registerMessage</code> 를 이용해 할 수 있는데, 이 메서드는 5개의 인자를 받습니다:</p>
+<ul>
+<li>첫번째 인자는 패킷을 판별할 때 사용할 판별자 입니다. ID 라고 부르기도 합니다. 이 판별자는 같은 채널에서는 고유하여야 합니다, 다른 채널끼리는 판별자가 같아도 문제가 발생하지 않습니다. 판별자로는 어떤 값을 사용하셔도 고유하기만 한다면 상관 없으니 지역 변수를 사용하여 메세지 하나 등록할 때 마다 <code>id++</code> 를 하여 늘 고유한 값이 나오도록 하세요.</li>
+<li>두번째 인자는 패킷 클래스 <code>MSG</code> 입니다.</li>
+<li>세번째 인자는 <code>BiConsumer&lt;MSG, PacketBuffer&gt;</code> 입니다, 패킷 클래스를 <code>PacketBuffer</code> 에 작성하는 역할을 합니다.</li>
+<li>네번째 인자는 <code>Function&lt;PacketBuffer, MSG&gt;</code> 입니다, <code>PacketBuffer</code> 로 부터 패킷 클래스를 읽어들이는 역할을 합니다.</li>
+<li>마지막 인자는 <code>BiConsumer&lt;MSG, Supplier&lt;NetworkEvent.Context&gt;&gt;</code> 입니다, 패킷을 받을시 사용할 핸들러 입니다.</li>
+</ul>
+<p>뒤 3개의 인자들은 정적 또는 인스턴스 메서드의 레퍼런스를 사용하여도 됩니다. 기억해두셔야 할 점은 <code>MSG#encode(PacketBuffer)</code> 인스턴스 메서드는 <code>BiConsumer&lt;MSG, PacketBuffer&gt;</code> 로 사용하실 수 있다는 것입니다; <code>MSG</code> 의 인스턴스는 암묵적으로 <code>BiConsumer</code>의 첫번째 인자로 사용됩니다.</p>
+<h2 id="_4">패킷 핸들링 하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>패킷 핸들러에는 몇가지 강조할 사항이 있습니다: 패킷 핸들러는 메세지 클래스 뿐만 아니라, 네트워크 콘텍스트도 같이 반습니다. 이 콘텍스트를 사용해서, (서버에서 패킷을 받았다면) 패킷을 보낸 플레이어에 접근할 수 있고 스레드 안전성을 준수해야만 하는 작업들을 요청할 수 있습니다.</p>
+<pre class="highlight"><code class="language-java">public static void handle(MyMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
+    ctx.get().enqueueWork(() -&gt; {
+        // 스레드 안전성을 준수해야 하는 작업들 (대부분의 작업들이 이에 포함될 것입니다)
+        ServerPlayerEntity sender = ctx.get().getSender(); // the client that sent this packet
+        // 무언가 아무거나 더 하기
+    });
+    ctx.get().setPacketHandled(true);
+}</code></pre>
+<p>서버에서 클라이언트로 보낸 패킷은 아예 다른 클래스에서 핸들링 해야 하며, <code>DistExecutor#unsafeRunWhenOn</code> 와 같은 방법을 사용해 물리 클라이언트에서만 실행되도록 하여야 합니다.</p>
+<pre class="highlight"><code class="language-java">// In Packet class
+public static void handle(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
+    ctx.get().enqueueWork(() -&gt;
+        // 확실하게 물리 클라이언트에서만 실행되도록 합니다.
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -&gt; () -&gt; ClientPacketHandlerClass.handlePacket(msg, ctx))
+    );
+    ctx.get().setPacketHandled(true);
+}
+
+// ClientPacketHandlerClass 내용
+public static void handlePacket(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
+    // 무언가 하기
+}</code></pre>
+<p><code>#setPacketHandled</code> 를 여러번 사용하는 것을 보셨을텐데, 이는 네트워크 시스템에게 패킷이 성공적으로 처리되었음을 알리는 것입니다.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>마인크래프트 1.8 이후로는 패킷은 네트워크 스레드에서 처리됩니다.</p>
+<p>즉 패킷 핸들러는 게임과 직접적으로 상호작용할 수 <em>없습니다</em>.
+포지에서는 <code>NetworkEvent$Context</code> 를 통해 간단하게 코드를 메인 스레드에서 실행하는 방법을 제공합니다.
+이는 단순하게 <code>NetworkEvent$Context#enqueueWork(Runnable)</code> 을 호출하는 것인데, 메인 스레드는 이때 전달된  <code>Runnable</code> 을 빠른 시일내에 실행합니다.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>서버에서 클라이언트에서 보낸 패킷을 처리하는 패킷 핸들러를 만들 때 주의하도록 하세요, 클라이언트가 서버에서 예기치 못한 데이터를 보내 취약점을 악용할 수 있습니다.</p>
+<p>가장 흔한 사례는 <strong>무작위 청크 생성</strong> 입니다. 서버가 클라이언트에서 보낸 블록의 위치를 그대로 믿고 이를 이용해 블록/타일 엔티티에 접근하려고 할 때 문제가 발생할 수 있는데, 만약 아직 청크가 메모리 상에 존재하지 않는 곳에 접근하려고 하면 서버에서는 디스크에서 불러오거나 새로 청크를 생성합니다. 이는 <strong>심각한</strong> 보안 취약점중 하나로, 서버 성능과 디스크 용량에 흔적도 남기지 않고 <strong>매우 큰</strong> 피해를 끼칠 수 있습니다.</p>
+<p>이러한 공격을 막기 위해 일반적으로 많이 사용하는 방법은 <code>World#hasChunkAt</code> 이 참인 곳만의 블록/타일 엔티티에 접근하는 것입니다. 이를 통해 메모리상에 존재하지 않는 청크에 접근하는 것을 막을 수 있습니다.</p>
+</div>
+<h2 id="_5">패킷 보내기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<h3 id="_6">서버에 보내기<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
+<p>서버로 패킷을 보내는 방법은 하나밖에 없습니다. 왜냐하면 클라이언트는 한번에 <em>하나의</em> 서버에만 접속할 수 있기 때문입니다. 패킷을 보내기 위해서는 이전에 정의한 <code>SimpleChannel</code> 을 다시 사용할 것인데, 단순히 <code>INSTANCE.sendToServer(new MyMessage())</code> 를 호출하세요. 이 메세지는 패킷에 알맞는 핸들러로 (만약 있다면)보내집니다.</p>
+<h3 id="_7">클라이언트(들)에 보내기<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
+<p>패킷을 <code>SimpleChannel</code> 을 사용해 직접적으로 클라이언트에 전송할 수 있습니다:</p>
+<p><code>INSTANCE.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)</code>. 그러나 이 방식은 사용하기 불편할 수 있는데, 포지에서는 조금 더 쉽게 패킷을 보내주는 함수들을 제공합니다:</p>
+<pre class="highlight"><code class="language-java">// 플레이어 한명에게 보내기
+INSTANCE.send(PacketDistributor.PLAYER.with(serverPlayer), new MyMessage());
+
+// 이 청크를 추적하고 있는 모든 플레이어에게 보내기
+INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(chunk), new MyMessage());
+
+// 모든 플레이어에게 보내기
+INSTANCE.send(PacketDistributor.ALL.noArg(), new MyMessage());</code></pre>
+<p><code>PacketDistributor</code> 는 위에 나온 것 말고도 더 많은 종류가 있습니다; <code>PacketDistributor</code> 클래스의 문서를 통해 더 자세히 알아보실 수 있습니다.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

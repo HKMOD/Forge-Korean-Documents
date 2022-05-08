@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>소리 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#sounds" class="elem-text">소리</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#terminology">Terminology</a></li>
+        
+        <li class="toc-subitem"><a href="#soundsjson">sounds.json</a></li>
+        
+        <li class="toc-subitem"><a href="#creating-sound-events">Creating Sound Events</a></li>
+        
+        <li class="toc-subitem"><a href="#playing-sounds">Playing Sounds</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="sounds">Sounds<a class="headerlink" href="#sounds" title="Permanent link"> </a></h1>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link"> </a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sound Events</td>
+<td>Something that triggers a sound effect. Examples include <code>minecraft:block.anvil.hit</code> or <code>botania:spreader_fire</code>.</td>
+</tr>
+<tr>
+<td>Sound Category</td>
+<td>The category of the sound, for example <code>player</code>, <code>block</code> or simply <code>master</code>. The sliders in the sound settings GUI represent these categories.</td>
+</tr>
+<tr>
+<td>Sound File</td>
+<td>The literal file on disk that is played: an .ogg file.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="soundsjson"><code>sounds.json</code><a class="headerlink" href="#soundsjson" title="Permanent link"> </a></h2>
+<p>This JSON defines sound events, and defines which sound files they play, the subtitle, etc. Sound events are identified with <a href="../../concepts/resources/#resourcelocation"><code>ResourceLocation</code></a>s. <code>sounds.json</code> should be located at the root of a resource namespace (<code>assets/&lt;namespace&gt;/sounds.json</code>), and it defines sound events in that namespace (<code>assets/&lt;namespace&gt;/sounds.json</code> defines sound events in the namespace <code>namespace</code>.).</p>
+<p>A full specification is available on the vanilla <a href="https://minecraft.gamepedia.com/Sounds.json">wiki</a>, but this example highlights the important parts:</p>
+<pre class="highlight"><code class="language-json">{
+  "open_chest": {
+    "subtitle": "mymod.subtitle.open_chest",
+    "sounds": [ "mymod:open_chest_sound_file" ]
+  },
+  "epic_music": {
+    "sounds": [
+      {
+        "name": "mymod:music/epic_music",
+        "stream": true
+      }
+    ]
+  }
+}</code></pre>
+<p>Underneath the top-level object, each key corresponds to a sound event. Note that the namespace is not given, as it is taken from the namespace of the JSON itself. Each event specifies a localization key to be shown when subtitles are enabled. Finally, the actual sound files to be played are specified. Note that the value is an array; if multiple sound files are specified, the game will randomly choose one to play whenever the sound event is triggered.</p>
+<p>The two examples represent two different ways to specify a sound file. The <a href="https://minecraft.gamepedia.com/Sounds.json">wiki</a> has precise details, but generally, long sound files such as background music or music discs should use the second form, because the &ldquo;stream&rdquo; argument tells Minecraft to not load the entire sound file into memory but to stream it from disk. The second form can also specify the volume, pitch, and weight of a sound file.</p>
+<p>In all cases, the path to a sound file for namespace <code>namespace</code> and path <code>path</code> is <code>assets/&lt;namespace&gt;/sounds/&lt;path&gt;.ogg</code>. Therefore <code>mymod:open_chest_sound_file</code> points to <code>assets/mymod/sounds/open_chest_sound_file.ogg</code>, and <code>mymod:music/epic_music</code> points to <code>assets/mymod/sounds/music/epic_music.ogg</code>.</p>
+<h2 id="creating-sound-events">Creating Sound Events<a class="headerlink" href="#creating-sound-events" title="Permanent link"> </a></h2>
+<p>In order to actually be able to play sounds, a <code>SoundEvent</code> corresponding to an entry in <code>sounds.json</code> must be created. This <code>SoundEvent</code> must then be <a href="../../concepts/registries/#methods-for-registering">registered</a>. Normally, the location used to create a sound event should be set as it&rsquo;s registry name.</p>
+<p>The <code>SoundEvent</code> acts as a reference to the sound and is passed around to play them. If a mod has an API, it should expose its <code>SoundEvent</code>s in the API.</p>
+<h2 id="playing-sounds">Playing Sounds<a class="headerlink" href="#playing-sounds" title="Permanent link"> </a></h2>
+<p>Vanilla has lots of methods for playing sounds, and it is unclear which to use at times.</p>
+<p>Note that each takes a <code>SoundEvent</code>, the ones registered above. Additionally, the terms <em>&ldquo;Server Behavior&rdquo;</em> and <em>&ldquo;Client Behavior&rdquo;</em> refer to the respective <a href="../../concepts/sides/"><strong>logical</strong> side</a>.</p>
+<h3 id="world"><code>World</code><a class="headerlink" href="#world" title="Permanent link"> </a></h3>
+<ol>
+<li>
+<p><a name="world-playsound-pbecvp"></a> <code>playSound(PlayerEntity, BlockPos, SoundEvent, SoundCategory, volume, pitch)</code></p>
+<ul>
+<li>Simply forwards to <a href="#world-playsound-pxyzecvp">overload (2)</a>, adding 0.5 to each coordinate of the <code>BlockPos</code> given.</li>
+</ul>
+</li>
+<li>
+<p><a name="world-playsound-pxyzecvp"></a> <code>playSound(PlayerEntity, double x, double y, double z, SoundEvent, SoundCategory, volume, pitch)</code></p>
+<ul>
+<li><strong>Client Behavior</strong>: If the passed in player is <em>the</em> client player, plays the sound event to the client player.</li>
+<li><strong>Server Behavior</strong>: Plays the sound event to everyone nearby <strong>except</strong> the passed in player. Player can be <code>null</code>.</li>
+<li><strong>Usage</strong>: The correspondence between the behaviors implies that these two methods are to be called from some player-initiated code that will be run on both logical sides at the same time: the logical client handles playing it to the user, and the logical server handles everyone else hearing it without re-playing it to the original user.
+   They can also be used to play any sound in general at any position server-side by calling it on the logical server and passing in a <code>null</code> player, thus letting everyone hear it.</li>
+</ul>
+</li>
+<li>
+<p><a name="world-playsound-xyzecvpd"></a> <code>playLocalSound(double x, double y, double z, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code></p>
+<ul>
+<li><strong>Client Behavior</strong>: Just plays the sound event in the client world. If <code>distanceDelay</code> is <code>true</code>, then delays the sound based on how far it is from the player.</li>
+<li><strong>Server Behavior</strong>: Does nothing.</li>
+<li><strong>Usage</strong>: This method only works client-side, and thus is useful for sounds sent in custom packets, or other client-only effect-type sounds. Used for thunder.</li>
+</ul>
+</li>
+</ol>
+<h3 id="clientworld"><code>ClientWorld</code><a class="headerlink" href="#clientworld" title="Permanent link"> </a></h3>
+<ol>
+<li><a name="clientworld-playsound-becvpd"></a> <code>playLocalSound(BlockPos, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code><ul>
+<li>Simply forwards to <code>World</code>&lsquo;s <a href="#world-playsound-xyzecvpd">overload (3)</a>, adding 0.5 to each coordinate of the <code>BlockPos</code> given.</li>
+</ul>
+</li>
+</ol>
+<h3 id="entity"><code>Entity</code><a class="headerlink" href="#entity" title="Permanent link"> </a></h3>
+<ol>
+<li><a name="entity-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code><ul>
+<li>Forwards to <code>World</code>&lsquo;s <a href="#world-playsound-pxyzecvp">overload (2)</a>, passing in <code>null</code> as the player.</li>
+<li><strong>Client Behavior</strong>: Does nothing.</li>
+<li><strong>Server Behavior</strong>: Plays the sound event to everyone at this entity&rsquo;s position.</li>
+<li><strong>Usage</strong>: Emitting any sound from any non-player entity server-side.</li>
+</ul>
+</li>
+</ol>
+<h3 id="playerentity"><code>PlayerEntity</code><a class="headerlink" href="#playerentity" title="Permanent link"> </a></h3>
+<ol>
+<li><a name="playerentity-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#entity-playsound-evp"><code>Entity</code></a>)<ul>
+<li>Forwards to <code>World</code>&lsquo;s <a href="#world-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.</li>
+<li><strong>Client Behavior</strong>: Does nothing, see override in <a href="#clientplayerentity-playsound-evp"><code>ClientPlayerEntity</code></a>.</li>
+<li><strong>Server Behavior</strong>: Plays the sound to everyone nearby <em>except</em> this player.</li>
+<li><strong>Usage</strong>: See <a href="#clientplayerentity-playsound-evp"><code>ClientPlayerEntity</code></a>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="clientplayerentity"><code>ClientPlayerEntity</code><a class="headerlink" href="#clientplayerentity" title="Permanent link"> </a></h3>
+<ol>
+<li><a name="clientplayerentity-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#playerentity-playsound-evp"><code>PlayerEntity</code></a>)<ul>
+<li>Forwards to <code>World</code>&lsquo;s <a href="#world-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.</li>
+<li><strong>Client Behavior</strong>: Just plays the Sound Event.</li>
+<li><strong>Server Behavior</strong>: Method is client-only.</li>
+<li><strong>Usage</strong>: Just like the ones in <code>World</code>, these two overrides in the player classes seem to be for code that runs together on both sides. The client handles playing the sound to the user, while the server handles everyone else hearing it without re-playing to the original user.</li>
+</ul>
+</li>
+</ol>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>레지스트리 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#_1" class="elem-text">레지스트리</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#_2">객체 등록하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_4">등록된 객체 참조하기</a></li>
+        
+        <li class="toc-subitem"><a href="#_5">커스텀 포지 레지스트리 만들기</a></li>
+        
+        <li class="toc-subitem"><a href="#_6">누락된 항목 처리하기</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="_1">레지스트리<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>레지스트리 등록은 모드에서 추가하는 객체를 게임이 사용할 수 있도록 하는 과정입니다. 객체를 등록하는 것은 매우 중요한데, 만약 객체를 등록하지 않는다면 게임은 이 객체들의 존재를 알지 못하며 예기치 못한 동작을 하거나 튕길 수 있습니다.</p>
+<p>대부분 등록되어야 하는 객체들은 포지 레지스트리에서 관리합니다. 레지스트리는 Map<K, V>와 비슷한 객체입니다. 포지는 <a href="../resources/#resourcelocation">리소스 위치</a>를 Key로 사용하는 레지스트리를 사용하여 객체들을 등록합니다. 이를 통해 <code>ResourceLocation</code>을 객체의 레지스트리 이름처럼 사용할 수 있습니다. 객체의 레지스트리 이름은 <code>#getRegistryName</code>/<code>#setRegistryName</code>를 통해 접근할 수 있습니다. 이때 <code>#setRegistryName</code>은 오직 한번만 호출될 수 있습니다; 두번 호출할 시 예외가 발생하니 하지 마세요.</p>
+<p>모든 등록될 수 있는 객체들은 알맞는 레지스트리가 존재합니다. 포지에서 지원하는 모든 레지스트리를 보려면 <code>ForgeRegistries</code> 클래스를 참조하세요. 레지스트리에 등록된 모든 객체들의 레지스트리 이름은 무조건 고유해야 합니다. 그러나 서로 다른 레지스트리에 있는 객체들은 같은 이름을 가지고 있어도 됩니다. 예를 들어, <code>Block</code> 레지스트리와 <code>Item</code> 레지스트리는 각각 <code>example:thing</code> 이라는 레지스트리 이름을 가진 객체를 가지고 있어도 이름이 겹치는 문제가 발생하지 않습니다. 그러나 <code>Block</code> 2개, 또는 <code>Item</code> 2개가 같은 레지스트리 이름으로 등록될 경우, 두번째로 등록된 것이 첫번째로 등록된 것을 덮어씌울 것입니다.</p>
+<h2 id="_2">객체 등록하기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>객체를 올바르게 등록하는 방법에는 2가지가 있는데, <code>DeferredRegister</code> 클래스와 <code>RegistryEvent$Register</code> 생명주기 이벤트 입니다.</p>
+<h3 id="deferredregister">DeferredRegister<a class="headerlink" href="#deferredregister" title="Permanent link"> </a></h3>
+<p><code>DeferredRegister</code> 는 객체를 등록하는 새로운, 그리고 문서화된 방식입니다. 이는 간단하게 정적 초기화를 사용할 수 있게 해줍니다.</p>
+<p><code>DeferredRegister</code> 는 레지스트리에 등록시킬 객체들을 공급하는 공급자들을 리스트에 저장하고, 알맞은 <code>RegistryEvent$Regiser</code> 이벤트 도중에 등록합니다. </p>
+<p>모드에서 블록을 등록하는 예시입니다:</p>
+<pre class="highlight"><code class="language-java">//블록들을 등록하는 DeferredRegister 인스턴스 만들기
+private static final DeferredRegister&lt;Block&gt; BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+
+//DeferredRegister 인스턴스에 블록 객체를 공급하는 공급자 등록하기
+public static final RegistryObject&lt;Block&gt; ROCK_BLOCK = BLOCKS.register("rock", () -&gt; new Block(AbstractBlock.Properties.of(Material.STONE)));
+
+public ExampleMod() {
+    //DeferredRegister 가 RegistryEvent$Register 에 반응할 수 있도록 알맞은 이벤트 버스 설정하기
+    BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+}</code></pre>
+<h3 id="register"><code>Register</code> 이벤트<a class="headerlink" href="#register" title="Permanent link"> </a></h3>
+<p><code>RegistryEvent</code> 들은 객체를 등록하는 또 다른 방법으로, 더욱 유연하게 객체들을 등록할 수 있습니다. 이 <a href="../../events/intro/">이벤트</a> 들은 모드들의 메인 클래스 인스턴스 생성할때와 설정 파일을 불러올때 사이에 방송됩니다.</p>
+<p>객체를 등록할때 사용하는 이벤트는 <code>RegistryEvent$Register&lt;T&gt;</code> 입니다. 타입 매개변수 <code>T</code>는 등록되는 객체들의 타입이어야 합니다. 이벤트에서 <code>#getRegistry</code>를 호출하시면, <code>#register</code>나 <code>#registerAll</code>로 객체를 등록할 수 있는 레지스트리가 반환됩니다.</p>
+<p>등록 예시(이 이벤트 핸들러는 무조건 <em>모드 버스</em>에 등록되어야 합니다):</p>
+<pre class="highlight"><code class="language-java">@SubscribeEvent
+public void registerBlocks(RegistryEvent.Register&lt;Block&gt; event) {
+    event.getRegistry().registerAll(new Block(...), new Block(...), ...);
+}</code></pre>
+<h3 id="_3">포지 레지스트리가 아닌 레지스트리들<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
+<p>바닐라코드의 몇몇 특성 때믄에, 포지가 모든 레지스트리를 감쌀 순 없습니다. <code>IRecipeType</code> 과 같은 정적이라서 사용해도 안전한 레지스트리나, <code>ConfiguredFeature</code> 와 같은 동적 레지스트리, 또는 월드젠 관련된 레지스트리들이 있습니다, 이 레지스트리들은 보통 JSON 을 통해 관리 및 등록을 합니다. 이러한 레지스트리에 등록하는 것은 다른 레지스트리 객체가 필요로 할때만 하여야 합니다.</p>
+<p>포지 레지스트리 시스템에서 관리하지 않는 레지스트리이기 떄문에, 레지스트리가 준비되기 전에 객체를 등록하지 않도록 조심해서 사용하여야 합니다. <code>Lazy</code> 라는 유틸리티 클래스가 도움이 될 수 있는데, 이 클래스는 맨 처음으로 접근될 때 처리되는 값을 저장합니다. <code>Lazy.of(...)</code> 에 <code>Supplier</code> 를 전달하는 것이 가장 많이 사용하는 방법입니다. <code>Lazy</code> 는 <code>Supplier</code> 의 하위 클래스이니, <code>Supplier#get</code> 를 사용해 값을 받을 수 있습니다.</p>
+<p>이때, 저장될 값은 <code>() -&gt; Registry.register(...)</code> 입니다. <code>Registry#register</code> 는 객체가 추가될 레지스트리, 객체를 구분해 줄 <code>ResourceLocation</code>, 마지막으로 등록할 객체입니다.</p>
+<p><code>Lazy</code> 의 값은 <code>FMLCommonSetupEvent</code> 도중 처리하여 만들어 내는 것이 가장 적절합니다. 바닐라의 레지스트리는 늘 스레드 안전성을 가지지는 않기 때문에 <code>ParallelDispatchEvent#enqueueWork</code> 를 통해 메인 스레드에서 <code>Supplier#get</code> 를 호출하여야 합니다. 이렇게 한다면, 메인 스레드에서  <code>Registry#register</code> 를 호출하여 추후 얼마든지 참조되어도 안전하도록 해줍니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>몇몇 클래스들은 레지스트리에 등록될 수 없습니다. 그 대신, 그 클래스들의 종류를 상징하는 <code>*Type</code> 클래스가 대신 등록되어야 하며, 이 <code>*Type</code> 클래스는 전자의 클래스의 생성자에서 사용되어야 합니다. 그 예시로, <a href="../../tileentities/tileentity/"><code>TileEntity</code></a>는 <code>TileEntityType</code>를, 그리고 <code>Entity</code>는 <code>EntityType</code>을 대신 등록하여야 합니다. 이 <code>*Type</code> 클래스들은 알맞는 클래스의 인스턴스를 생성하는 팩토리입니다.</p>
+<p>이 팩토리들은 <code>*Type$Builder</code> 클래스를 이용해 생성됩니다(<code>REGISTER</code>는 <code>DeferredRegister&lt;TileEntityType&gt;</code> 입니다).
+<pre class="highlight"><code class="language-java">public static final RegistryObject&lt;TileEntityType&lt;ExampleTile&gt;&gt; EXAMPLE_TILE = REGISTER.register(
+    "example_tile", () -&gt; TileEntityType.Builder.of(ExampleTile:new, EXAMPLE_BLOCK.get()).build(null)
+);</code></pre></p>
+</div>
+<h2 id="_4">등록된 객체 참조하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>객체를 등록하실때 이를 특정 필드에 저장하면 안됩니다, 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 이벤트가 방송될때 마다 새로 만들어 지고 등록되어야 하기 때문입니다. 이는 추후에 포지에서 동적으로 모드를 활성화/비활성화하기 위함입니다.</p>
+<p>등록되는 객체들은 무조건 <code>RegistryObject</code> 또는 <code>@ObjectHolder</code> 어노테이션이 있는 필드를 통하여 참조되어야만 합니다.</p>
+<h3 id="registryobject">RegistryObject 로 참조하기<a class="headerlink" href="#registryobject" title="Permanent link"> </a></h3>
+<p><code>RegistryObject</code>들은 등록된 객체들의 참조를 반환합니다. 등록되지 않은 객체에는 사용하실 수 없습니다. <code>DeferredRegister</code> 를 통해 등록하시면 <code>RegistryObject</code> 의 인스턴스의 참조가 반환됩니다. <code>@ObjectHolder</code> 어노테이션과 <code>RegistryObject</code> 들은 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 가 방송될때 갱신됩니다.</p>
+<p><code>RegistryObject</code> 인스턴스의 참조를 다른 방법으로 얻기 위해서는 <code>RegistryObject#of</code> 를 등록된 객체의 <code>ResourceLocation</code>과 레지스트리의 <code>IForgeRegistry</code> 를 사용하여 호출하세요. 커스텀 레지스트리는 등록될 객체들의 클래스를 공급하는 공급자를 이용하여 <code>RegistryObject</code>에 접근할 수 있습니다. <code>RegistryObject</code>를 <code>public static final</code> 필드를 이용해 저장하고 <code>#get</code> 함수를 이용해 등록된 객체에 접근하세요.</p>
+<p><code>RegistryObject</code> 사용 예시:</p>
+<pre class="highlight"><code class="language-java">public static final RegistryObject&lt;Item&gt; BOW = RegistryObject.of(new ResourceLocation("minecraft:bow"), ForgeRegistries.ITEMS);
+
+// ManaType은 레지스트리이며, 'neomagicae:coffeinum' 이 ManaType에 등록된 객체라 가정합니다
+public static final RegistryObject&lt;ManaType&gt; COFFEINUM = RegistryObject.of(new ResourceLocation("neomagicae", "coffeinum"), () -&gt; ManaType.class); </code></pre>
+<h3 id="objectholder">@ObjectHolder 사용하기<a class="headerlink" href="#objectholder" title="Permanent link"> </a></h3>
+<p><code>@ObjectHolder</code> 어노테이션을 클래스 또는 필드에 달고 <code>ResourceLocation</code>을 추론해 내기 충분한 정보를 제공하여,  <code>public static</code> 필드에 레지스트리의 등록된 객체들을 주입할 수 있습니다. </p>
+<p><code>@ObjectHolder</code> 를 사용하는 방법은 다음과 같습니다:</p>
+<ul>
+<li>만약 클래스에 <code>@ObjectHolder</code> 어노테이션이 있다면, 어노테이션의 value 를 그 클래스의 필드들의 네임스페이스 기본값으로 사용합니다.</li>
+<li>만약 클래스에 <code>@Mod</code> 어노테이션이 있다면, <code>modid</code> 를 그 클래스의 네임스페이스 기본값으로 사용합니다.</li>
+<li>필드가 다음 조건들을 충족시킨다면 주입이 이루어 집니다:<ul>
+<li>최소한 <code>public static</code> 키워드가 있을때;</li>
+<li>다음중 하나라도 참일때:<ul>
+<li>필드를 <strong>감싸는 클래스</strong>에 <code>@ObjectHolder</code> 어노테이션이 있으며 필드가 <code>final</code> 이라면:<ul>
+<li>필드의 이름을 리소스 위치의 경로로 사용합니다.</li>
+<li>리소스 위치의 네임 스페이스는 클래스의 <code>ObjectHolder</code>의 value 를 상속받아 사용합니다.</li>
+<li><em>만약 네임 스페이스를 찾을 수도, 상속 받을 수도 없다면 예외가 발생합니다.</em></li>
+</ul>
+</li>
+<li><strong>필드</strong>에 <code>@ObjectHolder</code>가 있을때:</li>
+<li>리소스 위치의 경로는 필드의 어노테이션의 value 값을 사용합니다.</li>
+<li>리소스 위치의 네임 스페이스는 어노테이션에서 지정하지 않았다면 클래스의 어노테이션에서 상속 받습니다.</li>
+</ul>
+</li>
+<li>필드의 타입이나, 필드의 타입의 조상중 일치하는 레지스트리가 있다면(예: <code>Item</code> 또는 <code>ArrowItem</code> 은 <code>Item</code> 레지스트리에 일치한다);</li>
+<li><em>만약 필드에 일치하는 레지스트리가 없다면 예외가 발생합니다.</em></li>
+</ul>
+</li>
+<li><em>만약 추론된 <code>ResourceLocation</code> 이 미완성이거나, 문제가 있다면 (허용되지 않은 문자가 있다면) 예외가 발생합니다.</em></li>
+<li>만약 문제가 없거나, 예외가 발생하지 않았다면 필드에 등록된 객체가 주입될 것입니다.</li>
+<li>만약 위 조건중 하나라도 만족하지 않는다면 아무 일도 일어나지 않습니다. (그리고 이에 관한 메세지가 출력될 수 있습니다.)</li>
+</ul>
+<p>위 조건을 충족하는 <code>@ObjectHolder</code> 주입 대상 필드는 그에 알맞는 레지스트리의 <code>RegistryEvent$Register</code> 이벤트가 방송될때 객체가 주입됩니다. 또한 <code>RegistryObject</code> 들도 이때 갱신 됩니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>만약 추론된 리소스 위치를 통해 객체를 참조하여 이를 필드에 주입하려고 할 때, 그 객체가 존재하지 않는다면 이에 관한 메세지가 출력될 것이며 필드에 값이 주입되지 않습니다.</p>
+</div>
+<p>위에 기술된 규칙들이 복잡해 보이실 수 있으니, 몇가지 예제를 준비해 보았습니다:
+<pre class="highlight"><code class="language-java">@ObjectHolder("minecraft") // 상속 가능한 네임 스페이스: "minecraft"
+class AnnotatedHolder {
+    public static final Block diamond_block = null; // 어노테이션 없음, [public static final] 키워드가 있어야함.
+                                                    // Block 은 이에 맞는 레지스트리가 있음: [Block]
+                                                    // 리소스의 경로는: "diamond_block"
+                                                    // 네임 스페이스는 명시적으로 정의되어 있지 않음.
+                                                    // 그렇기에, 네임 스페이스는 클래스 어노테이션으로 부터 상속받음: "minecraft"
+                                                    // 주입 대상: [Block] 레지스트리의 "minecraft:diamond_block" 
+
+    @ObjectHolder("ambient.cave")
+    public static SoundEvent ambient_sound = null;  // 어노테이션 있음, [public static] 키워드가 있어야함.
+                                                    // SoundEvent 는 이에 맞는 레지스트리가 있음: [SoundEvent]
+                                                    // 리소스의 경로는 어노테이션의 value 임: "ambient.cave"
+                                                    // 네임 스페이스는 명시적으로 정의되어 있지 않음.
+                                                    // 그렇기에, 네임 스페이스는 클래스 어노테이션으로 부터 상속받음: "minecraft"
+                                                    // 주입 대상: [SoundEvent] 레지스트리의 "minecraft:ambient.cave"
+
+    // [ManaType] 레지스트리가 존재한다고 가정합니다.          
+    @ObjectHolder("neomagicae:coffeinum")
+    public static final ManaType coffeinum = null;  // 어노테이션 있음, [public static] 키워드가 있어야함. [final] 은 선택 사항.
+                                                    // ManaType 은 이에 맞는 레지스트리가 있음: [ManaType] (커스텀 레지스트리)
+                                                    // 리소스 위치가 명시적으로 정의됨: "neomagicae:coffeinum"
+                                                    // 주입 대상: [ManaType] 의 "neomagicae:coffeinum"
+
+    public static final Item ENDER_PEARL = null;    // 어노테이션 없음, [public static final] 키워드가 있어야함.
+                                                    // Item 은 이에 맞는 레지스트리가 있음: [Item].
+                                                    // 필드의 이름이 리소스의 경로임: "ENDER_PEARL" -&gt; "ender_pearl"
+                                                    // !! ^ 사용 가능한 필드 이름, 소문자로 자동으로 변환됨.
+                                                    // 네임 스페이스는 명시적으로 정의되어 있지 않음.
+                                                    // 그렇기에, 네임 스페이스는 클래스 어노테이션으로 부터 상속받음: "minecraft"
+                                                    // 주입 대상:  [Item] 레지스트리의 "minecraft:ender_pearl"
+
+    @ObjectHolder("minecraft:arrow")
+    public static final ArrowItem arrow = null;     // 어노테이션 있음, [public static] 키워드가 있어야함. [final] 은 선택 사항.
+                                                    // ArrowItem 은 이에 맞는 레지스트리가 없음.
+                                                    // ArrowItem 의 조상 Item 은 이에 맞는 레지스트리가 있음: [Item]
+                                                    // 리소스 위치가 명시적으로 정의됨: "minecraft:arrow"
+                                                    // 주입 대상: [Item] 레지스트리의 "minecraft:arrow"                                                   
+
+    public static Block bedrock = null;             // 어노테이션 없음, [public static final] 키워드가 있어야함.
+                                                    // 그러나 없음, 그렇기에 이 필드는 무시됨.
+
+    public static final ItemGroup group = null;     // 어노테이션 없음, [public static final] 키워드가 있어야함.
+                                                    // ItemGroup 은 이에 맞는 레지스트리가 없음.
+                                                    // ItemGroup 의 조상중 맞는 레지스트리가 없음.
+                                                    // 그렇기에, 이는 예외를 발생시킴.
+}
+
+class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
+    @ObjectHolder("minecraft:flame")
+    public static final Enchantment flame = null;   // 어노테이션 있음, [public static] 키워드가 있어야함. [final]  은 선택 사항..
+                                                    // Enchantment 는 이에 맞는 레지스트리가 있음:: [Enchantment].
+                                                    // 리소스 위치가 명시적으로 정의됨: "minecraft:flame"
+                                                    // 주입 대상: [Enchantment]의 "minecraft:flame"
+
+    public static final Biome ice_flat = null;      // 클래스에 @ObjectHolder 어노테이션이 없음.
+                                                    // 그렇기에 이 필드는 무시됨.
+
+    @ObjectHolder("minecraft:creeper")
+    public static Entity creeper = null;            // 어노테이션 있음, [public static] 키워드가 있어야함.
+                                                    // Entity 는 이에 맞는 레지스트리가 없음.
+                                                    // Entity 의 조상중 맞는 레지스트리가 없음.
+                                                    // 그렇기에, 이는 예외를 발생시킴.
+
+    @ObjectHolder("levitation")
+    public static final Potion levitation = null;   // 어노테이션 있음, [public static] 키워드가 있어야함. [final]  은 선택 사항..
+                                                    // Potion 은 이에 맞는 레지스트리가 있음: [Potion].
+                                                    // 리소스 위치의 경로는 어노테이션의 value "levitation" 임
+                                                    // 네임 스페이스는 명시적으로 정의되어 있지 않음.
+                                                    // 클래스에 @ObjectHolder 어노테이션이 없음.
+                                                    // 그렇기에, 이는 예외를 발생시킴.
+}</code></pre></p>
+<h2 id="_5">커스텀 포지 레지스트리 만들기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>모드에서 커스텀 레지스트리를 만들 때 Map<K, V> 를 사용하여 만드는 경우는 꽤나 흔합니다; 그러나 이는 강제적으로 레지스트리에 종속성을 부여하며 사이드간의 데이터 동기화를 수동으로 시켜 주어야 한다는 단점이 있습니다. 커스텀 포지 레지스트리는 강제적인 종속성을 피하고, 자동으로 동기화를 해 주며(설정시 변경 가능) 관리또한 잘 해주는 참 좋은 대안입니다. 등록되는 객체들도 포지 레지스트리 시스템을 사용하니 등록 과정이 동일합니다.</p>
+<p>커스텀 포지 레지스트리는 <code>RegistryBuilder</code> 를 통해 만들어지며, <code>RegistryEvent$NewRegistry</code> 또는 <code>DeferredRegister</code> 를 사용합니다. <code>RegistryBuilder</code> 클래스는 이름, 등록될 객체들의 클래스, 레지스트리에서 이벤트 발생시 사용할 여러가지 콜백들과 같은 인자들을 매개변수로 사용합니다. <code>RegistryBuilder#create</code> 를 호출하면, 레지스트리를 만들고, <code>RegistryManager</code> 에 등록한 이후 호출한 곳으로 반환됩니다.</p>
+<p>레지스트리에 등록될 객체의 클래스는 무조건 <code>IForgeRegisterEntry</code> 인터페이스를 구현하여야 합니다, 이 인터페이스는 <code>#setRegistryName</code> 과 <code>#getRegistryName</code> 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 <code>ForgeRegistryEntry</code> 를 상속하는 것이 권장됩니다, 이 클래스는 <code>IForgeRegistryEntry</code> 인터페이스의 기본적인 구현을 제공합니다. <code>#setRegistryName(String)</code> 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 해당 모드의 아이디로 추론됩니다.</p>
+<p>모든 새로 만들어진 레지스트리들 또한 <a href="#객체-등록하기">이 방법들</a>을 통해 객체들을 등록하여야 합니다.</p>
+<h3 id="registryeventnewregistry">RegistryEvent$NewRegistry 쓰기<a class="headerlink" href="#registryeventnewregistry" title="Permanent link"> </a></h3>
+<p><code>RegistryEvent$NewRegistry</code>를 사용할 땐, 그저 레지스트리를 이벤트 도중 <code>RegistryBuilder</code> 를 통해 만들기만 하면 됩니다. 레지스트리는 <code>#create</code> 를 통해 만들 수 있으며, 이를 <code>IForgeRegistry</code> 필드에 저장하여 나중에 재사용 하셔도 됩니다.</p>
+<h3 id="deferredregister_1">DeferredRegister 쓰기<a class="headerlink" href="#deferredregister_1" title="Permanent link"> </a></h3>
+<p><code>DeferredRegister</code> 는, 다시 말하지만, 위 이벤트를 사용하는 wrapper 입니다. <code>final</code> 키워드가 있는 필드에 <code>DeferredRegistry</code> 인스턴스가 할당된 이후 <code>DeferredRegister#makeRegistry</code> 를 통해 레지스트리를 만들 수 있습니다. 이때 매개변수로는 레지스트리의 이름과, 추가적인 설정을 포함하는 <code>RegistryBuilder</code> 를 공급하는 공급자가 있습니다. <code>DeferredRegister#makeRegistry</code> 는 자동으로 <code>RegistryBuilder#setName</code> 과 <code>RegistryBuilder#setType</code> 을 호출합니다. <code>RegistryEvent$NewRegistry</code>가 끝날때 까지는 생성된 레지스트리에 접근할 수 없습니다.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code>DeferredRegister#makeRegistry</code> 는 무조건 <code>DeferredRegister#register</code> 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, <code>#makeRegistry</code> 는 <code>#register</code> 를 통해 등록 되어야만 <code>RegistryEvent$NewRegistry</code> 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 <code>#makeRegistry</code> 를 먼저 하시고 <code>#register</code> 를 이후에 하는 것을 잊지 마세요.</p>
+</div>
+<h2 id="_6">누락된 항목 처리하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
+<p>가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 <code>RegistryEvent$MissingMappings</code> 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 <code>getMappings</code> 를 통해 해당 모드의 누락된 매핑 리스트를 받아올 수 있으며, <code>#getAllMappings</code> 를 통해 어떤 모드에서 이 오류가 발생했는가와 관련 없이 모든 매핑들을 받아올 수 있습니다.</p>
+<p>각 누락된 항목마다, 이 4가지 방법중 하나를 선택하여 어떻게 처리할지 선택할 수 있습니다:</p>
+<table>
+<thead>
+<tr>
+<th align="center">동작</th>
+<th align="left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">IGNORE</td>
+<td align="left">누락된 항목을 무시하고 레지스트리 매핑을 버립니다.</td>
+</tr>
+<tr>
+<td align="center">WARN</td>
+<td align="left">로그에 경고를 띄웁니다.</td>
+</tr>
+<tr>
+<td align="center">FAIL</td>
+<td align="left">월드를 불러오는 것을 막습니다.</td>
+</tr>
+<tr>
+<td align="center">REMAP</td>
+<td align="left">다른 항목으로 대체합니다.</td>
+</tr>
+</tbody>
+</table>
+<p>만약 누락된 항목을 처리하는 방법이 지정되지 않았다면 플레이어에게 이에 대해 알리는 기본 동작을 수행하게 됩니다. 플레이어는 월드를 불러오고 싶을 것이기에, REMAP 을 제외한 다른 동작의 경우. 누락된 항목이 다시 추가될 수 있으니 레지스트리의 다른 객체들이 누락된 항목을 대체하는 것을 막습니다.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

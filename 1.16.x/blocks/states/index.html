@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>블록의 상태 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#block-states" class="elem-text">블록의 상태</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#legacy-behavior">Legacy Behavior</a></li>
+        
+        <li class="toc-subitem"><a href="#introduction-of-states">Introduction of States</a></li>
+        
+        <li class="toc-subitem"><a href="#proper-usage-of-block-states">Proper Usage of Block States</a></li>
+        
+        <li class="toc-subitem"><a href="#implementing-block-states">Implementing Block States</a></li>
+        
+        <li class="toc-subitem"><a href="#using-blockstates">Using BlockState's</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">시작하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="block-states">Block States<a class="headerlink" href="#block-states" title="Permanent link"> </a></h1>
+<h2 id="legacy-behavior">Legacy Behavior<a class="headerlink" href="#legacy-behavior" title="Permanent link"> </a></h2>
+<p>In Minecraft 1.7 and previous versions, blocks which need to store placement or state data that did not have TileEntities used <strong>metadata</strong>. Metadata was an extra number stored with the block, allowing different rotations, facings, or even completely separate behaviors within a block.</p>
+<p>However, the metadata system was confusing and limited, since it was stored as only a number alongside the block ID, and had no meaning except what was commented in the code. For example, to implement a block that can face a direction and be on either the upper or lower half of a block space (such as a stair):</p>
+<pre class="highlight"><code class="language-Java">switch (meta) {
+    case 0: { ... } // south and on the lower half of the block
+    case 1: { ... } // south on the upper side of the block
+    case 2: { ... } // north and on the lower half of the block
+    case 3: { ... } // north and on the upper half of the block
+    ... etc. ...
+}</code></pre>
+<p>Because the numbers carry no meaning by themselves, no one could know what they represent unless they had access to the source code and comments.</p>
+<h2 id="introduction-of-states">Introduction of States<a class="headerlink" href="#introduction-of-states" title="Permanent link"> </a></h2>
+<p>In Minecraft 1.8 and above, the metadata system, along with the block ID system, was deprecated and eventually replaced with the <strong>block state system</strong>. The block state system abstracts out the details of the block&rsquo;s properties from the other behaviors of the block.</p>
+<p>Each <em>property</em> of a block is described by an instance of <code>IProperty&lt;?&gt;</code>. Examples of block properties include instruments (<code>Property&lt;NoteBlockInstrument&gt;</code>), facing (<code>Property&lt;Direction</code>), poweredness (<code>Property&lt;Boolean&gt;</code>), etc. Each property has the value of the type <code>T</code> parametrized by <code>Property&lt;T&gt;</code>.</p>
+<p>A unique pair can be constructed from the block and a map of the properties to their associated values. This unique pair is called a <code>BlockState</code>.</p>
+<p>The previous system of meaningless metadata values were replaced by a system of block properties, which are easier to interpret and deal with. Previously, a stone button which is facing east and is powered or held down is represented by &ldquo;<code>minecraft:stone_button</code> with metadata <code>9</code>. Now, this is represented by &ldquo;<code>minecraft:stone_button[facing=east,powered=true]</code>&rdquo;.</p>
+<h2 id="proper-usage-of-block-states">Proper Usage of Block States<a class="headerlink" href="#proper-usage-of-block-states" title="Permanent link"> </a></h2>
+<p>The <code>BlockState</code> system is a flexible and powerful system, but it also has limitations. <code>BlockState</code>s are immutable, and all combinations of their properties are generated on startup of the game. This means that having a <code>BlockState</code> with many properties and possible values will slow down the loading of the game, and befuddle anyone trying to make sense of your block logic.</p>
+<p>Not all blocks and situations require the usage of <code>BlockState</code>; only the most basic properties of a block should be put into a <code>BlockState</code>, and any other situation is better off with having a <code>TileEntity</code> or being a separate <code>Block</code>. Always consider if you actually need to use blockstates for your purposes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A good rule of thumb is: <strong>if it has a different name, it should be a separate block</strong>.</p>
+</div>
+<p>An example is making chair blocks: the <em>direction</em> of the chair should be a <em>property</em>, while the different <em>types of wood</em> should be separated into different blocks.
+An &ldquo;Oak Chair&rdquo; facing east (<code>oak_chair[facing=east]</code>) is different from a &ldquo;Spruce Chair&rdquo; facing west (<code>spruce_chair[facing=west]</code>).</p>
+<h2 id="implementing-block-states">Implementing Block States<a class="headerlink" href="#implementing-block-states" title="Permanent link"> </a></h2>
+<p>In your Block class, create or reference <code>static final</code> <code>Property&lt;?&gt;</code> objects for every property that your Block has. You are free to make your own <code>Property&lt;?&gt;</code> implementations, but the means to do that are not covered in this article. The vanilla code provides several convenience implementations:</p>
+<ul>
+<li><code>IntegerProperty</code><ul>
+<li>Implements <code>Property&lt;Integer&gt;</code>. Defines a property that holds an integer value.</li>
+<li>Created by calling <code>IntegerProperty#create(String propertyName, int minimum, int maximum)</code>.</li>
+</ul>
+</li>
+<li><code>BooleanProperty</code><ul>
+<li>Implements <code>Property&lt;Boolean&gt;</code>. Defines a property that holds a <code>true</code> or <code>false</code> value.</li>
+<li>Created by calling <code>BooleanProperty#create(String propertyName)</code>.</li>
+</ul>
+</li>
+<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code><ul>
+<li>Implements <code>Property&lt;E&gt;</code>. Defines a property that can take on the values of an Enum class.</li>
+<li>Created by calling <code>EnumProperty#create(String propertyName, Class&lt;E&gt; enumClass)</code>.</li>
+<li>It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 <code>DyeColor</code>s). See the overloads of <code>EnumProperty#create</code>.</li>
+</ul>
+</li>
+<li><code>DirectionProperty</code><ul>
+<li>This is a convenience implementation of <code>EnumProperty&lt;Direction&gt;</code></li>
+<li>Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call <code>DirectionProperty.create("&lt;name&gt;", Direction.Plane.HORIZONTAL)</code>; to get the X directions, <code>DirectionProperty.create("&lt;name&gt;", Direction.Axis.X)</code>.</li>
+</ul>
+</li>
+</ul>
+<p>The class <code>BlockStateProperties</code> contains shared vanilla properties which should be used or referenced whenever possible, in place of creating your own properties.</p>
+<p>When you have your desired <code>Property&lt;&gt;</code> objects, override <code>Block#createBlockStateDefinition(StateContainer$Builder)</code> in your Block class. In that method, call <code>StateContainer$Builder#add(...);</code>  with the parameters as every <code>Property&lt;?&gt;</code> you wish the block to have.</p>
+<p>Every block will also have a &ldquo;default&rdquo; state that is automatically chosen for you. You can change this &ldquo;default&rdquo; state by calling the <code>Block#registerDefaultState(BlockState)</code> method from your constructor. When your block is placed it will become this &ldquo;default&rdquo; state. An example from <code>DoorBlock</code>:</p>
+<pre class="highlight"><code class="language-Java">this.registerDefaultState(
+    this.stateDefinition.any()
+        .setValue(FACING, Direction.NORTH)
+        .setValue(OPEN, false)
+        .setValue(HINGE, DoorHingeSide.LEFT)
+        .setValue(POWERED, false)
+        .setValue(HALF, DoubleBlockHalf.LOWER)
+);</code></pre>
+<p>If you wish to change what <code>BlockState</code> is used when placing your block, you can overwrite <code>Block#getStateForPlacement(BlockItemUseContext)</code>. This can be used to, for example, set the direction of your block depending on where the player is standing when they place it.</p>
+<p>Because <code>BlockState</code>s are immutable, and all combinations of their properties are generated on startup of the game, calling <code>BlockState#setValue(Property&lt;T&gt;, T)</code> will simply go to the <code>Block</code>&lsquo;s <code>StateContainer</code> and request the <code>BlockState</code> with the set of values you want.</p>
+<p>Because all possible <code>BlockState</code>s are generated at startup, you are free and encouraged to use the reference equality operator (<code>==</code>) to check if two <code>BlockState</code>s are equal.</p>
+<h2 id="using-blockstates">Using <code>BlockState</code>&lsquo;s<a class="headerlink" href="#using-blockstates" title="Permanent link"> </a></h2>
+<p>You can get the value of a property by calling <code>BlockState#getValue(Property&lt;?&gt;)</code>, passing it the property you want to get the value of.
+If you want to get a <code>BlockState</code> with a different set of values, simply call <code>BlockState#setValue(Property&lt;T&gt;, T)</code> with the property and its value.</p>
+<p>You can get and place <code>BlockState</code>&lsquo;s in the world using <code>World#setBlockAndUpdate(BlockPos, BlockState)</code> and <code>World#getBlockState(BlockState)</code>. If you are placing a <code>Block</code>, call <code>Block#defaultBlockState()</code> to get the &ldquo;default&rdquo; state, and use subsequent calls to <code>BlockState#setValue(Property&lt;T&gt;, T)</code> as stated above to achieve the desired state.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

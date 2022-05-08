@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>시작하기 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../images/manifest.json">
+    <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../js/theme.js"></script>
+
+    <script>var base_url = '..';</script>
+    
+    <script src="../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href=".." class="logo-image"><img src="../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.16.x" selected>1.16.x</option>
+                            
+                            <option value="https://mcforge.readthedocs.io/en/1.18.x" >1.18.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href=".." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../styleguide/" class="elem-text">문서 스타일 가이드</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gettingstarted/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gettingstarted/autoupdate/" class="elem-text">포지 자동 업데이트 표시기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gettingstarted/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/data/" class="elem-text">데이터</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/internationalization/" class="elem-text">국제화와 현지화</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../blocks/blocks/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../blocks/interaction/" class="elem-text">상호작용</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 타일 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../tileentities/tileentity/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../tileentities/tesr/" class="elem-text">렌더러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../items/items/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../items/globallootmodifiers/" class="elem-text">Loot Modification</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../models/introduction/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../models/files/" class="elem-text">모델 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> BlockState</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../models/blockstates/introduction/" class="elem-text">BlockState JSON 소개</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../models/color/" class="elem-text">텍스쳐 색칠하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../models/overrides/" class="elem-text">아이템 특성 오버라이드</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../models/advanced/ibakedmodel/" class="elem-text">IBakedModel</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../models/advanced/perspective/" class="elem-text">Perspective</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../models/advanced/itemoverridelist/" class="elem-text">ItemOverrideList</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../rendering/ister/" class="elem-text">ItemStackTileEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datagen/intro/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/modelproviders/" class="elem-text">모델 제공자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이벤트</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../events/intro/" class="elem-text">기본적인 사용법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../networking/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../networking/overview/" class="elem-text">개요</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../networking/entities/" class="elem-text">엔티티 네트워킹</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datastorage/worldsaveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 유틸리티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../utilities/recipes/" class="elem-text">조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../utilities/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../effects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../effects/sounds/" class="elem-text">소리</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 협약</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../conventions/versioning/" class="elem-text">버전 명명</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../conventions/locations/" class="elem-text">파일 위치</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../advanced/accesstransformers/" class="elem-text">접근 변환자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#getting-started" class="elem-text">시작하기</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#forking-and-cloning-the-repository">Forking and Cloning the Repository</a></li>
+        
+        
+        
+        <li class="toc-item"><a href="#checking-out-the-correct-branch">Checking out the Correct Branch</a></li>
+        
+        
+        <li class="toc-subitem"><a href="#setting-up-the-environment">Setting Up the Environment</a></li>
+        
+        <li class="toc-subitem"><a href="#making-changes-and-pull-requests">Making Changes and Pull Requests</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 이전 버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../legacy/" class="elem-text">Home</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../legacy/porting/" class="elem-text">1.16으로 포팅하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h1>
+<p>If you have decided to contribute to Forge, you will have to take some special steps to get started with developing. A simple mod development environment will not suffice to work with Forge&rsquo;s codebase directly. Instead, you can use the following guide to help you with your setup and get you started with improving Forge!</p>
+<h2 id="forking-and-cloning-the-repository">Forking and Cloning the Repository<a class="headerlink" href="#forking-and-cloning-the-repository" title="Permanent link"> </a></h2>
+<p>Like most major open source projects you will find, Forge is hosted on <a href="https://www.github.com">GitHub</a>. If you have contributed to another project before, you will know this process already and can skip right ahead to the next section.</p>
+<p>For those who are beginners when it comes to collaboration via Git, here are two easy steps to get you started.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide assumes that you already have a GitHub account set up. If you do not, visit their <a href="https://www.github.com/join">registration page</a> to create an account. Furthermore, this guide is not a tutorial for git&rsquo;s usage. Please consult different sources first if you are struggling to get it working.</p>
+</div>
+<h3 id="forking">Forking<a class="headerlink" href="#forking" title="Permanent link"> </a></h3>
+<p>First of all, you have to &ldquo;fork&rdquo; the <a href="https://www.github.com/MinecraftForge/MinecraftForge">MinecraftForge repository</a> by clicking the &ldquo;Fork&rdquo; button in the upper right hand corner. If you are in an organization, select the account you want your fork to be hosted on.</p>
+<p>Forking the repository is necessary since not every GitHub user can have free access to every repository. Instead, you create a copy of the original repository to later contribute your changes via a so called Pull Request, which you will learn more about later.</p>
+<h3 id="cloning">Cloning<a class="headerlink" href="#cloning" title="Permanent link"> </a></h3>
+<p>After forking the repository, it is time to get local access to actually make some changes. For this, you need to clone the repository onto your local machine.</p>
+<p>Using your favorite git client, simply clone your fork into a directory of your choice. As general example, here is a command line snippet that should work on all correctly configured systems and clones the repository into a directory called &ldquo;MinecraftForge&rdquo; under the current directory (note that you have to replace <code>&lt;User&gt;</code> with your username):</p>
+<p><code>git clone https://github.com/&lt;User&gt;/MinecraftForge</code></p>
+<h1 id="checking-out-the-correct-branch">Checking out the Correct Branch<a class="headerlink" href="#checking-out-the-correct-branch" title="Permanent link"> </a></h1>
+<p>Forking and cloning the repository are the only mandatory steps to develop for Forge. However, to ease the process of creating Pull Requests for you, it is best to work with branches.</p>
+<p>It is recommended to create and check out a branch for each PR you plan to submit. This way, you can always keep around the latest changes of Forge for new PRs while you still work on older patches.</p>
+<p>After completing this step, you are ready to go and set up your development environment.</p>
+<h2 id="setting-up-the-environment">Setting Up the Environment<a class="headerlink" href="#setting-up-the-environment" title="Permanent link"> </a></h2>
+<p>Depending on your favorite IDE, there is a different set of recommended steps you have to follow to successfully set up a development environment.</p>
+<h3 id="eclipse">Eclipse<a class="headerlink" href="#eclipse" title="Permanent link"> </a></h3>
+<p>Due to the way Eclipse workspaces work, ForgeGradle can do most of the work involved to get you started with a Forge workspace.</p>
+<ol>
+<li>Open a terminal/command prompt and navigate to the directory of your cloned fork.</li>
+<li>Type <code>./gradlew setup</code> and hit enter. Wait until ForgeGradle is done.</li>
+<li>Type <code>./gradlew eclipse</code> and hit enter. This allows Eclipse to detect the &ldquo;Forge&rdquo; and &ldquo;Clean&rdquo; subdirectories within <code>projects</code> to import them into the workspace.</li>
+<li>Open your Eclipse workspace and go to <code>File -&gt; Import -&gt; General -&gt; Existing Projects into workspace</code>.</li>
+<li>Browse to the <code>&lt;repo&gt;/projects/</code> directory for the &ldquo;Root directory&rdquo; option in the dialog that opens.</li>
+<li>Make sure both &ldquo;Forge&rdquo; and &ldquo;Clean&rdquo; are checked and adjust the other settings to your liking.</li>
+<li>Complete the import by clicking the &ldquo;Finish&rdquo; button.</li>
+</ol>
+<p>That is all it takes to get you up and running with Eclipse. There is no extra steps required to get the test mods running. Simply hit &ldquo;Run&rdquo; like in any other project and select the appropriate run configuration.</p>
+<h3 id="intellij-idea">IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Permanent link"> </a></h3>
+<p>JetBrains&rsquo; flagship IDE comes with great integrated support for <a href="https://www.gradle.org">Gradle</a>: Forge&rsquo;s build system of choice. Due to some peculiarities of Minecraft mod development, however, there are additional steps required to get everything to work properly.</p>
+<h4 id="idea-2021-onwards">IDEA 2021 onwards<a class="headerlink" href="#idea-2021-onwards" title="Permanent link"> </a></h4>
+<ol>
+<li>Start IntelliJ IDEA 2021.<ul>
+<li>If you already have another project open, close the project with the File -&gt; Close project option.</li>
+</ul>
+</li>
+<li>In the projects tab of the &ldquo;Welcome to IntelliJ IDEA&rdquo; window, click the &ldquo;Open&rdquo; button on the top right and select the MinecraftForge folder you cloned earlier.</li>
+<li>Click &ldquo;Trust Project&rdquo; if prompted.</li>
+<li>After IDEA is done importing the project and indexing its files, run the Gradle setup task. You can do this by:<ul>
+<li>Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the <code>setup</code> task (may also appear as <code>MinecraftForge[Setup]</code>) found in Forge -&gt; Tasks -&gt; other -&gt; <code>setup</code>.</li>
+<li>If you get a licensing error during build before making any changes, running the <code>updateLicenses</code> task may help. This task is found in Forge -&gt; Tasks -&gt; other as well.</li>
+</ul>
+</li>
+</ol>
+<h4 id="idea-2019-2020">IDEA 2019-2020<a class="headerlink" href="#idea-2019-2020" title="Permanent link"> </a></h4>
+<p>There are a few minor differences between IDEA 2021 and these versions for setup.</p>
+<ol>
+<li>Import Forge&rsquo;s <code>build.gradle</code> as an IDEA project. For this, simply click <code>Import Project</code> from the <code>Welcome to IntelliJ IDEA</code> splash screen, then select the <code>build.gradle</code> file.</li>
+<li>After IDEA is done importing the project and indexing the files, run the Gradle setup task. Either:<ol>
+<li>Open the Gradle sidebar on the right hand side of your screen, then open the <code>forge</code> project tree, select <code>Tasks</code>, then <code>other</code> and double-click the <code>setup</code> task (may also appear as <code>MinecraftForge[Setup]</code>. Or alternatively:</li>
+<li>Tap the CTRL key twice, and type <code>gradle setup</code> in the <code>Run</code> command window that pops up.</li>
+</ol>
+</li>
+</ol>
+<p>You can then run Forge using the <code>forge_client</code> gradle task (<code>Tasks -&gt; fg_runs -&gt; forge_client</code>): right-click the task and select either <code>Run</code> or <code>Debug</code> as desired.</p>
+<h4 id="idea-older-versions">IDEA older versions<a class="headerlink" href="#idea-older-versions" title="Permanent link"> </a></h4>
+<p>Versions older than 2016 will not work because they did not have the appropriate Gradle support nor support Forge development multi-project workspaces.</p>
+<p>IDEA 2016 - 2018 will work with extra manual steps required, but it is strongly recommended to update to IDEA 2019+ instead.
+cpw has uploaded <a href="https://www.youtube.com/watch?v=yanCpy8p2ZE">a video</a> for IDEA 2016.1 explaining very similar steps which will lead to a working setup.</p>
+<p>That is all there is to creating a Forge development environment in IntelliJ IDEA. However, you will not be able to run tests and debug mods included in Forge straight away. This takes some extra effort.</p>
+<h4 id="enabling-test-mods">Enabling test mods<a class="headerlink" href="#enabling-test-mods" title="Permanent link"> </a></h4>
+<p>To enable the test mods coming with Forge, you will need to add the compiler output to the classpath. Again, cpw has put up <a href="https://www.youtube.com/watch?v=pLWQk6ed56Q">a video</a> explaining these steps for IDEA 2016.1.</p>
+<ol>
+<li>Build the test classes by selecting the <code>src/main/test</code> directory in your project view and then run <code>Build -&gt; Build module 'Forge_test'</code> from the menu bar.</li>
+<li>Open the &ldquo;Project Structure&rdquo; window under <code>File -&gt; Project Structure</code>.</li>
+<li>Head to the &ldquo;Modules&rdquo; section and expand the <code>Forge</code> module.</li>
+<li>Select the <code>Forge_test</code> submodule and head to the &ldquo;Paths&rdquo; tab.</li>
+<li>Remember the path listed under the &ldquo;Test output path&rdquo; label and select the <code>Forge_main</code> submodule from the tree.</li>
+<li>Open the &ldquo;Dependencies&rdquo; tab, hit the green plus button on the right-hand side, and select &ldquo;JARs or directories&rdquo;.</li>
+<li>Navigate to the path previously displayed as the <code>Forge_test</code> output path and confirm your selection.</li>
+<li>For the &ldquo;Scope&rdquo; of this newly added dependency (currently &ldquo;Compile&rdquo;) choose &ldquo;Runtime&rdquo;, since the main code does not rely on the test code for compilation.</li>
+</ol>
+<p>Now that you have added the test mods to the classpath, you need to rebuild them each time you make a change, as they will not be built automatically. To do so, repeat step 1 from the above list or, in case you make changes to a single test mod file and want them to get rebuilt, simply hit <code>Build -&gt; Rebuild project</code> or the corresponding keyboard shortcut (CTRL+F9 by default).</p>
+<h4 id="testing-with-existing-mods">Testing with existing mods<a class="headerlink" href="#testing-with-existing-mods" title="Permanent link"> </a></h4>
+<p>You might want to test changes in Forge with an existing project. The <a href="https://www.youtube.com/watch?v=pLWQk6ed56Q">video</a> by cpw linked in the test mods section also covers this for IDEA 2016.1. Getting the mod to run requires similar steps to the test mod, but getting your project added to the workspace requires some additional work.</p>
+<ol>
+<li>Open the &ldquo;Project Structure&rdquo; Window under <code>File -&gt; Project Structure</code>.</li>
+<li>Head to the &ldquo;Modules&rdquo; section and press the green plus icon above the tree view.</li>
+<li>Select &ldquo;Import Module&rdquo;, navigate to your project&rsquo;s <code>build.gradle</code> file, and confirm your selection as well as the import settings.</li>
+<li>Close the &ldquo;Project Structure&rdquo; window by clicking the &ldquo;OK&rdquo; button.</li>
+<li>Reopen the window after IDEA is done importing the project and select your project&rsquo;s <code>_main</code> module from the tree.</li>
+<li>Open the &ldquo;Dependencies&rdquo; tab, click the green plus icon on the right-hand side, and select &ldquo;Module dependency&rdquo;.</li>
+<li>In the window that just opened, select the <code>Forge_main</code> module.</li>
+<li>From here on, reproduce the steps from the test mods section, just with your project&rsquo;s <code>_main</code> module instead of the <code>Forge_test</code> one.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to remove existing dependencies from a normal development environment (mainly references to a <code>forgeSrc</code> JAR) or move the Forge module higher up in the dependency list.</p>
+</div>
+<p>You should now be able to work with your mod using the changes you introduce to the Forge and Vanilla codebase.</p>
+<h2 id="making-changes-and-pull-requests">Making Changes and Pull Requests<a class="headerlink" href="#making-changes-and-pull-requests" title="Permanent link"> </a></h2>
+<p>Once you have set up your development environment, it is time to make some changes to Forge&rsquo;s codebase. There are, however, some pitfalls you have to avoid when editing the project&rsquo;s code.</p>
+<p>The most important thing to note is that if you wish to edit Minecraft source code, you must only do so in the &ldquo;Forge&rdquo; sub-project. Any changes in the &ldquo;Clean&rdquo; project will mess with ForgeGradle and generating the patches. This can have disastrous consequences and might render your environment completely useless. If you wish to have a flawless experience, make sure you only edit code in the &ldquo;Forge&rdquo; project!</p>
+<h3 id="generating-patches">Generating Patches<a class="headerlink" href="#generating-patches" title="Permanent link"> </a></h3>
+<p>After you have made changes to the code base and tested them thoroughly, you may go ahead and generate patches. This is only necessary if you work on the Minecraft code base (i.e. in the &ldquo;Forge&rdquo; project), but this step is vital for your changes to work elsewhere. Forge works by injecting only changed things into Vanilla Minecraft and hence needs those changes available in an appropriate format. Thankfully, ForgeGradle is capable of generating the changeset for you to commit it.</p>
+<p>To initiate the patch generation, simply run the <code>genPatches</code> Gradle task from your IDE or the command line. After its completion, you can commit all your changes (make sure you do not add any unnecessary files) and submit your Pull Request!</p>
+<h3 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link"> </a></h3>
+<p>The last step before your contribution is added to Forge is a Pull Request (PR in short). This is a formal request to incorporate your fork&rsquo;s changes into the live code base. Creating a PR is easy. Simply go to <a href="https://github.com/MinecraftForge/MinecraftForge/compare">this GitHub page</a> and follow the proposed steps. It is now that a good setup with branches pays off, since you are able to select precisely the changes you want to submit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pull Requests are bound to rules; not every request will blindly be accepted. Follow <a href="https://github.com/MinecraftForge/MinecraftForge/blob/1.13.x/CONTRIBUTING.md">this document</a> to get further information and to ensure the best quality of your PR! If you want to maximize the chances of your PR getting accepted, follow these <a href="prguidelines/">PR guidelines</a>!</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
