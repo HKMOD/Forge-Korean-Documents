@@ -58,7 +58,9 @@ InterModComms
 
 `InterModComms` 의 역할은 모드 통신에 사용되는 메세지를 보유하는 것입니다. 그리고 이 클래스의 메서드들은 `ConcurrentMap` 을 사용하기 때문에 병렬적으로 방송되는 생명주기 이벤트에서 호출하여도 안전합니다.
 
-`InterModEnqueueEvent` 도중 `InterModComms#sendTo` 를 사용해 다른 모드에 메세지를 전송할 수 있습니다, 또한 `InterModProcessEvent` 도중 `InterModComms#getMessages` 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다.
+`InterModEnqueueEvent` 도중 `InterModComms#sendTo` 를 사용해 다른 모드에 메세지를 전송할 수 있습니다. `InterModComms#sendTo` 와 동일한 이름을 가진 메서드가 여럿 있는데, 이 메서드들은 메세지를 받을 모드의 아이디, 메세지들을 구분하기 위해 사용하는 키, 메세지의 데이터를 공급하는 `Supplier` 입니다. 추가적으로 메세지 송신자를 지정할 수도 있으나, 기본값으로는 메세지를 보내는 모드의 아이디 입니다.
+
+또, `InterModProcessEvent` 도중 `InterModComms#getMessages` 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 `Predicate` 를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 `Stream<IMCMessage>` 를 반환합니다, `IMCMessage` 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.
 
 !!! note
     그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 `FMLConstructModEvent` 생명주기 이벤트와 `InterModComms` 이후에 방송되어 모드를 완전히 불러왔음을 알리는 `FMLLoadCompleteEvent` 생명주기 이벤트가 있습니다.
