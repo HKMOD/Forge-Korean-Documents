@@ -30,7 +30,7 @@
 
 ### `DistExecutor`
 
-모드는 클라이언트와 서버에서 동시에 사용하기 위해 만들어 진다는 것과, 클라이언트와 서버는 아예 다른 jar 파일로 구분된다는 것을 고려해 보면, 어떻게 하나의 물리 사이드에만 존재하는 코드를 사용할 수 있을지 궁금해 집니다. `net.minecraft.client` 패키지에 들어있는 코드들은 물리 클라이언트에만 존재하며 `net.minecraft.server.dedicated` 패키지에 들어있는 코드들은 물리 서버에만 존재합니다. 만약 이 코드들을 어떻게든 참조하는 클래스를 작성하시면, 그 코드들이 없는 환경에서 그 클래스가 불러와질 때 게임이 튕깁니다. 초보분들이 많이 하시는 실수가 `Minecraft.getInstance().<무언가>` 를 블록이나 블록 엔티티에서 사용하는 것인데, 이는 그 클래스가 불러와지는 그 순간 게임이 튕길 것입니다.
+모드는 클라이언트와 서버에서 동시에 사용하기 위해 만들어 진다는 것과, 클라이언트와 서버는 아예 다른 jar 파일로 구분된다는 것을 고려해 보면, 어떻게 하나의 물리 사이드에만 존재하는 코드를 사용할 수 있을지 궁금해 집니다. `net.minecraft.client` 패키지에 들어있는 코드들은 물리 클라이언트에만 존재합니다. 만약 이 코드들을 어떻게든 참조하는 클래스를 작성하시면, 그 코드들이 없는 환경에서 그 클래스가 불러와질 때 게임이 튕깁니다. 초보분들이 많이 하시는 실수가 `Minecraft.getInstance().<무언가>` 를 블록이나 블록 엔티티에서 사용하는 것인데, 이는 그 클래스가 불러와지는 그 순간 게임이 튕길 것입니다.
 
 이를 해결하기 위해 FML 에선 `DistExecutor` 를 제공합니다. 이는 물리 사이드에 따라 다른 메서드를 실행하거나, 아예 한쪽 사이드에서만 실행될 코드를 작성할 수 있는 방법을 제공합니다.
 
@@ -38,11 +38,30 @@
 
     숙지하셔야 할 점은 FML 은 **논리** 사이드를 이용해 언제 코드를 실행할지를 결정한다는 것입니다. 싱글 플레이 월드(논리 서버와 논리 클라이언트가 있는 물리 클라이언트) 에서는 `Dist.CLIENT` 가 사용됩니다!
 
+`DistExecutor` 는 메서드를 호출할 `Supplier` 를 전달받는 것으로 작동하는데, 이는 [`invokedynamic` JVM 명령][invokedynamic]을 사용하여 클래스 로딩을 막아, 런타임 도중 존재하지 않는 클래스를 불러오려고 시도하는 것을 방지합니다. 이때 호출될 메서드는 정적 메서드이어야 하며 다른 클래스에 정의되어 있어야 합니다. 만약 해당 정적 메서드가 받는 인자가 없다면, `Supplier` 를 전달하기 보단 메서드 레퍼런스를 사용하셔야 합니다. 
+
+`DistExecutor` 에는 대표적으로 2개의 메서드가 있는데: `#runWhenOn` 과 `#callWhenOn` 입니다. 이 메서드들은 전달받은 메서드를 실행할 물리 사이드와, 실행될 메서드들을 받습니다. `runWhenOn` 은 결과를 반환하지 않으며, `callWhenOn` 은 결과를 반환합니다. 이때 `callWhenOn` 은 물리 사이드에 따라 null 을 반환할 수도 있습니다.
+
+또, 이 두 메서드들은 `#safe*` 와 `#unsafe*` 로 다시 나뉘는데, 이때 safe 와 unsafe 는 이 메서드들의 용도를 잘 나타내는 명칭은 아닙니다. `#safe*` 와 `#unsafe*` 의 궁극적인 차이점은 개발 환경에서의 기능 차이입니다, `#safe*` 는 전달된 람다가 다른 메서드에 정의된 메서드 레퍼런스인지 확인하는 것입니다, 만약 그렇지 않다면 예외를 발생시킵니다. 릴리즈 환경에서는 `#safe*` 와 `#unsafe*` 는 기능상 동일합니다.
+
+```java
+// 클라이언트 전용 클래스속 어딘가: ExampleClass
+public static void unsafeRunMethodExample(Object param1, Object param2) {
+    // ...
+}
+public static Object safeCallMethodExample() {
+    // ...
+}
+// 공용 클래스 어딘가
+DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ExampleClass.unsafeRunMethodExample(var1, var2));
+DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> ExampleClass::safeCallMethodExample);
+```
+
 ### 스레드 그룹
 
 만약 `Thread.currentThread().getTHreadGroup() == SidedThreadGroups.Server` 가 참이라면 그 스레드는 논리 서버를 실행하고 있을 가능성이 큽니다. 그렇지 않다면 논리 클라이언트를 실행할 가능성이 큽니다. 이는 `World` 객체에 접근할 수 없을때 **논리** 사이드를 확인하는데 유용합니다. 하지만 이는 확실하게 확인하는 것이 아닌 현재 실행중인 스레드의 그룹을 비교하여 짐작하는 것이기 때문에 가능하면 사용하시지 않는 것을 권장드립니다ㅣ. 대신 `World#isClientSide` 를 가능하면 사용하세요.
 
-### `FMLEnvironment#dist` 과 `@OnlyIn`
+### `FMLEnvironment#dist` 와 `@OnlyIn`
 
 `FMLEnvironment#dist` 는 현재 코드가 실행되고 있는 **물리** 사이드를 저장하고 있습니다. 이 값은 프로그램이 시작될 때 결정되기 때문에 짐작하지 않고 확실한 값을 반환합니다. 그러나 이를 실제로 사용하는 경우는 드뭅니다.
 
@@ -71,3 +90,6 @@
 ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
 ```
 이는 클라이언트가 서버 버전이 없어도 무시하도록 하고, 서버는 클라이언트에 모드 설치를 요구하지 않도록 합니다. 그렇기에 위 코드는 서버 전용 또는 클라이언트 전용 모드 둘다에서 작동합니다.
+
+[invokedynamic]: https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.invokedynamic
+[dist]: #fmlenvironmentdist--onlyin
