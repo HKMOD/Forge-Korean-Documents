@@ -47,8 +47,6 @@ MDK 의 `build.gradle` 은 기본적으로 `runData` 를 추가하여 데이터 
   * `LootTableProvider` - 노획물 테이블 생성; `#getTables` 를 오버라이드 하세요
   * `RecipeProvider` - 조합법 및 해금되는 도전과제 생성: `#buildShapelessRecipes` 를 오버라이드 하세요
   * `TagsProvider` - 태그 데이터 생성: `#addTags` 를 오버라이드 하세요
-
-!!! notes
-    `AdvancementProvider` 클래스가 존재는 하나 바닐라 도전 과제만 생성하도록 하드코딩 되어 있습니다.
+  * `AdvancementProvider` - 도전과제 데이터 생성,`#registerAdvancements` 를 오버라이드 하세요
 
 [glm]: ../items/globallootmodifiers.md
