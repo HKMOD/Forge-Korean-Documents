@@ -48,6 +48,16 @@ public void registerBlocks(RegistryEvent.Register<Block> event) {
 }
 ```
 
+### 포지 레지스트리가 아닌 레지스트리들
+
+바닐라코드의 몇몇 특성 때믄에, 포지가 모든 레지스트리를 감쌀 순 없습니다. `IRecipeType` 과 같은 정적이라서 사용해도 안전한 레지스트리나, `ConfiguredFeature` 와 같은 동적 레지스트리, 또는 월드젠 관련된 레지스트리들이 있습니다, 이 레지스트리들은 보통 JSON 을 통해 관리 및 등록을 합니다. 이러한 레지스트리에 등록하는 것은 다른 레지스트리 객체가 필요로 할때만 하여야 합니다.
+
+포지 레지스트리 시스템에서 관리하지 않는 레지스트리이기 떄문에, 레지스트리가 준비되기 전에 객체를 등록하지 않도록 조심해서 사용하여야 합니다. `Lazy` 라는 유틸리티 클래스가 도움이 될 수 있는데, 이 클래스는 맨 처음으로 접근될 때 처리되는 값을 저장합니다. `Lazy.of(...)` 에 `Supplier` 를 전달하는 것이 가장 많이 사용하는 방법입니다. `Lazy` 는 `Supplier` 의 하위 클래스이니, `Supplier#get` 를 사용해 값을 받을 수 있습니다.
+
+이때, 저장될 값은 `() -> Registry.register(...)` 입니다. `Registry#register` 는 객체가 추가될 레지스트리, 객체를 구분해 줄 `ResourceLocation`, 마지막으로 등록할 객체입니다.
+
+`Lazy` 의 값은 `FMLCommonSetupEvent` 도중 처리하여 만들어 내는 것이 가장 적절합니다. 바닐라의 레지스트리는 늘 스레드 안전성을 가지지는 않기 때문에 `ParallelDispatchEvent#enqueueWork` 를 통해 메인 스레드에서 `Supplier#get` 를 호출하여야 합니다. 이렇게 한다면, 메인 스레드에서  `Registry#register` 를 호출하여 추후 얼마든지 참조되어도 안전하도록 해줍니다.
+
 !!! note
     몇몇 클래스들은 레지스트리에 등록될 수 없습니다. 그 대신, 그 클래스들의 종류를 상징하는 `*Type` 클래스가 대신 등록되어야 하며, 이 `*Type` 클래스는 전자의 클래스의 생성자에서 사용되어야 합니다. 그 예시로, [`TileEntity`][타일엔티티]는 `TileEntityType`를, 그리고 `Entity`는 `EntityType`을 대신 등록하여야 합니다. 이 `*Type` 클래스들은 알맞는 클래스의 인스턴스를 생성하는 팩토리입니다.
     
