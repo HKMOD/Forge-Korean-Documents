@@ -10,11 +10,11 @@ However, the metadata system was confusing and limited, since it was stored as o
 
 ```Java
 switch (meta) {
-    case 0: { ... } // south and on the lower half of the block
-    case 1: { ... } // south on the upper side of the block
-    case 2: { ... } // north and on the lower half of the block
-    case 3: { ... } // north and on the upper half of the block
-    ... etc. ...
+  case 0: { ... } // south and on the lower half of the block
+  case 1: { ... } // south on the upper side of the block
+  case 2: { ... } // north and on the lower half of the block
+  case 3: { ... } // north and on the upper half of the block
+  // ... etc. ...
 }
 ```
 
@@ -27,7 +27,7 @@ In Minecraft 1.8 and above, the metadata system, along with the block ID system,
 
 Each *property* of a block is described by an instance of `Property<?>`. Examples of block properties include instruments (`EnumProperty<NoteBlockInstrument>`), facing (`DirectionProperty`), poweredness (`Property<Boolean>`), etc. Each property has the value of the type `T` parametrized by `Property<T>`.
 
-A unique triple can be constructed from the `Block`, the set of `Property<?>`, and the set of values for those properties. This unique triple is called a `BlockState`. 
+A unique pair can be constructed from the `Block` and a map of the `Property<?>` to their associated values. This unique pair is called a `BlockState`.
 
 The previous system of meaningless metadata values were replaced by a system of block properties, which are easier to interpret and deal with. Previously, a stone button which is facing east and is powered or held down is represented by "`minecraft:stone_button` with metadata `9`. Now, this is represented by "`minecraft:stone_button[facing=east,powered=true]`".
 
@@ -38,7 +38,7 @@ The `BlockState` system is a flexible and powerful system, but it also has limit
 
 Not all blocks and situations require the usage of `BlockState`; only the most basic properties of a block should be put into a `BlockState`, and any other situation is better off with having a `BlockEntity` or being a separate `Block`. Always consider if you actually need to use blockstates for your purposes.
 
-!!! Note
+!!! note
     A good rule of thumb is: **if it has a different name, it should be a separate block**.
 
 An example is making chair blocks: the *direction* of the chair should be a *property*, while the different *types of wood* should be separated into different blocks.
@@ -49,19 +49,19 @@ Implementing Block States
 
 In your Block class, create or reference `static final` `Property<?>` objects for every property that your Block has. You are free to make your own `Property<?>` implementations, but the means to do that are not covered in this article. The vanilla code provides several convenience implementations:
 
-  * `IntegerProperty`
-    * Implements `Property<Integer>`. Defines a property that holds an integer value.
-    * Created by calling `IntegerProperty#create(String propertyName, int minimum, int maximum)`.
-  * `BooleanProperty`
-    * Implements `Property<Boolean>`. Defines a property that holds a `true` or `false` value.
-    * Created by calling `BooleanProperty#create(String propertyName)`.
-  * `EnumProperty<E extends Enum<E>>`
-    * Implements `Property<E>`. Defines a property that can take on the values of an Enum class.
-    * Created by calling `EnumProperty#create(String propertyName, Class<E> enumClass)`.
-    * It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 `DyeColor`s). See the overloads of `EnumProperty#create`.
-  * `DirectionProperty`
-    * This is a convenience implementation of `EnumProperty<Direction>`
-    * Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)`; to get the X directions, `DirectionProperty.create("<name>", Direction.Axis.X)`.
+* `IntegerProperty`
+  * Implements `Property<Integer>`. Defines a property that holds an integer value.
+  * Created by calling `IntegerProperty#create(String propertyName, int minimum, int maximum)`.
+* `BooleanProperty`
+  * Implements `Property<Boolean>`. Defines a property that holds a `true` or `false` value.
+  * Created by calling `BooleanProperty#create(String propertyName)`.
+* `EnumProperty<E extends Enum<E>>`
+  * Implements `Property<E>`. Defines a property that can take on the values of an Enum class.
+  * Created by calling `EnumProperty#create(String propertyName, Class<E> enumClass)`.
+  * It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 `DyeColor`s). See the overloads of `EnumProperty#create`.
+* `DirectionProperty`
+  * This is a convenience implementation of `EnumProperty<Direction>`
+  * Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)`; to get the X directions, `DirectionProperty.create("<name>", Direction.Axis.X)`.
 
 The class `BlockStateProperties` contains shared vanilla properties which should be used or referenced whenever possible, in place of creating your own properties.
 
@@ -71,12 +71,12 @@ Every block will also have a "default" state that is automatically chosen for yo
 
 ```Java
 this.registerDefaultState(
-    this.stateDefinition.any()
-        .setValue(FACING, Direction.NORTH)
-        .setValue(OPEN, false)
-        .setValue(HINGE, DoorHingeSide.LEFT)
-        .setValue(POWERED, false)
-        .setValue(HALF, DoubleBlockHalf.LOWER)
+  this.stateDefinition.any()
+    .setValue(FACING, Direction.NORTH)
+    .setValue(OPEN, false)
+    .setValue(HINGE, DoorHingeSide.LEFT)
+    .setValue(POWERED, false)
+    .setValue(HALF, DoubleBlockHalf.LOWER)
 );
 ```
 

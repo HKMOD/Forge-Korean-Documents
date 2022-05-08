@@ -11,10 +11,10 @@ First you need to create your `SimpleChannel` object. We recommend that you do t
 ```java
 private static final String PROTOCOL_VERSION = "1";
 public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-    new ResourceLocation("mymodid", "main"),
-    () -> PROTOCOL_VERSION,
-    PROTOCOL_VERSION::equals,
-    PROTOCOL_VERSION::equals
+  new ResourceLocation("mymodid", "main"),
+  () -> PROTOCOL_VERSION,
+  PROTOCOL_VERSION::equals,
+  PROTOCOL_VERSION::equals
 );
 ```
 
@@ -51,12 +51,12 @@ There are a couple things to highlight in a packet handler. A packet handler has
 
 ```java
 public static void handle(MyMessage msg, Supplier<NetworkEvent.Context> ctx) {
-    ctx.get().enqueueWork(() -> {
-        // Work that needs to be thread-safe (most work)
-        ServerPlayer sender = ctx.get().getSender(); // the client that sent this packet
-        // Do stuff
-    });
-    ctx.get().setPacketHandled(true);
+  ctx.get().enqueueWork(() -> {
+    // Work that needs to be thread-safe (most work)
+    ServerPlayer sender = ctx.get().getSender(); // the client that sent this packet
+    // Do stuff
+  });
+  ctx.get().setPacketHandled(true);
 }
 ```
 
@@ -65,31 +65,27 @@ Packets sent from the server to the client should be handled in another class an
 ```java
 // In Packet class
 public static void handle(MyClientMessage msg, Supplier<NetworkEvent.Context> ctx) {
-    ctx.get().enqueueWork(() ->
-        // Make sure it's only executed on the physical client
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandlerClass.handlePacket(msg, ctx))
-    );
-    ctx.get().setPacketHandled(true);
+  ctx.get().enqueueWork(() ->
+    // Make sure it's only executed on the physical client
+    DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandlerClass.handlePacket(msg, ctx))
+  );
+  ctx.get().setPacketHandled(true);
 }
 
 // In ClientPacketHandlerClass
 public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Context> ctx) {
-    // Do stuff
+  // Do stuff
 }
 ```
 
 Note the presence of `#setPacketHandled`, which is used to tell the network system that the packet has successfully completed handling.
 
 !!! warning
-
     As of Minecraft 1.8 packets are by default handled on the network thread.
 
-    That means that your handler can _not_ interact with most game objects directly.
-    Forge provides a convenient way to make your code execute on the main thread instead through the supplied `NetworkEvent$Context`.
-    Simply call `NetworkEvent$Context#enqueueWork(Runnable)`, which will call the given `Runnable` on the main thread at the next opportunity.
+    That means that your handler can _not_ interact with most game objects directly. Forge provides a convenient way to make your code execute on the main thread instead through the supplied `NetworkEvent$Context`. Simply call `NetworkEvent$Context#enqueueWork(Runnable)`, which will call the given `Runnable` on the main thread at the next opportunity.
 
 !!! warning
-
     Be defensive when handling packets on the server. A client could attempt to exploit the packet handling by sending unexpected data.
 
     A common problem is vulnerability to **arbitrary chunk generation**. This typically happens when the server is trusting a block position sent by a client to access blocks and block entities. When accessing blocks and block entities in unloaded areas of the level, the server will either generate or load this area from disk, then promptly write it to disk. This can be exploited to cause **catastrophic damage** to a server's performance and storage space without leaving a trace.
