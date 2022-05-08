@@ -97,7 +97,7 @@ public static final RegistryObject<ManaType> COFFEINUM = RegistryObject.of(new R
 `@ObjectHolder` 를 사용하는 방법은 다음과 같습니다:
 
 * 만약 클래스에 `@ObjectHolder` 어노테이션이 있다면, 어노테이션의 value 를 그 클래스의 필드들의 네임스페이스 기본값으로 사용합니다.
-* 만약 클래스에 `@Mod` 어노테이션이 있다면, modid 를 그 클래스의 네임스페이스 기본값으로 사용합니다.
+* 만약 클래스에 `@Mod` 어노테이션이 있다면, `modid` 를 그 클래스의 네임스페이스 기본값으로 사용합니다.
 * 필드가 다음 조건들을 충족시킨다면 주입이 이루어 집니다:
     * 최소한 `public static` 키워드가 있을때;
     * 다음중 하나라도 참일때:
@@ -202,7 +202,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 
 커스텀 포지 레지스트리는 `RegistryBuilder` 를 통해 만들어지며, `RegistryEvent$NewRegistry` 또는 `DeferredRegister` 를 사용합니다. `RegistryBuilder` 클래스는 이름, 등록될 객체들의 클래스, 레지스트리에서 이벤트 발생시 사용할 여러가지 콜백들과 같은 인자들을 매개변수로 사용합니다. `RegistryBuilder#create` 를 호출하면, 레지스트리를 만들고, `RegistryManager` 에 등록한 이후 호출한 곳으로 반환됩니다.
 
-레지스트리에 등록될 객체의 클래스는 무조건 `IForgeRegisterEntry` 인터페이스를 구현하여야 합니다, 이 인터페이스는 `#setRegistryName` 과 `#getRegistryName` 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 `ForgeRegistryEntry` 를 상속하는 것이 권장됩니다, 이 클래스는 `IForgeRegistryEntry` 인터페이스의 기본적인 구현을 제공합니다. `#setRegistryName(String)` 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 modid로 추론됩니다.
+레지스트리에 등록될 객체의 클래스는 무조건 `IForgeRegisterEntry` 인터페이스를 구현하여야 합니다, 이 인터페이스는 `#setRegistryName` 과 `#getRegistryName` 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 `ForgeRegistryEntry` 를 상속하는 것이 권장됩니다, 이 클래스는 `IForgeRegistryEntry` 인터페이스의 기본적인 구현을 제공합니다. `#setRegistryName(String)` 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 해당 모드의 아이디로 추론됩니다.
 
 모든 새로 만들어진 레지스트리들 또한 [이 방법들][등록]을 통해 객체들을 등록하여야 합니다.
 
@@ -224,7 +224,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 누락된 항목 처리하기
 ------------------------
 
-가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 `RegistryEvent$MissingMappings` 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 `getMappings` 를 통해 modid 의 누락된 매핑 리스트를 받아올 수 있으며, `#getAllMappings` 를 통해 modid 와 관련 없이 모든 매핑들을 받아올 수 있습니다.
+가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 `RegistryEvent$MissingMappings` 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 `getMappings` 를 통해 해당 모드의 누락된 매핑 리스트를 받아올 수 있으며, `#getAllMappings` 를 통해 어떤 모드에서 이 오류가 발생했는가와 관련 없이 모든 매핑들을 받아올 수 있습니다.
 
 각 누락된 항목마다, 이 4가지 방법중 하나를 선택하여 어떻게 처리할지 선택할 수 있습니다:
 
