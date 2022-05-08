@@ -1,80 +1,80 @@
 # If you add a page, you must add it to the index here
 nav:
   - Home: 'index.md'
-  - 문서 스타일 가이드: '스타일가이드.md'
+  - 문서 스타일 가이드: 'styleguide.md'
   - 시작하기:
-    - Home: '시작하기/index.md'
-    - 모드 기본 구조 작성하기: '시작하기/모드구조.md'
-    - 포지 자동 업데이트 표시기: '시작하기/자동업데이트.md'
-    - 디버그 프로파일러: '시작하기/프로파일러.md'
+    - Home: 'gettingstarted/index.md'
+    - 모드 기본 구조 작성하기: 'gettingstarted/structuring.md'
+    - 포지 자동 업데이트 표시기: 'gettingstarted/autoupdate.md'
+    - 디버그 프로파일러: 'gettingstarted/debugprofiler.md'
   - 개념들:
-    - 사이드: '개념들/사이드.md'
-    - 리소스: '개념들/리소스.md'
-    - 데이터: '개념들/데이터.md'
-    - 레지스트리: '개념들/레지스트리.md'
-    - 모드 생명주기: '개념들/생명주기.md'
-    - 국제화와 현지화: '개념들/국제화.md'
+    - 사이드: 'concepts/sides.md'
+    - 리소스: 'concepts/resources.md'
+    - 데이터: 'concepts/data.md'
+    - 레지스트리: 'concepts/registries.md'
+    - 모드 생명주기: 'concepts/lifecycle.md'
+    - 국제화와 현지화: 'concepts/internationalization.md'
   - 블록:
-    - Home: '블록/블록.md'
-    - 블록의 상태: '블록/상태.md'
-    - 상호작용: '블록/상호작용.md'
+    - Home: 'blocks/blocks.md'
+    - 블록의 상태: 'blocks/states.md'
+    - 상호작용: 'blocks/interaction.md'
 #  - Animation API:
 #    - Intro to the Animation API: 'animation/소개.md'
 #    - Armatures: 'animation/armature.md'
 #    - Animation State Machines: 'animation/asm.md'
 #    - Using the API: 'animation/implementing.md'
   - 타일 엔티티:
-    - Home: '타일엔티티/tileentity.md'
-    - 렌더러: '타일엔티티/tesr.md'
+    - Home: 'tileentities/tileentity.md'
+    - 렌더러: 'tileentities/tesr.md'
   - 아이템:
-    - Home: '아이템/아이템.md'
-    - Loot Modification: '아이템/globallootmodifiers.md'
+    - Home: 'items/items.md'
+    - Loot Modification: 'items/globallootmodifiers.md'
   - 모델:
-    - 모델 소개: '모델/introduction.md'
-    - 모델 파일: '모델/files.md'
+    - 모델 소개: 'models/introduction.md'
+    - 모델 파일: 'models/files.md'
     - BlockState:
-      - BlockState JSON 소개: '모델/blockstates/introduction.md'
-    - 텍스쳐 색칠하기: '모델/color.md'
-    - 아이템 특성 오버라이드: '모델/overrides.md'#TODO 이거 이름 변경하기
+      - BlockState JSON 소개: 'models/blockstates/introduction.md'
+    - 텍스쳐 색칠하기: 'models/color.md'
+    - 아이템 특성 오버라이드: 'models/overrides.md'
     - 심화 모델:
-      - IBakedModel: '모델/심화/ibakedmodel.md'
-      - Perspective: '모델/심화/perspective.md'
-      - ItemOverrideList: '모델/심화/itemoverridelist.md'
+      - IBakedModel: 'models/advanced/ibakedmodel.md'
+      - Perspective: 'models/advanced/perspective.md'
+      - ItemOverrideList: 'models/advanced/itemoverridelist.md'
   - 렌더링:
-    - ItemStackTileEntityRenderer: '렌더링/ister.md'
+    - ItemStackTileEntityRenderer: 'rendering/ister.md'
   - 데이터 생성:
-    - 소개: '데이터생성기/소개.md'
-    - 모델 제공자: '데이터생성기/모델제공자.md'
+    - 소개: 'datagen/intro.md'
+    - 모델 제공자: 'datagen/modelproviders.md'
   - 이벤트:
-    - 기본적인 사용법: '이벤트/소개.md'
+    - 기본적인 사용법: 'events/intro.md'
   - 네트워킹:
-    - Home: '네트워킹/index.md'
-    - 개요: '네트워킹/개요.md'
-    - SimpleImpl: '네트워킹/simpleimpl.md'
-    - 엔티티 네트워킹: '네트워킹/entities.md'
+    - Home: 'networking/index.md'
+    - 개요: 'networking/overview.md'
+    - SimpleImpl: 'networking/simpleimpl.md'
+    - 엔티티 네트워킹: 'networking/entities.md'
   - 데이터 저장소:
-    - Capabilities: '데이터저장소/캐패빌리티.md'
-    - 월드에 저장되는 데이터: '데이터저장소/월드저장데이터.md'
+    - Capabilities: 'datastorage/capabilities.md'
+    - 월드 저장 데이터: 'datastorage/worldsaveddata.md'
   - 유틸리티:
-    - 조합법: '유틸리티/조합법.md'
-    - 태그: '유틸리티/태그.md'
+    - 조합법: 'utilities/recipes.md'
+    - 태그: 'utilities/tags.md'
   - 효과:
-    - 파티클: '효과들/파티클.md'
-    - 소리: '효과들/소리.md'
+    - 파티클: 'effects/particles.md'
+    - 소리: 'effects/sounds.md'
   - 협약:
-    - 버전 명명: '협약들/버전명명.md'
-    - 파일 위치: '협약들/파일위치.md'
+    - 버전 명명: 'conventions/versioning.md'
+    - 파일 위치: 'conventions/locations.md'
   - 심화 주제:
-    - 접근 변환자: '심화/접근 변환자.md'
+    - 접근 변환자: 'advanced/accesstransformers.md'
   - 포지에 기여하기:
-    - 시작하기: '포지개발/index.md'
-    - PR 가이드라인: '포지개발/prguidelines.md'
+    - 시작하기: 'forgedev/index.md'
+    - PR 가이드라인: 'forgedev/prguidelines.md'
   - 이전 버전:
-    - Home: '레거시/index.md'
-    - 1.16으로 포팅하기: '레거시/포팅.md'
+    - Home: 'legacy/index.md'
+    - 1.16으로 포팅하기: 'legacy/porting.md'
 
-# Do not edit in PRs below here
-site_name: Forge Documentation
+# PR 에서 이 아래 부분을 수정하지 마세요
+site_name: Forge Korean Documentation
 site_url: https://mcforge.readthedocs.io/en/1.16.x/
 
 markdown_extensions:
