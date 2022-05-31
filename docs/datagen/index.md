@@ -45,27 +45,35 @@ The `GatherDataEvent` is fired on the mod event bus when the data generator is b
 ### Client Assets
 * [`net.minecraftforge.common.data.LanguageProvider`][langgen] - for [language strings][lang]; override `#addTranslations`
 * [`net.minecraftforge.common.data.SoundDefinitionsProvider`][soundgen] - for [`sounds.json`][sounds]; override `#registerSounds`
-* `ModelProvider<?>` - base class for all model providers
-  * _These classes are under the `net.minecraftforge.client.model.generators` package_
-  * `ItemModelProvider` - for item models; override `#registerModels`
-  * `BlockStateProvider` - for blockstates and their block and item models; override `#registerStatesAndModels`
-  * `BlockModelProvider` - for block models; override `#registerModels`
+* [`net.minecraftforge.client.model.generators.ModelProvider<?>`][modelgen] - for [models]; override `#registerModels`
+    * [`ItemModelProvider`][itemmodelgen] - for item models
+    * [`BlockModelProvider`][blockmodelgen] - for block models
+* [`net.minecraftforge.client.model.generators.BlockStateProvider`][blockstategen] - for blockstate JSONs and their block and item models; override `#registerStatesAndModels`
 
 ### Server Data
 * [`net.minecraftforge.common.data.GlobalLootModifierProvider`][glmgen] - for [global loot modifiers][glm]; override `#start`
 * _These classes are under the `net.minecraft.data` package_
-* `LootTableProvider` - for loot tables; override `#getTables`
+* [`LootTableProvider`][loottablegen] - for [loot tables][loottable]; override `#getTables`
 * [`RecipeProvider`][recipegen] - for [recipes] and their unlocking advancements; override `#buildCraftingRecipes`
 * [`TagsProvider`][taggen] - for [tags]; override `#addTags`
-* `AdvancementProvider` - for advancements; override `#registerAdvancements`
+* [`AdvancementProvider`][advgen] - for [advancements]; override `#registerAdvancements`
 
 [langgen]: ./client/localization.md
 [lang]: https://minecraft.fandom.com/wiki/Language
 [soundgen]: ./client/sounds.md
 [sounds]: https://minecraft.fandom.com/wiki/Sounds.json
+[modelgen]: ./client/modelproviders.md
+[models]: ../resources/client/models/index.md
+[itemmodelgen]: ./client/modelproviders.md#itemmodelprovider
+[blockmodelgen]: ./client/modelproviders.md#blockmodelprovider
+[blockstategen]: ./client/modelproviders.md#block-state-provider
 [glmgen]: ./server/glm.md
 [glm]: ../resources/server/glm.md
+[loottablegen]: ./server/loottables.md
+[loottable]: ../resources/server/loottables.md
 [recipegen]: ./server/recipes.md
 [recipes]: ../resources/server/recipes/index.md
 [taggen]: ./server/tags.md
 [tags]: ../resources/server/tags.md
+[advgen]: ./server/advancements.md
+[advancements]: ../resources/server/advancements.md
