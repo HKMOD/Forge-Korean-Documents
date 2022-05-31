@@ -596,6 +596,15 @@
         
 <li >
     
+    <a href="../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
     
     
@@ -606,6 +615,15 @@
 <li >
     
     <a href="../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/advancements/" class="elem-text">Advancements</a>
     
     
 </li>
@@ -701,7 +719,25 @@
         
 <li >
     
+    <a href="../../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
     
     
 </li>
@@ -1025,7 +1061,7 @@ class UnannotatedHolder { // Note the lack of an @ObjectHolder annotation on thi
 <p><code>DeferredRegister#makeRegistry</code> must be called before the <code>DeferredRegister</code> is added to the mod event bus via <code>#register</code>. <code>#makeRegistry</code> also uses the <code>#register</code> method to create the registry during <code>NewRegistryEvent</code>.</p>
 </div>
 <h2 id="handling-missing-entries">Handling Missing Entries<a class="headerlink" href="#handling-missing-entries" title="Permanent link"> </a></h2>
-<p>There are cases where certain registry objects will cease to exist whenever a mod is updated or, more likely, removed. It is possible to specify actions to handle the missing mapping through the third of the registry events: <code>RegistryEvent$MissingMappings</code>. Within this event, a list of missing mappings can be obtained wither by <code>#getMappings</code> given a mod id or all mappings via <code>#getAllMappings</code>.</p>
+<p>There are cases where certain registry objects will cease to exist whenever a mod is updated or, more likely, removed. It is possible to specify actions to handle the missing mapping through the third of the registry events: <code>RegistryEvent$MissingMappings</code>. Within this event, a list of missing mappings can be obtained either by <code>#getMappings</code> given a mod id or all mappings via <code>#getAllMappings</code>.</p>
 <p>For each <code>Mapping</code>, one of four mapping types can be selected to handle the missing entry:</p>
 <table>
 <thead>

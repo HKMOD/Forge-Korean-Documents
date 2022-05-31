@@ -581,6 +581,15 @@
         
 <li >
     
+    <a href="../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
     
     
@@ -591,6 +600,15 @@
 <li >
     
     <a href="../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/advancements/" class="elem-text">Advancements</a>
     
     
 </li>
@@ -699,7 +717,25 @@
         
 <li >
     
+    <a href="server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="server/advancements/" class="elem-text">Advancement Providers</a>
     
     
 </li>
@@ -887,20 +923,21 @@
 <ul>
 <li><a href="client/localization/"><code>net.minecraftforge.common.data.LanguageProvider</code></a> - for <a href="https://minecraft.fandom.com/wiki/Language">language strings</a>; override <code>#addTranslations</code></li>
 <li><a href="client/sounds/"><code>net.minecraftforge.common.data.SoundDefinitionsProvider</code></a> - for <a href="https://minecraft.fandom.com/wiki/Sounds.json"><code>sounds.json</code></a>; override <code>#registerSounds</code></li>
-<li><code>ModelProvider&lt;?&gt;</code> - base class for all model providers</li>
-<li><em>These classes are under the <code>net.minecraftforge.client.model.generators</code> package</em></li>
-<li><code>ItemModelProvider</code> - for item models; override <code>#registerModels</code></li>
-<li><code>BlockStateProvider</code> - for blockstates and their block and item models; override <code>#registerStatesAndModels</code></li>
-<li><code>BlockModelProvider</code> - for block models; override <code>#registerModels</code></li>
+<li><a href="client/modelproviders/"><code>net.minecraftforge.client.model.generators.ModelProvider&lt;?&gt;</code></a> - for <a href="../resources/client/models/">models</a>; override <code>#registerModels</code><ul>
+<li><a href="client/modelproviders/#itemmodelprovider"><code>ItemModelProvider</code></a> - for item models</li>
+<li><a href="client/modelproviders/#blockmodelprovider"><code>BlockModelProvider</code></a> - for block models</li>
+</ul>
+</li>
+<li><a href="client/modelproviders/#block-state-provider"><code>net.minecraftforge.client.model.generators.BlockStateProvider</code></a> - for blockstate JSONs and their block and item models; override <code>#registerStatesAndModels</code></li>
 </ul>
 <h3 id="server-data">Server Data<a class="headerlink" href="#server-data" title="Permanent link"> </a></h3>
 <ul>
 <li><a href="server/glm/"><code>net.minecraftforge.common.data.GlobalLootModifierProvider</code></a> - for <a href="../resources/server/glm/">global loot modifiers</a>; override <code>#start</code></li>
 <li><em>These classes are under the <code>net.minecraft.data</code> package</em></li>
-<li><code>LootTableProvider</code> - for loot tables; override <code>#getTables</code></li>
+<li><a href="server/loottables/"><code>LootTableProvider</code></a> - for <a href="../resources/server/loottables/">loot tables</a>; override <code>#getTables</code></li>
 <li><a href="server/recipes/"><code>RecipeProvider</code></a> - for <a href="../resources/server/recipes/">recipes</a> and their unlocking advancements; override <code>#buildCraftingRecipes</code></li>
 <li><a href="server/tags/"><code>TagsProvider</code></a> - for <a href="../resources/server/tags/">tags</a>; override <code>#addTags</code></li>
-<li><code>AdvancementProvider</code> - for advancements; override <code>#registerAdvancements</code></li>
+<li><a href="server/advancements/"><code>AdvancementProvider</code></a> - for <a href="../resources/server/advancements/">advancements</a>; override <code>#registerAdvancements</code></li>
 </ul>
             
         </article>

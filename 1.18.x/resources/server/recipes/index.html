@@ -594,6 +594,15 @@
         
 <li >
     
+    <a href="../loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="../glm/" class="elem-text">Global Loot Modifiers</a>
     
     
@@ -604,6 +613,15 @@
 <li >
     
     <a href="../tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../advancements/" class="elem-text">Advancements</a>
     
     
 </li>
@@ -699,7 +717,25 @@
         
 <li >
     
+    <a href="../../../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
     <a href="../../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
     
     
 </li>
@@ -859,7 +895,7 @@
 <p>Recipes are a way to transform some number of objects into other objects within a Minecraft world. Although the vanilla system deals purely with item transformations, the system as a whole can be expanded to use any object the programmer creates.</p>
 <h2 id="data-driven-recipes">Data-Driven Recipes<a class="headerlink" href="#data-driven-recipes" title="Permanent link"> </a></h2>
 <p>Most recipe implementations within vanilla are data driven via JSON. This means that a mod is not necessary to create a new recipe, only a <a href="https://minecraft.fandom.com/wiki/Data_pack">Data pack</a>. A full list on how to create and put these recipes within the mod&rsquo;s <code>resources</code> folder can be found on the <a href="https://minecraft.fandom.com/wiki/Recipe">Minecraft Wiki</a>.</p>
-<p>A recipe can be obtained within the Recipe Book as a reward for completing an <a href="https://minecraft.fandom.com/wiki/Advancement/JSON_format#File_format">advancement</a>. Recipe advancements always have <code>minecraft:recipes/root</code> as their parent, to not to appear on the advancement screen. The default criteria to gain the recipe advancement is a check if the user has unlocked the recipe from using it once or receiving it through a command like <code>/recipe</code>:</p>
+<p>A recipe can be obtained within the Recipe Book as a reward for completing an <a href="../advancements/">advancement</a>. Recipe advancements always have <code>minecraft:recipes/root</code> as their parent, to not to appear on the advancement screen. The default criteria to gain the recipe advancement is a check if the user has unlocked the recipe from using it once or receiving it through a command like <code>/recipe</code>:</p>
 <pre class="highlight"><code class="language-js">// Within some recipe advancement json
 "has_the_recipe": { // Criteria label
   // Succeeds if examplemod:example_recipe is used

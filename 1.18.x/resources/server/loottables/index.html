@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Item Overrides - Forge Documentation</title>
+    <title>Loot Tables - Forge Documentation</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../../../images/favicon-32x32.png" sizes="32x32">
@@ -397,19 +397,19 @@
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
     
-    <ul class="nav-collapsible nav-collapsible-open">
+    <ul class="nav-collapsible ">
         
         
 <li class="elem-parent">
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
     
-    <ul class="nav-collapsible nav-collapsible-open">
+    <ul class="nav-collapsible ">
         
         
 <li >
     
-    <a href="../" class="elem-text">Introduction</a>
+    <a href="../../../rendering/modelloaders/" class="elem-text">Introduction</a>
     
     
 </li>
@@ -418,7 +418,7 @@
         
 <li >
     
-    <a href="../bakedmodel/" class="elem-text">Baked Model</a>
+    <a href="../../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
     
     
 </li>
@@ -427,32 +427,17 @@
         
 <li >
     
-    <a href="../perspective/" class="elem-text">Perspective</a>
+    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">Perspective</a>
     
     
 </li>
 
         
         
-<li class="elem-active elem-toc" >
+<li >
     
-    <a href="#itemoverrides" class="elem-text">Item Overrides</a>
+    <a href="../../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
     
-    
-    <ul class="table-of-contents">
-        
-        
-        
-        <li class="toc-subitem"><a href="#itemoverrides_1">ItemOverrides()</a></li>
-        
-        <li class="toc-subitem"><a href="#resolve">resolve</a></li>
-        
-        <li class="toc-subitem"><a href="#getoverrides">getOverrides</a></li>
-        
-        <li class="toc-subitem"><a href="#bakedoverride">BakedOverride</a></li>
-        
-        
-    </ul>
     
 </li>
 
@@ -470,7 +455,7 @@
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
     
-    <ul class="nav-collapsible ">
+    <ul class="nav-collapsible nav-collapsible-open">
         
         
 <li class="elem-parent">
@@ -482,7 +467,7 @@
         
 <li >
     
-    <a href="../../../resources/client/" class="elem-text">Introduction</a>
+    <a href="../../client/" class="elem-text">Introduction</a>
     
     
 </li>
@@ -498,7 +483,7 @@
         
 <li >
     
-    <a href="../../../resources/client/models/" class="elem-text">Introduction</a>
+    <a href="../../client/models/" class="elem-text">Introduction</a>
     
     
 </li>
@@ -507,7 +492,7 @@
         
 <li >
     
-    <a href="../../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    <a href="../../client/models/tinting/" class="elem-text">Texture Tinting</a>
     
     
 </li>
@@ -516,7 +501,7 @@
         
 <li >
     
-    <a href="../../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    <a href="../../client/models/itemproperties/" class="elem-text">Item Properties</a>
     
     
 </li>
@@ -535,12 +520,12 @@
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
     
-    <ul class="nav-collapsible ">
+    <ul class="nav-collapsible nav-collapsible-open">
         
         
 <li >
     
-    <a href="../../../resources/server/" class="elem-text">Introduction</a>
+    <a href="../" class="elem-text">Introduction</a>
     
     
 </li>
@@ -556,7 +541,7 @@
         
 <li >
     
-    <a href="../../../resources/server/recipes/" class="elem-text">Introduction</a>
+    <a href="../recipes/" class="elem-text">Introduction</a>
     
     
 </li>
@@ -565,7 +550,7 @@
         
 <li >
     
-    <a href="../../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    <a href="../recipes/custom/" class="elem-text">Custom Recipes</a>
     
     
 </li>
@@ -574,7 +559,7 @@
         
 <li >
     
-    <a href="../../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    <a href="../recipes/ingredients/" class="elem-text">Ingredients</a>
     
     
 </li>
@@ -583,7 +568,7 @@
         
 <li >
     
-    <a href="../../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    <a href="../recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
     
     
 </li>
@@ -594,9 +579,31 @@
 
         
         
+<li class="elem-active elem-toc" >
+    
+    <a href="#loot-tables" class="elem-text">Loot Tables</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#data-driven-tables">Data-Driven Tables</a></li>
+        
+        <li class="toc-subitem"><a href="#using-a-loot-table">Using a Loot Table</a></li>
+        
+        <li class="toc-subitem"><a href="#additional-features">Additional Features</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
 <li >
     
-    <a href="../../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    <a href="../glm/" class="elem-text">Global Loot Modifiers</a>
     
     
 </li>
@@ -605,7 +612,7 @@
         
 <li >
     
-    <a href="../../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    <a href="../tags/" class="elem-text">Tags</a>
     
     
 </li>
@@ -614,7 +621,7 @@
         
 <li >
     
-    <a href="../../../resources/server/tags/" class="elem-text">Tags</a>
+    <a href="../advancements/" class="elem-text">Advancements</a>
     
     
 </li>
@@ -623,16 +630,7 @@
         
 <li >
     
-    <a href="../../../resources/server/advancements/" class="elem-text">Advancements</a>
-    
-    
-</li>
-
-        
-        
-<li >
-    
-    <a href="../../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    <a href="../conditional/" class="elem-text">Conditionally-Loaded Data</a>
     
     
 </li>
@@ -893,35 +891,88 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="itemoverrides"><code>ItemOverrides</code><a class="headerlink" href="#itemoverrides" title="Permanent link"> </a></h1>
-<p><code>ItemOverrides</code> provides a way for an <a href="../bakedmodel/"><code>BakedModel</code></a> to process the state of an <code>ItemStack</code> and return a new <code>BakedModel</code>; thereafter, the returned model replaces the old one. <code>ItemOverrides</code> represents an arbitrary function <code>(BakedModel, ItemStack, ClientLevel, LivingEntity, int)</code> → <code>BakedModel</code>, making it useful for dynamic models. In vanilla, it is used to implement item property overrides.</p>
-<h3 id="itemoverrides_1"><code>ItemOverrides()</code><a class="headerlink" href="#itemoverrides_1" title="Permanent link"> </a></h3>
-<p>Given a list of <code>ItemOverride</code>s, the constructor copies and bakes the list. The baked overrides may be accessed with <code>#getOverrides</code>.</p>
-<h3 id="resolve"><code>resolve</code><a class="headerlink" href="#resolve" title="Permanent link"> </a></h3>
-<p>This takes an <code>BakedModel</code>, an <code>ItemStack</code>, a <code>ClientLevel</code>, a <code>LivingEntity</code>, and an <code>int</code> to produce another <code>BakedModel</code> to use for rendering. This is where models can handle the state of their items.</p>
-<p>This should not mutate the level.</p>
-<h3 id="getoverrides"><code>getOverrides</code><a class="headerlink" href="#getoverrides" title="Permanent link"> </a></h3>
-<p>Returns an immutable list containing all the <a href="#bakedoverride"><code>BakedOverride</code></a>s used by this <code>ItemOverrides</code>. If none are applicable, this returns the empty list.</p>
-<h2 id="bakedoverride"><code>BakedOverride</code><a class="headerlink" href="#bakedoverride" title="Permanent link"> </a></h2>
-<p>This class represents a vanilla item override, which holds several <code>ItemOverrides$PropertyMatcher</code> for the properties on an item and a model to use in case those matchers are satisfied. They are the objects in the <code>overrides</code> array of a vanilla item JSON model:</p>
-<pre class="highlight"><code class="language-js">{
-  // Inside a vanilla JSON item model
-  "overrides": [
+            <h1 id="loot-tables">Loot Tables<a class="headerlink" href="#loot-tables" title="Permanent link"> </a></h1>
+<p>Loot tables are logic files which dictate what should happen when various actions or scenarios occur. Although the vanilla system deals purely with item generation, the system can be expanded to perform any number of defined actions.</p>
+<h2 id="data-driven-tables">Data-Driven Tables<a class="headerlink" href="#data-driven-tables" title="Permanent link"> </a></h2>
+<p>Most loot tables within vanilla are data driven via JSON. This means that a mod is not necessary to create a new loot table, only a <a href="https://minecraft.fandom.com/wiki/Data_pack">Data pack</a>. A full list on how to create and put these loot tables within the mod&rsquo;s <code>resources</code> folder can be found on the <a href="https://minecraft.fandom.com/wiki/Loot_table">Minecraft Wiki</a>.</p>
+<h2 id="using-a-loot-table">Using a Loot Table<a class="headerlink" href="#using-a-loot-table" title="Permanent link"> </a></h2>
+<p>A loot table is referenced by its <code>ResourceLocation</code> which points to <code>data/&lt;namespace&gt;/loot_tables/&lt;path&gt;.json</code>. The <code>LootTable</code> associated with the reference can be obtained using <code>LootTables#get</code>, where <code>LootTables</code> can be obtained via <code>MinecraftServer#getLootTables</code>.</p>
+<p>A loot table is always generated within a given context. The <code>LootContext</code> defines the level the table is generated in, a specific randomizer and seed if desired, luck for better generation, the <code>LootContextParam</code>s which define scenario context, and any dynamic information that should occur on activation. A loot context can be created using the constructor for <code>LootContext$Builder</code> and built using <code>LootContext$Builder#create</code>.</p>
+<p>The created <code>LootContext</code> adheres to some <code>LootContextParamSet</code>. The param set defines which <code>LootContextParam</code>s are required or optional in context for generation. A loot table generated within a given param set must only use contexts that are defined.</p>
+<p>A loot table can be generated using one of the available methods:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>getRandomItemsRaw</code></td>
+<td align="left">Consumes the items generated by the loot table.</td>
+</tr>
+<tr>
+<td align="center"><code>getRandomItems</code></td>
+<td align="left">Returns the items generated by the loot table.</td>
+</tr>
+<tr>
+<td align="center"><code>fill</code></td>
+<td align="left">Fills a container with the generated loot table.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Loot tables were built for generating items, so the methods expect some handling for the <code>ItemStack</code>s.</p>
+</div>
+<h2 id="additional-features">Additional Features<a class="headerlink" href="#additional-features" title="Permanent link"> </a></h2>
+<p>Forge provides some additional behavior to loot tables for greater control of the system.</p>
+<h3 id="loottableloadevent"><code>LootTableLoadEvent</code><a class="headerlink" href="#loottableloadevent" title="Permanent link"> </a></h3>
+<p><code>LootTableLoadEvent</code> is an <a href="../../../concepts/events/#creating-an-event-handler">event</a> fired on the Forge event bus which is fired whenever a loot table is loaded. If the event is canceled, then an empty loot table will be loaded instead.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do <strong>not</strong> modify a loot table&rsquo;s drops through this event. Those modifications should be done using <a href="../glm/">global loot modifiers</a>.</p>
+</div>
+<h3 id="loot-pool-names">Loot Pool Names<a class="headerlink" href="#loot-pool-names" title="Permanent link"> </a></h3>
+<p>Loot pools can be named using the <code>name</code> key. Any non-named loot pool will be the hash code of the pool prefixed by <code>custom#</code>.</p>
+<pre class="highlight"><code class="language-js">// For some loot pool
+{
+  "name": "example_pool", // Pool will be named 'example_pool'
+  "rolls": {
+    // ...
+  },
+  "entries": {
+    // ...
+  }
+}</code></pre>
+<h3 id="looting-modifiers">Looting Modifiers<a class="headerlink" href="#looting-modifiers" title="Permanent link"> </a></h3>
+<p>Loot tables are now affected by the <code>LootingLevelEvent</code>, on the Forge event bus, in addition to the looting enchantment.</p>
+<h3 id="additional-context-parameters">Additional Context Parameters<a class="headerlink" href="#additional-context-parameters" title="Permanent link"> </a></h3>
+<p>Forge extends certain parameter sets to account for missing contexts which may be applicable. <code>LootContextParamSets#CHEST</code> now allows for a <code>LootContextParams#KILLER_ENTITY</code> as chest minecarts are entities which can be broken (or &lsquo;killed&rsquo;). <code>LootContextParamSets#FISHING</code> also allows for a <code>LootContextParams#KILLER_ENTITY</code> since the fishing hook is also an entity which is retracted (or &lsquo;killed&rsquo;) when the player retrieves it.</p>
+<h3 id="multiple-items-on-smelting">Multiple Items on Smelting<a class="headerlink" href="#multiple-items-on-smelting" title="Permanent link"> </a></h3>
+<p>When using the <code>SmeltItemFunction</code>, a smelted recipe will now return the actual number of items from the result instead of a single smelted item (e.g. if a smelting recipe returns 3 items and there are 3 drops, then the result would be 9 smelted items instead of 3).</p>
+<h3 id="loot-table-id-condition">Loot Table Id Condition<a class="headerlink" href="#loot-table-id-condition" title="Permanent link"> </a></h3>
+<p>Forge adds an additional <code>LootItemCondition</code> which allows certain items to generate for a specific table. This is typically used within <a href="../glm/">global loot modifiers</a>.</p>
+<pre class="highlight"><code class="language-js">// In some loot pool or pool entry
+{
+  "conditions": [
     {
-      // This is an ItemOverride
-      "predicate": {
-        // This is the Map&lt;ResourceLocation, Float&gt;, containing the names of properties and their minimum values
-        "example1:prop": 0.5
-      },
-      // This is the 'location', or target model, of the override, which is used if the predicate above matches
-      "model": "example1:item/model"
-    },
+      "condition": "forge:loot_table_id",
+      // Will apply when the loot table is for dirt
+      "loot_table_id": "minecraft:blocks/dirt"
+    }
+  ]
+}</code></pre>
+<h3 id="can-tool-perform-action-condition">Can Tool Perform Action Condition<a class="headerlink" href="#can-tool-perform-action-condition" title="Permanent link"> </a></h3>
+<p>Forge adds an additional <code>LootItemCondition</code> which checks whether the given <code>LootContextParams#TOOL</code> can perform the specified <code>ToolAction</code>.</p>
+<pre class="highlight"><code class="language-js">// In some loot pool or pool entry
+{
+  "conditions": [
     {
-      // This is another ItemOverride
-      "predicate": {
-        "example2:prop": 1
-      },
-      "model": "example2:item/model"
+      "condition": "forge:can_tool_perform_action",
+      // Will apply when the tool can strip a log like an axe
+      "action": "axe_strip"
     }
   ]
 }</code></pre>
