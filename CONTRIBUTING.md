@@ -1,3 +1,4 @@
-# Contributing Documentation
+# 문서에 기여하기
+문서에 기여하기 위한 가이드라인은 [여기][스타일가이드]
 
-Guidelines for contributing can be found [on the docs](https://mcforge.readthedocs.io/en/latest/contributing/).
+[스타일가이드]: docs/contributing.md
