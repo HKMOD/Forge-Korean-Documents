@@ -1,91 +1,91 @@
 # If you add a page, you must add it to the index here
 nav:
   - Home: 'index.md'
-  - Contributing to the Docs: 'contributing.md'
-  - Getting Started:
-    - Introduction: 'gettingstarted/index.md'
-    - Structuring Your Mod: 'gettingstarted/structuring.md'
-    - Versioning: 'gettingstarted/versioning.md'
-  - Core Concepts:
-    - Registries: 'concepts/registries.md'
-    - Sides: 'concepts/sides.md'
-    - Events: 'concepts/events.md'
-    - Mod Lifecycle: 'concepts/lifecycle.md'
-    - Resources: 'concepts/resources.md'
-    - Internationalization: 'concepts/internationalization.md'
-  - Blocks:
-    - Introduction: 'blocks/index.md'
-    - Block States: 'blocks/states.md'
-  - Items:
-    - Introduction: 'items/index.md'
+  - 문서에 기여하기: 'contributing.md'
+  - 시작하기:
+    - 소개: 'gettingstarted/index.md'
+    - 모드 기본 구조 작성하기: 'gettingstarted/structuring.md'
+    - 버전 구조: 'gettingstarted/versioning.md'
+  - 핵심 개념들:
+    - 레지스트리: 'concepts/registries.md'
+    - 사이드: 'concepts/sides.md'
+    - 이벤트 : 'concepts/events.md'
+    - 모드 생명주기: 'concepts/lifecycle.md'
+    - 리소스: 'concepts/resources.md'
+    - 다국어 지원: 'concepts/internationalization.md'
+  - 블록:
+    - 소개: 'blocks/index.md'
+    - 블록의 상태: 'blocks/states.md'
+  - 아이템:
+    - 소개: 'items/index.md'
     - BlockEntityWithoutLevelRenderer: 'items/bewlr.md'
-  - Networking:
-    - Introduction: 'networking/index.md'
+  - 네트워킹:
+    - 소개: 'networking/index.md'
     - SimpleImpl: 'networking/simpleimpl.md'
-    - Synchronizing Entities: 'networking/entities.md'
-  - Block Entities:
-    - Introduction: 'blockentities/index.md'
+    - 엔티티 동기화하기: 'networking/entities.md'
+  - 블록 엔티티:
+    - 소개: 'blockentities/index.md'
     - BlockEntityRenderer: 'blockentities/ber.md'
-  - Game Effects:
-    - Particles: 'gameeffects/particles.md'
-    - Sounds: 'gameeffects/sounds.md'
-  - Data Storage:
-    - Capabilities: 'datastorage/capabilities.md'
-    - Saved Data: 'datastorage/saveddata.md'
-  - Rendering:
-    - Model Loaders:
-      - Introduction: 'rendering/modelloaders/index.md'
-      - Baked Model: 'rendering/modelloaders/bakedmodel.md'
-      - Perspective: 'rendering/modelloaders/perspective.md'
-      - Item Overrides: 'rendering/modelloaders/itemoverrides.md'
-  - Resources:
-    - Client Assets:
-      - Introduction: 'resources/client/index.md'
-      - Models:
-        - Introduction: 'resources/client/models/index.md'
-        - Texture Tinting: 'resources/client/models/tinting.md'
-        - Item Properties: 'resources/client/models/itemproperties.md'
-    - Server Data:
-      - Introduction: 'resources/server/index.md'
-      - Recipes:
-        - Introduction: 'resources/server/recipes/index.md'
-        - Custom Recipes: 'resources/server/recipes/custom.md'
-        - Ingredients: 'resources/server/recipes/ingredients.md'
-        - Non-Datapack Recipes:  'resources/server/recipes/incode.md'
-      - Loot Tables: 'resources/server/loottables.md'
-      - Global Loot Modifiers: 'resources/server/glm.md'
-      - Tags: 'resources/server/tags.md'
-      - Advancements: 'resources/server/advancements.md'
-      - Conditionally-Loaded Data: 'resources/server/conditional.md'
-  - Data Generation:
-    - Introduction: 'datagen/index.md'
-    - Client Assets:
-      - Model Providers: 'datagen/client/modelproviders.md'
-      - Language Providers: 'datagen/client/localization.md'
-      - Sound Providers: 'datagen/client/sounds.md'
-    - Server Data:
-      - Recipe Providers: 'datagen/server/recipes.md'
-      - Loot Table Providers: 'datagen/server/loottables.md'
-      - Tag Providers: 'datagen/server/tags.md'
-      - Advancement Providers: 'datagen/server/advancements.md'
-      - Global Loot Modifier Providers: 'datagen/server/glm.md'
-  - Miscellaneous Features:
-    - Configuration: 'misc/config.md'
-    - Game Tests: 'misc/gametest.md'
-    - Forge Update Checker: 'misc/updatechecker.md'
-    - Debug Profiler: 'misc/debugprofiler.md'
-  - Advanced Topics:
-    - Access Transformers: 'advanced/accesstransformers.md'
-  - Contributing to Forge:
-    - Introduction: 'forgedev/index.md'
-    - Pull Request Guidelines: 'forgedev/prguidelines.md'
-  - Legacy Versions:
-    - Introduction: 'legacy/index.md'
-    - Porting to This Version: 'legacy/porting.md'
+  - 인게임 효과:
+    - 파티클: 'gameeffects/particles.md'
+    - 효과음: 'gameeffects/sounds.md'
+  - 데이터 저장소:
+    - 캐패빌리티: 'datastorage/capabilities.md'
+    - 월드 저장 데이터: 'datastorage/saveddata.md'
+  - 렌더링:
+    - 모델 로더:
+      - 소개: 'rendering/modelloaders/index.md'
+      - 최적화된 모델: 'rendering/modelloaders/bakedmodel.md'
+      - 시점: 'rendering/modelloaders/perspective.md'
+      - 아이템 속성에 따른 동적 텍스쳐 변경: 'rendering/modelloaders/itemoverrides.md'
+  - 리소스:
+    - 클라이언트용 애셋:
+      - 소개: 'resources/client/index.md'
+      - 모델:
+        - 모델 소개: 'resources/client/models/index.md'
+        - 텍스쳐 염색: 'resources/client/models/tinting.md'
+        - 아이템 속성: 'resources/client/models/itemproperties.md'
+    - 서버 데이터:
+      - 소개: 'resources/server/index.md'
+      - 조합법:
+        - 조합법 소개: 'resources/server/recipes/index.md'
+        - 사용자지정 조합법: 'resources/server/recipes/custom.md'
+        - 재료: 'resources/server/recipes/ingredients.md'
+        - 데이터팩을 쓰지 않는 조합법:  'resources/server/recipes/incode.md'
+      - 컨테이너 전리품 테이블: 'resources/server/loottables.md'
+      - 전체 전리품 수정하기: 'resources/server/glm.md'
+      - 태그: 'resources/server/tags.md'
+      - 도전과제: 'resources/server/advancements.md'
+      - 조건적으로 불러와지는 데이터: 'resources/server/conditional.md'
+  - 데이터 생성:
+    - 소개: 'datagen/index.md'
+    - 클라이언트 애셋:
+      - 모델 생성하기: 'datagen/client/modelproviders.md'
+      - 언어 생성하기: 'datagen/client/localization.md'
+      - 소리 생성하기: 'datagen/client/sounds.md'
+    - 서버 데이터:
+      - 조합법 생성하기: 'datagen/server/recipes.md'
+      - 전리품 목록 생성하기: 'datagen/server/loottables.md'
+      - 태그 생성하기: 'datagen/server/tags.md'
+      - 도전과제 생성하기: 'datagen/server/advancements.md'
+      - 전체 전리품 수정자 생성하기: 'datagen/server/glm.md'
+  - 기타 기능:
+    - 모드 설정 파일: 'misc/config.md'
+    - 인게임 테스트: 'misc/gametest.md'
+    - 자동 업데이트 확인: 'misc/updatechecker.md'
+    - 디버그 프로파일러: 'misc/debugprofiler.md'
+  - 심화 주제:
+    - 접근 변형자: 'advanced/accesstransformers.md'
+  - 포지에 기여하기:
+    - 소개: 'forgedev/index.md'
+    - PR 가이드라인: 'forgedev/prguidelines.md'
+  - 구버전:
+    - 소개: 'legacy/index.md'
+    - 1.19로 모드 포트하기: 'legacy/porting.md'
 
 # Do not edit in PRs below here
-site_name: Forge Documentation
-site_url: https://mcforge.readthedocs.io/en/1.19.x/
+site_name: Forge Korean Documentation
+site_url: https://tmvkrpxl0.github.io/Forge-Korean-Documents/1.19.x/
 
 markdown_extensions:
   - admonition
