@@ -104,6 +104,7 @@ theme:
 extra:
   current_version: 1.19.x
   versions:
+    1.16.x: 1.16.x
     1.18.x: 1.18.x
     1.19.x: 1.19.x
 
