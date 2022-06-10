@@ -65,10 +65,10 @@ nav:
       - 소리 생성하기: 'datagen/client/sounds.md'
     - 서버 데이터:
       - 조합법 생성하기: 'datagen/server/recipes.md'
-      - 전리품 목록 생성하기: 'datagen/server/loottables.md'
+      - 컨테이너 전리품 테이블 생성하기: 'datagen/server/loottables.md'
       - 태그 생성하기: 'datagen/server/tags.md'
       - 도전과제 생성하기: 'datagen/server/advancements.md'
-      - 전체 전리품 수정자 생성하기: 'datagen/server/glm.md'
+      - 전체 전리품 수정 데이터 생성하기: 'datagen/server/glm.md'
   - 기타 기능:
     - 모드 설정 파일: 'misc/config.md'
     - 인게임 테스트: 'misc/gametest.md'
