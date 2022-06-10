@@ -219,18 +219,18 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#blocks" class="elem-text">소개</a>
+    <a href="#_1" class="elem-text">소개</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#creating-a-block">Creating a Block</a></li>
+        <li class="toc-subitem"><a href="#_2">블록 만들기</a></li>
         
-        <li class="toc-subitem"><a href="#registering-a-block">Registering a Block</a></li>
+        <li class="toc-subitem"><a href="#_5">블록 등록하기</a></li>
         
-        <li class="toc-subitem"><a href="#further-reading">Further Reading</a></li>
+        <li class="toc-subitem"><a href="#_7">추가 정보</a></li>
         
         
     </ul>
@@ -891,35 +891,34 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link"> </a></h1>
-<p>Blocks are, obviously, essential to the Minecraft world. They make up all of the terrain, structures, and machines. Chances are if you are interested in making a mod, then you will want to add some blocks. This page will guide you through the creation of blocks, and some of the things you can do with them.</p>
-<h2 id="creating-a-block">Creating a Block<a class="headerlink" href="#creating-a-block" title="Permanent link"> </a></h2>
-<h3 id="basic-blocks">Basic Blocks<a class="headerlink" href="#basic-blocks" title="Permanent link"> </a></h3>
-<p>For simple blocks, which need no special functionality (think cobblestone, wooden planks, etc.), a custom class is not necessary. You can create a block by instantiating the <code>Block</code> class with a <code>BlockBehaviour$Properties</code> object. This <code>BlockBehaviour$Properties</code> object can be made using <code>BlockBehaviour$Properties#of</code>, and it can be customized by calling its methods. For instance:</p>
+            <h1 id="_1">블록<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>블록은, 당연하게도, 마인크래프트 월드에서 필수적입니다. 지형과 구조물, 그리고 기계들 전부 블록들로 이루어져 있습니다. 모드를 개발하신다면, 아마 블록을 만들고 싶으실 것일 텐데요, 이번장에서는 어떻게 블록을 만들고 이를 통해 할 수 있는 것들 몇가지에 대해 다룰 것입니다.</p>
+<h2 id="_2">블록 만들기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<h3 id="_3">기본적인 블록들<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
+<p>따로 특별한 기능이 필요없는 블록들은(조약돌이나 나무판자 등) 클래스를 만들 필요가 없습니다. <code>Block</code> 인스턴스를 <code>BlockBehaviour$Properties</code> 객체를 사용하여 만들어 블록을 생성할 수 있습니다. <code>BlockBehaviour$Properties</code> 객체는 <code>BlockBehaviour$Properties#of</code> 메서드를 사용하여 만들 수 있으며, 이 객체의 메서드를 호출하는 것으로 블록의 특성을 원하시는 대로 바꾸실 수 있습니다.</p>
 <ul>
-<li><code>strength</code> - The hardness controls the time it takes to break the block. It is an arbitrary value. For reference, stone has a hardness of 1.5, and dirt 0.5. If the block should be unbreakable a hardness of -1.0 should be used, see the definition of <code>Blocks#BEDROCK</code> as an example. The resistance controls the explosion resistance of the block. For reference, stone has a resistance of 6.0, and dirt 0.5.</li>
-<li><code>sound</code> - Controls the sound the block makes when it is punched, broken, or placed. Requires a <code>SoundType</code> argument, see the <a href="../gameeffects/sounds/">sounds</a> page for more details.</li>
-<li><code>lightLevel</code> - Controls the light emission of the block. Takes a function with a <code>BlockState</code> parameter that returns a value from zero to fifteen.</li>
-<li><code>friction</code> - Controls how slippery the block is. For reference, ice has a slipperiness of 0.98.</li>
+<li><code>strength</code> - hardness 는 블록이 부숴지는데 걸리는 시간을 결정합니다. 이는 임의값입니다. 참고로, 돌은 1.5의 hardness 를, 흙은 0.5 를 가지고 있습니다. 만약 블록이 부숴지지 않는다면 hardness 값은 -1을 사용하여야 합니다, <code>Blocks#BEDROCK</code> 가 그 예시입니다. resistance 는 블록의 폭발 저항력을 결정합니다. 참고로, 돌은 6.0을, 흙은 0.5를 가지고 있습니다.</li>
+<li><code>sound</code> - 블록이 부숴지고, 깨지고, 설치되었을때 내는 소리를 결정합니다. <code>SoundType</code>을 인자로 받습니다, <a href="../gameeffects/sounds/">소리</a>에서 자세한 내용을 확인하세요.</li>
+<li><code>lightLevel</code> - 블록이 방출하는 빛의 양을 조절합니다. 인자로는, <code>BlockState</code>를 인자로 받고 0~15를 반환하는 함수를 받습니다.</li>
+<li><code>friction</code> - 얼마나 블록이 미끄러운지를 결정합니다. 참고로 얼음은 0.98의 미끄러움을 가지고 있습니다.</li>
 </ul>
-<p>All these methods are <em>chainable</em> which means you can call them in series. See the <code>Blocks</code> class for examples of this.</p>
+<p>위 모든 메서드들은 <em>연쇠적으로</em> 사용 가능합니다. <code>Blocks</code> 클래스를 참고하세요.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Blocks have no setter for their <code>CreativeModeTab</code>. This has been moved to the <code>BlockItem</code> and is now its responsibility. Furthermore, there is no setter for translation key as it is now generated from the registry name.</p>
+<p>블록들은 더이상 ItemGroup(이전에 CreativeTab이었음) 을 지정받을 수 없습니다. 이 기능은 <code>BlockItem</code> 으로 옮겨졌습니다.  계다가 번역 키값이 레지스트리 이름으로 부터 생성되어 더 이상 이를 지정받을 수 없습니다.</p>
 </div>
-<h3 id="advanced-blocks">Advanced Blocks<a class="headerlink" href="#advanced-blocks" title="Permanent link"> </a></h3>
-<p>Of course, the above only allows for extremely basic blocks. If you want to add functionality, like player interaction, a custom class is required. However, the <code>Block</code> class has many methods and unfortunately not every single one can be documented here. See the rest of the pages in this section for things you can do with blocks.</p>
-<h2 id="registering-a-block">Registering a Block<a class="headerlink" href="#registering-a-block" title="Permanent link"> </a></h2>
-<p>Blocks must be <a href="../concepts/registries/#methods-for-registering">registered</a> to function.</p>
+<h3 id="_4">고급 블록<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
+<p>당연하게도 윗 예제는 매우 단순한 블록들에서만 사용가능합니다. 만약 플레이어 상호작용과 같은 기능을 추가하고 싶다면 클래스를 만드셔야 합니다. 그러나 <code>Block</code> 클래스는 메서드가 매우 많이 있으며 모든것을 이곳에서 기술할 순 없습니다. 이 섹션에 있는 다른 장들에서 블록으로 무엇을 할 수 있는지 참고하세요.</p>
+<h2 id="_5">블록 등록하기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>블록은 무조건 <a href="../concepts/registries/#객체-등록하기">등록되어야만</a> 사용 가능합니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>A block in the level and a &ldquo;block&rdquo; in an inventory are very different things. A block in the level is represented by an <code>BlockState</code>, and its behavior defined by an instance of <code>Block</code>. Meanwhile, an item in an inventory is an <code>ItemStack</code>, controlled by an <code>Item</code>. As a bridge between the different worlds of <code>Block</code> and <code>Item</code>, there exists the class <code>BlockItem</code>. <code>BlockItem</code> is a subclass of <code>Item</code> that has a field <code>block</code> that holds a reference to the <code>Block</code> it represents. <code>BlockItem</code> defines some of the behavior of a &ldquo;block&rdquo; as an item, like how a right click places the block. It&rsquo;s possible to have a <code>Block</code> without an <code>BlockItem</code>. (E.g. <code>minecraft:water</code> exists a block, but not an item. It is therefore impossible to hold it in an inventory as one.)</p>
-<p>When a block is registered, <em>only</em> a block is registered. The block does not automatically have an <code>BlockItem</code>. To create a basic <code>BlockItem</code> for a block, one should set the registry name of the <code>BlockItem</code> to that of its <code>Block</code>. Custom subclasses of <code>BlockItem</code> may be used as well. Once an <code>BlockItem</code> has been registered for a block, <code>Block#asItem</code> can be used to retrieve it. <code>Block#asItem</code> will return <code>Items#AIR</code> if there is no <code>BlockItem</code> for the <code>Block</code>, so if you are not certain that there is an <code>BlockItem</code> for the <code>Block</code> you are using, check for if <code>Block#asItem</code> returns <code>Items#AIR</code>.</p>
+<p>월드에 있는 블록과, 인벤토리에 있는 &ldquo;블록&rdquo;은 다릅니다. 월드에 있는 블록은 <code>BlockState</code> 를 통해 기술되고, 그 기능은 <code>Block</code> 에서 정의됩니다. 한편, 인벤토리에 있는 아이템은 <code>ItemStack</code> 의 인스턴스이며, 그 기능은 <code>Item</code>에서 정의됩니다. <code>BlockItem</code>은 이 두가지를 이어주는 하나의 다리이며, 표현할 <code>Block</code> 인스턴스를 참조하는 <code>Item</code> 의 자식 클래스입니다.  <code>BlockItem</code>은 몇가지 블록과 같은 기능들을 구현하는데, 그 예로 우클릭시 월드에 설치되는 것이 있습니다. 또한 <code>BlockItem</code> 이 없는 <code>Block</code> 을 만들 수도 있습니다. (그 예로, <code>minecraft:water</code> 는 블록으로 존재하나 아이템으로는 없습니다, 그러기에 이를 휙득하는 것은 불가능합니다.)</p>
 </div>
-<h4 id="optionally-registering-blocks">Optionally Registering Blocks<a class="headerlink" href="#optionally-registering-blocks" title="Permanent link"> </a></h4>
-<p>In the past there have been several mods that have allowed users to disable blocks/items in a configuration file. However, you shouldn&rsquo;t do this. There is no limit on the amount of blocks that can be register, so register all blocks in your mod! If you want a block to be disabled through a configuration file, you should disable the crafting recipe.</p>
-<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link"> </a></h2>
-<p>For information about block properties, such as those used for vanilla blocks like fences, walls, and many more, see the section on <a href="states/">blockstates</a>.</p>
+<h4 id="_6">선택적으로 블록 등록하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h4>
+<p>과거에는 여러 모드에서 특정 블록/아이템들을 설정 파일에서 비활성화할 수 있도록 하였습니다. 그러나, 더 이상 등록될 수 있는 블록들의 제한이 없으니 이런 구조는 더 이상 권장되지 않습니다. 그러니 모드의 모든 블록들을 등록하세요! 만약 특정 블록을 설정을 통해 비활성화 하고 싶으시다면, 그대신 조합법을 비활성화 하세요.</p>
+<h2 id="_7">추가 정보<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
+<p>바닐라 마인크래프트의 울타리, 담장과 같은 블록들의 특성에 대해 더 알고 싶으시다면, <a href="states/">blockstates</a>를 참고하세요</p>
             
         </article>
         
