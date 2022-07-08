@@ -804,22 +804,22 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#access-transformers" class="elem-text">Access Transformers</a>
+    <a href="#_1" class="elem-text">Access Transformers</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#adding-ats">Adding ATs</a></li>
+        <li class="toc-subitem"><a href="#at">AT 추가하기</a></li>
         
-        <li class="toc-subitem"><a href="#comments">Comments</a></li>
+        <li class="toc-subitem"><a href="#_2">주석</a></li>
         
-        <li class="toc-subitem"><a href="#access-modifiers">Access Modifiers</a></li>
+        <li class="toc-subitem"><a href="#_3">접근 수정자</a></li>
         
-        <li class="toc-subitem"><a href="#targets-and-directives">Targets and Directives</a></li>
+        <li class="toc-subitem"><a href="#_4">변환 타겟 지정하기</a></li>
         
-        <li class="toc-subitem"><a href="#examples">Examples</a></li>
+        <li class="toc-subitem"><a href="#_8">예제들</a></li>
         
         
     </ul>
@@ -897,81 +897,90 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="access-transformers">Access Transformers<a class="headerlink" href="#access-transformers" title="Permanent link"> </a></h1>
-<p>Access Transformers (ATs for short) allow for widening the visibility and modifying the <code>final</code> flags of classes, methods, and fields. They allow modders to access and modify otherwise inaccessible members in classes outside their control.</p>
-<p>The <a href="https://github.com/MinecraftForge/AccessTransformers/blob/master/FMLAT.md">specification document</a> can be viewed on the Minecraft Forge GitHub.</p>
-<h2 id="adding-ats">Adding ATs<a class="headerlink" href="#adding-ats" title="Permanent link"> </a></h2>
-<p>Adding an Access Transformer to your mod project is as simple as adding a single line into your <code>build.gradle</code>:</p>
-<pre class="highlight"><code class="language-groovy">// This block is where your mappings version is also specified
+            <h1 id="_1">접근 변환자<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>접근 변환자 (AccessTransformer, AT라고 짧게 부르기도 합니다.)는 클래스, 메서드, 필드의 가시성을 확대시키거나, <code>final</code> 키워드 유무 여부를 변경하는데 사용됩니다. 이를 통하여 모드 개발자들이 접근 불가능한 클래스 멤버에 접근하고 사용할 수 있도록 해줍니다.</p>
+<p>이에 관한 <a href="https://github.com/MinecraftForge/AccessTransformers/blob/master/FMLAT.md">공식 포지 문서</a>를 마인크래프트 포지 깃헙 페이지에서 보실 수 있습니다.</p>
+<h2 id="at">AT 추가하기<a class="headerlink" href="#at" title="Permanent link"> </a></h2>
+<p>접근 변환자를 모드에서 사용하는 것은, <code>build.gradle</code>에 줄 하나 추가하는 것 만큼 간단합니다:</p>
+<pre class="highlight"><code class="language-groovy">// 이 블록은 매핑 채널과 버전을 지정하는 곳이기도 합니다.
 minecraft {
-  accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 }</code></pre>
-<p>After adding or modifying the Access Transformer, the gradle project must be refreshed for the transformations to take effect.</p>
-<p>During development, the AT file can be anywhere specified by the line above. However, when loading in a non-development environment, Forge will only search for the exact path of <code>META-INF/accesstransformer.cfg</code> in your JAR file.</p>
-<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link"> </a></h2>
-<p>All text after a <code>#</code> until the end of the line will be treated as a comment and will not be parsed.</p>
-<h2 id="access-modifiers">Access Modifiers<a class="headerlink" href="#access-modifiers" title="Permanent link"> </a></h2>
-<p>Access modifiers specify to what new member visibility the given target will be transformed to. In decreasing order of visibility:</p>
+<p>접근 변환자를 추가하거나 수정하신 이후, Gradle 프로젝트를 새로고침 하셔야만 접근 변환자가 적용됩니다.</p>
+<p>개발 도중에는 접근 제한자 설정 파일이 프로젝트 어디에나 위치하여도 상관 없으나, 모드를 개발환경 밖에서 불러올 때에는 JAR 안의  <code>META-INF/accesstransformer.cfg</code>에 위치하여야만 정상적으로 불러올 수 있습니다.</p>
+<h2 id="_2">주석<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p><code>#</code>로 시작하는 줄은 주석으로 처리되며 무시됩니다.</p>
+<h2 id="_3">접근 수정자<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>접근 수정자는 타겟이 가지게 될 새로운 가시성을 정의합니다. 가시성을 기준으로 위에서 아래로 정렬하면:</p>
 <ul>
-<li><code>public</code> - visible to all classes inside and outside its package</li>
-<li><code>protected</code> - visible only to classes inside the package and subclasses</li>
-<li><code>default</code> - visible only to classes inside the package</li>
-<li><code>private</code> - visible only to inside the class</li>
+<li><code>public</code> - 패키지 안, 또는 밖에 있는 모든 클래스에서 접근할 수 있음</li>
+<li><code>protected</code> - 패키지 안에 있는 클래스, 또는 자식 클래스에서만 접근할 수 있음</li>
+<li><code>default</code> - 패키지 내부에 있는 클래스에서만 접근할 수 있음</li>
+<li><code>private</code> - 클래스 내부에서만 접근할 수 있음</li>
 </ul>
-<p>A special modifier <code>+f</code> and <code>-f</code> can be appended to the aforementioned modifiers to either add or remove respectively the <code>final</code> modifier, which prevents subclassing, method overriding, or field modification when applied.</p>
+<p><code>+f</code>와 <code>-f</code>는 특수한 수정자로, 기존의 다른 수정자에 추가될 수 있으며, 타겟의 <code>final</code> 키워드를 제거하거나 추가하여, 기존에는 불가능하던 자식 클래스 생성이나, 메서드 오버라이딩, 또는 필드 값 변경 등을 가능하도록 해줍니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Directives only modify the method they directly reference; any overriding methods will not be access-transformed. It is advised to ensure transformed methods do not have non-transformed overrides that restrict the visibility, which will result in the JVM throwing an error.</p>
-<p>Examples of methods that can be safely transformed are <code>private</code> methods, <code>final</code> methods (or methods in <code>final</code> classes), and <code>static</code> methods.</p>
 </div>
-<h2 id="targets-and-directives">Targets and Directives<a class="headerlink" href="#targets-and-directives" title="Permanent link"> </a></h2>
+<p>타겟을 지정할 시, 직접적으로 가리키는 메서드만 변환합니다; 이를 오버라이딩하는 자식 클래스의 메서드들은 접근 제한자 변환이 이루어지지 않습니다. 이때문에, 자식 메서드가 부모 메서드보다 더 낮은 가시성을 가지게 가지게 되어 JVM 오류가 발생할 수 있으니 변환하고자 하는 메서드가 변환되지 않은 오버라이드를 가지지 않도록 주의하세요.</p>
+<pre class="highlight"><code>변환되어도 안전한 메서드의 예시는 `private` 메서드나 `final` 메서드(또는 `final` 클래스에 정의된 메서드), 그리고 `static` (정적) 메서드들 입니다. 이들은 오버라이드가 불가능하기에 위와 같은 문제가 발생하지 않습니다.
+</code></pre>
+<h2 id="_4">변환 타겟 지정하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>When using Access Transformers on Minecraft classes, the SRG name must be used for fields and methods.</p>
 </div>
-<h3 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link"> </a></h3>
-<p>To target classes:
-<pre class="highlight"><code>&lt;access modifier&gt; &lt;fully qualified class name&gt;</code></pre>
-Inner classes are denoted by combining the fully qualified name of the outer class and the name of the inner class with a <code>$</code> as separator.</p>
-<h3 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link"> </a></h3>
-<p>To target fields:
-<pre class="highlight"><code>&lt;access modifier&gt; &lt;fully qualified class name&gt; &lt;field name&gt;</code></pre></p>
-<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link"> </a></h3>
-<p>Targeting methods require a special syntax to denote the method parameters and return type:
-<pre class="highlight"><code>&lt;access modifier&gt; &lt;fully qualified class name&gt; &lt;method name&gt;(&lt;parameter types&gt;)&lt;return type&gt;</code></pre></p>
+<p>접근 변환자를 마인크래프트 클래스에 사용할때, 필드나 메서드 이름으로 SRG 이름을 사용하셔야 합니다.</p>
+<h3 id="_5">클래스<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
+<p>클래스를 지정하려면:
+<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt;</code></pre>
+내부 클래스들은, 외부 클래스의 완전한 이름과 내부 클래스의 이름을 <code>$</code>로 분리하여 표시합니다.</p>
+<h3 id="_6">필드<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
+<p>필드를 지정하려면:
+<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;필드 이름&gt;</code></pre></p>
+<h3 id="_7">메서드<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
+<p>메서드를 지정하는 것은 특수한 문법을 통하여 메서드의 인자들과 반환 타입까지 표시합니다:
+<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;메서드 이름&gt;(&lt;인자의 타입들&gt;)&lt;반환 타입&gt;</code></pre></p>
 <h4 id="specifying-types">Specifying Types<a class="headerlink" href="#specifying-types" title="Permanent link"> </a></h4>
-<p>Also called &ldquo;descriptors&rdquo;: see the <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.3.2">Java Virtual Machine Specification, SE 8, sections 4.3.2 and 4.3.3</a> for more technical details.</p>
+<p>이는 &ldquo;필드 디스크립터&rdquo;라고 불리기도 합니다.자세한 사항은  <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.3.2">Oracle 기술 문서에서 확인하세요(Java Virtual Machine Specification, SE 8, sections 4.3.2 and 4.3.3)</a></p>
 <ul>
-<li><code>B</code> - <code>byte</code>, a signed byte</li>
-<li><code>C</code> - <code>char</code>, a Unicode character code point in UTF-16</li>
-<li><code>D</code> - <code>double</code>, a double-precision floating-point value</li>
-<li><code>F</code> - <code>float</code>, a single-precision floating-point value</li>
-<li><code>I</code> - <code>integer</code>, a 32-bit integer</li>
-<li><code>J</code> - <code>long</code>, a 64-bit integer</li>
-<li><code>S</code> - <code>short</code>, a signed short</li>
-<li><code>Z</code> - <code>boolean</code>, a <code>true</code> or <code>false</code> value</li>
-<li><code>[</code> - references one dimension of an array</li>
-<li>Example: <code>[[S</code> refers to <code>short[][]</code></li>
-<li><code>L&lt;class name&gt;;</code> - references a reference type</li>
-<li>Example: <code>Ljava/lang/String;</code> refers to <code>java.lang.String</code> reference type <em>(note the use of slashes instead of periods)</em></li>
-<li><code>(</code> - references a method descriptor, parameters should be supplied here or nothing if no parameters are present</li>
-<li>Example: <code>&lt;method&gt;(I)Z</code> refers to a method that requires an integer argument and returns a boolean</li>
-<li><code>V</code> - indicates a method returns no value, can only be used at the end of a method descriptor</li>
-<li>Example: <code>&lt;method&gt;()V</code> refers to a method that has no arguments and returns nothing</li>
+<li><code>B</code> - <code>byte</code>, 부호가 있는 바이트</li>
+<li><code>C</code> - <code>char</code>, UTF-16 유니코드 문자 번호</li>
+<li><code>D</code> - <code>double</code>, 배정밀도 부동 소수점</li>
+<li><code>F</code> - <code>float</code>, 단정밀도 부동 소수점</li>
+<li><code>I</code> - <code>integer</code>, 32비트 정수</li>
+<li><code>J</code> - <code>long</code>, 64비트 정수</li>
+<li><code>S</code> - <code>short</code>, 부호가 있는 16비트 정수</li>
+<li><code>Z</code> - <code>boolean</code>, <code>true</code> 또는 <code>false</code> 인 값</li>
+<li><code>[</code> - 배열의 차원 1개를 표시함<ul>
+<li>예: <code>[[S</code> 는 <code>short[][]</code> 를 가리킵니다</li>
 </ul>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"> </a></h2>
-<pre class="highlight"><code># Makes public the ScreenConstructor class in MenuScreens
+</li>
+<li><code>L&lt;class name&gt;;</code> - 참조 타입을 참조함<ul>
+<li>예: <code>Ljava/lang/String;</code> 는 참조 타입 <code>java.lang.String</code> 를 가리킵니다 <em>(빗금 대신 마침표를 사용합니다)</em></li>
+</ul>
+</li>
+<li><code>(</code> - 메서드 디스크립터를 참조합니다, 인자들은 있다면 이곳에서 기술되어야 합니다<ul>
+<li>예: <code>&lt;method&gt;(I)Z</code> 는 인자로 Int 1개를 받고 Boolean을 반환하는 메서드를 가리킵니다</li>
+</ul>
+</li>
+<li><code>V</code> - 반환하는 값이 없는 메서드를 가리킵니다, 메서드 디스크립터 맨 뒤에 사용할 수 있습니다<ul>
+<li>예: <code>&lt;method&gt;()V</code> 는 받는 인자가 없으며 반환하는 값도 없는 메서드를 가리킵니다</li>
+</ul>
+</li>
+</ul>
+<h2 id="_8">예제들<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
+<pre class="highlight"><code># MenuScreens 클래스의 ScreenConstructor 를 public으로 만듭니다
 public net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor
 
-# Makes protected and removes the final modifier from 'random' in MinecraftServer
+# MinecraftServer의 'random' 필드를 protected 로 만들고 final 키워드를 제거합니다
 protected-f net.minecraft.server.MinecraftServer f_129758_ #random
 
-# Makes public the 'makeExecutor' method in Util,
-# accepting a String and returns an ExecutorService
+# Util 에 있는 String 을 인자로 받고 ExecutorService 를 반환하는,
+# 'makeExecutor' 메서드를 public 으로 만듭니다
 public net.minecraft.Util m_137477_(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; #makeExecutor
 
-# Makes public the 'leastMostToIntArray' method in SerializableUUID,
-# accepting two longs and returning an int[]
+# SerializableUUID 에 있는 2개의 long 을 인자로 받고 int[] 를 반환하는,
+# 'leastMostToIntArray' 메서드를 public으로 만듭니다
 public net.minecraft.core.SerializableUUID m_123274_(JJ)[I #leastMostToIntArray</code></pre>
             
         </article>
