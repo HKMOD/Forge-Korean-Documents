@@ -75,7 +75,7 @@ nav:
 
 # PR 에서 이 아래 부분을 수정하지 마세요
 site_name: Forge Korean Documentation
-site_url: https://tmvkrpxl0.github.io/Forge-Korean-Documents/1.16.x/
+site_url: https://hkmod.github.io/Forge-Korean-Documents/1.16.x/
 
 markdown_extensions:
   - admonition
