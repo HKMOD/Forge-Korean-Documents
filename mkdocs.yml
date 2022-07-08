@@ -81,11 +81,11 @@ nav:
     - PR 가이드라인: 'forgedev/prguidelines.md'
   - 구버전:
     - 소개: 'legacy/index.md'
-    - 1.19로 모드 포트하기: 'legacy/porting.md'
+    - 1.18로 모드 포트하기: 'legacy/porting.md'
 
 # Do not edit in PRs below here
 site_name: Forge Korean Documentation
-site_url: https://tmvkrpxl0.github.io/Forge-Korean-Documents/1.19.x/
+site_url: https://tmvkrpxl0.github.io/Forge-Korean-Documents/1.18.x/
 
 markdown_extensions:
   - admonition
