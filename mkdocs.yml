@@ -31,7 +31,7 @@ nav:
     - 효과음: 'gameeffects/sounds.md'
   - 데이터 저장소:
     - 캐패빌리티: 'datastorage/capabilities.md'
-    - 월드 저장 데이터: 'datastorage/saveddata.md'
+    - 레벨 저장 데이터: 'datastorage/saveddata.md'
   - 렌더링:
     - 모델 로더:
       - 소개: 'rendering/modelloaders/index.md'
