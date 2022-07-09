@@ -1,26 +1,26 @@
-Documentation for Legacy Versions
+이전 버전 문서들
 =================================
 
-Forge has existed for years, and you can still easily access builds of Forge for Minecraft versions as old as Minecraft 1.1. There are significant differences between each and every version, and it would be an impossible task to support so many different versions. Therefore, Forge uses an LTS system where a previous major Minecraft version is deemed as "LTS" (Long Term Support). Only the latest version and any current LTS versions will have easily accessible documentation and be included in the version dropdown in the sidebar. However, some older versions were LTS once or the latest version at some point and had documentation written. Links to old sites with documentation for those versions can be found here.
+포지의 역사는 꽤나 깁니다, 그러면서 여러 버전용으로 작성된 문서들이 많습니다. 마인크래프트 1.1 정도로 오래된 문서들까지 아직도 읽어보실 수 있습니다. 각 버전사이의 차이점이 크기 때문에 다수의 버전들을 지원하는 것은 매우 어렵습니다. 그렇기때문에 포지는 장기 지원 정책, 또는 LTS 를 사용하는데, 가장 최신 마인크래프트 버전의 이전 부 버전은 장기 지원 버전이 됩니다. 그렇기에, 가장 최신 버전과, 장기 지원 버전의 문서만 쉽게 찾아보실 수 있도록 왼쪽 바에 표시됩니다. 현재 이 번역본은 번역이 이루어진 모든 문서들을 사이드바에 포함하지만, 원본 영문 문서는 그렇지 않습니다. 그렇다고 해도, 현재로썬 지원이 중단된 버전들은 언젠가 한번은 장기 지원 버전이었을 것이고, 그 이전에는 최신 버전이었을 것이니, 그 버전 전용 문서들 또한 작성되었었습니다. 그 문서들로 향하는 링크들은 아래에서 찾아보실 수 있습니다.
 
 !!! important
-    These old documentation sites are for reference purposes only. Do not ask for help with old versions on the Forge discord or the Forge forums. **You will not receive support when you are using older versions.**
+    이 오래된 문서 사이트들은 오직 참조용이기 때문에, 포지 포럼 또는 포지 공식 디스코드에서 지원을 제공하지 않습니다. **포지팀은 지원이 종료된 버전에 대한 지원을 제공하지 않습니다.**
 
-### List of Previously Documented versions
+### 이전에 문서화가 진행되었던 버전들
 
-Unfortunately, not all versions were used for a significant amount of time, and the documentation for that version may be incomplete. Whenever a new version is released, the documentation from the previous version is copied and adjusted over time to include new and updated information. When a version wasn't supported for long, the information was never updated. The accuracy percentages represent how much of the information that should have been updated was actually updated.
+모든 버전이 오랜 기간동안 지원되는 것은 아니기 때문에, 몇몇 버전들은 문서화가 완전히 진행되지 않았을 수도 있습니다. 그러나 새로운 버전이 출시되면 이전 버전의 문서가 새로운 버전으로 복사되고, 게임 업데이트에 맞추기 문서또한 업데이트됩니다. 그런데 해당 버전이 오랜 기간동안 지원되지 않는다면 문서 업데이트또한 많이 진행되지 않을 수 있습니다. 아래 정확도 퍼센트는 문서 업데이트가 얼마나 진행되었는지를 나타냅니다.
 
-|    Version    |  Accuracy  |                  Link                     |
-|:-------------:|:----------:|:------------------------------------------|
-|    1.12.x     |   100%     | https://mcforge.readthedocs.io/en/1.12.x/ |
-|    1.13.x     |    10%     | https://mcforge.readthedocs.io/en/1.13.x/ |
-|    1.14.x     |    10%     | https://mcforge.readthedocs.io/en/1.14.x/ |
-|    1.15.x     |    85%     | https://mcforge.readthedocs.io/en/1.15.x/ |
-|    1.16.x     |    85%     | https://mcforge.readthedocs.io/en/1.16.x/ |
-|    1.17.x     |    85%     | https://mcforge.readthedocs.io/en/1.17.x/ |
+|   버전   | 정확도  | 링크                                        |
+|:------:|:----:|:------------------------------------------|
+| 1.12.x | 100% | https://mcforge.readthedocs.io/en/1.12.x/ |
+| 1.13.x | 10%  | https://mcforge.readthedocs.io/en/1.13.x/ |
+| 1.14.x | 10%  | https://mcforge.readthedocs.io/en/1.14.x/ |
+| 1.15.x | 85%  | https://mcforge.readthedocs.io/en/1.15.x/ |
+| 1.16.x | 85%  | https://mcforge.readthedocs.io/en/1.16.x/ |
+| 1.17.x | 85%  | https://mcforge.readthedocs.io/en/1.17.x/ |
 
 ### RetroGradle
 
-**RetroGradle** is an archival initiative to update the older ForgeGradle 1.x to 2.3 toolchains and their Minecraft versions to use the modern ForgeGradle 4.x and above toolchain. The goal is to preserve all past released versions of Minecraft Forge by moving them to a verifiably working and modern toolchain which is data-driven and not hardcoded for version-specific workflows.
+**RetroGradle** 은 ForgeGradle 1.x ~ 2.3 버전 까지의 툴체인과 마인크래프트 버전들을 보존하고, 새롭게 개선된 ForgeGradle 4.x, 또는 그 이상의 툴체인을 사용하도록 하는 프로젝트입니다. 이 프로젝트의 목적은 이전 버전의 포지를 확실하게 동작하고 데이터 기반 시스템을 활용하는 새로운 툴체인을 사용하도록 함으로써 보존하는 것입니다.
 
-If any developer wishes to contribute to this archival effort, please visit The Forge Project discord server and ask for directions to the designated channel. Please note that this initiative only aims to _preserve_ these old versions for the benefit of the community, _**not** to support developing mods for these old, unsupported versions._ There will not be any support for using or developing for unsupported versions.
+만약 이 보존 프로젝트에 기여하고 싶으시다면 공식 포지 프로젝트 디스코드 서버에 접속하여 프로젝트에 기여하실 수 있습니다. 한가지 알아두실 점은, 이 프로젝트는 _오직 보존만을_ 목적으로 합니다, _이전 버전을 지원하는 것은 **절때** 아닙니다._ 지원이 중단된 버전에서 모드를 개발하신다면 포지팀으로부터 어떠한 지원도 받지 못합니다.
