@@ -1,35 +1,35 @@
-Entities
+엔티티 통신
 ========
 
-In addition to regular network messages, there are various other systems provided to handle synchronizing entity data.
+네트워크 메세지로 통신하는 것 말고도 엔티티의 데이터를 동기화시켜주는 시스템은 다양합니다.
 
-Spawn Data
+스폰 데이터
 ----------
 
-In general, the spawning of modded entities is handled separately, by Forge.
+일반적으로 모드에서 추가하는 엔티티의 스폰은 포지에서 따로 처리합니다.
 
 !!! note
-    This means that simply extending a vanilla entity class may not inherit all its behavior. You may need to implement certain vanilla behaviors yourself.
+다시 말해서 바닐라 엔티티 클래스를 그저 상속하는 것만으론 그 클래스의 모든 동작을 상속받지 못할 수 있습니다. 몇몇 바닐라 마인크래프트의 동작들은 직접 구현하셔야 합니다.
 
-You can add extra data to the spawn packet Forge sends by implementing the following interface.
+포지가 보내는 엔티티 스폰 패킷에 다음 인터페이스를 사용하여 추가적인 데이터를 실을 수 있습니다.
 
 ### IEntityAdditionalSpawnData
 
-If your entity has data that is needed on the client, but does not change over time, then it can be added to the entity spawn packet using this interface. `#writeSpawnData` and `#readSpawnData` control how the data should be encoded to/decoded from the network buffer.
+만약 엔티티가 클라이언트에서 제대로 표시되기 위해 필요한 데이터가 있지만, 시간이 지나도 그 데이터가 변경되지 않는다면 이 인터페이스를 사용하여 스폰 패킷에 보내는 것이 권장됩니다. `#writeSpawnData` 와 `#readSpawnData` 는 데이터가 어떻게 네트워크 버퍼에 읽히고 쓰이는지를 통제합니다.
 
-Dynamic Data
+동적인 데이터
 ------------
 
-### Data Parameters
+### 데이터 파라미터
 
-This is the main vanilla system for synchronizing entity data from the server to the client. As such, a number of vanilla examples are available to refer to.
+이는 바닐라에서 엔티티의 데이터를 서버와 클라이언트끼리 동기화 시킬때 주로 사용하는 시스템입니다. 그러다보니 바닐라에는 이를 참고할 만한 것들이 많습니다.
 
-Firstly, you need a `EntityDataAccessor<T>` for the data you wish to keep synchronized. This should be stored as a `static final` field in your entity class, obtained by calling `SynchedEntityData#defineId` and passing the entity class and a serializer for that type of data. The available serializer implementations can be found as static constants within the `EntityDataSerializers` class.
+일단, 원하는 데이터를 동기화 시킬 `EntityDataAccessor<T>` 객체가 필요합니다. 이 객체는 엔티티의 `static final` 필드에 할당되어야 합니다. 이 객체의 참조는 `SynchedEntityData#defineId` 에 엔티티의 클래스와 데이터를 직렬화할 serializer 를 전달하는 것으로 얻으실 수 있습니다. 사용 가능한 serializer 는 `EntityDataSerializers` 클래스에서 찾아보실 수 있습니다.
 
 !!! warning
-    You should __only__ create data parameters for your own entities, _within that entity's class_.
-    Adding parameters to entities you do not control can cause the IDs used to send that data over the network to become desynchronized, causing difficult to debug crashes.
+데이터 파라미터는 __무조건__ 당신이 직접 만드시는 엔티티에만, __그 엔티티 클래스 안에서만__ 사용하셔야 합니다.
+당신이 만드는 엔티티 이외의 엔티티에 파라미터를 추가하시면 그 데이터를 보낼때 사용하는 ID의 동기화를 깨버릴 수 있으며 디버그하기 힘든 튕기는 오류들을 유발할 수 있습니다.
 
-Then, override `Entity#defineSynchedData` and call `this.entityData.define(...)` for each of your data parameters, passing the parameter and an initial value to use. Remember to always call the `super` method first!
+그 다음 `Entity#defineSynchedData` 를 오버라이드하고 그 메서드 안에서 `this.entityData.define(...)` 를 각각의 데이터 파라미터와 기본값을 전달하여 호출하세요. 늘 `super` 메서드를 먼저 호출하시는 것을 잊지 마세요!
 
-You can then get and set these values via your entity's `entityData` instance. Changes made will be synchronized to the client automatically.
+그다음에는 엔티티의 `entityData` 인스턴스를 통해 데이터 파라미터의 값을 변경하고 읽으실 수 있습니다. 클라이언트에는 변경사항이 자동으로 보내집니다.
