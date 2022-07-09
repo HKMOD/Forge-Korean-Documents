@@ -1,7 +1,7 @@
-Porting to Minecraft 1.18
+1.18 로 포팅하기
 =========================
 
-Here you can find a list of primers on how to port from old versions to the current version. Some versions are lumped together since that particular version never saw much usage.
+이 페이지에서 오래된 버전의 모드를 더 최근의 버전으로 업데이트하는 방법들을 찾아보실 수 있습니다.
 
 |    From -> To     |               Primer               |
 |:-----------------:|:-----------------------------------|
