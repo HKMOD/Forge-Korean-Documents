@@ -668,7 +668,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#language-generation" class="elem-text">언어 생성하기</a>
+    <a href="#_1" class="elem-text">언어 생성하기</a>
     
     
     <ul class="table-of-contents">
@@ -889,19 +889,13 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="language-generation">Language Generation<a class="headerlink" href="#language-generation" title="Permanent link"> </a></h1>
-<p><a href="../../../concepts/internationalization/">Language files</a> can be generated for a mod by subclassing <code>LanguageProvider</code> and implementing <code>#addTranslations</code>. Each <code>LanguageProvider</code> subclass created represents a separate <a href="https://minecraft.fandom.com/wiki/Language#Languages">locale</a> (<code>en_us</code> represents American English, <code>es_es</code> represents Spanish, etc.). After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+            <h1 id="_1">언어 생성<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>모드의 <a href="../../../concepts/internationalization/">언어 파일들</a>은 <code>LanguageProvider</code> 의 하위 클래스를 만들고 <code>#addTranslation</code> 을 구현하는 것으로 자동으로 생성할 수 있습니다. 각 <code>LanguageProvider</code> 하위 클래스들은 언어 한개의 언어 파일들을 형성합니다. 하위 클래스를 구현한 이후, <code>DataGenerator</code> 에 <a href="../../#데이터-생성하기">등록</a>되어야 합니다.</p>
 <h2 id="languageprovider"><code>LanguageProvider</code><a class="headerlink" href="#languageprovider" title="Permanent link"> </a></h2>
-<p>Each language provider is simple a map of strings where each translation key is mapped to a localized name. A translation key mapping can be added using <code>#add</code>. Additionally, there are methods which use the translation key of a <code>Block</code>, <code>Item</code>, <code>ItemStack</code>, <code>Enchantment</code>, <code>MobEffect</code>, and <code>EntityType</code>.</p>
-<pre class="highlight"><code class="language-java">// In LanguageProvider#addTranslations
-this.addBlock(EXAMPLE_BLOCK, "Example Block");
-this.add("object.examplemod.example_object", "Example Object");</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Localized names which contain alphanumeric values not in American English can be supplied as is. The provider automatically translates the characters into their unicode equivalents to be read by the game.</p>
-<pre class="highlight"><code class="language-java">// Encdoded as 'Example with a d\u00EDacritic'
-this.addItem("example.diacritic", "Example with a díacritic");</code></pre>
-</div>
+<p><code>LanguageProvider</code> 의 하위 클래스들은 궁극적으로는 각 번역 키들을 언어에 맞는 문자열로 바꾸는 <code>Map</code> 입니다. 각 번역 키들은 <code>#add</code> 를 사용해 추가할 수 있습니다. 이뿐만 아니라 <code>Block</code>, <code>Item</code>, <code>ItemStack</code>, <code>Enchantment</code>, <code>MobEffect</code>, 그리고 <code>EntityType</code> 의 번역 키 값을 쓰는 메서드들도 있습니다.</p>
+<pre class="highlight"><code class="language-java">// LanguageProvider#addTranslations
+this.addBlock(EXAMPLE_BLOCK, "예제 블록");
+this.add("object.examplemod.example_object", "예제 오브젝트");</code></pre>
             
         </article>
         
