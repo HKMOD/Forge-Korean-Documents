@@ -1,36 +1,30 @@
-Contributing to This Documentation
-==================================
+이 문서에 기여하는 방법
+===========
 
-This documentation is meant to be explanatory. Please explain how to do things, and break it down into reasonable chunks.
-We have a wiki elsewhere that can capture more comprehensive code examples.
+이 문서는 포지 공식 문서의 스타일 가이드 라인을 따르고 있습니다. 만약 그렇지 않은 점이 있다면 이슈 제기하여 주세요.
+이 문서는 설명적으로 작성되어야 합니다. 무언가를 어떻게 하는지를 작은 부분으로 나누어 설명해야 합니다.
+포지는 공식적으로 보다 포괄적인 예제들을 올려놓을 수 있는 위키를 따로 운영하고 있습니다.
 
-Our audience is anyone who wants to understand how to build a mod using Forge.
+이 문서는 마인크래프트 포지를 사용해 모드를 어떻게 만들 수 있는지 알고 싶은 이들을 위한 것입니다.
 
-Please don't try to turn this documentation into a tutorial on Java Development - it is intended for people who understand how a Java class works, and other fundamental structures of Java.
+그러니 이 문서를 Java 개발 문서 튜토리얼처럼 작성하지 말아주세요 - 이는 이미 클래스와 같은 여러 Java 의 기본 개념들을 이미 알고 있는 사람들을 위한 것입니다.
 
-Style Guide
------------
+스타일 가이드
+----------
 
 !!! important
-    Please use **two spaces** to indent, not tabs.
+들여쓸때는 꼭 tab 말고 **띄어쓰기 2번**을 해주세요.
 
-Titles should be capitalized in the standard titling format. For example,
+맞춤법, 문법 등은 표준어를 사용하며, 축약어보다 분리된 단어들을 사용하는 것을 선호해 주시기 바랍니다. 또한 -음, -그러함. 식으로 끝내기 보다는 -요. -다. 로 문장을 끝내 주세요.
 
-* Guide For Contributing to This Documentation
-* Building and Testing Your Mod
+`#` 나 `##` 대신 `=` 또는 `_` 를 사용하여 주세요. h3 또는 그 하위 구획 제목에는 `###` 등을 사용하셔도 됩니다. 이 페이지의 소스에는 `=` 와 `_` 를 사용하는 예시를 포함합니다. `=` 로 밑줄을 그으면 h1 제목이, `_` 로 밑줄을 그으면 h2 제목이 됩니다.
 
-Essentially, capitalize everything but unimportant words.
+코드 조각 외부에 있는 메서드나 필드를 참조할 때는 `#` 로 구분해 주세요(예: `클래스이름#메서드이름`). 내부 클래스들은 `$` 로 구분하여 주세요(예: `클래스이름$내부클래스이름`).
 
-Spelling, grammar, and syntax should follow those of American English. Also, prefer using separate words over contractions (e.g. "are not" instead of "aren't").
+JSON 코드조각은 `js` 구문 강조를 사용하여야 합니다.
 
-Please use equals and dash underlines, instead of `#` and `##`. For h3 and lower, `###` etc. is fine. The source of this file contains an example for equals and dash underlining. Equals underlines create h1 text, and dash underlines create h2 text.
+다른 페이지로 이어지는 링크들의 URL 은 페이지 맨 아래에 지정해 주세요. 다른 문서 페이지로 이어지는 링크들은 상대 주소를 사용해서 참조해 주세요.
 
-When referencing fields and methods outside of code block snippets, they should use a `#` separator (e.g. `ClassName#methodName`). Inner classes should use a `$` separator (e.g. `ClassName$InnerClassName`).
-
-JSON code block snippets should use `js` syntax highlighting.
-
-All links should have their location specified at the bottom of the page. Any internal links should reference the page via their relative path.
-
-Admonitions (represented by `!!! <type>`) must be formatted as [documented][admonition]; otherwise they may end up rendering incorrectly.
+준수사항 (`!!! <type>` 로 표기함)은 [기술 된 대로][admonition] 포매팅 되어있어야만 합니다; 그렇지 않으면 렌더링이 이상하게 될 수 있습니다.
 
 [admonition]: https://python-markdown.github.io/extensions/admonition/
