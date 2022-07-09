@@ -250,16 +250,16 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#items" class="elem-text">소개</a>
+    <a href="#_1" class="elem-text">소개</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#creating-an-item">Creating an Item</a></li>
+        <li class="toc-subitem"><a href="#_2">아이템 만들기</a></li>
         
-        <li class="toc-subitem"><a href="#registering-an-item">Registering an Item</a></li>
+        <li class="toc-subitem"><a href="#_5">아이템 등록하기</a></li>
         
         
     </ul>
@@ -395,7 +395,7 @@
         
 <li >
     
-    <a href="../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -891,46 +891,46 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="items">Items<a class="headerlink" href="#items" title="Permanent link"> </a></h1>
-<p>Along with blocks, items are a key component of most mods. While blocks make up the level around you, items exist within inventories.</p>
-<h2 id="creating-an-item">Creating an Item<a class="headerlink" href="#creating-an-item" title="Permanent link"> </a></h2>
-<h3 id="basic-items">Basic Items<a class="headerlink" href="#basic-items" title="Permanent link"> </a></h3>
-<p>Basic items that need no special functionality (think sticks or sugar) do not need custom classes. You can create an item by instantiating the <code>Item</code> class with an <code>Item$Properties</code> object. This <code>Item$Properties</code> object can be made via the constructor and customized by calling its methods. For instance:</p>
+            <h1 id="_1">아이템<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>블록들과 마찬가지로 아이템은 대부분의 모드의 핵심이 되는 요소입니다. 블록이 플레이어 주변의 레벨을 구성한다면 아이템은 플레이어의 인벤토리를 구성합니다.</p>
+<h2 id="_2">아이템 만들기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<h3 id="_3">간단한 아이템<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
+<p>따로 특수한 기능이 없는 간단한 아이템들(막대기나 설탕)은 따로 클래스를 만들 필요가 없습니다, 그냥 <code>Item</code> 클래스의 인스턴스를 <code>Item$Properties</code> 객체를 사용하여 만들기만 하여도 충분합니다. <code>Item$Properties</code> 객체는 생성자를 사용하여 만든 이후 메서드를 사용하여 아이템의 속성을 설정하실 수 있습니다. 예를 들어:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Method</th>
-<th align="left">Description</th>
+<th align="center">메서드</th>
+<th align="left">설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="center"><code>tab</code></td>
-<td align="left">Sets which <code>CreativeModeTab</code> this item is under. Must be called if this item is meant to be shown on the creative menu. Vanilla tabs can be found in the class <code>CreativeModeTab</code>.</td>
+<td align="left">어떤 <code>CreativeModeTab</code> 에 아이템을 추가할 것인지를 설정합니다. 아이템을 크리에이티브 메뉴에 표시하려면 무조건 호출하셔야 합니다. 마인크래프트 기본 아이템 그룹들은 <code>CreativeModeTab</code> 클래스에서 찾으실 수 있습니다.</td>
 </tr>
 <tr>
 <td align="center"><code>durability</code></td>
-<td align="left">Sets the maximum damage value for this item. If it is over <code>0</code>, two item properties &ldquo;damaged&rdquo; and &ldquo;damage&rdquo; are added.</td>
+<td align="left">아이템의 최대 damage 값을 설정합니다. 만약 0보다 큰 값으로 설정되었을 경우 &ldquo;damaged&rdquo; 와 &ldquo;damage&rdquo; 속성이 아이템에 추가됩니다.</td>
 </tr>
 <tr>
 <td align="center"><code>stacksTo</code></td>
-<td align="left">Sets the maximum stack size. You cannot have an item that is both damageable and stackable.</td>
+<td align="left">아이템이 얼마나 겹칠 수 있는가를 설정합니다. 내구도가 있으면서 겹칠 수 있는 아이템은 만들 수 없습니다.</td>
 </tr>
 <tr>
 <td align="center"><code>setNoRepair</code></td>
-<td align="left">Makes this item impossible to repair, even if it is damageable.</td>
+<td align="left">아이템을 &ldquo;damaged&rdquo; 속성이 있어도 수리가 불가능하도록 만듭니다.</td>
 </tr>
 <tr>
 <td align="center"><code>craftRemainder</code></td>
-<td align="left">Sets this item&rsquo;s container item, the way that lava buckets give you back an empty bucket when they are used.</td>
+<td align="left">이 아이템을 조합에 사용한 이후 남을 아이템을 설정합니다, 마치 용암 양동이를 조합에 사용하면 빈 양동이가 남는 것 처럼 말입니다.</td>
 </tr>
 </tbody>
 </table>
-<p>The above methods are chainable, meaning they <code>return this</code> to facilitate calling them in series.</p>
-<h3 id="advanced-items">Advanced Items<a class="headerlink" href="#advanced-items" title="Permanent link"> </a></h3>
-<p>Setting the properties of an item as above only works for simple items. If you want more complicated items, you should subclass <code>Item</code> and override its methods.</p>
-<h2 id="registering-an-item">Registering an Item<a class="headerlink" href="#registering-an-item" title="Permanent link"> </a></h2>
-<p>Items must be <a href="../concepts/registries/#methods-for-registering">registered</a> to function.</p>
+<p>위 메서드들은 연속적으로 이어 붙일 수 있습니다, 즉 각 메서드들 끝에 <code>return this</code> 를 사용하여 다른 메서드를 뒤에 바로 이어 붙일 수 있도록 합니다.</p>
+<h3 id="_4">복잡한 아이템<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
+<p>아이템을 위처럼 즉석으로 만들어서 설정하는 것은 간단한 아이템에만 사용하실 수 있습니다. 만약 조금 더 복잡한 아이템을 만들고 싶으시다면 따로 <code>Item</code> 의 자식 클래스를 만들고 필요에 따라 메서드를 오버라이드 하셔야 합니다.</p>
+<h2 id="_5">아이템 등록하기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>아이ㅏ템은 무조건 <a href="../concepts/registries/#객체-등록하기">등록</a>되어야만 정상적으로 작동합니다.</p>
             
         </article>
         

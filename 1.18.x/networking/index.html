@@ -279,7 +279,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#networking" class="elem-text">소개</a>
+    <a href="#_1" class="elem-text">소개</a>
     
     
     <ul class="table-of-contents">
@@ -391,7 +391,7 @@
         
 <li >
     
-    <a href="../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -887,22 +887,18 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link"> </a></h1>
-<p>Communication between servers and clients is the backbone of a successful mod implementation.</p>
-<p>There are two primary goals in network communication:</p>
+            <h1 id="_1">네트워크 통신<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>서버와 클라이언트간의 소통은 성공적인 모드를 만들기 위해 필수적으로 들어가는 요소중 하나입니다.</p>
+<p>네트워크 통신을 하는데에는 두 주 목적이 있습니다:</p>
 <ol>
-<li>Making sure the client view is &ldquo;in sync&rdquo; with the server view<ul>
-<li>The flower at coordinates (X, Y, Z) just grew</li>
-</ul>
-</li>
-<li>Giving the client a way to tell the server that something has changed about the player<ul>
-<li>the player pressed a key</li>
-</ul>
-</li>
+<li>클라이언트에 표시되는 내용이 서버와 &ldquo;동기화&rdquo; 되도록 하는 것
+   - (X, Y, Z) 에 방금 자란 꽃이 바로 클라이언트에 표시되도록 하는 것</li>
+<li>클라이언트가 서버에게 플레이어의 상태가 변했다고 알려주는 수단이 되는 것
+   - 플레이어가 키를 눌렀을 때 서버에 알려주는 것</li>
 </ol>
-<p>The most common way to accomplish these goals is to pass messages between the client and the server. These messages will usually be structured, containing data in a particular arrangement, for easy sending and receiving.</p>
-<p>There are a variety of techniques provided by Forge to facilitate communication mostly built on top of <a href="https://netty.io" title="Netty Website">netty</a>.</p>
-<p>The simplest, for a new mod, would be <a href="simpleimpl/" title="SimpleImpl in Detail">SimpleImpl</a>, where most of the complexity of the netty system is abstracted away. It uses a message and handler style system.</p>
+<p>이를 구현하는 가장 일반적인 방법은 클라이언트와 서버가 서로 메세지를 주고 받는 것입니다. 일반적으로, 이 메세지들은 통신 과정을 편하게 하기 위해 여러 데이터가 순서대로 들어있는 구조를 가지고 있습니다.</p>
+<p>Forge 에서는 <a href="https://netty.io" title="Netty 공식 사이트">netty</a>를 기반으로 만든 네트워크 통신을 조금 더 간편하게 쓸 수 있는 여러가지 방법들을 제공합니다.</p>
+<p>그중 신생 모드를 위한 가장 간단한 방법은 <a href="simpleimpl/" title="SimpleImpl 이란?">SimpleImpl</a> 을 사용하는 것입니다, <a href="https://netty.io" title="Netty 공식 사이트">netty</a> 의 복잡한 시스템을 추상화 하고 메세지와 핸들러만 사용하여 통신을 구현할 수 있도록 합니다.</p>
             
         </article>
         

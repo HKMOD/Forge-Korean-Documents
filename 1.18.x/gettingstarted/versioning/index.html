@@ -136,14 +136,14 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#versioning" class="elem-text">버전 구조</a>
+    <a href="#_1" class="elem-text">버전 구조</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#examples">Examples</a></li>
+        <li class="toc-subitem"><a href="#_2">예시</a></li>
         
         
     </ul>
@@ -393,7 +393,7 @@
         
 <li >
     
-    <a href="../../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -889,39 +889,39 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link"> </a></h1>
-<p>In general projects, <a href="https://semver.org/">Semantic Versioning</a> is often used (which has the format <code>MAJOR.MINOR.PATCH</code>). However, in the case of modding it may be more beneficial to use the format <code>MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH</code> to be able to differentiate between world-breaking and API-breaking changes of a mod.</p>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"> </a></h2>
-<p>Here is a list of examples that can increment the various variables.</p>
+            <h1 id="_1">버전 구조<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>일반적으로 프로젝트들은 <a href="https://semver.org/lang/ko/">유의적 버전</a>를 사용합니다(이는 <code>MAJOR.MINOR.PATH</code> 포맷을 사용합니다). 그러나 모드 개발에 있어서는 <code>MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATH</code> 를 사용하여 월드에 영향을 주거나 API 와 더이상 호환되지 않는 변경점을 구분하는 것이 더 나을 수 있습니다.</p>
+<h2 id="_2">예시<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>다음 상황들은 위에서 말한 포맷에서 사용하는 변수들의 값이 증가할 때 입니다:</p>
 <ul>
 <li><code>MCVERSION</code></li>
-<li>Always matches the Minecraft version the mod is for.</li>
+<li>모드가 만들어진 마인크래프트 버전과 동일해야 합니다.</li>
 <li><code>MAJORMOD</code></li>
-<li>Removing items, blocks, block entities, etc.</li>
-<li>Changing or removing previously existing mechanics.</li>
-<li>Updating to a new Minecraft version.</li>
+<li>아이템, 블록 또는 블록 엔티티 삭제.</li>
+<li>기존에 있던 메카닉 변경 또는 삭제.</li>
+<li>마인크래프트 버전 업데이트.</li>
 <li><code>MAJORAPI</code></li>
-<li>Changing the order or variables of enums.</li>
-<li>Changing return types of methods.</li>
-<li>Removing public methods altogether.</li>
+<li>열거형의 변수 또는 순서 변경.</li>
+<li>메서드 반환 타입 변경.</li>
+<li>public 메서드 삭제.</li>
 <li><code>MINOR</code></li>
-<li>Adding items, blocks, block entities, etc.</li>
-<li>Adding new mechanics.</li>
-<li>Deprecating public methods. (This is not a <code>MAJORAPI</code> increment since it doesn&rsquo;t break an API.)</li>
+<li>새로운 아이템, 블록, 블록 엔티티 등 추가.</li>
+<li>새로운 메카닉 추가.</li>
+<li>public 메서드에 @Deprecated 어노테이션 추가. (<code>MAJORAPI</code> 가 아닌 이유는 호환성이 유지되기 때문입니다.)</li>
 <li><code>PATCH</code></li>
-<li>Bugfixes.</li>
+<li>버그 패치.</li>
 </ul>
-<p>When incrementing any variable, all lesser variables should reset to <code>0</code>. For instance, if <code>MINOR</code> would increment, <code>PATCH</code> would become <code>0</code>. If <code>MAJORMOD</code> would increment, all other variables would become <code>0</code>.</p>
-<h3 id="work-in-progress">Work In Progress<a class="headerlink" href="#work-in-progress" title="Permanent link"> </a></h3>
-<p>If you are in the initial development stage of your mod (before any official releases), the <code>MAJORMOD</code> and <code>MAJORAPI</code> should always be <code>0</code>. Only <code>MINOR</code> and <code>PATCH</code> should be updated every time you build your mod. Once you build an official release (most of the time with a stable API), you should increment <code>MAJORMOD</code> to version <code>1.0.0.0</code>. For any further development stages, refer to the <a href="#pre-releases">Prereleases</a> and <a href="#release-candidates">Release candidates</a> section of this document.</p>
-<h3 id="multiple-minecraft-versions">Multiple Minecraft Versions<a class="headerlink" href="#multiple-minecraft-versions" title="Permanent link"> </a></h3>
-<p>If the mod upgrades to a new version of Minecraft, and the old version will only receive bug fixes, the <code>PATCH</code> variable should be updated based on the version before the upgrade. If the mod is still in active development in both the old and the new version of Minecraft, it is advised to append the version to <strong>both</strong> build numbers. For example, if the mod is upgraded to version <code>3.0.0.0</code> due to a Minecraft version change, the old mod should also be updated to <code>3.0.0.0</code>. The old version will become, for example, version <code>1.7.10-3.0.0.0</code>, while the new version will become <code>1.8-3.0.0.0</code>. If there are no changes at all when building for a newer Minecraft version, all variables except for the Minecraft version should stay the same.</p>
-<h3 id="final-release">Final Release<a class="headerlink" href="#final-release" title="Permanent link"> </a></h3>
-<p>When dropping support for a Minecraft version, the last build for that version should get the <code>-final</code> suffix. This denotes that the mod will no longer be supported for the denoted <code>MCVERSION</code> and that players should upgrade to a newer version of the mod to continue receiving updates and bug fixes.</p>
-<h3 id="pre-releases">Pre-releases<a class="headerlink" href="#pre-releases" title="Permanent link"> </a></h3>
-<p>It is also possible to prerelease work-in-progress features, which means new features are released that are not quite done yet. These can be seen as a sort of &ldquo;beta&rdquo;. These versions should be appended with <code>-betaX</code>, where <code>X</code> is the number of the prerelease. (This guide does not use <code>-pre</code> since, at the time of writing, it is not a valid alias for <code>-beta</code>.) Note that already released versions and versions before the initial release can not go into prerelease; variables (mostly <code>MINOR</code>, but <code>MAJORAPI</code> and <code>MAJORMOD</code> can also prerelease) should be updated accordingly before adding the <code>-beta</code> suffix. Versions before the initial release are simply work-in-progress builds.</p>
-<h3 id="release-candidates">Release Candidates<a class="headerlink" href="#release-candidates" title="Permanent link"> </a></h3>
-<p>Release candidates act as prereleases before an actual version change. These versions should be appended with <code>-rcX</code>, where <code>X</code> is the number of the release candidate which should, in theory, only be increased for bugfixes. Already released versions can not receive release candidates; variables (mostly <code>MINOR</code>, but <code>MAJORAPI</code> and <code>MAJORMOD</code> can also prerelease)  should be updated accordingly before adding the <code>-rc</code> suffix. When releasing a release candidate as stable build, it can either be exactly the same as the last release candidate or have a few more bug fixes.</p>
+<p>윗 변수중 하나라도 값이 증가하면 그 뒤에 따라오는 변수들의 값은 <code>0</code>으로 변경하셔야 합니다. 예를 들어, <code>MINOR</code> 값이 증가할 시 <code>PATCh</code> 는 <code>0</code> 이 되어야 합니다. 만약 <code>MAJORMOD</code> 값이 증가하면 그 뒤에 따라오는 모든 변수들은 <code>0</code> 이 되어야 합니다.</p>
+<h3 id="_3">작업중인 모드<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
+<p>모드 개발 초기에는 늘 <code>MAJORMOD</code> 와 <code>MAJORAPI</code> 가 <code>0</code> 이어야 합니다. <code>MINOR</code> 와 <code>PATCH</code> 만 빌드마다 증가해야 합니다.</p>
+<h3 id="_4">여러 마인크래프트 버전<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
+<p>만약 모드가 새로운 버전의 마인크래프트로 업그레이드되고, 이전 버전은 버그 패치만 이루어 진다고 할 때, <code>PATCH</code> 는 업그레이드 이전 버전 값에서 시작합니다. 만약 모드가 이전 버전과 새 버전 둘다 지원하며 적극적인 개발이 이루어 진다면 모드 버전 앞에 마인크래프트 버전을 추가하시는 것이 권장됩니다. 예를 들어 버전 <code>3.0.0.0</code> 인 모드가 새로운 마인크래프트 버전으로 업그레이드 한다면, 이전 버전의 모드 또한 버전 <code>3.0.0.0</code> 으로 다음 예시와 같이 업데이트 되어야 합니다: <code>1.7.10-3.0.0.0</code>, 그리고 새로운 버전은 다음 예시와 같습니다: <code>1.8-3.0.0.0</code>. 만약 마인크래프트 버전 업데이트 말고 추가적인 변경 사항이 없다면 앞의 마인크래프트 버전을 제외하고는 버전이 동일해야 합니다.</p>
+<h3 id="_5">최종 릴리즈<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
+<p>특정 마인크래프트 버전 지원을 중단할 때는 그 마지막 빌드에 <code>-final</code> 접미사를 붙여야 합니다. 이는 이 모드가 더 이상 지원을 받지 않을 것이며 업데이트와 버그 패치를 받기 위해서는 새로운 마인크래프트 버전으로 업그레이드 하여야 함을 뜻합니다.</p>
+<h3 id="_6">시험 릴리즈<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
+<p>아직 개발중인 기능을 시험판처럼 배포할 수도 있습니다, 이는 하나의 &ldquo;베타&rdquo; 테스트 처럼 볼 수 있으며 버전에 <code>-betaX</code> 접미사를 사용하셔야 합니다, 이때 <code>X</code> 는 출시된 시험판 갯수 입니다.(이 가이드에서는 현재로썬 <code>-pre</code> 를 사용하지 않습니다, 이는 <code>-beta</code> 의 이명이 아닙니다). 이미 출시된 버전 또는 초기 릴리즈 이전에 사용한 버전들은 시험판 버전으로 사용하실 수 없습니다; 그렇기에 버전 변수를 를 <code>-beta</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 초기 릴리즈 이전 빌드들은 작업중인 빌드입니다.</p>
+<h3 id="_7">출시 후보<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
+<p>출시 후보는 실제로 버전을 변경하기 이전에 출시하는 시험판과 같습니다. 이 버전들은 <code>-rcX</code> 접미사를 사용하여야 하며, 이때 <code>X</code> 는 출시 후보 갯수입니다, 이 값은 일반적으로 버그 패치 할때만 증가됩니다. 이미 출시된 버전은 출시 후보를 사용하실 수 없습니다; 그렇기에 버전 변수를 <code>rc</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 출시 후보를 안정 빌드로 릴리즈 할때 마지막 출시 후보와 완전히 똑같거나 몇몇 버그 패치를 포함할 수도 있습니다.</p>
             
         </article>
         

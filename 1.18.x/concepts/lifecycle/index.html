@@ -183,20 +183,20 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#mod-lifecycle" class="elem-text">모드 생명주기</a>
+    <a href="#_1" class="elem-text">모드 생명주기</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#registry-events">Registry Events</a></li>
+        <li class="toc-subitem"><a href="#_2">레지스트리 이벤트</a></li>
         
-        <li class="toc-subitem"><a href="#data-generation">Data Generation</a></li>
+        <li class="toc-subitem"><a href="#_3">데이터 생성</a></li>
         
-        <li class="toc-subitem"><a href="#common-setup">Common Setup</a></li>
+        <li class="toc-subitem"><a href="#_4">일반 초기화</a></li>
         
-        <li class="toc-subitem"><a href="#sided-setup">Sided Setup</a></li>
+        <li class="toc-subitem"><a href="#_5">사이드 초기화</a></li>
         
         <li class="toc-subitem"><a href="#intermodcomms">InterModComms</a></li>
         
@@ -401,7 +401,7 @@
         
 <li >
     
-    <a href="../../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -897,9 +897,9 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="mod-lifecycle">Mod Lifecycle<a class="headerlink" href="#mod-lifecycle" title="Permanent link"> </a></h1>
-<p>During the mod loading process, the various lifecycle events are fired on the mod-specific event bus. Many actions are performed during these events, such as <a href="../registries/#methods-for-registering">registering objects</a>, preparing for <a href="../../datagen/">data generation</a>, or <a href="./#intermodcomms">communicating with other mods</a>.</p>
-<p>Event listeners should be registered either using <code>@EventBusSubscriber(bus = Bus.MOD)</code> or in the mod constructor:</p>
+            <h1 id="_1">모드 생명주기<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>모드를 불러오는 과정에서 여러 생명주기 이벤트들이 모드별 버스에 방송됩니다. 여러 초기화 작업들이 이 이벤트들 도중에 이루어 집니다. 이때 진행되는 초기화로는, <a href="../registries/#객체-등록하기">객체 등록하기</a>, <a href="../../datagen/">데이터 생성 준비</a>, 또는 <a href="./#intermodcomms">다른 모드와의 통신</a> 등이 있습니다.</p>
+<p>이벤트 리스너들은 <code>@EventBusSubscriber(bus = Bus.MOD)</code> 어노테이션을 사용하거나 모드의 생성자에서 등록되어야 합니다:</p>
 <pre class="highlight"><code class="language-Java">@Mod.EventBusSubscriber(modid = "mymod", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MyModEventSubscriber {
   @SubscribeEvent
@@ -916,28 +916,29 @@ public class MyMod {
 }</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Most of the lifecycle events are fired in parallel: all mods will concurrently receive the same event.</p>
-<p>Mods <em>must</em> take care to be thread-safe, like when calling other mods&rsquo; APIs or accessing vanilla systems. Defer code for later execution via <code>ParallelDispatchEvent#enqueueWork</code>.</p>
 </div>
-<h2 id="registry-events">Registry Events<a class="headerlink" href="#registry-events" title="Permanent link"> </a></h2>
-<p>The registry events are fired after the mod instance construction. There are two: the <code>NewRegistryEvent</code> event and the <code>RegistryEvent$Register</code> event. These events are fired synchronously during mod loading.</p>
-<p>The <code>NewRegistryEvent</code> event allows modders to register their own custom registries, using the <code>RegistryBuilder</code> class.</p>
-<p>The <code>RegistryEvent$Register&lt;?&gt;</code> event is for <a href="../registries/#methods-for-registering">registering objects</a> into the registries. A <code>Register</code> event is fired for each registry. </p>
-<h2 id="data-generation">Data Generation<a class="headerlink" href="#data-generation" title="Permanent link"> </a></h2>
-<p>If the game is setup to run <a href="../../datagen/">data generators</a>, then the <code>GatherDataEvent</code> will be the last event to fire. This event is for registering mods&rsquo; data providers to their associated data generator. This event is also fired synchronously.</p>
-<h2 id="common-setup">Common Setup<a class="headerlink" href="#common-setup" title="Permanent link"> </a></h2>
-<p><code>FMLCommonSetupEvent</code> is for actions that are common to both physical client and server, such as registering <a href="../../datastorage/capabilities/">capabilities</a>.</p>
-<h2 id="sided-setup">Sided Setup<a class="headerlink" href="#sided-setup" title="Permanent link"> </a></h2>
-<p>The sided-setup events are fired on their respective <a href="../sides/">physical sides</a>: <code>FMLClientSetupEvent</code> on the physical client, and <code>FMLDedicatedServerSetupEvent</code> for the dedicated server. This is where physical side-specific initialization should occur, such as registering client-side key bindings.</p>
+<p>대부분의 생명주기 이벤트들은 병렬적으로 방송됩니다: 모든 모드들은 동시에 같은 이벤트에 반응합니다.</p>
+<pre class="highlight"><code>모드들은 다른 모드의 API 또는 마인크래프트 시스템에 접근할 때, 스레드 안전성을 준수해야만 합니다. `ParallelDispatchEvent#enqueueWork` 를 이용해 코드 실행을 예약하여 나중에 실행되도록 하세요.
+</code></pre>
+<h2 id="_2">레지스트리 이벤트<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>레지스트리 이벤트들은 모드 인스턴스 초기화 이후에 방송됩니다. 이 이벤트들의 종류는 <code>NewRegistryEvent</code> 그리고 <code>RegistryEvent$Register</code> 가 있습니다. 이 이벤트들은 모드들을 불러올때 동기적으로 방송됩니다.</p>
+<p><code>NewRegistryEvent</code> 이벤트는 모드 개발자들이 직접 만든 레지스트리를 <code>RegistryBuilder</code> 를 사용해 등록할 수 있도록 해줍니다.</p>
+<p><code>RegistryEvent$Register&lt;?&gt;</code> 이벤트는 <a href="../registries/#객체-등록하기">객체들을 레지스트리에 등록할 때</a> 사용합니다. 이 이벤트는 각 레지스트리당 한번씩 방송됩니다, 이는 개발자가 직접 등록한 레지스트리도 포함됩니다.</p>
+<h2 id="_3">데이터 생성<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>만약 게임이 <a href="../../datagen/">데이터 생성기</a>를 사용하도록 설정되어 실행되었다면, <code>GatherDataEvent</code> 가 가장 마지막에 방송됩니다. 이 이벤트는 모드들의 데이터 제공자를 데이터 생성기에 등록할때 사용합니다. 또한 이 이벤트는 동기적으로 방송됩니다.</p>
+<h2 id="_4">일반 초기화<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p><code>FMLCommonSetupEvent</code> 이벤트를 사용하여 클라이언트, 그리고 서버 사이드에 공통적으로 수행될 코드를 작성할 수 있습니다. 그 예로 <a href="../../datastorage/capabilities/">캐패빌리티</a>등록이 있습니다.</p>
+<h2 id="_5">사이드 초기화<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>사이드 초기화 이벤트는 각각 알맞는 <a href="../sides/">물리 사이드</a>에 방송됩니다: <code>FMLClientSetupEvent</code> 는 물리 클라이언트에, <code>FMLDedicatedServerSetupEvent</code>는 전용 서버에 사용됩니다. 이 이벤트를 사용하여 키바인드 등록과 같은 사이드 전용 초기화를 진행할 수 있습니다.</p>
 <h2 id="intermodcomms">InterModComms<a class="headerlink" href="#intermodcomms" title="Permanent link"> </a></h2>
-<p>This is where messages can be sent to mods for cross-mod compatibility. There are two events: <code>InterModEnqueueEvent</code> and <code>InterModProcessEvent</code>.</p>
-<p><code>InterModComms</code> is the class responsible for holding messages for mods. The methods are safe to call during the lifecycle events, as it is backed by a <code>ConcurrentMap</code>.</p>
-<p>During the <code>InterModEnqueueEvent</code>, use <code>InterModComms#sendTo</code> to send messages to different mods. These methods take in the mod id that will be sent the message, the key associated with the message data, and a supplier holding the message data. Additionally, the sender of the message can also be specified, but by default it will be the mod id of the caller.</p>
-<p>Then during the <code>InterModProcessEvent</code>, use <code>InterModComms#getMessages</code> to get a stream of all received messages. The mod id supplied will almost always be the mod id of the mod the method is called on. Additionally, a predicate can be specified to filter out the message keys. This will return a stream of <code>IMCMessage</code>s which hold the sender of the data, the receiver of the data, the data key, and the supplied data itself.</p>
+<p>이 생명주기 단계에서는 모드끼리 메세지를 보내 모드간 호환성을 유지할 수 있도록 합니다. 이때 방송되는 이벤트는 <code>InterModEnqueueEvent</code> 와 <code>InterModProcessEvent</code> 가 있습니다.</p>
+<p><code>InterModComms</code> 의 역할은 모드 통신에 사용되는 메세지를 보유하는 것입니다. 그리고 이 클래스의 메서드들은 <code>ConcurrentMap</code> 을 사용하기 때문에 병렬적으로 방송되는 생명주기 이벤트에서 호출하여도 안전합니다.</p>
+<p><code>InterModEnqueueEvent</code> 도중 <code>InterModComms#sendTo</code> 를 사용해 다른 모드에 메세지를 전송할 수 있습니다. <code>InterModComms#sendTo</code> 와 동일한 이름을 가진 메서드가 여럿 있는데, 이 메서드들은 메세지를 받을 모드의 아이디, 메세지들을 구분하기 위해 사용하는 키, 메세지의 데이터를 공급하는 <code>Supplier</code> 입니다. 추가적으로 메세지 송신자를 지정할 수도 있으나, 기본값으로는 메세지를 보내는 모드의 아이디 입니다.</p>
+<p>또, <code>InterModProcessEvent</code> 도중 <code>InterModComms#getMessages</code> 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 <code>Predicate</code> 를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 <code>Stream&lt;IMCMessage&gt;</code> 를 반환합니다, <code>IMCMessage</code> 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are two other lifecycle events: <code>FMLConstructModEvent</code>, fired directly after mod instance construction but before the <code>RegistryEvent</code>s, and <code>FMLLoadCompleteEvent</code>, fired after the <code>InterModComms</code> events, for when the mod loading process is complete.</p>
 </div>
+<p>그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 <code>FMLConstructModEvent</code> 생명주기 이벤트와 <code>InterModComms</code> 이후에 방송되어 모드를 완전히 불러왔음을 알리는 <code>FMLLoadCompleteEvent</code> 생명주기 이벤트가 있습니다.</p>
             
         </article>
         

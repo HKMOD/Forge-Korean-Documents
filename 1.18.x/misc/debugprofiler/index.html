@@ -384,7 +384,7 @@
         
 <li >
     
-    <a href="../../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -784,18 +784,18 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#debug-profiler" class="elem-text">디버그 프로파일러</a>
+    <a href="#_1" class="elem-text">디버그 프로파일러</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#using-the-debug-profiler">Using the Debug Profiler</a></li>
+        <li class="toc-subitem"><a href="#_2">디버그 프로파일러 사용하기</a></li>
         
-        <li class="toc-subitem"><a href="#reading-a-profiling-result">Reading a Profiling result</a></li>
+        <li class="toc-subitem"><a href="#_3">프로파일러 결과 보기</a></li>
         
-        <li class="toc-subitem"><a href="#profiling-your-own-code">Profiling your own code</a></li>
+        <li class="toc-subitem"><a href="#_4">직접 짠 코드 프로파일링 하기</a></li>
         
         
     </ul>
@@ -893,19 +893,19 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="debug-profiler">Debug Profiler<a class="headerlink" href="#debug-profiler" title="Permanent link"> </a></h1>
-<p>Minecraft provides a Debug Profiler that provides system data, current game settings, JVM data, level data, and sided tick information to find time consuming code. Considering things like <code>TickEvent</code>s and ticking <code>BlockEntities</code>, this can be very useful for modders and server owners that want to find a lag source.</p>
-<h2 id="using-the-debug-profiler">Using the Debug Profiler<a class="headerlink" href="#using-the-debug-profiler" title="Permanent link"> </a></h2>
-<p>The Debug Profiler is very simple to use. It requires the debug keybind <code>F3 + L</code> to start the profiler. After 10 seconds, it will automatically stop; however, it can be stopped earlier by pressing the keybind again.</p>
+            <h1 id="_1">디버그 프로파일러<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>마인크래프트는 디버그 프로파일러를 사용하여 시스템 데이터, 현재 게임 설정, JVM 데이터, 레벨 데이터, 사이드 틱 정보 등을 활용해 특정 코드가 얼마나 시간을 소요하는지 측정할 수 있도록 합니다. <code>TickEvent</code> 나 블록 엔티티 tick 처리 등에서 이를 사용하는 것이 유용할 수 있는데, 모드 개발자 또는 서버 어드민이 랙의 원인을 쉽게 파악할 수 있도록 해줍니다.</p>
+<h2 id="_2">디버그 프로파일러 사용하기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>디버그 프로파일러는 쓰기 간단합니다. <code>F3 + L</code> 을 눌러 프로파일러를 시작할 수 있습니다. 프로파일링은 10초 이후 자동으로 종료되지만, 키바인드를 다시 누르는 것으로 더 빨리 중단할 수 있습니다.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Naturally, you can only profile code paths that are actually being reached. <code>Entities</code> and <code>BlockEntities</code> that you want to profile must exist in the level to show up in the results.</p>
 </div>
-<p>After you have stopped the debugger, it will create a new zip within the <code>debug/profiling</code> subdirectory in your run directory.
-The file name will be formatted with the date and time as <code>yyyy-mm-dd_hh_mi_ss-WorldName-VersionNumber.zip</code></p>
-<h2 id="reading-a-profiling-result">Reading a Profiling result<a class="headerlink" href="#reading-a-profiling-result" title="Permanent link"> </a></h2>
-<p>Within each sided folder (<code>client</code> and <code>server</code>), you will find a <code>profiling.txt</code> file containing the result data. At the top, it first tells you how long in milliseconds it was running and how many ticks ran in that time.</p>
-<p>Below that, you will find information similar to the snippet below:
+<p>당연하게도, 프로파일링을 진행할 코드를 실행해야 적절한 데이터를 얻을 수 있습니다. 엔티티나 블록 엔티티에 프로파일러를 사용하실려면 레벨에 먼저 생성하도록 하세요.</p>
+<p>프로파일러가 종료되면 게임을 실행한 디렉토리 아래 <code>debug/profiling</code> 폴더에 새로운 zip 파일이 생성됩니다.
+파일의 이름은 현재 시간으로 다음과 같이 포매팅 됩니다: <code>yyyy-mm-dd_hh_mi_ss-월드이름-게임버전.zip</code></p>
+<h2 id="_3">프로파일러 결과 보기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>각 사이드를 대표하는 폴더(<code>client</code> 랑 <code>server</code>)에는 <code>profiling.txt</code> 라는 파일이 있을텐데, 이 파일은 프로파일링 결과를 담고 있습니다. 이 파일 맨 위에는 게임 버전과 프로파일링이 진행된 시간이 밀리세컨드로 표시되어 있습니다.</p>
+<p>그 아래는 하위와 비슷한 형식으로 프로파일링 결과가 표시되어 있습니다.
 <pre class="highlight"><code>[00] levels - 96.70%/96.70%
 [01] |   Level Name - 99.76%/96.47%
 [02] |   |   tick - 99.31%/95.81%
@@ -915,7 +915,7 @@ The file name will be formatted with the date and time as <code>yyyy-mm-dd_hh_mi
 [05] |   |   |   |   |   unspecified - 64.26%/0.26%
 [05] |   |   |   |   |   minecraft:furnace - 33.35%/0.14%
 [05] |   |   |   |   |   minecraft:chest - 2.39%/0.01%</code></pre>
-Here is a small explanation of what each part means</p>
+각 부분이 무슨 뜻을 가지는지 간략하게 설명하면 다음과 같습니다:</p>
 <table>
 <thead>
 <tr>
@@ -927,20 +927,20 @@ Here is a small explanation of what each part means</p>
 </thead>
 <tbody>
 <tr>
-<td align="left">The Depth of the section</td>
-<td align="left">The Name of the Section</td>
-<td align="left">The percentage of time it took in relation to it&rsquo;s parent. For Layer 0, it is the percentage of the time a tick takes. For Layer 1, it is the percentage of the time its parent takes.</td>
-<td align="left">The second percentage tells you how much time it took from the entire tick.</td>
+<td align="left">부분의 깊이</td>
+<td align="left">부분의 이름</td>
+<td align="left">부모 기준으로 부분이 소요한 시간의 백분율. 깊이 0은 틱 전체에서 소요한 시간의 백분율. 깊이 1은 그 부모(깊이 0)에서 소요된 시간중 소요한 시간의 백분율</td>
+<td align="left">틱 전체에서 소요한 시간의 백분율.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="profiling-your-own-code">Profiling your own code<a class="headerlink" href="#profiling-your-own-code" title="Permanent link"> </a></h2>
-<p>The Debug Profiler has basic support for <code>Entity</code> and <code>BlockEntity</code>. If you would like to profile something else, you may need to manually create your sections like so:
-<pre class="highlight"><code class="language-java">ProfilerFiller#push(yourSectionName : String);
-//The code you want to profile
+<h2 id="_4">직접 짠 코드 프로파일링 하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>디버그 프로파일러는 <code>Entity</code> 와 <code>BlockEntity</code> 프로파일링을 자동으로 해주지만 그것 이외에 다른 것에 프로파일러를 쓰고 싶다면 다음과 같이 부분을 직접 만드셔야 합니다:
+<pre class="highlight"><code class="language-java">ProfilerFiller#push(섹션 이름 : String);
+// 프로파일링할 코드
 ProfilerFiller#pop();</code></pre>
-You can obtain the <code>ProfilerFiller</code> instance from a <code>Level</code>, <code>MinecraftServer</code>, or <code>Minecraft</code> instance.
-Now you just need to search the results file for your section name.</p>
+<code>ProfilerFiller</code> 인스턴스는 <code>Level</code>, <code>MinecraftServer</code> 또는 <code>Minecraft</code> 인스턴스에서 접근하실 수 있습니다.
+이제 사용하신 부분 이름을 프로파일링 결과에서 찾아보시면 됩니다.</p>
             
         </article>
         

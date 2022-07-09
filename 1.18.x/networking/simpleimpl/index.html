@@ -295,15 +295,15 @@
         
         
         
-        <li class="toc-subitem"><a href="#getting-started">Getting Started</a></li>
+        <li class="toc-subitem"><a href="#_1">시작하기</a></li>
         
-        <li class="toc-subitem"><a href="#the-version-checker">The Version Checker</a></li>
+        <li class="toc-subitem"><a href="#_2">버전 확인</a></li>
         
-        <li class="toc-subitem"><a href="#registering-packets">Registering Packets</a></li>
+        <li class="toc-subitem"><a href="#_3">패킷 등록하기</a></li>
         
-        <li class="toc-subitem"><a href="#handling-packets">Handling Packets</a></li>
+        <li class="toc-subitem"><a href="#_4">패킷 핸들링 하기</a></li>
         
-        <li class="toc-subitem"><a href="#sending-packets">Sending Packets</a></li>
+        <li class="toc-subitem"><a href="#_5">패킷 보내기</a></li>
         
         
     </ul>
@@ -401,7 +401,7 @@
         
 <li >
     
-    <a href="../../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -898,9 +898,9 @@
         <article class="docs-entry">
             
             <h1 id="simpleimpl">SimpleImpl<a class="headerlink" href="#simpleimpl" title="Permanent link"> </a></h1>
-<p>SimpleImpl is the name given to the packet system that revolves around the <code>SimpleChannel</code> class. Using this system is by far the easiest way to send custom data between clients and the server.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h2>
-<p>First you need to create your <code>SimpleChannel</code> object. We recommend that you do this in a separate class, possibly something like <code>ModidPacketHandler</code>. Create your <code>SimpleChannel</code> as a static field in this class, like so:</p>
+<p>SimpleImpl 은 <code>SimpleChannel</code> 을 사용하는 패킷 통신 시스템에 주어진 이름입니다. 이 시스템을 사용하는 것은 가장 쉽게 서버와 클라이언트간 통신을 구현할 수 있는 방법입니다.</p>
+<h2 id="_1">시작하기<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
+<p>가장 첫번째로 <code>SimpleChannel</code> 객체를 만들어야 합니다. 이는 <code>ModidPacketHandler</code> 처럼 따로 클래스를 만든 이후 거기서 하시는 것을 추천드립니다. 이때 만드시는 <code>SimpleChannel</code> 객체는 다음처럼 정적 필드로 만드세요:</p>
 <pre class="highlight"><code class="language-java">private static final String PROTOCOL_VERSION = "1";
 public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
   new ResourceLocation("mymodid", "main"),
@@ -908,75 +908,79 @@ public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
   PROTOCOL_VERSION::equals,
   PROTOCOL_VERSION::equals
 );</code></pre>
-<p>The first argument is a name for the channel. The second argument is a <code>Supplier&lt;String&gt;</code> returning the current network protocol version. The third and fourth arguments respectively are <code>Predicate&lt;String&gt;</code> checking whether an incoming connection protocol version is network-compatible with the client or server, respectively.
-Here, we simply compare with the <code>PROTOCOL_VERSION</code> field directly, meaning that the client and server <code>PROTOCOL_VERSION</code>s must always match or FML will deny login.</p>
-<h2 id="the-version-checker">The Version Checker<a class="headerlink" href="#the-version-checker" title="Permanent link"> </a></h2>
-<p>If your mod does not require the other side to have a specific network channel, or to be a Forge instance at all, you should take care that you properly define your version compatibility checkers (the <code>Predicate&lt;String&gt;</code> parameters) to handle additional &ldquo;meta-versions&rdquo; (defined in <code>NetworkRegistry</code>) that can be received by the version checker. These are:</p>
+<p>첫번째 인자는 채널의 이름입니다. 두번째 인자는 현재 프로토콜 버전을 반환하는 <code>Supplier&lt;String&gt;</code> 입니다. 세번째 인자는 연결을 시도하는 측의 프로토콜 버전이 클라이언트와 호환되는지 확인하는 <code>Predicate&lt;String&gt;</code>, 네번째 인자는 연결을 시도하는 측의 프로토콜 버전이 서버와 호환되는지 확인하는 <code>Predicate&lt;String&gt;</code> 입니다.
+이 예제에서는 단순하게 접속하는 측의 프로토콜 버전이 <code>PROTOCOL_VERSION</code> 과 동일한지 바로 비교합니다, 즉 이 경우에서는 서버와 클라이언트의 <code>PROTOCOL_VERSION</code> 이 일치해야만 FML 이 로그인을 허용해 줍니다.</p>
+<h2 id="_2">버전 확인<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>만약 모드에서 만든 네트워크 채널이 반대쪽에 없어도 된다면, 또는 아예 포지가 없어도 된다면 버전 확인자들 (<code>Predicate&lt;String&gt;</code> 파라미터들)을 적절하게 정의하여 추가적인 &ldquo;메타-버전&rdquo; 들 또한 처리하도록 만들어야 합니다 (메타 버전들은 <code>NetworkRegistry</code> 에 정의되어 있습니다, 아래 나와있는 것은 String 이 아니고 필드 이름입니다). 이 버전들의 종류와 의미는 다음과 같습니다:</p>
 <ul>
-<li><code>ABSENT</code> - if this channel is missing on the other endpoint. Note that in this case, the endpoint is still a Forge endpoint, and may have other mods.</li>
-<li><code>ACCEPTVANILLA</code> - if the endpoint is a vanilla (or non-Forge) endpoint.</li>
+<li><code>ABSENT</code> - 채널이 반대쪽에 없는 경우, 이때 반대쪽은 포지가 설치되어 있으며 다른 모드가 있을 수 있습니다.</li>
+<li><code>ACCEPTVANILLA</code> - 반대쪽이 바닐라거나 포지가 없는 경우.</li>
 </ul>
-<p>Returning <code>false</code> for both means that this channel must be present on the other endpoint. If you just copy the code above, this is what it does. Note that these values are also used during the list ping compatibility check, which is responsible for showing the green check / red cross in the multiplayer server select screen.</p>
-<h2 id="registering-packets">Registering Packets<a class="headerlink" href="#registering-packets" title="Permanent link"> </a></h2>
-<p>Next, we must declare the types of messages that we would like to send and receive. This is done using <code>INSTANCE#registerMessage</code>, which takes 5 parameters:</p>
+<p>위 두 필드들은 반대쪽에 채널이 아예 없어 버전 확인자에서 비교할 프로토콜 버전이 없는 경우 대신 사용됩니다. 이 두 경우에 다 <code>false</code> 를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.</p>
+<h2 id="_3">패킷 등록하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>그 다음으로 주고 받을 메세지들을 정의해야 합니다. 이는 <code>INSTANCE#registerMessage</code> 를 이용해 할 수 있는데, 이 메서드는 5개의 인자를 받습니다:</p>
 <ul>
-<li>The first parameter is the discriminator for the packet. This is a per-channel unique ID for the packet. We recommend you use a local variable to hold the ID, and then call registerMessage using <code>id++</code>. This will guarantee 100% unique IDs.</li>
-<li>The second parameter is the actual packet class <code>MSG</code>.</li>
-<li>The third parameter is a <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code> responsible for encoding the message into the provided <code>FriendlyByteBuf</code>.</li>
-<li>The fourth parameter is a <code>Function&lt;FriendlyByteBuf, MSG&gt;</code> responsible for decoding the message from the provided <code>FriendlyByteBuf</code>.</li>
-<li>The final parameter is a <code>BiConsumer&lt;MSG, Supplier&lt;NetworkEvent.Context&gt;&gt;</code> responsible for handling the message itself.</li>
+<li>첫번째 인자는 패킷을 판별할 때 사용할 판별자 입니다. ID 라고 부르기도 합니다. 이 판별자는 같은 채널에서는 고유하여야 합니다, 다른 채널끼리는 판별자가 같아도 문제가 발생하지 않습니다. 판별자로는 어떤 값을 사용하셔도 고유하기만 한다면 상관 없으니 지역 변수를 사용하여 메세지 하나 등록할 때 마다 <code>id++</code> 를 하여 늘 고유한 값이 나오도록 하세요.</li>
+<li>두번째 인자는 패킷 클래스 <code>MSG</code> 입니다.</li>
+<li>세번째 인자는 <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code> 입니다, 패킷 클래스를 <code>FriendlyByteBuf</code> 에 작성하는 역할을 합니다.</li>
+<li>네번째 인자는 <code>Function&lt;FriendlyByteBuf, MSG&gt;</code> 입니다, <code>FriendlyByteBuf</code> 로 부터 패킷 클래스를 읽어들이는 역할을 합니다.</li>
+<li>마지막 인자는 <code>BiConsumer&lt;MSG, Supplier&lt;NetworkEvent.Context&gt;&gt;</code> 입니다, 패킷을 받을시 사용할 핸들러 입니다.</li>
 </ul>
-<p>The last three parameters can be method references to either static or instance methods in Java. Remember that an instance method <code>MSG#encode(FriendlyByteBuf)</code> still satisfies <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code>; the <code>MSG</code> simply becomes the implicit first argument.</p>
-<h2 id="handling-packets">Handling Packets<a class="headerlink" href="#handling-packets" title="Permanent link"> </a></h2>
-<p>There are a couple things to highlight in a packet handler. A packet handler has both the message object and the network context available to it. The context allows access to the player that sent the packet (if on the server), and a way to enqueue thread-safe work.</p>
+<p>뒤 3개의 인자들은 정적 또는 인스턴스 메서드의 레퍼런스를 사용하여도 됩니다. 기억해두셔야 할 점은 <code>MSG#encode(FriendlyByteBuf)</code> 인스턴스 메서드는 <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code> 로 사용하실 수 있다는 것입니다; <code>MSG</code> 의 인스턴스는 암묵적으로 <code>BiConsumer</code>의 첫번째 인자로 사용됩니다.</p>
+<h2 id="_4">패킷 핸들링 하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>패킷 핸들러에는 몇가지 강조할 사항이 있습니다: 패킷 핸들러는 메세지 클래스 뿐만 아니라, 네트워크 콘텍스트도 같이 반습니다. 이 콘텍스트를 사용해서, (서버에서 패킷을 받았다면) 패킷을 보낸 플레이어에 접근할 수 있고 스레드 안전성을 준수해야만 하는 작업들을 요청할 수 있습니다.</p>
 <pre class="highlight"><code class="language-java">public static void handle(MyMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
   ctx.get().enqueueWork(() -&gt; {
-    // Work that needs to be thread-safe (most work)
-    ServerPlayer sender = ctx.get().getSender(); // the client that sent this packet
-    // Do stuff
+    // 스레드 안전성을 준수해야 하는 작업들 (대부분의 작업들이 이에 포함될 것입니다)
+    ServerPlayerEntity sender = ctx.get().getSender(); // the client that sent this packet
+    // 무언가 아무거나 더 하기
   });
   ctx.get().setPacketHandled(true);
 }</code></pre>
-<p>Packets sent from the server to the client should be handled in another class and wrapped via <code>DistExecutor#unsafeRunWhenOn</code>.</p>
+<p>서버에서 클라이언트로 보낸 패킷은 아예 다른 클래스에서 핸들링 해야 하며, <code>DistExecutor#unsafeRunWhenOn</code> 와 같은 방법을 사용해 물리 클라이언트에서만 실행되도록 하여야 합니다.</p>
 <pre class="highlight"><code class="language-java">// In Packet class
 public static void handle(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
   ctx.get().enqueueWork(() -&gt;
-    // Make sure it's only executed on the physical client
+    // 확실하게 물리 클라이언트에서만 실행되도록 합니다.
     DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -&gt; () -&gt; ClientPacketHandlerClass.handlePacket(msg, ctx))
   );
   ctx.get().setPacketHandled(true);
 }
 
-// In ClientPacketHandlerClass
+// ClientPacketHandlerClass 내용
 public static void handlePacket(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
-  // Do stuff
+  // 무언가 하기
 }</code></pre>
-<p>Note the presence of <code>#setPacketHandled</code>, which is used to tell the network system that the packet has successfully completed handling.</p>
+<p><code>#setPacketHandled</code> 를 여러번 사용하는 것을 보셨을텐데, 이는 네트워크 시스템에게 패킷이 성공적으로 처리되었음을 알리는 것입니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>As of Minecraft 1.8 packets are by default handled on the network thread.</p>
-<p>That means that your handler can <em>not</em> interact with most game objects directly. Forge provides a convenient way to make your code execute on the main thread instead through the supplied <code>NetworkEvent$Context</code>. Simply call <code>NetworkEvent$Context#enqueueWork(Runnable)</code>, which will call the given <code>Runnable</code> on the main thread at the next opportunity.</p>
+<p>마인크래프트 1.8 이후로는 패킷은 네트워크 스레드에서 처리됩니다.</p>
+<p>즉 패킷 핸들러는 게임과 직접적으로 상호작용할 수 <em>없습니다</em>. 포지에서는 <code>NetworkEvent$Context</code> 를 통해 간단하게 코드를 메인 스레드에서 실행하는 방법을 제공합니다. 이는 단순하게 <code>NetworkEvent$Context#enqueueWork(Runnable)</code> 을 호출하는 것인데, 메인 스레드는 이때 전달된  <code>Runnable</code> 을 빠른 시일내에 실행합니다.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Be defensive when handling packets on the server. A client could attempt to exploit the packet handling by sending unexpected data.</p>
-<p>A common problem is vulnerability to <strong>arbitrary chunk generation</strong>. This typically happens when the server is trusting a block position sent by a client to access blocks and block entities. When accessing blocks and block entities in unloaded areas of the level, the server will either generate or load this area from disk, then promptly write it to disk. This can be exploited to cause <strong>catastrophic damage</strong> to a server&rsquo;s performance and storage space without leaving a trace.</p>
-<p>To avoid this problem, a general rule of thumb is to only access blocks and block entities if <code>Level#hasChunkAt</code> is true.</p>
 </div>
-<h2 id="sending-packets">Sending Packets<a class="headerlink" href="#sending-packets" title="Permanent link"> </a></h2>
-<h3 id="sending-to-the-server">Sending to the Server<a class="headerlink" href="#sending-to-the-server" title="Permanent link"> </a></h3>
-<p>There is but one way to send a packet to the server. This is because there is only ever <em>one</em> server the client can be connected to at once. To do so, we must again use that <code>SimpleChannel</code> that was defined earlier. Simply call <code>INSTANCE.sendToServer(new MyMessage())</code>. The message will be sent to the handler for its type, if one exists.</p>
-<h3 id="sending-to-clients">Sending to Clients<a class="headerlink" href="#sending-to-clients" title="Permanent link"> </a></h3>
-<p>Packets can be sent directly to a client using the <code>SimpleChannel</code>: <code>HANDLER.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)</code>. However, this can be quite inconvenient. Forge has some convenience functions that can be used:</p>
-<pre class="highlight"><code class="language-java">// Send to one player
+<p>서버에서 클라이언트에서 보낸 패킷을 처리하는 패킷 핸들러를 만들 때 주의하도록 하세요, 클라이언트가 서버에서 예기치 못한 데이터를 보내 취약점을 악용할 수 있습니다.</p>
+<pre class="highlight"><code>가장 흔한 사례는 **무작위 청크 생성** 입니다. 서버가 클라이언트에서 보낸 블록의 위치를 그대로 믿고 이를 이용해 블록/블록 엔티티에 접근하려고 할 때 문제가 발생할 수 있는데, 만약 아직 청크가 메모리 상에 존재하지 않는 곳에 있는 블록/블록 엔티티에 접근하려고 하면 서버에서는 디스크에서 불러오거나 새로 청크를 생성합니다. 이는 **심각한** 보안 취약점중 하나로, 흔적도 남기지 않고 서버 성능과 디스크 용량에 **매우 큰** 피해를 끼칠 수 있습니다.
+
+이러한 공격을 막기 위해 일반적으로 많이 사용하는 방법은 `Level#hasChunkAt` 이 참인 곳만의 블록/블록 엔티티에 접근하는 것입니다. 이를 통해 메모리상에 존재하지 않는 청크에 접근하는 것을 막을 수 있습니다.
+
+</code></pre>
+<h2 id="_5">패킷 보내기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<h3 id="_6">서버에 보내기<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
+<p>서버로 패킷을 보내는 방법은 하나밖에 없습니다. 왜냐하면 클라이언트는 한번에 <em>하나의</em> 서버에만 접속할 수 있기 때문입니다. 패킷을 보내기 위해서는 이전에 정의한 <code>SimpleChannel</code> 을 다시 사용할 것인데, 단순히 <code>INSTANCE.sendToServer(new MyMessage())</code> 를 호출하세요. 이 메세지는 패킷에 알맞는 핸들러로 (만약 있다면)보내집니다.</p>
+<h3 id="_7">클라이언트(들)에 보내기<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
+<p>패킷을 <code>SimpleChannel</code> 을 사용해 직접적으로 클라이언트에 전송할 수 있습니다:</p>
+<p><code>INSTANCE.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)</code>. 그러나 이 방식은 사용하기 불편할 수 있는데, 포지에서는 조금 더 쉽게 패킷을 보내주는 함수들을 제공합니다:</p>
+<pre class="highlight"><code class="language-java">// 플레이어 한명에게 보내기
 INSTANCE.send(PacketDistributor.PLAYER.with(serverPlayer), new MyMessage());
 
-// Send to all players tracking this level chunk
+// 이 레벨 청크를 추적하고 있는 모든 플레이어에게 보내기
 INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(levelChunk), new MyMessage());
 
-// Send to all connected players
+// 모든 플레이어에게 보내기
 INSTANCE.send(PacketDistributor.ALL.noArg(), new MyMessage());</code></pre>
-<p>There are additional <code>PacketDistributor</code> types available; check the documentation on the <code>PacketDistributor</code> class for more details.</p>
+<p><code>PacketDistributor</code> 는 위에 나온 것 말고도 더 많은 종류가 있습니다; <code>PacketDistributor</code> 클래스의 문서를 통해 더 자세히 알아보실 수 있습니다.</p>
             
         </article>
         

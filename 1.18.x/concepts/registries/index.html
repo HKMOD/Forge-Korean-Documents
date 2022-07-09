@@ -399,7 +399,7 @@
         
 <li >
     
-    <a href="../../datastorage/saveddata/" class="elem-text">월드 저장 데이터</a>
+    <a href="../../datastorage/saveddata/" class="elem-text">레벨 저장 데이터</a>
     
     
 </li>
@@ -1056,7 +1056,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
                                                     // 그렇기에, 이는 예외를 발생시킴.
 }</code></pre></p>
 <h2 id="_5">커스텀 포지 레지스트리 만들기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
-<p>모드에서 커스텀 레지스트리를 만들 때 Map<K, V> 를 사용하여 만드는 경우는 꽤나 흔합니다; 그러나 이는 강제적으로 레지스트리에 종속성을 부여하며 사이드간의 데이터 동기화를 수동으로 시켜 주어야 한다는 단점이 있습니다. 커스텀 포지 레지스트리는 강제적인 종속성을 피하고, 자동으로 동기화를 해 주며(설정시 변경 가능) 관리또한 잘 해주는 참 좋은 대안입니다. 등록되는 객체들도 포지 레지스트리 시스템을 사용하니 등록 과정이 동일합니다.</p>
+<p>모드에서 커스텀 레지스트리를 만들 때 Map<K, V> 를 사용하여 만드는 경우는 꽤나 흔합니다; 그러나 이는 강제적으로 레지스트리에 의존성을 부여하며 사이드간의 데이터 동기화를 수동으로 시켜 주어야 한다는 단점이 있습니다. 커스텀 포지 레지스트리는 강제적인 의존성을 피하고, 자동으로 동기화를 해 주며(설정시 변경 가능) 관리또한 잘 해주는 참 좋은 대안입니다. 등록되는 객체들도 포지 레지스트리 시스템을 사용하니 등록 과정이 동일합니다.</p>
 <p>커스텀 포지 레지스트리는 <code>NewRegistryEvent</code> 또는 <code>DeferredRegister</code> 를 통해 <code>RegistryBuilder</code> 를 사용하여 만듭니다. <code>RegistryBuilder</code> 는 레지스트리의 이름, 레지스트리에 등록될 객체들의 클래스, 여러 이벤트들에 반응할 콜백들 등 여러가지 설정 가능한 속성들이 있습니다. 새롭게 만들어진 레지스트리들은 <code>RegistryManager</code> 에 <code>NewRegistryEvent</code> 가 끝나고 등록됩니다. </p>
 <p>레지스트리에 등록될 객체의 클래스는 무조건 <code>IForgeRegisterEntry</code> 인터페이스를 구현하여야 합니다, 이 인터페이스는 <code>#setRegistryName</code> 과 <code>#getRegistryName</code> 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 <code>ForgeRegistryEntry</code> 를 상속하는 것이 권장됩니다, 이 클래스는 <code>IForgeRegistryEntry</code> 인터페이스의 기본적인 구현을 제공합니다. <code>#setRegistryName(String)</code> 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 해당 모드의 아이디로 추론됩니다.</p>
 <p>모든 새로 만들어진 레지스트리들 또한 <a href="#객체-등록하기">이 방법들</a>을 통해 객체들을 등록하여야 합니다.</p>
