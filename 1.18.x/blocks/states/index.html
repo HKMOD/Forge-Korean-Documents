@@ -230,22 +230,22 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#block-states" class="elem-text">블록의 상태</a>
+    <a href="#_1" class="elem-text">블록의 상태</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#legacy-behavior">Legacy Behavior</a></li>
+        <li class="toc-subitem"><a href="#_2">구버전의 블록 상태</a></li>
         
-        <li class="toc-subitem"><a href="#introduction-of-states">Introduction of States</a></li>
+        <li class="toc-subitem"><a href="#blockstate">BlockState의 등장</a></li>
         
-        <li class="toc-subitem"><a href="#proper-usage-of-block-states">Proper Usage of Block States</a></li>
+        <li class="toc-subitem"><a href="#_3">블록 상태 시스템을 올바르게 사용하는 방법</a></li>
         
-        <li class="toc-subitem"><a href="#implementing-block-states">Implementing Block States</a></li>
+        <li class="toc-subitem"><a href="#_4">블록에 상태 추가하기</a></li>
         
-        <li class="toc-subitem"><a href="#using-blockstates">Using BlockState's</a></li>
+        <li class="toc-subitem"><a href="#_5">블록의 속성 써보기</a></li>
         
         
     </ul>
@@ -897,52 +897,60 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="block-states">Block States<a class="headerlink" href="#block-states" title="Permanent link"> </a></h1>
-<h2 id="legacy-behavior">Legacy Behavior<a class="headerlink" href="#legacy-behavior" title="Permanent link"> </a></h2>
-<p>In Minecraft 1.7 and previous versions, blocks which need to store placement or state data that did not have BlockEntities used <strong>metadata</strong>. Metadata was an extra number stored with the block, allowing different rotations, facings, or even completely separate behaviors within a block.</p>
-<p>However, the metadata system was confusing and limited, since it was stored as only a number alongside the block ID, and had no meaning except what was commented in the code. For example, to implement a block that can face a direction and be on either the upper or lower half of a block space (such as a stair): </p>
+            <h1 id="_1">블록의 상태<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<h2 id="_2">구버전의 블록 상태<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>마인크래프트 1.7 이하 버전에서는 블록 엔티티를 사용하지 않고, 블록의 배치나 상태를 저장하기 위해서는 <strong>메타 데이터</strong>를 사용하여야만 했습니다. 메타데이터는 블록과 함께 저장되는 정수로, 블록의 회전 방향, 배치, 또는 블록의 종류 등을 저장하는데에 사용되었습니다.</p>
+<p>그렇지만, 메타데이터 시스템은 쓰기도 어렵고 제한적이며 햇갈리기만 했습니다, 당연하게도 모든 정보를 블록 ID 옆에 다는 정수 하나로만 저장하려고 하다보니, 각 숫자가 무슨 의미인지 파악하기가 힘들었습니다. 예를 들어 계단처럼 방향이 있으면서 완전히 꽉 채워지진 않은 블록은 다음과 같이 정의해야만 했습니다.</p>
 <pre class="highlight"><code class="language-Java">switch (meta) {
-  case 0: { ... } // south and on the lower half of the block
-  case 1: { ... } // south on the upper side of the block
-  case 2: { ... } // north and on the lower half of the block
-  case 3: { ... } // north and on the upper half of the block
-  // ... etc. ...
+  case 0: { ... } // 남쪽을 바라보고 있고 아래에 배치되어 있음
+  case 1: { ... } // 남쪽을 바라보고 있고 위쪽에 배치되어 있음
+  case 2: { ... } // 북쪽을 바라보고 있고 아래에 배치되어 있음
+  case 3: { ... } // 북쪽을 바라보고 있고 위쪽에 배치되어 있음
+  // .......
 }</code></pre>
-<p>Because the numbers carry no meaning by themselves, no one could know what they represent unless they had access to the source code and comments.</p>
-<h2 id="introduction-of-states">Introduction of States<a class="headerlink" href="#introduction-of-states" title="Permanent link"> </a></h2>
-<p>In Minecraft 1.8 and above, the metadata system, along with the block ID system, was deprecated and eventually replaced with the <strong>block state system</strong>. The block state system abstracts out the details of the block&rsquo;s properties from the other behaviors of the block.</p>
-<p>Each <em>property</em> of a block is described by an instance of <code>Property&lt;?&gt;</code>. Examples of block properties include instruments (<code>EnumProperty&lt;NoteBlockInstrument&gt;</code>), facing (<code>DirectionProperty</code>), poweredness (<code>Property&lt;Boolean&gt;</code>), etc. Each property has the value of the type <code>T</code> parametrized by <code>Property&lt;T&gt;</code>.</p>
-<p>A unique pair can be constructed from the <code>Block</code> and a map of the <code>Property&lt;?&gt;</code> to their associated values. This unique pair is called a <code>BlockState</code>.</p>
-<p>The previous system of meaningless metadata values were replaced by a system of block properties, which are easier to interpret and deal with. Previously, a stone button which is facing east and is powered or held down is represented by &ldquo;<code>minecraft:stone_button</code> with metadata <code>9</code>. Now, this is represented by &ldquo;<code>minecraft:stone_button[facing=east,powered=true]</code>&rdquo;.</p>
-<h2 id="proper-usage-of-block-states">Proper Usage of Block States<a class="headerlink" href="#proper-usage-of-block-states" title="Permanent link"> </a></h2>
-<p>The <code>BlockState</code> system is a flexible and powerful system, but it also has limitations. <code>BlockState</code>s are immutable, and all combinations of their properties are generated on startup of the game. This means that having a <code>BlockState</code> with many properties and possible values will slow down the loading of the game, and befuddle anyone trying to make sense of your block logic.</p>
-<p>Not all blocks and situations require the usage of <code>BlockState</code>; only the most basic properties of a block should be put into a <code>BlockState</code>, and any other situation is better off with having a <code>BlockEntity</code> or being a separate <code>Block</code>. Always consider if you actually need to use blockstates for your purposes.</p>
+<p>위처럼, 정수 하나만으로 블록의 상태를 저장하면 각 숫자가 무슨 의미를 가지는지 알 수 없기 때문에 소스코드 없이는 블록의 현재 상태를 알 수 없었습니다.</p>
+<h2 id="blockstate"><code>BlockState</code>의 등장<a class="headerlink" href="#blockstate" title="Permanent link"> </a></h2>
+<p>마인크래프트 1.8부터 메타데이터 시스템은 폐기되었고 <strong>블록 상태 시스템</strong>으로 대체되었습니다. 블록 상태 시스템은 블록의 각 속성들을 추상화하고 블록의 기능과 분리해냅니다.</p>
+<p>블록의 각 <em>속성</em>들은 <code>Property&lt;?&gt;</code> 의 인스턴스로 설명되는데, 그 예로: 악기 (<code>EnumProperty&lt;NoteBlockInstrumenet&gt;</code>), 바라보는 방향 (<code>DirectionProperty</code>), 레드스톤 신호 여부 (<code>Property&lt;Boolean&gt;</code>) 등이 있습니다. 각 속성들의 속성값의 자료형은 <code>Property&lt;T&gt;</code> 에 전달되는 타입 인자 <code>T</code> 입니다.</p>
+<p>블록 상태 시스템은 <code>Block</code> 을 <code>Property&lt;?&gt;</code> 와 가능한 모든 속성값들로 만든 맵과 짝을 지어놓는데, 이 고유한 짝을 <code>BlockState</code> 라고 합니다. </p>
+<p>블록 상태 시스템이 다루기도 편하고 덜 햇갈리다 보니 메타 데이터 시스템을 완전히 대체하였습니다. 플레이어가 누루고 있는 동쪽을 바라보고 있는 돌 버튼은 이전에는 <code>minecraft:stone_button</code> 에 메타데이터 값 <code>9</code> 로 표현되었던 반면 이제는 <code>minecraft:stone_button[facing=east,powered=true]</code> 로 나타낼 수 있습니다.</p>
+<h2 id="_3">블록 상태 시스템을 올바르게 사용하는 방법<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>블록 상태 시스템이 유연하고 강력한 것은 맞지만, 그렇다고 만능은 아닙니다. <code>BlockState</code> 들은 불변입니다, 게임이 시작되는 동안 가능한 모든 조합의 <code>BlockState</code> 들이 생성됩니다. 다시 말해서, 경우의 수가 매우 많은 <code>BlockState</code> 를 만들 경우 게임을 불러오는 속도가 매우 느려질 수 있으며, 블록의 메카닉을 이해하기도 어려워 질 것입니다.</p>
+<p>모든 블록들이 블록 상태 시스템을 사용할 필요는 없으며, 블록의 가장 간단한 속성들만 블록 상태 시스템으로 표현해야 합니다, 그 외에 블록 엔티티를 사용하거나 아예 또 다른 블록을 만드는 것 또한 고려해주세요, 그리고 언제나 블록 상태 시스템을 사용하는 것이 옳은 일인지 고려해주세요.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A good rule of thumb is: <strong>if it has a different name, it should be a separate block</strong>.</p>
+<p>팁: <strong>만약 블록이 다른 이름을 가진다면, 또 다른 블록 상태가 아니라 새로운 블록이 되어야 합니다</strong>.</p>
 </div>
-<p>An example is making chair blocks: the <em>direction</em> of the chair should be a <em>property</em>, while the different <em>types of wood</em> should be separated into different blocks.
-An &ldquo;Oak Chair&rdquo; facing east (<code>oak_chair[facing=east]</code>) is different from a &ldquo;Spruce Chair&rdquo; facing west (<code>spruce_chair[facing=west]</code>).</p>
-<h2 id="implementing-block-states">Implementing Block States<a class="headerlink" href="#implementing-block-states" title="Permanent link"> </a></h2>
-<p>In your Block class, create or reference <code>static final</code> <code>Property&lt;?&gt;</code> objects for every property that your Block has. You are free to make your own <code>Property&lt;?&gt;</code> implementations, but the means to do that are not covered in this article. The vanilla code provides several convenience implementations:</p>
+<p>예를 들어 의자를 만든다고 할 때: 의자의 <em>방향</em> 은 블록의 <em>속성</em>이니 블록 상태 시스템을 사용하는게 옳지만, <em>나무의 종류</em>가 다른 의자들은 아예 다른 블록이 되어야 합니다.
+동쪽을 바라보는 &ldquo;참나무 의자&rdquo; (<code>oak_chair[facing=east]</code>) 는 서쪽을 바라보는 &ldquo;가문비 나무 의자&rdquo; (<code>spruce_chair[facing=west]</code>) 와는 다른 블록입니다.</p>
+<h2 id="_4">블록에 상태 추가하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>현재 만들고 계신 <code>Block</code> 클래스에 그 블록이 가질 수 있는 모든 속성들을 <code>static final</code> 로 정의된 <code>Property&lt;?&gt;</code> 객체들을 생성하거나 참조하여 표현하세요. 원하신다면 직접 <code>Property&lt;?&gt;</code> 클래스를 구현하여도 됩니다만, 이 문서에서는 이에 대해 다루진 않겠습니다. 바닐라 마인크래프트는 이미 쓸만한 이 클래스의 구현들을 여러개 제공하고 있습니다:</p>
 <ul>
-<li><code>IntegerProperty</code></li>
-<li>Implements <code>Property&lt;Integer&gt;</code>. Defines a property that holds an integer value.</li>
-<li>Created by calling <code>IntegerProperty#create(String propertyName, int minimum, int maximum)</code>.</li>
-<li><code>BooleanProperty</code></li>
-<li>Implements <code>Property&lt;Boolean&gt;</code>. Defines a property that holds a <code>true</code> or <code>false</code> value.</li>
-<li>Created by calling <code>BooleanProperty#create(String propertyName)</code>.</li>
-<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code></li>
-<li>Implements <code>Property&lt;E&gt;</code>. Defines a property that can take on the values of an Enum class.</li>
-<li>Created by calling <code>EnumProperty#create(String propertyName, Class&lt;E&gt; enumClass)</code>.</li>
-<li>It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 <code>DyeColor</code>s). See the overloads of <code>EnumProperty#create</code>.</li>
-<li><code>DirectionProperty</code></li>
-<li>This is a convenience implementation of <code>EnumProperty&lt;Direction&gt;</code></li>
-<li>Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call <code>DirectionProperty.create("&lt;name&gt;", Direction.Plane.HORIZONTAL)</code>; to get the X directions, <code>DirectionProperty.create("&lt;name&gt;", Direction.Axis.X)</code>.</li>
+<li><code>IntegerProperty</code><ul>
+<li><code>Property&lt;Integer&gt;</code> 의 구현. 정수값을 가지는 속성을 정의함.</li>
+<li><code>IntegerProperty#create(String 속성이름, int 최솟값, int 최댓값)</code> 를 호출하여 생성할 수 있음.</li>
 </ul>
-<p>The class <code>BlockStateProperties</code> contains shared vanilla properties which should be used or referenced whenever possible, in place of creating your own properties.</p>
-<p>When you have your desired <code>Property&lt;&gt;</code> objects, override <code>Block#createBlockStateDefinition(StateDefinition$Builder)</code> in your Block class. In that method, call <code>StateDefinition$Builder#add(...);</code>  with the parameters as every <code>Property&lt;?&gt;</code> you wish the block to have.</p>
-<p>Every block will also have a &ldquo;default&rdquo; state that is automatically chosen for you. You can change this &ldquo;default&rdquo; state by calling the <code>Block#registerDefaultState(BlockState)</code> method from your constructor. When your block is placed it will become this &ldquo;default&rdquo; state. An example from <code>DoorBlock</code>:</p>
+</li>
+<li><code>BooleanProperty</code><ul>
+<li><code>Property&lt;Boolean&gt;</code> 의 구현. <code>참</code> 또는 <code>거짓</code> 값을 가지는 속성을 정의함.</li>
+<li><code>BooleanProperty#create(String 속성이름)</code> 를 호출하여 생성할 수 있음.</li>
+</ul>
+</li>
+<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code><ul>
+<li><code>Property&lt;E&gt;</code> 의 구현. 열거형 클래스의 열거 상수값을 가지는 속성을 정의함.</li>
+<li><code>EnumProperty#create(String 속성이름, Class&lt;E&gt; 열거형클래스)</code> 를 호출하여 생성할 수 있음.</li>
+<li>사실 열거형 클래스의 열거상수중 일부만 값으로 가지도록 할 수도 있습니다. (예를 들어 <code>DyeColor</code> 의 16개의 색상중 4개만 사용하는 경우). 자세한 내용은 <code>EnumProperty#create</code> 의 오버로드들을 참고하세요.</li>
+</ul>
+</li>
+<li><code>DirectionProperty</code><ul>
+<li><code>EnumProperty&lt;Direction&gt;</code> 를 조금 더 간소화시킨 구현.</li>
+<li>여러 편리한 기능들도 제공하는데, 예를 들어 앞, 뒤, 양 옆 방향 속성을 정의하려면 <code>DirectionProperty.create("&lt;name&gt;", Direction.Plane.HORIZONTAL)</code> 를 호출하세요. X축 방향 속성을 정의려면 <code>DirectionProperty.create("&lt;name&gt;", Direction.Axis.X)</code> 를 호출하세요.</li>
+</ul>
+</li>
+</ul>
+<p><code>BlockStateProperties</code> 에는 바닐라 마인크래프트에서 제공하는 속성들이 있습니다, 그리고 가능하다면 새로운 속성을 만드시는 것 보다 이 클래스에서 제공하는 속성들을 재사용하세요.</p>
+<p>이제 원하시는 <code>Property&lt;&gt;</code> 객체가 있으니, 블록의 <code>Block#createBlockStateDefinition(StateDefinition$Builder)</code> 메서드를 오버라이드하세요. 오버라이드 하시면서 <code>StateDefinition$Builder#add(...);</code> 를 블록에 추가할 <code>Property&lt;?&gt;</code> 를 인자로 전달해 호출하여 속성들을 블록에 추가하실 수 있습니다.</p>
+<p>모든 블록들은 블록 상태의 &ldquo;기본값&rdquo;, 또는 기본 상태가 있습니다. 이 기본 상태는 자동으로 결정되지만 원하신다면 <code>Block#registerDefaultState(BlockState)</code> 를 블록의 생성자에서 호출하여 변경하실 수 있습니다. 이 기본 상태는 블록이 설치 될 때 가질 상태로 사용됩니다. 예를 들어 <code>DoorBlock</code> 의 경우:</p>
 <pre class="highlight"><code class="language-Java">this.registerDefaultState(
   this.stateDefinition.any()
     .setValue(FACING, Direction.NORTH)
@@ -951,13 +959,13 @@ An &ldquo;Oak Chair&rdquo; facing east (<code>oak_chair[facing=east]</code>) is 
     .setValue(POWERED, false)
     .setValue(HALF, DoubleBlockHalf.LOWER)
 );</code></pre>
-<p>If you wish to change what <code>BlockState</code> is used when placing your block, you can overwrite <code>Block#getStateForPlacement(BlockPlaceContext)</code>. This can be used to, for example, set the direction of your block depending on where the player is standing when they place it.</p>
-<p>Because <code>BlockState</code>s are immutable, and all combinations of their properties are generated on startup of the game, calling <code>BlockState#setValue(Property&lt;T&gt;, T)</code> will simply go to the <code>Block</code>&lsquo;s <code>StateHolder</code> and request the <code>BlockState</code> with the set of values you want.</p>
-<p>Because all possible <code>BlockState</code>s are generated at startup, you are free and encouraged to use the reference equality operator (<code>==</code>) to check if two <code>BlockState</code>s are equal.</p>
-<h2 id="using-blockstates">Using <code>BlockState</code>&lsquo;s<a class="headerlink" href="#using-blockstates" title="Permanent link"> </a></h2>
-<p>You can get the value of a property by calling <code>BlockState#getValue(Property&lt;?&gt;)</code>, passing it the property you want to get the value of.
-If you want to get a <code>BlockState</code> with a different set of values, simply call <code>BlockState#setValue(Property&lt;T&gt;, T)</code> with the property and its value.</p>
-<p>You can get and place <code>BlockState</code>&lsquo;s in the level using <code>Level#setBlockAndUpdate(BlockPos, BlockState)</code> and <code>Level#getBlockState(BlockState)</code>. If you are placing a <code>Block</code>, call <code>Block#defaultBlockState()</code> to get the &ldquo;default&rdquo; state, and use subsequent calls to <code>BlockState#setValue(Property&lt;T&gt;, T)</code> as stated above to achieve the desired state.</p>
+<p>블록을 설치할 때 상황에 따라 기본 상태 말고 다른 블록 상태를 사용하도록 하고 싶으시다면 <code>Block#getStateForPlacement(BlockPlaceContext)</code> 를 오버라이드하세요. 이 메서드는 플레이어가 바라보는 방향에 따라 방향이 다른 블록을 대신 설치하도록 하는 등 응용 방법이 많습니다.</p>
+<p><code>BlockState</code> 는 불변이고, 가능한 모든 블록 상태의 경우의 수는 게임을 불러올 때 생성되니, <code>BlockState#setValue(Property&lt;T&gt;, T)</code> 를 호출하면 블록 상태에 저장된 속성값을 수정하는 것이 아니라 해당 값이 이미 들어있는 <code>BlockState</code> 를 <code>Block</code> 의 <code>StateHolder</code> 를 통해 요청하여 받아옵니다.</p>
+<p>또한 <code>BlockState</code> 두개를 비교할 때 <code>Object#equals</code> 가 아니라 <code>==</code> 로 비교하셔도 됩니다.</p>
+<h2 id="_5">블록의 속성 써보기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p><code>BlockState#getValue(Property&lt;?&gt;)</code> 를 호출하여 해당 블록 상태의 속성 값을 받아올 수 있습니다, 이때 인자로 전달하는 속성은 구체적인 값을 얻으려는 속성입니다.
+만약 해당 속성으로 다른 값을 가지고 있는 블록 상태를 얻고 싶다면 <code>BlockState#setValue(Property&lt;T&gt;, T)</code> 를 속성과 속성 값을 전달하여 호출하시면 됩니다. </p>
+<p>레벨의 특정 지점의 블록의 상태를 읽거나 변경하려면 <code>Level#getBlockState(BlockPos)</code> 또는 <code>Level#setBlockAndUpdate(BlockPos, BlockState)</code> 를 호출하시면 됩니다. <code>Block</code> 을 배치하기 위해선, <code>Block#defaultBlockState()</code> 를 호출하여 기본 상태를 받아오시고, 이 기본 상태에 <code>BlockState#setValue(Property&lt;T&gt;, T)</code> 를 호출해 알맞은 속성값들로 맞춘 다음 설치하시면 됩니다.</p>
             
         </article>
         
