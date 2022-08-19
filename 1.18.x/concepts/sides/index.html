@@ -917,8 +917,8 @@
 <p>이를 해결하기 위해 FML 에선 <code>DistExecutor</code> 를 제공합니다. 이는 물리 사이드에 따라 다른 메서드를 실행하거나, 아예 한쪽 사이드에서만 실행될 코드를 작성할 수 있는 방법을 제공합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>숙지하셔야 할 점은 FML 은 <strong>논리</strong> 사이드를 이용해 언제 코드를 실행할지를 결정한다는 것입니다. 싱글 플레이 월드(논리 서버와 논리 클라이언트가 있는 물리 클라이언트) 에서는 <code>Dist.CLIENT</code> 가 사용됩니다!</p>
+</div>
 <p><code>DistExecutor</code> 는 메서드를 호출할 <code>Supplier</code> 를 전달받는 것으로 작동하는데, 이는 <a href="https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-6.html#jvms-6.5.invokedynamic"><code>invokedynamic</code> JVM 명령</a>을 사용하여 클래스 로딩을 막아, 런타임 도중 존재하지 않는 클래스를 불러오려고 시도하는 것을 방지합니다. 이때 호출될 메서드는 정적 메서드이어야 하며 다른 클래스에 정의되어 있어야 합니다. 만약 해당 정적 메서드가 받는 인자가 없다면, <code>Supplier</code> 를 전달하기 보단 메서드 레퍼런스를 사용하셔야 합니다.</p>
 <p><code>DistExecutor</code> 에는 대표적으로 2개의 메서드가 있는데: <code>#runWhenOn</code> 과 <code>#callWhenOn</code> 입니다. 이 메서드들은 전달받은 메서드를 실행할 물리 사이드와, 실행될 메서드들을 받습니다. <code>runWhenOn</code> 은 결과를 반환하지 않으며, <code>callWhenOn</code> 은 결과를 반환합니다. 이때 <code>callWhenOn</code> 은 물리 사이드에 따라 null 을 반환할 수도 있습니다.</p>
 <p>또, 이 두 메서드들은 <code>#safe*</code> 와 <code>#unsafe*</code> 로 다시 나뉘는데, 이 둘의 차이점은 개발 환경에서의 기능 차이입니다, <code>#safe*</code> 는 전달된 람다가 다른 메서드에 정의된 메서드 레퍼런스인지 확인하는 것입니다, 만약 그렇지 않다면 예외를 발생시킵니다. 해당 검사는 개발 환경에서만 진행되기 때문에 릴리즈 환경에서는 <code>#safe*</code> 와 <code>#unsafe*</code> 는 기능상 동일합니다.</p>

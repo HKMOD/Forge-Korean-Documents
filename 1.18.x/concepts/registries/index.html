@@ -933,15 +933,12 @@ public void registerBlocks(RegistryEvent.Register&lt;Block&gt; event) {
 public static final RegistryObject&lt;RecipeType&lt;ExampleRecipe&gt;&gt; EXAMPLE_RECIPE_TYPE = REGISTER.register("example_recipe_type", () -&gt; new RecipeType&lt;&gt;() {});</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>몇몇 클래스들은 레지스트리에 등록될 수 없습니다. 그 대신, 그 클래스들의 종류를 상징하는 <code>*Type</code> 클래스가 대신 등록되어야 하며, 이 <code>*Type</code> 클래스는 전자의 클래스의 생성자에서 사용되어야 합니다. 그 예시로, <a href="../../blockentities/"><code>BlockEntity</code></a>는 <code>BlockEntityType</code>를, 그리고 <code>Entity</code>는 <code>EntityType</code>을 대신 등록하여야 합니다. 이 <code>*Type</code> 클래스들은 알맞는 클래스의 인스턴스를 생성하는 팩토리입니다.</p>
-<pre class="highlight"><code>이 팩토리들은 `*Type$Builder` 클래스를 이용해 생성됩니다, 아래 `REGISTER` 는  `DeferredRegister&lt;BlockEntityType&gt;` 입니다.
-```java
-public static final RegistryObject&lt;BlockEntityType&lt;ExampleBlockEntity&gt;&gt; EXAMPLE_BLOCK_ENTITY = REGISTER.register(
+<p>이 팩토리들은 <code>*Type$Builder</code> 클래스를 이용해 생성됩니다, 아래 <code>REGISTER</code> 는  <code>DeferredRegister&lt;BlockEntityType&gt;</code> 입니다.
+<pre class="highlight"><code class="language-java">public static final RegistryObject&lt;BlockEntityType&lt;ExampleBlockEntity&gt;&gt; EXAMPLE_BLOCK_ENTITY = REGISTER.register(
     "example_block_entity", () -&gt; BlockEntityType.Builder.of(ExampleBlockEntity::new, EXAMPLE_BLOCK.get()).build(null)
-);
-```
-</code></pre>
+);</code></pre></p>
+</div>
 <h2 id="_4">등록된 객체 참조하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <p>객체를 등록하실때 이를 특정 필드에 저장하면 안됩니다, 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 이벤트가 방송될때 마다 새로 만들어 지고 등록되어야 하기 때문입니다. 이는 추후에 포지에서 동적으로 모드를 활성화/비활성화하기 위함입니다.</p>
 <p>등록되는 객체들은 무조건 <code>RegistryObject</code> 또는 <code>@ObjectHolder</code> 어노테이션이 있는 필드를 통하여 참조되어야만 합니다.</p>
@@ -980,8 +977,8 @@ public static final RegistryObject&lt;ManaType&gt; COFFEINUM = RegistryObject.cr
 <p>위 조건을 충족하는 <code>@ObjectHolder</code> 주입 대상 필드는 그에 알맞는 레지스트리의 <code>RegistryEvent$Register</code> 이벤트가 방송될때 객체가 주입됩니다. 또한 <code>RegistryObject</code> 들도 이때 갱신 됩니다.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>만약 추론된 리소스 위치를 통해 객체를 참조하여 이를 필드에 주입하려고 할 때, 그 객체가 존재하지 않는다면 이에 관한 메세지가 출력될 것이며 필드에 값이 주입되지 않습니다.</p>
+</div>
 <p>위에 기술된 규칙들이 복잡해 보이실 수 있으니, 몇가지 예제를 준비해 보았습니다:
 <pre class="highlight"><code class="language-java">@ObjectHolder("minecraft") // 상속 가능한 네임 스페이스: "minecraft"
 class AnnotatedHolder {
@@ -1066,8 +1063,8 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 <p><code>DeferredRegister</code> 는, 다시 말하지만, 위 이벤트를 사용하는 wrapper 입니다. <code>DeferredRegister</code> 를 레지스트리 이름과 모드 아이디를 인자로 받는 오버로드 메서드 <code>#create</code> 를 통해 생성하고 이를 상수 필드에 할당한 이후, <code>DeferredRegister#makeRegistry</code> 를 통해 레지스트리를 생성하실 수 있습니다. 이 메서드는 레지스트리에 등록될 객체의 클래스와 생성될 레지스트리의 속성 및 설정값들을 담고 있는 <code>RegistryBuilder</code> 를 감싸는 <code>Supplier</code> 를 인자로 받습니다. <code>DeferredRegister#makeRegistry</code> 는 자동으로 <code>RegistryBuilder#setName</code> 과 <code>RegistryBuilder#setType</code> 을 호출합니다. 해당 메서드는 언제든지 반환될 수 있기 때문에 <code>IForgeRegistry</code> 를 <code>Supplier</code> 로 감싼 것을 대신 반환합니다. <code>NewRegistryEvent</code> 가 끝나기 이전 커스텀 레지스트리에 접근하려고 하면 <code>null</code> dㅣ 대신 반환됩니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p><code>DeferredRegister#makeRegistry</code> 는 무조건 <code>DeferredRegister#register</code> 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, <code>#makeRegistry</code> 는 <code>#register</code> 를 통해 등록 되어야만 <code>NewRegistryEvent</code> 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 <code>#makeRegistry</code> 를 먼저 하시고 <code>#register</code> 를 이후에 하는 것을 잊지 마세요.</p>
+</div>
 <h2 id="_6">누락된 항목 처리하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
 <p>가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 <code>RegistryEvent$MissingMappings</code> 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 <code>getMappings</code> 를 통해 해당 모드의 누락된 매핑 리스트를 받아올 수 있으며, <code>#getAllMappings</code> 를 통해 어떤 모드에서 이 오류가 발생했는가와 관련 없이 모든 매핑들을 받아올 수 있습니다.</p>
 <p>각 누락된 항목마다, 이 4가지 방법중 하나를 선택하여 어떻게 처리할지 선택할 수 있습니다:</p>

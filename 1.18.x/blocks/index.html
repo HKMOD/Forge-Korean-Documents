@@ -907,16 +907,16 @@
 <p>위 모든 메서드들은 <em>연쇠적으로</em> 사용 가능합니다. <code>Blocks</code> 클래스를 참고하세요.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>블록들은 더이상 <code>CreativeModeTab</code> 을 지정받을 수 없습니다. 이 기능은 <code>BlockItem</code> 으로 옮겨졌습니다.  계다가 번역 키값또한 레지스트리 이름으로부터 생성되기 때문에 지정받을 수 없습니다.</p>
+</div>
 <h3 id="_4">고급 블록<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
 <p>당연하게도 윗 예제는 매우 단순한 블록들에서만 사용가능합니다. 만약 플레이어 상호작용과 같은 기능을 추가하고 싶다면 클래스를 만드셔야 합니다. 그러나 <code>Block</code> 클래스는 메서드가 매우 많이 있으며 모든것을 이곳에서 기술할 순 없습니다. 이 섹션에 있는 다른 장들에서 블록으로 무엇을 할 수 있는지 참고하세요.</p>
 <h2 id="_5">블록 등록하기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
 <p>블록은 무조건 <a href="../concepts/registries/#객체-등록하기">등록되어야만</a> 사용 가능합니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>레벨에 있는 블록과, 인벤토리에 있는 &ldquo;블록&rdquo;은 다릅니다. 레벨에 있는 블록은 <code>BlockState</code> 를 통해 기술되고, 그 기능은 <code>Block</code> 에서 정의됩니다. 한편, 인벤토리에 있는 아이템은 <code>ItemStack</code> 의 인스턴스이며, 그 기능은 <code>Item</code>에서 정의됩니다. <code>BlockItem</code>은 이 두가지를 이어주는 하나의 다리이며, 표현할 <code>Block</code> 인스턴스를 참조하는 <code>Item</code> 의 자식 클래스입니다.  <code>BlockItem</code>은 몇가지 블록과 같은 기능들을 구현하는데, 그 예로 우클릭시 레벨에 설치되는 것이 있습니다. 또한 <code>BlockItem</code> 이 없는 <code>Block</code> 을 만들 수도 있습니다. (그 예로, <code>minecraft:water</code> 는 블록으로 존재하나 아이템으로는 없습니다, 그러기에 이를 휙득하는 것은 불가능합니다.)</p>
+</div>
 <h4 id="_6">선택적으로 블록 등록하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h4>
 <p>과거에는 여러 모드에서 특정 블록/아이템들을 설정 파일에서 비활성화할 수 있도록 하였습니다. 그러나, 더 이상 등록될 수 있는 블록들의 제한이 없으니 이런 구조는 더 이상 권장되지 않습니다. 그러니 모드의 모든 블록들을 등록하세요! 만약 특정 블록을 설정을 통해 비활성화 하고 싶으시다면, 그대신 조합법을 비활성화 하세요.</p>
 <h2 id="_7">추가 정보<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>

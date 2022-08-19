@@ -921,15 +921,14 @@ minecraft {
 <p><code>+f</code>와 <code>-f</code>는 특수한 수정자로, 기존의 다른 수정자에 추가될 수 있으며, 타겟의 <code>final</code> 키워드를 제거하거나 추가하여, 기존에는 불가능하던 자식 클래스 생성이나, 메서드 재정의, 또는 필드 값 변경 등을 가능하도록 해줍니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-</div>
 <p>메서드에 접근 변환자를 사용할 때, 직접적으로 가리키는 메서드만 변환합니다; 메서드에 접근 변환자가 적용되어 가시성이 변경되더라도, 이를 재정의하는 메서드들에 똑같은 가시성 수정이 이루어지지 않습니다. 이때문에, 자식 메서드가 부모 메서드보다 더 낮은 가시성을 가지게 가지게 되어 JVM 오류가 발생할 수 있으니, 가시성을 변경하고자 하는 메서드가 다른 곳에서 재정의되면 안됩니다!</p>
-<pre class="highlight"><code>`private` 메서드나 `final` 메서드(또는 `final` 클래스에 정의된 메서드), 그리고 `static` (정적) 메서드들은 재정의가 불가능합니다, 그렇기에 위와 같은 문제가 발생하지 않습니다.
-</code></pre>
+<p><code>private</code> 메서드나 <code>final</code> 메서드(또는 <code>final</code> 클래스에 정의된 메서드), 그리고 <code>static</code> (정적) 메서드들은 재정의가 불가능합니다, 그렇기에 위와 같은 문제가 발생하지 않습니다.</p>
+</div>
 <h2 id="_4">변환 타겟 지정하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>접근 변환자를 마인크래프트 클래스에 사용할때, 필드나 메서드 이름으로 SRG 이름을 사용하셔야 합니다.</p>
+</div>
 <h3 id="_5">클래스<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
 <p>클래스를 지정하려면:
 <pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt;</code></pre>

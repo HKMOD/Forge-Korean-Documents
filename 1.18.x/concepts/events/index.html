@@ -954,20 +954,20 @@ public class MyStaticClientOnlyEventHandler {
 }</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>이를 이용하면 클래스의 인스턴스가 아닌 클래스 그 자체가 등록됩니다. 그렇기에 등록되는 모든 이벤트 핸들러는 정적이어야 제대로 동작합니다!</p>
+</div>
 <h2 id="_6">이벤트 취소하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
 <p>만약 이벤트가 취소될 수 있다면, <code>@Cancelable</code> 어노테이션이 있을 것입니다, 그리고 메서드 <code>Event#isCancelable()</code> 는 <code>true</code> 를 반환합니다. 이벤트의 취소 여부는 <code>Event#setCanceled(boolean canceled</code> 메서드를 통해 변경될 수 있습니다, <code>true</code> 를 전달할 시 이벤트가 취소되고 <code>false</code> 를 전달할 시 이벤트의 &ldquo;취소를 취소합니다&rdquo;. 그러나 만약에 이벤트가 취소될 수 없다면, 이 메서드를 사용하는 것 만으로 <code>UnsupportedOperationException</code> 예외가 발생합니다. 최소될 수 없는 이벤트의 취소 여부는 불변값으로 취급되기 때문입니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>모든 이벤트가 취소될 수 있는 것은 아닙니다! 취소할 수 없는 이벤트를 취소하려고 할 시 <code>UnsuppoortedOperationException</code> 예외가 발생하고 게임이 튕기게 됩니다! 그렇기에 이벤트를 취소하기 전에 <code>Event#isCancelable()</code> 을 사용하는 등 이벤트가 취소될 수 있는지를 먼저 확실하게 확인하세요!</p>
+</div>
 <h2 id="_7">결과<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
 <p>일부 이벤트들은 <code>Event$Result</code> 클래스를 사용합니다 결과는 이벤트를 중단하는 <code>DENY</code>, 기본 바닐라 코드를 실행하는 <code>DEFAULT</code>, 강제적으로 특정 동작을 수행하도록 하는 <code>ALLOW</code>, 이렇게 3가지가 있습니다. 이벤트의 결과는 이벤트 도중 <code>#setResult</code> 를 사용해 지정할 수 있습니다. 모든 이벤트가 결과가 있는 것은 아닙니다; 결과가 있는 이벤트는 <code>@HasResult</code> 어노테이션이 있습니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>여러 이벤트들은 각자 다른 방식으로 결과를 처리할 수 있습니다, 그렇기에 이벤트의 JavaDoc 에서 이벤트가 결과를 어떻게 처리할지를 미리 숙지하도록 하세요!</p>
+</div>
 <h2 id="_8">우선순위<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
 <p>(<code>@SubscribeEvent</code> 어노테이션이 있는)이벤트 헨들러 메서드에는 우선순위가 있습니다. 이벤트 핸들러의 우선순의는 <code>@SubscribeEvent</code> 의 <code>priority</code> 값을 변경하여 지정합니다. 이 우선순위는 <code>EventPriority</code> 의 열거형(<code>HIGHEST</code>, <code>HIGH</code>, <code>NORMAL</code>, <code>LOW</code>, <code>LOWEST</code>)입니다. <code>HIGHEST</code> 우선순위를 가진 이벤트 핸들러들은 가장 먼저 실행되고, <code>LOWEST</code> 우선순위를 가진 이벤트 핸들러는 가장 나중에 실행됩니다.</p>
 <h2 id="_9">하위 이벤트<a class="headerlink" href="#_9" title="Permanent link"> </a></h2>
@@ -983,8 +983,8 @@ public class MyStaticClientOnlyEventHandler {
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p><code>FMLClientSetupEvent</code> 와 <code>FMLDedicatedServerSetupEvent</code> 는 올바른 배포판에서만 방송됩니다!</p>
+</div>
 <p>이 4개의 생명주기 이벤트들은 모두 <code>ParallelDispatchEvent</code> 의 자식 클래스이기 때문에 병렬적으로 방송됩니다. 만약 <code>ParallelDispatchEvent</code> 또는 그 자식 클래스 이벤트가 방송되는 도중 메인 스레드에서 코드를 실행하고 싶다면 <code>#enqueueWork</code> 를 사용하세요.</p>
 <p>생명주기 이벤트 말고, 모드 버스에서 방송되는 다른 이벤트들도 있습니다. 이 이벤트들 또한 무언가를 등록하거나, 초기화 하는 등의 용도로 쓰입니다. 이 이벤트들은 대부분 생명주기 이벤트들과 다르게 비동기적이지 않습니다. 이러한 이벤트들의 예로:</p>
 <ul>
