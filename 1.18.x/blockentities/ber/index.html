@@ -333,9 +333,9 @@
         
         
         
-        <li class="toc-subitem"><a href="#creating-a-ber">Creating a BER</a></li>
+        <li class="toc-subitem"><a href="#ber">BER 만들기</a></li>
         
-        <li class="toc-subitem"><a href="#registering-a-ber">Registering a BER</a></li>
+        <li class="toc-subitem"><a href="#ber_1">BER 등록하기</a></li>
         
         
     </ul>
@@ -892,23 +892,23 @@
         <article class="docs-entry">
             
             <h1 id="blockentityrenderer">BlockEntityRenderer<a class="headerlink" href="#blockentityrenderer" title="Permanent link"> </a></h1>
-<p>A <code>BlockEntityRenderer</code> or <code>BER</code> is used to render blocks in a way that cannot be represented with a static baked model (JSON, OBJ, B3D, others). A block entity renderer requires the block to have a <code>BlockEntity</code>.</p>
-<h2 id="creating-a-ber">Creating a BER<a class="headerlink" href="#creating-a-ber" title="Permanent link"> </a></h2>
-<p>To create a BER, create a class that inherits from <code>BlockEntityRenderer</code>. It takes a generic argument specifying the block&rsquo;s <code>BlockEntity</code> class. The generic argument is used in the BER&rsquo;s <code>render</code> method.</p>
-<p>Only one BER exists for a given <code>BlockEntityType</code>. Therefore, values that are specific to a single instance in the level should be stored in the block entity being passed to the renderer rather than in the BER itself. For example, an integer that increments every frame, if stored in the BER, will increment every frame for every block entity of this type in the level.</p>
+<p><code>BlockEntityRenderer</code>, 또는 <code>BER</code> 은 정적인 모델(JSON, OBJ, B3D, others)만으론 표현하기 힘든 블록들을 렌더링할 때 사용합니다. 이때 해당 블록은 <code>BlockEntity</code> 가 있어야만 합니다.</p>
+<h2 id="ber">BER 만들기<a class="headerlink" href="#ber" title="Permanent link"> </a></h2>
+<p>BER 을 만들기 위해서는 <code>BlockEntityRenderer</code> 의 자식 클래스를 만드세요. 이때 사용하는 제너릭 인자는 렌더링할 <code>BlockEntity</code> 클래스 입니다. 이는 BER 의 <code>render</code> 메서드에 전달되는 인자로 사용됩니다.</p>
+<p><code>BlockEntityType</code> 하나당 하나의 BER 만이 존재합니다; 다수의 <code>BlockEntity</code> 인스턴스에 하나의 BER 만 사용하게 됩니다. 그러다보니, 각 <code>BlockEntity</code> 마다 다르게 렌더링해야 한다면, 이에 대한 정보는 BER 에 저장하지 말고 <code>BlockEntity</code> 에다가 저장해야 합니다. 예를 들어, <code>render</code> 함수가 호출될 때 마다 증가하는 정수를 BER 에다가 만든다면, 매 프레임마다, 해당 타입의 모든 <code>BlockEntity</code> 들 하나하나마다 증가하게 됩니다.</p>
 <h3 id="render"><code>render</code><a class="headerlink" href="#render" title="Permanent link"> </a></h3>
-<p>This method is called every frame in order to render the block entity. </p>
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link"> </a></h4>
+<p>이 메서드는 <code>BlockEntity</code> 를 렌더링하기 위해 매 프레임마다 호출됩니다.</p>
+<h4 id="_1">메서드의 인자들<a class="headerlink" href="#_1" title="Permanent link"> </a></h4>
 <ul>
-<li><code>blockEntity</code>: This is the instance of the block entity being rendered.</li>
-<li><code>partialTicks</code>: The amount of time, in fractions of a tick, that has passed since the last full tick.</li>
-<li><code>poseStack</code>: A stack holding four-dimensional matrix entries offset to the current position of the block entity.</li>
-<li><code>bufferSource</code>: A rendering buffer able to access a vertex consumer.</li>
-<li><code>combinedLight</code>: An integer of the current light value on the block entity.</li>
-<li><code>combinedOverlay</code>: An integer set to the current overlay of the block entity, usually <code>OverlayTexture#NO_OVERLAY</code> or 655,360.</li>
+<li><code>blockEntity</code>: 렌더링할 <code>BlockEntity</code>.</li>
+<li><code>partialTicks</code>: 이전 틱으로부터 시간이 얼마나 지났는지 알려주는 0.0 부터 1.0 사이의 값. 0.0이면 이전 틱 끝나고 바로, 1.0 이면 현재 틱 끝나기 직전임.</li>
+<li><code>poseStack</code>: <code>BlockEntity</code> 를 화면의 올바른 위치에 렌더링하기 위한 4x4 행렬들이 들어있는 스택.</li>
+<li><code>bufferSource</code>: Vertex Consumer 에 접근할 수 있는 렌더링 버퍼.</li>
+<li><code>combinedLight</code>: 현재 <code>BlockEntity</code> 의 정수 밝기.</li>
+<li><code>combinedOverlay</code>: <code>BlockEntity</code> 의 오버레이를 지정하는 정수. 보통 <code>OverlayTexture#NO_OVERLAY</code> 또는 655,360을 사용함.</li>
 </ul>
-<h2 id="registering-a-ber">Registering a BER<a class="headerlink" href="#registering-a-ber" title="Permanent link"> </a></h2>
-<p>In order to register a BER, you must subscribe to the <code>EntityRenderersEvent$RegisterRenderers</code> event on the mod event bus and call <code>#registerBlockEntityRenderer</code>.</p>
+<h2 id="ber_1">BER 등록하기<a class="headerlink" href="#ber_1" title="Permanent link"> </a></h2>
+<p>BER 을 등록하기 위해선, <code>EntityRenderersEvent$RegisterRenderers</code> 이벤트를 모드 버스에서 구독하고 해당 이벤트가 방송될 때 <code>#registerBlockEntityRenderer</code> 를 호출하세요.</p>
             
         </article>
         
