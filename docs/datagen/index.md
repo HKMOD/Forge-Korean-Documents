@@ -38,24 +38,24 @@ MDK 의 `build.gradle` 은 기본적으로 `runData` 를 추가하여 데이터 
 데이터 생성하기
 --------------
 
-데이터를 생성하기 위해서는, 데이터 제공자가 필요한데, 이는 어떤 데이터가 생성되고 제공될 지를 정의하는 클래스 입니다. 모든 데이터 제공자들은 `DataProvider` 를 구현해야 합니다. 마인크래프트는 대부분의 에셋과 데이터에 사용하기 위한 데이터 제공자를 추상화 클래스로 제공하고 있습니다, 그렇기에 모드 개발자들은 정해진 메서드 몇개만 오버라이드 하면 됩니다.
+데이터를 생성하기 위해서는, 데이터 제공자가 필요한데, 이는 어떤 데이터가 생성되고 제공될 지를 정의하는 클래스 입니다. 모든 데이터 제공자들은 `DataProvider` 를 구현해야 합니다. 마인크래프트는 대부분의 에셋과 데이터에 사용하기 위한 데이터 제공자를 추상화 클래스로 제공하고 있습니다, 그렇기에 모드 개발자들은 정해진 메서드 몇개만 재정의하면 됩니다.
 `GatherDataEvent` 는 데이터 생성기가 초기화 될 때 모드 버스에 방송됩니다, `DataGenerator` 인스턴스를 이 이벤트에서 접근하실 수 있습니다. `DataGenerator#addProvider` 를 사용해 데이터 제공자를 만들고 등록하세요.
 
 ### 클라이언트 에셋
-  * `net.minecraftforge.common.data.LanguageProvider` - 언어 문자열 생성: `#addTranslations` 를 오버라이드 하세요
+  * `net.minecraftforge.common.data.LanguageProvider` - 언어 문자열 생성: `#addTranslations` 를 재정의하세요
   * `ModelProvider<?>` - 모든 모델 제공자들의 기반이 되는 클래스
     * _이 클래스들은 `net.minecraftforge.client.model.generators` 패캐지에 있습니다_
-    * `ItemModelProvider` - 아이템 모델 생성; `#registerModels` 를 오버라이드 하세요
-    * `BlockStateProvider` - BlockState 정의, 블록 모델, 아이템 모델 생성: `#registerStatesAndModels` 를 오버라이드 하세요
-    * `BlockModelProvider` - 블록 모델 생성; `#registerModels` 를 오버라이드 하세요
+    * `ItemModelProvider` - 아이템 모델 생성; `#registerModels` 를 재정의하세요
+    * `BlockStateProvider` - BlockState 정의, 블록 모델, 아이템 모델 생성: `#registerStatesAndModels` 를 재정의하세요
+    * `BlockModelProvider` - 블록 모델 생성; `#registerModels` 를 재정의하세요
 
 ### 서버 데이터
-* [`net.minecraftforge.common.data.GlobalLootModifierProvider`][glmgen] - [전체 전리품 수정 데이터 생성][glm]; `#start` 를 오버라이드 하세요
+* [`net.minecraftforge.common.data.GlobalLootModifierProvider`][glmgen] - [전체 전리품 수정 데이터 생성][glm]; `#start` 를 재정의하세요
 * _아래 클래스들은 `net.minecraft.data` 패키지에 있습니다_
-* [`LootTableProvider`][loottablegen] - [컨테이너 전리품 테이블 생성][loottable]; `#getTables` 를 오버라이드 하세요
-* [`RecipeProvider`][recipegen] - [조합법][recipes]과 조합법이 해금하는 도전과제 데이터 생성; `#buildCraftingRecipes` 를 오버라이드 하세요
-* [`TagsProvider`][taggen] - [태그 데이터 생성][tags]; `#addTags` 를 오버라이드 하세요
-* [`AdvancementProvider`][advgen] - [도전과제 데이터 생성][advancements]; `#registerAdvancements` 를 오버라이드 하세요
+* [`LootTableProvider`][loottablegen] - [컨테이너 전리품 테이블 생성][loottable]; `#getTables` 를 재정의하세요
+* [`RecipeProvider`][recipegen] - [조합법][recipes]과 조합법이 해금하는 도전과제 데이터 생성; `#buildCraftingRecipes` 를 재정의하세요
+* [`TagsProvider`][taggen] - [태그 데이터 생성][tags]; `#addTags` 를 재정의하세요
+* [`AdvancementProvider`][advgen] - [도전과제 데이터 생성][advancements]; `#registerAdvancements` 를 재정의하세요
 
 [langgen]: ./client/localization.md
 [lang]: https://minecraft.fandom.com/wiki/Language

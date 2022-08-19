@@ -56,7 +56,7 @@ public void registerBlocks(RegistryEvent.Register<Block> event) {
 private static final DeferredRegister<RecipeType<?>> REGISTER = DeferredRegister.create(Registry.RECIPE_TYPE_REGISTRY, "examplemod");
 
 // RecipeType 은 인터페이스이기 때문에, 익명 클래스를 생성하여 등록합니다
-// 바닐라에서는 RecipeType 을 생성하며, #toString 을 오버라이드하는데, 이는 디버그 용도이기 때문에 이 예제에서는 건너뛰도록 하겠습니다
+// 바닐라에서는 RecipeType 의 #toString 메서드를 재정의하는데, 이는 디버그 용도이기 때문에 이 예제에서는 건너뛰도록 하겠습니다
 // 예제 ExampleRecipe
 public static final RegistryObject<RecipeType<ExampleRecipe>> EXAMPLE_RECIPE_TYPE = REGISTER.register("example_recipe_type", () -> new RecipeType<>() {});
 ```

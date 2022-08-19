@@ -34,7 +34,7 @@ public MyBE(BlockPos pos, BlockState state) {
 
 ## `BlockEntity` 를 활용한 데이터 저장
 
-`BlockEntity` 의 데이터를 저장하기 위해선 아래 두 메서드를 오버라이드 하셔야 합니다:
+`BlockEntity` 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:
 ```java
 BlockEntity#saveAdditional(CompoundTag tag) // 전달된 tag 에 BlockEntity 의 추가 데이터를 저장하는 메서드
 
@@ -47,13 +47,13 @@ BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오
 		`BlockEntity` 의 데이터가 변경되었다면 `BlockEntity#setChanged` 를 호출하셔야 합니다; 그렇지 않으면 `LevelChunk` 가 해당 `BlockEntity` 를 아예 무시할 수도 있습니다!
 
 !!! important
-		위 메서드를 오버라이드 할 때는 `super` 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!
+		위 메서드를 재정의할 때는 `super` 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!
 
     그리고 `x`, `y`, `z`, `ForgeData`, 그리고 `ForgeCaps` 는  `super` 메서드에서 사용하는 태그들의 이름입니다!
 
 ## `BlockEntities` 틱 처리
 
-아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 `BlockEntity` 를 만들기 위해선 `EntityBlock#getTicker(Level, BlockState, BlockEntityType)` 를 오버라이드 하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker 를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 `BlockEntityTicker` 를 반환해야 하는데, `BlockEntityTicker` 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:
+아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 `BlockEntity` 를 만들기 위해선 `EntityBlock#getTicker(Level, BlockState, BlockEntityType)` 를 재정의하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker 를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 `BlockEntityTicker` 를 반환해야 하는데, `BlockEntityTicker` 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:
 
 ```java
 // Block 의 자식 클래스 내부
@@ -78,7 +78,7 @@ public static void tick(Level level, BlockPos pos, BlockState state, T blockEnti
 
 ### `LevelChunk` 불러올 때 동기화하기
 
-이를 위해선 다음 두 메서드를 오버라이드 하세요:
+이를 위해선 다음 두 메서드를 재정의하세요:
 ```java
 BlockEntity#getUpdateTag()
 
@@ -92,7 +92,7 @@ IForgeBlockEntity#handleUpdateTag(CompoundTag tag)
 
 ### 블록이 업데이트될 때 동기화하기
 
-이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 오버라이드하면 됩니다.
+이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 재정의하면 됩니다.
 ```java
 BlockEntity#getUpdateTag()
 
@@ -116,7 +116,7 @@ public Packet<ClientGamePacketListener> getUpdatePacket() {
   return ClientboundBlockEntityDataPacket.create(this);
 }
 
-// IForgeBlockEntity#onDataPacket 을 오버라이드하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.
+// IForgeBlockEntity#onDataPacket 을 재정의하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.
 ```
 이때 여기서 사용된 정적 생성자 `ClientboundBlockEntityDataPacket#create` 는 아래 2개의 인자를 받습니다: 
 

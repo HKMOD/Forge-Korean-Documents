@@ -65,7 +65,7 @@ switch (meta) {
 
 `BlockStateProperties` 에는 바닐라 마인크래프트에서 제공하는 속성들이 있습니다, 그리고 가능하다면 새로운 속성을 만드시는 것 보다 이 클래스에서 제공하는 속성들을 재사용하세요.
 
-이제 원하시는 `Property<>` 객체가 있으니, 블록의 `Block#createBlockStateDefinition(StateDefinition$Builder)` 메서드를 오버라이드하세요. 오버라이드 하시면서 `StateDefinition$Builder#add(...);` 를 블록에 추가할 `Property<?>` 를 인자로 전달해 호출하여 속성들을 블록에 추가하실 수 있습니다.
+이제 원하시는 `Property<>` 객체가 있으니, 블록의 `Block#createBlockStateDefinition(StateDefinition$Builder)` 메서드를 재정의하세요. 이때 블록에 추가할 `Property<?>` 를 `StateDefinition$Builder#add(...);` 에 인자로 전달해 호출하여 속성들을 블록에 추가하실 수 있습니다.
 
 모든 블록들은 블록 상태의 "기본값", 또는 기본 상태가 있습니다. 이 기본 상태는 자동으로 결정되지만 원하신다면 `Block#registerDefaultState(BlockState)` 를 블록의 생성자에서 호출하여 변경하실 수 있습니다. 이 기본 상태는 블록이 설치 될 때 가질 상태로 사용됩니다. 예를 들어 `DoorBlock` 의 경우:
 
@@ -80,9 +80,9 @@ this.registerDefaultState(
 );
 ```
 
-블록을 설치할 때 상황에 따라 기본 상태 말고 다른 블록 상태를 사용하도록 하고 싶으시다면 `Block#getStateForPlacement(BlockPlaceContext)` 를 오버라이드하세요. 이 메서드는 플레이어가 바라보는 방향에 따라 방향이 다른 블록을 대신 설치하도록 하는 등 응용 방법이 많습니다.
+블록을 설치할 때 상황에 따라 기본 `BlockState` 말고 다른 `BlockState` 를 사용하도록 하고 싶으시다면 `Block#getStateForPlacement(BlockPlaceContext)` 를 재정의하세요. 이 메서드는 플레이어가 바라보는 방향에 따라 방향이 다른 블록을 대신 설치하도록 하는 등 응용 방법이 많습니다.
 
-`BlockState` 는 불변이고, 가능한 모든 블록 상태의 경우의 수는 게임을 불러올 때 생성되니, `BlockState#setValue(Property<T>, T)` 를 호출하면 블록 상태에 저장된 속성값을 수정하는 것이 아니라 해당 값이 이미 들어있는 `BlockState` 를 `Block` 의 `StateHolder` 를 통해 요청하여 받아옵니다.
+`BlockState` 는 불변이고, 가능한 모든 `BlockState` 들이 게임을 불러올 때 생성되니, `BlockState#setValue(Property<T>, T)` 를 호출하면 블록 상태에 저장된 속성값을 수정하는 것이 아니라 해당 값이 이미 들어있는 `BlockState` 를 `Block` 의 `StateHolder` 를 통해 요청하여 받아옵니다.
 
 또한 `BlockState` 두개를 비교할 때 `Object#equals` 가 아니라 `==` 로 비교하셔도 됩니다.
 
