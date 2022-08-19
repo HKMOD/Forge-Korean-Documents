@@ -62,7 +62,7 @@ public static final RegistryObject<RecipeType<ExampleRecipe>> EXAMPLE_RECIPE_TYP
 ```
 
 !!! note
-몇몇 클래스들은 레지스트리에 등록될 수 없습니다. 그 대신, 그 클래스들의 종류를 상징하는 `*Type` 클래스가 대신 등록되어야 하며, 이 `*Type` 클래스는 전자의 클래스의 생성자에서 사용되어야 합니다. 그 예시로, [`BlockEntity`][블록엔티티]는 `BlockEntityType`를, 그리고 `Entity`는 `EntityType`을 대신 등록하여야 합니다. 이 `*Type` 클래스들은 알맞는 클래스의 인스턴스를 생성하는 팩토리입니다.
+    몇몇 클래스들은 레지스트리에 등록될 수 없습니다. 그 대신, 그 클래스들의 종류를 상징하는 `*Type` 클래스가 대신 등록되어야 하며, 이 `*Type` 클래스는 전자의 클래스의 생성자에서 사용되어야 합니다. 그 예시로, [`BlockEntity`][블록엔티티]는 `BlockEntityType`를, 그리고 `Entity`는 `EntityType`을 대신 등록하여야 합니다. 이 `*Type` 클래스들은 알맞는 클래스의 인스턴스를 생성하는 팩토리입니다.
 
     이 팩토리들은 `*Type$Builder` 클래스를 이용해 생성됩니다, 아래 `REGISTER` 는  `DeferredRegister<BlockEntityType>` 입니다.
     ```java
@@ -120,7 +120,7 @@ public static final RegistryObject<ManaType> COFFEINUM = RegistryObject.create(n
 위 조건을 충족하는 `@ObjectHolder` 주입 대상 필드는 그에 알맞는 레지스트리의 `RegistryEvent$Register` 이벤트가 방송될때 객체가 주입됩니다. 또한 `RegistryObject` 들도 이때 갱신 됩니다.
 
 !!! note
-만약 추론된 리소스 위치를 통해 객체를 참조하여 이를 필드에 주입하려고 할 때, 그 객체가 존재하지 않는다면 이에 관한 메세지가 출력될 것이며 필드에 값이 주입되지 않습니다.
+    만약 추론된 리소스 위치를 통해 객체를 참조하여 이를 필드에 주입하려고 할 때, 그 객체가 존재하지 않는다면 이에 관한 메세지가 출력될 것이며 필드에 값이 주입되지 않습니다.
 
 위에 기술된 규칙들이 복잡해 보이실 수 있으니, 몇가지 예제를 준비해 보았습니다:
 ```java
@@ -218,7 +218,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 `DeferredRegister` 는, 다시 말하지만, 위 이벤트를 사용하는 wrapper 입니다. `DeferredRegister` 를 레지스트리 이름과 모드 아이디를 인자로 받는 오버로드 메서드 `#create` 를 통해 생성하고 이를 상수 필드에 할당한 이후, `DeferredRegister#makeRegistry` 를 통해 레지스트리를 생성하실 수 있습니다. 이 메서드는 레지스트리에 등록될 객체의 클래스와 생성될 레지스트리의 속성 및 설정값들을 담고 있는 `RegistryBuilder` 를 감싸는 `Supplier` 를 인자로 받습니다. `DeferredRegister#makeRegistry` 는 자동으로 `RegistryBuilder#setName` 과 `RegistryBuilder#setType` 을 호출합니다. 해당 메서드는 언제든지 반환될 수 있기 때문에 `IForgeRegistry` 를 `Supplier` 로 감싼 것을 대신 반환합니다. `NewRegistryEvent` 가 끝나기 이전 커스텀 레지스트리에 접근하려고 하면 `null` dㅣ 대신 반환됩니다.
 
 !!! important
-`DeferredRegister#makeRegistry` 는 무조건 `DeferredRegister#register` 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, `#makeRegistry` 는 `#register` 를 통해 등록 되어야만 `NewRegistryEvent` 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 `#makeRegistry` 를 먼저 하시고 `#register` 를 이후에 하는 것을 잊지 마세요.
+    `DeferredRegister#makeRegistry` 는 무조건 `DeferredRegister#register` 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, `#makeRegistry` 는 `#register` 를 통해 등록 되어야만 `NewRegistryEvent` 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 `#makeRegistry` 를 먼저 하시고 `#register` 를 이후에 하는 것을 잊지 마세요.
 
 누락된 항목 처리하기
 ------------------------

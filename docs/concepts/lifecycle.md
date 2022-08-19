@@ -23,7 +23,7 @@ public class MyMod {
 ```
 
 !!! warning
-대부분의 생명주기 이벤트들은 병렬적으로 방송됩니다: 모든 모드들은 동시에 같은 이벤트에 반응합니다.
+    대부분의 생명주기 이벤트들은 병렬적으로 방송됩니다: 모든 모드들은 동시에 같은 이벤트에 반응합니다.
 
     모드들은 다른 모드의 API 또는 마인크래프트 시스템에 접근할 때, 스레드 안전성을 준수해야만 합니다. `ParallelDispatchEvent#enqueueWork` 를 이용해 코드 실행을 예약하여 나중에 실행되도록 하세요.
 
@@ -63,7 +63,7 @@ InterModComms
 또, `InterModProcessEvent` 도중 `InterModComms#getMessages` 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 `Predicate` 를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 `Stream<IMCMessage>` 를 반환합니다, `IMCMessage` 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.
 
 !!! note
-그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 `FMLConstructModEvent` 생명주기 이벤트와 `InterModComms` 이후에 방송되어 모드를 완전히 불러왔음을 알리는 `FMLLoadCompleteEvent` 생명주기 이벤트가 있습니다.
+    그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 `FMLConstructModEvent` 생명주기 이벤트와 `InterModComms` 이후에 방송되어 모드를 완전히 불러왔음을 알리는 `FMLLoadCompleteEvent` 생명주기 이벤트가 있습니다.
 
 [등록]: ./registries.md#객체-등록하기
 [캐패빌리티]: ../datastorage/capabilities.md

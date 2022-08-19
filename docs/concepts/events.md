@@ -85,7 +85,7 @@ public class MyStaticClientOnlyEventHandler {
 ```
 
 !!! note
-이를 이용하면 클래스의 인스턴스가 아닌 클래스 그 자체가 등록됩니다. 그렇기에 등록되는 모든 이벤트 핸들러는 정적이어야 제대로 동작합니다!
+    이를 이용하면 클래스의 인스턴스가 아닌 클래스 그 자체가 등록됩니다. 그렇기에 등록되는 모든 이벤트 핸들러는 정적이어야 제대로 동작합니다!
 
 이벤트 취소하기
 ---------
@@ -93,7 +93,7 @@ public class MyStaticClientOnlyEventHandler {
 만약 이벤트가 취소될 수 있다면, `@Cancelable` 어노테이션이 있을 것입니다, 그리고 메서드 `Event#isCancelable()` 는 `true` 를 반환합니다. 이벤트의 취소 여부는 `Event#setCanceled(boolean canceled` 메서드를 통해 변경될 수 있습니다, `true` 를 전달할 시 이벤트가 취소되고 `false` 를 전달할 시 이벤트의 "취소를 취소합니다". 그러나 만약에 이벤트가 취소될 수 없다면, 이 메서드를 사용하는 것 만으로 `UnsupportedOperationException` 예외가 발생합니다. 최소될 수 없는 이벤트의 취소 여부는 불변값으로 취급되기 때문입니다.
 
 !!! important
-모든 이벤트가 취소될 수 있는 것은 아닙니다! 취소할 수 없는 이벤트를 취소하려고 할 시 `UnsuppoortedOperationException` 예외가 발생하고 게임이 튕기게 됩니다! 그렇기에 이벤트를 취소하기 전에 `Event#isCancelable()` 을 사용하는 등 이벤트가 취소될 수 있는지를 먼저 확실하게 확인하세요!
+    모든 이벤트가 취소될 수 있는 것은 아닙니다! 취소할 수 없는 이벤트를 취소하려고 할 시 `UnsuppoortedOperationException` 예외가 발생하고 게임이 튕기게 됩니다! 그렇기에 이벤트를 취소하기 전에 `Event#isCancelable()` 을 사용하는 등 이벤트가 취소될 수 있는지를 먼저 확실하게 확인하세요!
 
 결과
 -------
@@ -101,7 +101,7 @@ public class MyStaticClientOnlyEventHandler {
 일부 이벤트들은 `Event$Result` 클래스를 사용합니다 결과는 이벤트를 중단하는 `DENY`, 기본 바닐라 코드를 실행하는 `DEFAULT`, 강제적으로 특정 동작을 수행하도록 하는 `ALLOW`, 이렇게 3가지가 있습니다. 이벤트의 결과는 이벤트 도중 `#setResult` 를 사용해 지정할 수 있습니다. 모든 이벤트가 결과가 있는 것은 아닙니다; 결과가 있는 이벤트는 `@HasResult` 어노테이션이 있습니다.
 
 !!! important
-여러 이벤트들은 각자 다른 방식으로 결과를 처리할 수 있습니다, 그렇기에 이벤트의 JavaDoc 에서 이벤트가 결과를 어떻게 처리할지를 미리 숙지하도록 하세요!
+    여러 이벤트들은 각자 다른 방식으로 결과를 처리할 수 있습니다, 그렇기에 이벤트의 JavaDoc 에서 이벤트가 결과를 어떻게 처리할지를 미리 숙지하도록 하세요!
 
 우선순위
 --------
@@ -126,7 +126,7 @@ public class MyStaticClientOnlyEventHandler {
 * `InterModProcessEvent`
 
 !!! note
-`FMLClientSetupEvent` 와 `FMLDedicatedServerSetupEvent` 는 올바른 배포판에서만 방송됩니다!
+    `FMLClientSetupEvent` 와 `FMLDedicatedServerSetupEvent` 는 올바른 배포판에서만 방송됩니다!
 
 이 4개의 생명주기 이벤트들은 모두 `ParallelDispatchEvent` 의 자식 클래스이기 때문에 병렬적으로 방송됩니다. 만약 `ParallelDispatchEvent` 또는 그 자식 클래스 이벤트가 방송되는 도중 메인 스레드에서 코드를 실행하고 싶다면 `#enqueueWork` 를 사용하세요.
 
