@@ -922,7 +922,7 @@ public MyBE(BlockPos pos, BlockState state) {
 <p><code>BlockEntity</code> 를 만들고 <code>Block</code> 에 붙이기 위해서는 대상 <code>Block</code> 이 <code>EntityBlock</code> 인터페이스를 구현해야 합니다. 해당 인터페이스의 <code>EntityBlock#newBlockEntity(BlockPos, BlockState)</code> 메서드에선 블록에 부착시킬 <code>BlockEntity</code> 의 인스턴스를 반환해야 합니다.</p>
 <p>네&hellip; <code>BlockEntity</code> 에 <code>EntityBlock</code> 이라니, 말장난 같은거 저도 압니다. 모장 공식 클래스 이름인데 어쩌겠어요.</p>
 <h2 id="blockentity_1"><code>BlockEntity</code> 를 활용한 데이터 저장<a class="headerlink" href="#blockentity_1" title="Permanent link"> </a></h2>
-<p><code>BlockEntity</code> 의 데이터를 저장하기 위해선 아래 두 메서드를 오버라이드 하셔야 합니다:
+<p><code>BlockEntity</code> 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:
 <pre class="highlight"><code class="language-java">BlockEntity#saveAdditional(CompoundTag tag) // 전달된 tag 에 BlockEntity 의 추가 데이터를 저장하는 메서드
 
 BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오고, 이를 BlockEntity 에 적용하는 메서드</code></pre>
@@ -933,12 +933,12 @@ BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오
 </p>
 </div>
 <div class="admonition important">
-<p class="admonition-title">Important<p>위 메서드를 오버라이드 할 때는 <code>super</code> 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!</p>
+<p class="admonition-title">Important<p>위 메서드를 재정의할 때는 <code>super</code> 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!</p>
 </p>
 <p>그리고 <code>x</code>, <code>y</code>, <code>z</code>, <code>ForgeData</code>, 그리고 <code>ForgeCaps</code> 는  <code>super</code> 메서드에서 사용하는 태그들의 이름입니다!</p>
 </div>
 <h2 id="blockentities"><code>BlockEntities</code> 틱 처리<a class="headerlink" href="#blockentities" title="Permanent link"> </a></h2>
-<p>아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 <code>BlockEntity</code> 를 만들기 위해선 <code>EntityBlock#getTicker(Level, BlockState, BlockEntityType)</code> 를 오버라이드 하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker 를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 <code>BlockEntityTicker</code> 를 반환해야 하는데, <code>BlockEntityTicker</code> 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:</p>
+<p>아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 <code>BlockEntity</code> 를 만들기 위해선 <code>EntityBlock#getTicker(Level, BlockState, BlockEntityType)</code> 를 재정의하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker 를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 <code>BlockEntityTicker</code> 를 반환해야 하는데, <code>BlockEntityTicker</code> 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:</p>
 <pre class="highlight"><code class="language-java">// Block 의 자식 클래스 내부
 @Nullable
 @Override
@@ -957,7 +957,7 @@ public static void tick(Level level, BlockPos pos, BlockState state, T blockEnti
 <h2 id="_3">클라이언트와 데이터 동기화하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
 <p>클라이언트와 데이터를 동기화시킬 방법은 총 3가지가 있는데: 청크를 불러올 때 동기화 하기, 블록 업데이트시 동기화 하기, 그리고 커스텀 네트워크 메세지 보내기 입니다.</p>
 <h3 id="levelchunk"><code>LevelChunk</code> 불러올 때 동기화하기<a class="headerlink" href="#levelchunk" title="Permanent link"> </a></h3>
-<p>이를 위해선 다음 두 메서드를 오버라이드 하세요:
+<p>이를 위해선 다음 두 메서드를 재정의하세요:
 <pre class="highlight"><code class="language-java">BlockEntity#getUpdateTag()
 
 IForgeBlockEntity#handleUpdateTag(CompoundTag tag)</code></pre>
@@ -968,7 +968,7 @@ IForgeBlockEntity#handleUpdateTag(CompoundTag tag)</code></pre>
 <p>필요없는 데이터를 동기화 하는 것은 네트워크를 혼잡하게 만들 수 있습니다. 그렇기에 클라이언트가 필요한 정보들을 필요할 때만 보내도록 하여 네트워크를 효율적으로 활용해야 합니다. 예를 들어, 블록 엔티티의 인벤토리가 변경될 때 마다 클라이언트와 동기화를 하는 대신 <code>AbstractContainerMenu</code> 에서 동기화를 진행하도록 하여 블록의 메뉴를 열 때 인벤토리 정보를 업데이트 하도록 할 수 있습니다.</p>
 </div>
 <h3 id="_4">블록이 업데이트될 때 동기화하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
-<p>이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 오버라이드하면 됩니다.
+<p>이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 재정의하면 됩니다.
 <pre class="highlight"><code class="language-java">BlockEntity#getUpdateTag()
 
 BlockEntity#getUpdatePacket()
@@ -988,7 +988,7 @@ public Packet&lt;ClientGamePacketListener&gt; getUpdatePacket() {
   return ClientboundBlockEntityDataPacket.create(this);
 }
 
-// IForgeBlockEntity#onDataPacket 을 오버라이드하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.</code></pre>
+// IForgeBlockEntity#onDataPacket 을 재정의하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.</code></pre>
 이때 여기서 사용된 정적 생성자 <code>ClientboundBlockEntityDataPacket#create</code> 는 아래 2개의 인자를 받습니다: </p>
 <ul>
 <li><code>BlockEntity</code>.</li>

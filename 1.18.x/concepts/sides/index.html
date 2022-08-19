@@ -919,7 +919,7 @@
 <p class="admonition-title">Note</p>
 </div>
 <p>숙지하셔야 할 점은 FML 은 <strong>논리</strong> 사이드를 이용해 언제 코드를 실행할지를 결정한다는 것입니다. 싱글 플레이 월드(논리 서버와 논리 클라이언트가 있는 물리 클라이언트) 에서는 <code>Dist.CLIENT</code> 가 사용됩니다!</p>
-<p><code>DistExecutor</code> 는 메서드를 호출할 <code>Supplier</code> 를 전달받는 것으로 작동하는데, 이는 <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.invokedynamic"><code>invokedynamic</code> JVM 명령</a>을 사용하여 클래스 로딩을 막아, 런타임 도중 존재하지 않는 클래스를 불러오려고 시도하는 것을 방지합니다. 이때 호출될 메서드는 정적 메서드이어야 하며 다른 클래스에 정의되어 있어야 합니다. 만약 해당 정적 메서드가 받는 인자가 없다면, <code>Supplier</code> 를 전달하기 보단 메서드 레퍼런스를 사용하셔야 합니다.</p>
+<p><code>DistExecutor</code> 는 메서드를 호출할 <code>Supplier</code> 를 전달받는 것으로 작동하는데, 이는 <a href="https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-6.html#jvms-6.5.invokedynamic"><code>invokedynamic</code> JVM 명령</a>을 사용하여 클래스 로딩을 막아, 런타임 도중 존재하지 않는 클래스를 불러오려고 시도하는 것을 방지합니다. 이때 호출될 메서드는 정적 메서드이어야 하며 다른 클래스에 정의되어 있어야 합니다. 만약 해당 정적 메서드가 받는 인자가 없다면, <code>Supplier</code> 를 전달하기 보단 메서드 레퍼런스를 사용하셔야 합니다.</p>
 <p><code>DistExecutor</code> 에는 대표적으로 2개의 메서드가 있는데: <code>#runWhenOn</code> 과 <code>#callWhenOn</code> 입니다. 이 메서드들은 전달받은 메서드를 실행할 물리 사이드와, 실행될 메서드들을 받습니다. <code>runWhenOn</code> 은 결과를 반환하지 않으며, <code>callWhenOn</code> 은 결과를 반환합니다. 이때 <code>callWhenOn</code> 은 물리 사이드에 따라 null 을 반환할 수도 있습니다.</p>
 <p>또, 이 두 메서드들은 <code>#safe*</code> 와 <code>#unsafe*</code> 로 다시 나뉘는데, 이 둘의 차이점은 개발 환경에서의 기능 차이입니다, <code>#safe*</code> 는 전달된 람다가 다른 메서드에 정의된 메서드 레퍼런스인지 확인하는 것입니다, 만약 그렇지 않다면 예외를 발생시킵니다. 해당 검사는 개발 환경에서만 진행되기 때문에 릴리즈 환경에서는 <code>#safe*</code> 와 <code>#unsafe*</code> 는 기능상 동일합니다.</p>
 <pre class="highlight"><code class="language-java">// 클라이언트 전용 클래스속 어딘가: ExampleClass
@@ -948,9 +948,9 @@ DistExecutor.safeCallWhenOn(Dist.CLIENT, () -&gt; ExampleClass::safeCallMethodEx
 <p>또, <code>Minecraft</code> 클래스와 같이 물리 클라이언트 전용 코드를, 양쪽 사이드에서 실행되거나, 또는 논리 서버에서 접근하는 것 또한 사이드를 가로지르는 것입니다. 이는 물리 클라이언트에서만 디버그를 하는 초보자 분들이 놓치기 쉬운 것입니다. 물리 클라이언트에서 작동은 되겠지만 물리 서버에서는 바로 튕깁니다.</p>
 <h2 id="_7">한쪽 사이드 전용 모드 만들기<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
 <p>최근 출시된 마인크래프트 버전에서 포지는 &ldquo;sideness&rdquo; 속성을 mods.toml 에서 제거하였습니다. 다시 말해서 모드를 물리 서버에 설치하든 물리 클라이언트에 설치하든 작동은 해야  한다는 것입니다. 그렇기에 한쪽 사이드만을 위한 모드를 만드신다면 이벤트 핸들러를 직접적으로 등록하기 보단 <code>DistExecutor#safeRunWhenOn</code> 또는 <code>DistExecutor#unsafeRunWhenOn</code> 를 사용하여 등록하여야 합니다. 그렇게 하여 만약 모드가 잘못된 사이드에 설치되었다면 존재는 하지만 아무것도 안하도록 하는 것이지요. 이러한 모드들은 블록이나 엔티티, 아이템 등을 등록하면 안됩니다, 왜냐하면 이러한 것들은 반대쪽 사이드에도 존재해야 하기 때문입니다.</p>
-<p>추가적으로 한쪽 사이드 전용 모드를 만드신다면 그 모드가 없는 유저가 서버에 들어올 수 있도록 하는 것이 좋습니다. 그렇기에 <code>IExtensionPoint$DisplayTest</code> extension point 를 오버라이드하여, 서버에 접속하기 위해 모드가 요구되지 않도록 하고 호환되지 않음으로 표시되지 않도록 할 수 있습니다. 이를 오버라이드 하기 위해서는 모드의 생성자에 다음과 같은 구문을 사용하시면 됩니다:
+<p>추가적으로 한쪽 사이드 전용 모드를 만드신다면 그 모드가 없는 유저가 서버에 들어올 수 있도록 하는 것이 좋습니다. 그렇기에 <code>IExtensionPoint$DisplayTest</code> extension point 를 등록하여, 해당 서버에 접속하기 위해 그 모드가 요구되지 않도록 않도록 할 수 있습니다. 이를 등록하는 방법은 다음과 같은 내용을 모드의 메인 클래스 생성자에 추가하세요:
 <pre class="highlight"><code>// 모드가 없어도 클라이언트에서 서버가 호환되지 않는다고 표시하지 않도록 하세요.
-ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -&gt; Pair.of(() -&gt; FMLNetworkConstants.IGNORESERVERONLY, (a, b) -&gt; true));</code></pre>
+ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -&gt; new IExtensionPoint.DisplayTest(() -&gt; NetworkConstants.IGNORESERVERONLY, (a, b) -&gt; true));</code></pre>
 이는 클라이언트가 서버 버전이 없어도 무시하도록 하고, 서버는 클라이언트에 모드 설치를 요구하지 않도록 합니다. 그렇기에 위 코드는 서버 전용 또는 클라이언트 전용 모드 둘다에서 작동합니다.</p>
             
         </article>

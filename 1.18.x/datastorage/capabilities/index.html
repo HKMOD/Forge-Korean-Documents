@@ -931,8 +931,8 @@ static Capability&lt;IItemHandler&gt; STATIC_REFERENCE = CapabilityItemHandler#I
 <h2 id="_4">캐패빌리티 노출하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <p>캐패빌리티를 노출하기 위해서는 첫번쨰로 캐패빌리티 인터페이스의 구현의 인스턴스가 필요합니다. 하나 알아두셔야 할 점은, 각 구현의 인스턴스들은 각자 다른 데이터를 가질 수 있다는 것입니다, 이를 활용한 예로, 캐패빌리티 인터페이스의 구현의 각기 다른 인스턴스들을 여러 엔티티에  각각 할당하여 각각의 엔티티가 다른 데이터를 가지도록 할 수 있습니다. 캐패빌리티를 이런식으로 활용하는 것은 보편적이며 권장됩니다.</p>
 <p><code>IItemHandler</code> 의 경우, 기본 구현은 <code>ItemStackHandler</code> 클래스입니다, 이 클래스의 생성자는 인벤토리 슬롯 갯수를 인자로 받으며, 기본값은 1입니다. 그렇지만 이렇게 캐패빌리티가 기본적으로 제공하는 구현을 사용하는 것은 권장하지 않습니다, 캐패빌리티 시스템의 목적은 게임을 불러오는 도중, 몇몇 캐패빌리티가 존재하지 않을 때 발생할 수 있는 오류들을 최소화하는 것이기 때문입니다, 그렇기에 기본 구현의 인스턴스를 만드는 것은 해당 캐패빌리티가 이미 존재하는지 확인한 이후 진행하셔야만 합니다. (이전 섹션의 <code>CapabilityManager#get</code> 에 관한 내용을 참고하세요).</p>
-<p>이제 캐패빌리티 인터페이스 구현의 인스턴스가 있으니, 캐패빌리티 시스템 사용자들에게 새로운 캐패빌리티를 노출한다고 알리고 <code>LazyOptional</code> 을 통한 참조를 제공해야 합니다. <code>#getCapability</code> 메서드를 오버라이드하고, 인자로 전달받은 캐패빌리티 인스턴스를 노출하고자 하는 캐패빌리티와 비교하세요. 만약 해당 제공자가 방향에 따라 다른 캐패빌리티를 반환해야 한다면 전달받은 <code>side</code> 인자를 사용하실 수 있습니다, 사용 예시로는 방향에 따라 다른 인벤토리 슬롯을 가지는 기계가 있습니다. 엔티티와 아이템 스택의 경우 <code>side</code> 를 무시할 수 있으나, 플레이어 갑옷 (<code>Direction#UP</code> 는 플레이어의 투구 슬롯의 캐패빌리티를 노출함) 등과 같은 용도에 사용하실 수도 있습니다. <code>super</code> 메서드 호출을 하는 것을 잊지 마세요, 그렇지 않으면 이미 부착된 캐패빌리티를 제공할 수 없게 됩니다.</p>
-<p>캐패빌리티는 제공자의 생명주기가 끝나면 무조건 <code>LazyOptional#invalidate</code> 를 호출하여 무효화 하여야만 합니다, 엔티티와 블록 엔티티의 경우 월드에서 제거될 때 <code>#invalidateCaps</code> 를 자동으로 호출하기 때문에, 만약 직접 이들을 구현하고 계신다면 <code>#invalidateCaps</code> 를 오버라이드하여 캐패빌리티를 무효화 시킬 수 있습니다. 그외 다른 제공자들은 캐패빌리티를 무효화시키는 <code>Runnable</code> 을 <code>AttachCapabilitiesEvent#addListener</code> 에 전달해야 합니다.</p>
+<p>이제 캐패빌리티 인터페이스 구현의 인스턴스가 있으니, 캐패빌리티 시스템 사용자들에게 새로운 캐패빌리티를 노출한다고 알리고 <code>LazyOptional</code> 을 통한 참조를 제공해야 합니다. <code>#getCapability</code> 메서드를 재정의하고, 인자로 전달받은 캐패빌리티 인스턴스를 노출하고자 하는 캐패빌리티와 비교하세요. 만약 해당 제공자가 방향에 따라 다른 캐패빌리티를 반환해야 한다면 전달받은 <code>side</code> 인자를 사용하실 수 있습니다, 사용 예시로는 방향에 따라 다른 인벤토리 슬롯을 가지는 기계가 있습니다. 엔티티와 아이템 스택의 경우 <code>side</code> 를 무시할 수 있으나, 플레이어 갑옷 (<code>Direction#UP</code> 는 플레이어의 투구 슬롯의 캐패빌리티를 노출함) 등과 같은 용도에 사용하실 수도 있습니다. <code>super</code> 메서드 호출을 하는 것을 잊지 마세요, 그렇지 않으면 이미 부착된 캐패빌리티를 제공할 수 없게 됩니다.</p>
+<p>캐패빌리티는 제공자의 생명주기가 끝나면 무조건 <code>LazyOptional#invalidate</code> 를 호출하여 무효화 하여야만 합니다, 엔티티와 블록 엔티티의 경우 월드에서 제거될 때 <code>#invalidateCaps</code> 를 자동으로 호출하기 때문에, 만약 직접 이들을 구현하고 계신다면 <code>#invalidateCaps</code> 를 재정의하여 캐패빌리티를 무효화 시킬 수 있습니다. 그외 다른 제공자들은 캐패빌리티를 무효화시키는 <code>Runnable</code> 을 <code>AttachCapabilitiesEvent#addListener</code> 에 전달해야 합니다.</p>
 <pre class="highlight"><code class="language-java">// 블록 엔티티 자식 클래스 어딘가에 아래 내용을 추가하세요
 LazyOptional&lt;IItemHandler&gt; inventoryHandlerLazyOptional;
 
@@ -977,7 +977,7 @@ public void registerCaps(RegisterCapabilitiesEvent event) {
 }</code></pre></p>
 <h2 id="levelchunk-blockentity">LevelChunk 와 BlockEntity 캐패빌리티 데이터 유지시키지<a class="headerlink" href="#levelchunk-blockentity" title="Permanent link"> </a></h2>
 <p>레벨, 엔티티, 아이템 스택과 다르게, 레벨 청크와 블록 엔티티들은 그 데이터가 수정되었다고 표기되었을 경우에만 디스크에 써집니다. 그렇기 때문에 레벨 청크 또는 블록 엔티티에 사용할 캐패빌리티의 데이터를 올바르게 유지시키지 위해서는 캐패빌리티의 데이터가 변경되었을 때 해당 객체의 데이터가 수정되었다고 표기하여야만 합니다.</p>
-<p>블록 엔티티에 인벤토리를 추가하는 <code>ItemStackHandler</code> 는 오버라이드할 수 있는 메서드인 <code>void onContentsChanged(int slot)</code> 이라는 메서드를 가지고 있습니다. 이 메서드는 타일 엔티티의 데이터가 수정되었다고 표기하기 위해 사용됩니다.</p>
+<p>블록 엔티티에 인벤토리를 추가하는 <code>ItemStackHandler</code> 는 <code>void onContentsChanged(int slot)</code> 이라는 메서드를 가지고 있습니다. 이 메서드는 블록 엔티티의 데이터가 수정되었다고 표기하기 위해 사용됩니다.</p>
 <pre class="highlight"><code class="language-java">public class MyBlockEntity extends BlockEntity {
 
   private final IItemHandler inventory = new ItemStackHandler(...) {
