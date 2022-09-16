@@ -1,10 +1,9 @@
 # Documentation
-This is the official MinecraftForge documentation, located at https://mcforge.readthedocs.org.
 
-It is intended to provide detailed documentation of Forge development concepts. This does not include javadocs.
+포지 문서의 한국어 포크입니다.
 
-The intent with this is to create a curated *definitive* source of documentation for developing mods with Forge. It is not a Java language tutorial, and basic concepts of Java should not be part of this documentation. Excessive example code will be avoided in lieu of more thorough explanations.
+자유롭게 PR 주셔도 됩니다.
 
-Feel free to submit pull requests related to documentation of Forge development here. See [CONTRIBUTING.md](/CONTRIBUTING.md)
+오타, 정정, 요청 등 [HKMOD 디스코드](https://discord.gg/99EcZ8B8nX) 또는 이슈로 등록 부탁드립니다.
 
-Don't expect this to be constantly being updated, though we will try and remedy egregious errors more quickly.
+https://hkmod.github.io/Forge-Korean-Documents
