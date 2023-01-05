@@ -1,150 +1,118 @@
-Getting Started
+시작하기에 앞서
 ===============
 
-If you have decided to contribute to Forge, you will have to take some special steps to get started with developing. A simple mod development environment will not suffice to work with Forge's codebase directly. Instead, you can use the following guide to help you with your setup and get you started with improving Forge!
+포지에 기여하시고 싶으시다면 개발 환경 설정을 위해 거쳐야 할 단계들이 있습니다. 그저 단순한 모드 개발 환경은 포지 코드베이스 수정을 지원하지 못합니다. 그 대신, 아래 안내를 참고하여 포지 개선을 위한 개발 환경을 설정하실 수 있습니다!
 
-Forking and Cloning the Repository
-----------------------------------
+리포지토리 포킹 및 클론
+-----------------
 
-Like most major open source projects you will find, Forge is hosted on [GitHub][github]. If you have contributed to another project before, you will know this process already and can skip right ahead to the next section.
+포지 또한 여러 오픈 소스 프로젝트들처럼 [GitHub][github] 에 호스팅 됩니다. 만약 이전에도 다른 오픈 소스 프로젝트에 기여하신 적이 있으시다면 이 단계는 이미 충분히 잘 아실 테니 건너뛰셔도 됩니다.
 
-For those who are beginners when it comes to collaboration via Git, here are two easy steps to get you started.
+Git 을 이용한 협업이 처음이시라면 아래 단계들을 따라주세요.
 
 !!! note
-    This guide assumes that you already have a GitHub account set up. If you do not, visit their [registration page][register] to create an account. Furthermore, this guide is not a tutorial for git's usage. Please consult different sources first if you are struggling to get it working.
+    이 문서는 이미 당신에게 GitHub 계정이 있다고 가정하고 작성되었습니다. 만약 계정이 없으시다면 [가입 페이지][가입]를 방문하여 계정을 만들어 주세요. 또한, 이 문서는 git 의 전반적 사용법을 위한 튜토리얼이 아닙니다. 문제가 발생하시면 다른 가이드를 참고하여 주세요.
 
-### Forking
+### 포킹
 
-First of all, you have to "fork" the [MinecraftForge repository][forgerepo] by clicking the "Fork" button in the upper right hand corner. If you are in an organization, select the account you want your fork to be hosted on.
+일단, [마인크래프트 포지 리포지토리][포지리포]를 "포크"하셔야 합니다. 오른쪽 위의 "Fork" 를 클릭하여서 하실 수 있습니다. GitHub Organization 에 추가하시고 싶으시다면 리포지토리를 포크할 계정을 선택해주세요.
 
-Forking the repository is necessary since not every GitHub user can have free access to every repository. Instead, you create a copy of the original repository to later contribute your changes via a so called Pull Request, which you will learn more about later.
+모든 GitHub 사용자가 모든 리포지토리에 쓰기 권한이 있는 것이 아니기에 먼저 포킹을 하는 것은 필수적입니다. 포킹은 원본 리포지토리의 당신만의 복사본을 만들어 자유롭게 작업하실 수 있도록 하고, 작업하신 내용은 나중에 Pull Request 를 통해 원본 리포지토리에 제출합니다. 이에 대해선 나중에 더 다룰 것입니다.
 
-### Cloning
+### 클론
 
-After forking the repository, it is time to get local access to actually make some changes. For this, you need to clone the repository onto your local machine.
+리포지토리를 포킹하셨다면 이제 컴퓨터에 내려받아 직접 작업하실 때가 되었습니다. 이 내려받는 작업을 클론이라고 합니다.
 
-Using your favorite git client, simply clone your fork into a directory of your choice. As general example, here is a command line snippet that should work on all correctly configured systems and clones the repository into a directory called "MinecraftForge" under the current directory (note that you have to replace `<User>` with your username):
+당신이 애용하시는 git 클라이언트를 이용해 원하시는 곳에 리포지토리를 클론해주세요. 대개 아래처럼 명령어를 이용해 현재 디렉터리에서 "MinecraftForge" 라는 폴더에 내려받습니다. 아래 `<User>` 를 당신의 닉네임으로 변경하시는 것을 잊지 마세요!
 
 ```git clone https://github.com/<User>/MinecraftForge```
 
-# Checking out the Correct Branch
+# 작업용 브랜치 체크아웃 하기
 
-Forking and cloning the repository are the only mandatory steps to develop for Forge. However, to ease the process of creating Pull Requests for you, it is best to work with branches.
+포지 개발 환경 설정을 위해선 오직 리포지토리를 포킹하고 클론하는 것만 하셔도 되지만, Pull Request 제출을 수월하게 하려면 위해 새로운 브랜치를 만드시는 것을 추천합니다.
 
-It is recommended to create and check out a branch for each PR you plan to submit. This way, you can always keep around the latest changes of Forge for new PRs while you still work on older patches.
+새로운 PR 을 제출하실 때마다 새로운 브랜치를 만드시면 다른 사람의 작업물을 바로 내려받으면서도 이전 코드베이스를 유지할 수 있습니다.
 
-After completing this step, you are ready to go and set up your development environment.
+이제 개발 환경을 설정하고 실행하실 준비가 완료되었습니다.
 
-Setting Up the Environment
+개발 환경 설정하기
 --------------------------
 
-Depending on your favorite IDE, there is a different set of recommended steps you have to follow to successfully set up a development environment.
+사용하시는 IDE 에 따라 적절한 개발 환경 설정 방법이 조금씩 다릅니다. 
 
 ### Eclipse
 
-Due to the way Eclipse workspaces work, ForgeGradle can do most of the work involved to get you started with a Forge workspace.
+Eclipse 의 작업공간 덕분에, ForgeGradle 이 대부분의 개발 환경 설정을 대신 할 수 있습니다.
 
-1. Open a terminal/command prompt and navigate to the directory of your cloned fork.
-2. Type `./gradlew setup` and hit enter. Wait until ForgeGradle is done.
-3. Type `./gradlew genEclipseRuns` and hit enter. Once again, wait until ForgeGradle is done.
-4. Open your Eclipse workspace and go to `File -> Import -> General -> Existing Gradle Project`.
-5. Browse to the repo directory for the "Project root directory" option in the dialog that opens.
-6. Complete the import by clicking the "Finish" button.
+1. 터미널/명령 프롬프트를 열어 리포지토리를 클론한 곳으로 이동해 주세요.
+2. `./gradlew setup` 을 적으시고 엔터를 누르신 이후, ForgeGradle 이 작업을 완료하기까지 기다려 주세요.
+3. `./gradlew genEclipseRuns` 를 적으시고 엔터를 누르신 이후, ForgeGradle 이 작업을 완료하기까지 기다려 주세요.
+4. 이클립스 작업 공간을 여신 이후 `File -> Import -> General -> Existing Gradle Project` 를 눌러주세요.
+5. 클론한 리포지토리로 이동하신 다음 "Project root directory" 옵션을 체크해 주세요.
+6. "Finish" 를 눌러 프로젝트를 열어주세요.
 
-That is all it takes to get you up and running with Eclipse. There is no extra steps required to get the test mods running. Simply hit "Run" like in any other project and select the appropriate run configuration.
+이게 끝입니다. 테스트 모드를 실행하기 위한 추가적인 설정도 필요하지 않습니다. "Run" 을 클릭하신 다음 적절한 실행 구성을 선택하여 주세요.
 
 ### IntelliJ IDEA
 
-JetBrains' flagship IDE comes with great integrated support for [Gradle][gradle]: Forge's build system of choice. Due to some peculiarities of Minecraft mod development, however, there are additional steps required to get everything to work properly.
+Jetbrains 의 IDE 는 기본적으로 포지가 이용하는 빌드 시스템인 [Gradle][gradle] 을 지원합니다. 하지만 마인크래프트 모드 개발의 특이성 때문에 설정 과정이 조금 복잡합니다.
 
-#### IDEA 2021 onwards
-1. Start IntelliJ IDEA 2021.
-    - If you already have another project open, close the project with the File -> Close project option.
-2. In the projects tab of the "Welcome to IntelliJ IDEA" window, click the "Open" button on the top right and select the MinecraftForge folder you cloned earlier.
-3. Click "Trust Project" if prompted.
-4. After IDEA is done importing the project and indexing its files, run the Gradle setup task. You can do this by:
-    - Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the `setup` task (may also appear as `MinecraftForge[Setup]`) found in Forge -> Tasks -> other -> `setup`.
-5. Generate the run configurations:
-    - Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the `genIntellijRuns` task (may also appear as `MinecraftForge[genIntellijRuns]`) found in Forge -> Tasks -> forgegradle runs -> `genIntellijRuns`.
-- If you get a licensing error during build before making any changes, running the `updateLicenses` task may help. This task is found in Forge -> Tasks -> other as well.
+#### IDEA 2021 이후
+1. IntelliJ IDEA 를 실행해 주세요.
+    - 이미 다른 프로젝트에서 작업 중이시라면 `파일 -> 프로젝트 닫기` 를 눌러 기존 프로젝트를 닫아주세요.
+2. "IntelliJ IDEA에 오신 것을 환영합니다" 창에서, 오른쪽 위 "열기" 버튼을 누르고 이전에 내려받은 포지 리포지토리를 열어주세요.
+3. 만약 프로젝트를 신뢰할 것인지 물어본다면 "프로젝트 신뢰" 를 눌러주세요.
+4. IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 다음과 같이 실행해야 합니다:
+    - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
+5. 실행 구성 생성하기:
+    - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `forgegradle runs` -> `genIntellijRuns`(`MinecraftForge[genIntellijRuns]` 이라고 표시될 수도 있습니다) 를 더블 클릭해서 실행해 주세요.
+- 만약 아직 작업한 것이 없는데도 라이선스 문제가 발생한다면 `Tasks` -> `other` -> `updateLicenses` 를 실행하면 해결될 수도 있습니다.
 
 #### IDEA 2019-2020
-There are a few minor differences between IDEA 2021 and these versions for setup.
+이 설정 과정은 IDEA 2021과 크게 다르지 않습니다. 
 
-1. Import Forge's `build.gradle` as an IDEA project. For this, simply click `Import Project` from the `Welcome to IntelliJ IDEA` splash screen, then select the `build.gradle` file.
-1. After IDEA is done importing the project and indexing the files, run the Gradle setup task. Either:
-    1. Open the Gradle sidebar on the right hand side of your screen, then open the `forge` project tree, select `Tasks`, then `other` and double-click the `setup` task (may also appear as `MinecraftForge[Setup]`. Or alternatively:
-    1. Tap the CTRL key twice, and type `gradle setup` in the `Run` command window that pops up.
+1. 포지의 `build.gradle` 파일을 IDEA 프로젝트로 열어주세요. "Welcome to Intellij IDEA" 창에서 "Import Project" 를 누르시고, 내려받은 포지 리포지토리의 `build.gradle` 파일을 열어주세요.
+2. IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 둘 중 하나의 방법으로 실행해야 합니다:
+    1. 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
+    2. CTRL 키를 두번 누르신 다음 `Run` 명령 창에 `gradle setup` 를 적고 엔터를 누르세요.
 
-You can then run Forge using the `forge_client` gradle task (`Tasks -> fg_runs -> forge_client`): right-click the task and select either `Run` or `Debug` as desired.
+이제 `forge_client` Gradle 작업으로 포지를 실행하실 수 있습니다 (`Tasks -> fg_runs -> forge_client`): 해당 작업을 우클릭 한 이후 실행 또는 디버그하시면 됩니다.
 
-#### IDEA older versions
-Versions older than 2016 will not work because they did not have the appropriate Gradle support nor support Forge development multi-project workspaces.
+#### 구버전 IDEA
+2016보다 오래된 IDEA 버전들은 포지 개발 환경에 필요한 멀티 프로젝트 및 Gradle 지원이 없어서 이용하실 수 없습니다, 
 
-IDEA 2016 - 2018 will work with extra manual steps required, but it is strongly recommended to update to IDEA 2019+ instead.
-cpw has uploaded [a video][intellijsetup] for IDEA 2016.1 explaining very similar steps which will lead to a working setup.
+IDEA 2016 - 2018 는 설정 과정이 더 복잡하지만 그래도 사용하실 순 있습니다. 그래도 IDEA 2019 또는 이후 버전을 이용하시는 것을 강력히 권장드립니다.
+cpw 씨께서 올려주신 [비디오][intellijsetup]를 따라 IDEA 2016.1 를 설정하실 수 있습니다.
 
-That is all there is to creating a Forge development environment in IntelliJ IDEA. However, you will not be able to run tests and debug mods included in Forge straight away. This takes some extra effort.
+IDEA 를 이용하여 개발 환경을 구성하는 것은 이게 다입니다. 하지만 바로 포지에 동봉된 테스트 및 디버그 모드들을 바로 실행하실 순 없을 것입니다.
 
-#### Enabling test mods
+[comment]: <> (섹션 `Enabling test mods` 와 `Testing with existing mods` 는 구버전 ForgeGradle 을 기반으로 작성되었기 때문에 제거하였습니다.)
 
-To enable the test mods coming with Forge, you will need to add the compiler output to the classpath. Again, cpw has put up [a video][testsetup] explaining these steps for IDEA 2016.1.
-
-1. Build the test classes by selecting the `src/main/test` directory in your project view and then run `Build -> Build module 'Forge_test'` from the menu bar.
-2. Open the "Project Structure" window under `File -> Project Structure`.
-3. Head to the "Modules" section and expand the `Forge` module.
-4. Select the `Forge_test` submodule and head to the "Paths" tab.
-5. Remember the path listed under the "Test output path" label and select the `Forge_main` submodule from the tree.
-6. Open the "Dependencies" tab, hit the green plus button on the right-hand side, and select "JARs or directories".
-7. Navigate to the path previously displayed as the `Forge_test` output path and confirm your selection.
-8. For the "Scope" of this newly added dependency (currently "Compile") choose "Runtime", since the main code does not rely on the test code for compilation.
-
-Now that you have added the test mods to the classpath, you need to rebuild them each time you make a change, as they will not be built automatically. To do so, repeat step 1 from the above list or, in case you make changes to a single test mod file and want them to get rebuilt, simply hit `Build -> Rebuild project` or the corresponding keyboard shortcut (CTRL+F9 by default).
-
-#### Testing with existing mods
-
-You might want to test changes in Forge with an existing project. The [video][testsetup] by cpw linked in the test mods section also covers this for IDEA 2016.1. Getting the mod to run requires similar steps to the test mod, but getting your project added to the workspace requires some additional work.
-
-1. Open the "Project Structure" Window under `File -> Project Structure`.
-2. Head to the "Modules" section and press the green plus icon above the tree view.
-3. Select "Import Module", navigate to your project's `build.gradle` file, and confirm your selection as well as the import settings.
-4. Close the "Project Structure" window by clicking the "OK" button.
-5. Reopen the window after IDEA is done importing the project and select your project's `_main` module from the tree.
-6. Open the "Dependencies" tab, click the green plus icon on the right-hand side, and select "Module dependency".
-7. In the window that just opened, select the `Forge_main` module.
-8. From here on, reproduce the steps from the test mods section, just with your project's `_main` module instead of the `Forge_test` one.
-
-!!! note
-    You might need to remove existing dependencies from a normal development environment (mainly references to a `forgeSrc` JAR) or move the Forge module higher up in the dependency list.
-
-You should now be able to work with your mod using the changes you introduce to the Forge and Vanilla codebase.
-
-Making Changes and Pull Requests
+코드 수정 및 Pull Request 제출하기
 --------------------------------
 
-Once you have set up your development environment, it is time to make some changes to Forge's codebase. There are, however, some pitfalls you have to avoid when editing the project's code.
+개발 환경 설정을 끝마치셨다면 이젠 포지의 코드베이스를 수정하실 차례입니다. 그렇지만, 프로젝트 코드를 수정하며 잊지 말아야 할 것은 오직 "Forge" 서브 프로젝트의 코드만 수정하셔야 한다는 것입니다. "Clean" 프로젝트를 수정하시게 되면 ForgeGradle 이 나중에 패치를 생성할 때 문제가 발생합니다. 잘못하면 개발 환경 설정을 처음부터 다시 해야 할 수도 있습니다.
 
-The most important thing to note is that if you wish to edit Minecraft source code, you must only do so in the "Forge" sub-project. Any changes in the "Clean" project will mess with ForgeGradle and generating the patches. This can have disastrous consequences and might render your environment completely useless. If you wish to have a flawless experience, make sure you only edit code in the "Forge" project!
+### 패치 생성하기
 
-### Generating Patches
+이제 코드 베이스를 수정하셨고 테스트도 끝마치셨다면, 패치를 생성하셔도 좋습니다. 이는 마인크래프트 코드를 수정하였을 때만 필요합니다. 포지는 패치를 이용하여 마인크래프트에 다른 코드를 주입하기 때문에 패치가 있어야 변경 사항을 주입할 수 있습니다. ForgeGradle 은 이를 위해 자동으로 패치를 생성해 줍니다.
 
-After you have made changes to the code base and tested them thoroughly, you may go ahead and generate patches. This is only necessary if you work on the Minecraft code base (i.e. in the "Forge" project), but this step is vital for your changes to work elsewhere. Forge works by injecting only changed things into Vanilla Minecraft and hence needs those changes available in an appropriate format. Thankfully, ForgeGradle is capable of generating the changeset for you to commit it.
-
-To initiate the patch generation, simply run the `genPatches` Gradle task from your IDE or the command line. After its completion, you can commit all your changes (make sure you do not add any unnecessary files) and submit your Pull Request!
+패치 생성을 시작하기 위해선 `genPatches` Gradle 작업을 IDE 또는 명령줄을 이용해 실행해 주세요. 작업이 끝난 이후 모든 작업 내용을 커밋하고(필요 없는 것들은 당연히 빼주세요!) Pull Request 를 제출하시면 됩니다!
 
 ### Pull Requests
 
-The last step before your contribution is added to Forge is a Pull Request (PR in short). This is a formal request to incorporate your fork's changes into the live code base. Creating a PR is easy. Simply go to [this GitHub page][submitpr] and follow the proposed steps. It is now that a good setup with branches pays off, since you are able to select precisely the changes you want to submit.
+포지에 기여하기 위한 마지막 단계는 Pull Request(줄여서 PR) 제출입니다. PR 은 당신의 작업 내용을 적용해달라는 요청입니다. PR 을 제출하는 것 또한 간단합니다, [이 페이지][pr제출]를 방문하신 다음 제시된 단계들을 따라 하시면 됩니다. 이때 이전에 말씀드린 대로 새 PR 을 만들 때 마다 새로운 브랜치를 만드는 것이 좋은 이유를 보실 수 있는데, 무엇을 제출할지 결정할 수 있기 때문입니다.
 
 !!! note
-    Pull Requests are bound to rules; not every request will blindly be accepted. Follow [this document][contribute] to get further information and to ensure the best quality of your PR! If you want to maximize the chances of your PR getting accepted, follow these [PR guidelines][guidelines]!
+    Pull Request 는 정해진 규칙에 따라 처리됩니다; 모든 PR 이 받아들여지진 않습니다. [이 문서][기여하기]를 참고하여 PR 을 더 개선하는 방법을 알아보세요! PR 을 더 잘 받아들여지도록 하고 싶으시다면 [이 가이드라인][가이드라인]을 따라주세요!
 
 [github]: https://www.github.com
-[register]: https://www.github.com/join
-[forgerepo]: https://www.github.com/MinecraftForge/MinecraftForge
+[가입]: https://www.github.com/join
+[포지리포]: https://www.github.com/MinecraftForge/MinecraftForge
 [gradle]: https://www.gradle.org
 [intellijsetup]: https://www.youtube.com/watch?v=yanCpy8p2ZE
 [testsetup]: https://www.youtube.com/watch?v=pLWQk6ed56Q
-[submitpr]: https://github.com/MinecraftForge/MinecraftForge/compare
-[contribute]: https://github.com/MinecraftForge/MinecraftForge/blob/1.13.x/CONTRIBUTING.md
-[guidelines]: ./prguidelines.md
+[pr제출]: https://github.com/MinecraftForge/MinecraftForge/compare
+[comment]: <> (이거 1.13.x 브랜치여도 되나?)
+[기여하기]: https://github.com/MinecraftForge/MinecraftForge/blob/1.13.x/CONTRIBUTING.md
+[가이드라인]: ./prguidelines.md
