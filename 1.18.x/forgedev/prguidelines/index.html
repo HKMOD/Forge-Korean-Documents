@@ -833,28 +833,28 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#pull-request-guidelines" class="elem-text">PR 가이드라인</a>
+    <a href="#pull-request" class="elem-text">PR 가이드라인</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#what-exactly-is-forge">What Exactly is Forge?</a></li>
+        <li class="toc-subitem"><a href="#_1">포지가 정확히 무엇인가요?</a></li>
         
-        <li class="toc-subitem"><a href="#patches">Patches</a></li>
+        <li class="toc-subitem"><a href="#_2">패치</a></li>
         
-        <li class="toc-subitem"><a href="#forge-code">Forge Code</a></li>
+        <li class="toc-subitem"><a href="#_3">포지 코드</a></li>
         
-        <li class="toc-subitem"><a href="#explain-yourself">Explain Yourself</a></li>
+        <li class="toc-subitem"><a href="#_4">적절한 설명이 필요합니다</a></li>
         
-        <li class="toc-subitem"><a href="#show-that-it-works">Show that it Works</a></li>
+        <li class="toc-subitem"><a href="#_5">어떻게 동작하는지 보여주세요</a></li>
         
-        <li class="toc-subitem"><a href="#breaking-changes-in-forge">Breaking Changes in Forge</a></li>
+        <li class="toc-subitem"><a href="#breaking-changes">포지와 Breaking Changes</a></li>
         
-        <li class="toc-subitem"><a href="#be-patient-civil-and-empathetic">Be Patient, Civil, and Empathetic</a></li>
+        <li class="toc-subitem"><a href="#_6">인내심을 가지고 친절하게 대해주세요</a></li>
         
-        <li class="toc-subitem"><a href="#review">Review</a></li>
+        <li class="toc-subitem"><a href="#_7">리뷰</a></li>
         
         
     </ul>
@@ -903,60 +903,60 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="pull-request-guidelines">Pull Request Guidelines<a class="headerlink" href="#pull-request-guidelines" title="Permanent link"> </a></h1>
-<p>Mods are built on top of Forge, but there are some things that Forge does not support, and that limits what mods can do.<br />
-When modders run into something like that, they can make a change to Forge to support it, and submit that change as a Pull Request on Github.</p>
-<p>To make the best use of both your and the Forge team&rsquo;s time, it is recommended to follow some rough guidelines when preparing a Pull Request. The following points are the most important aspects to keep in mind when it comes to writing a good Pull Request.</p>
-<h2 id="what-exactly-is-forge">What Exactly is Forge?<a class="headerlink" href="#what-exactly-is-forge" title="Permanent link"> </a></h2>
-<p>At a high level, Forge is a mod compatibility layer on top of Minecraft. <br />
-Early mods edited Minecraft&rsquo;s code directly (like coremods do now), but they ran into conflicts with each other when they edited the same things. They also ran into issues when one mod changed behavior in ways that the other mods could not anticipate (like coremods do now), causing mysterious issues and lots of headaches.  </p>
-<p>By using something like Forge, mods can centralize common changes and avoid conflicts.<br />
-Forge also includes supporting structures for common mod features like Capabilities, Registries, and others that allow mods to work together better.</p>
-<p>When writing a good Forge Pull Request, you also have to know what Forge is at a lower level. <br />
-There are two main types of code in Forge: Minecraft patches, and Forge code.</p>
-<h2 id="patches">Patches<a class="headerlink" href="#patches" title="Permanent link"> </a></h2>
-<p>Patches are applied as direct changes to Minecraft&rsquo;s source code, and aim to be as minimal as possible.<br />
-Every time Minecraft code changes, all the Forge patches need to be looked over carefully and applied correctly to the new code.<br />
-This means that large patches that change lots of things are difficult to maintain, so Forge aims to avoid those and keep patches as small as possible.<br />
-In addition to making sure the code makes sense, reviews for patches will focus on minimizing the size.</p>
-<p>There are many strategies to make small patches, and reviews will often point out better methods to do things.<br />
-Forge patches often insert a single line that fires an event or a code hook, which affects the code after it if the event meets some condition.<br />
-This allows most of the code to exist outside of the patch, which keeps the patch small and simple.</p>
-<p>For more detailed information about creating patches, <a href="https://github.com/MinecraftForge/MinecraftForge/wiki/If-you-want-to-contribute-to-Forge#conventions-for-coding-patches-for-a-minecraft-class-javapatch">see the GitHub wiki</a>.</p>
-<h2 id="forge-code">Forge Code<a class="headerlink" href="#forge-code" title="Permanent link"> </a></h2>
-<p>Aside from the patches, Forge code is just normal Java code. It can be event code, compatibility features, or anything else that is not directly editing Minecraft code.
-When Minecraft updates, Forge code has to update just like everything else. However, it is much easier because it is not directly entangled in the Minecraft code.</p>
-<p>Because this code stands on its own, there is no size restriction like there is with the patches.</p>
-<p>In addition to making sure the code makes sense, reviews will focus on making the code clean: with proper formatting and Java documentation.</p>
-<h2 id="explain-yourself">Explain Yourself<a class="headerlink" href="#explain-yourself" title="Permanent link"> </a></h2>
-<p>All Pull Requests need to answer the question: why is this necessary?<br />
-Any code added to Forge needs to be maintained, and more code means more potential for bugs, so solid justification is needed for adding code.</p>
-<p>A common Pull Request issue is offering no explanation, or giving cryptic examples for how the Pull Request might theoretically be used.
-This only delays the Pull Request process.<br />
-A clear explanation for the general case is good, but also give a concrete example of how your mod needs this Pull Request.</p>
-<p>Sometimes there is better way to do what you wanted, or a way to do it without a Pull Request at all. Code changes can not be accepted until those possibilities have been completely ruled out.</p>
-<h2 id="show-that-it-works">Show that it Works<a class="headerlink" href="#show-that-it-works" title="Permanent link"> </a></h2>
-<p>The code you submit to Forge should work perfectly, and it is up to you to convince the reviewers that it does.  </p>
-<p>One of the best ways to do that is to add an example mod or JUnit test to Forge that makes use of your new code and shows it working.  </p>
-<p>To set up and run a Forge Environment with the example mods, see <a href="../">this guide</a>.</p>
-<h2 id="breaking-changes-in-forge">Breaking Changes in Forge<a class="headerlink" href="#breaking-changes-in-forge" title="Permanent link"> </a></h2>
-<p>Forge cannot make changes that break the mods that depend on it.<br />
-This means that Pull Requests have to ensure that they do not break binary compatibility with previous Forge versions.<br />
-A change that breaks binary compatibility is called a Breaking Change.</p>
-<p>There are some exceptions to this:</p>
+            <h1 id="pull-request">Pull Request 가이드라인<a class="headerlink" href="#pull-request" title="Permanent link"> </a></h1>
+<p>여러 모드들이 포지를 기반으로 만들어지지만, 포지가 특정 기능을 지원하지 않아 모드 개발에 제약이 될 수 있습니다.
+이럴때는 직접 포지에 기능을 추가하고 포지 GitHub 리포지토리에 에 Pull Request 를 제출할 수 있습니다. </p>
+<p>서로의 시간을 아끼기 위해 Pull Request 를 제출할 땐 아래 가이드 라인을 따르는 것을 권장드립니다. 아래 사항은 좋은 Pull Request 를 만들기 위해 기억해두셔야 할 중요한 사항들입니다. </p>
+<h2 id="_1">포지가 정확히 무엇인가요?<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
+<p>간단하게 말해서, 포지는 마인크래프트 위에 추가되는 모드 호환성 레이어입니다.
+옛날에 만들어진 모드들은 마인크래프트의 코드를 (마치 coremod 들 처럼) 직접 수정하였지만, (마치 coremod 들 처럼) 같은 코드를 수정하려고 할 때마다 서로 충돌하였습니다.</p>
+<p>포지와 같은 호환성 레이어를 이용함으로써, 코드 수정을 중앙화하고 충돌을 피할 수 있습니다.
+또한 포지는 모드들에서 자주 이용되는 기능인 레지스트리, 캐패빌리티등 모드끼리 호환성을 개선하기 위한 기능들 또한 지원합니다.</p>
+<p>좋은 Pull Request 를 만들기 위해선 포지가 저수준에서 어떻게 동작하는지 아셔야 합니다.
+포지는 크게 2가지 코드로 구성되는데: 마인크래프트 패치, 그리고 포지 코드 입니다.</p>
+<h2 id="_2">패치<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>패치는 마인크래프트 소스 코드에 직접 적용되는 수정 목록입니다. 최소한으로 사용하시는 것이 권장됩니다.
+마인크래프트 코드가 바뀔 때마다 모든 포지 패치들은 새 코드에서 작동하도록 조심스러운 점검 과정을 거쳐야만 합니다.
+다시 말해서 기존 코드를 많이 변경하는 큰 패치들은 유지보수가 힘들다는 것입니다, 그래서 포지는 패치를 최소한으로 사용하려고 합니다.
+그래서 리뷰를 진행할 때는 추가되는 기능이 의도대로 작동하는 것 뿐 아니라 패치의 크기또한 중요하게 봅니다.</p>
+<p>패치를 최소화하는데에는 많은 방법이 있으며 리뷰 과정을 거치며 더 개선시킬 수 있습니다.
+포지 패치들은 대개 후킹이나 이벤트 방송을 위한 한줄짜리 패치들을 사용합니다, 그리고 이벤트의 결과는 이후에 따라붙는 코드에 영향을 미칩니다.
+이렇게 하면 대다수의 코드가 패치 밖에 존재하도록 하여 패치가 더 작아지고 단순해질 수 있도록 합니다. </p>
+<p>패치를 만드는 것에 대해 더 자세히 알고 싶으시다면 <a href="https://github.com/MinecraftForge/MinecraftForge/wiki/If-you-want-to-contribute-to-Forge#conventions-for-coding-patches-for-a-minecraft-class-javapatch">영문 위키를 참고하세요</a>.</p>
+<h2 id="_3">포지 코드<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>포지 코드는 Java 로 작성된 평범한 코드입니다. 이벤트 코드, 호환성 기능과 같이 마인크래프트 코드를 직접적으로 수정하지 않는 모든 것이 해당됩니다. 
+마인크래프트가 업데이트될 때 포지 코드 또한 업데이트가 되어야 하지만, 마인크래프트와 직접적으로 연관되어있지 않아 유지보수하기가 더 쉽습니다.</p>
+<p>포지 코드는 패치와 다르게 자체적으로 존재하기에 크기 제한이 없습니다.</p>
+<p>그래서 리뷰를 진행할 때는 추가되는 기능이 의도대로 작동하는 것 뿐 아니라 포매팅과 Javadoc 과 같은 가독성또한 중요하게 봅니다.</p>
+<h2 id="_4">적절한 설명이 필요합니다<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p>모든 Pull Request 들은 이것이 왜 필요한지 정당한 사유가 있어야 합니다.
+포지에 추가되는 모든 코드들은 유지보수가 되어야 하고, 코드가 많을 수록 잠재적 버그또한 많아지기에 코드 추가에는 늘 정당한 사유가 필요합니다.</p>
+<p>Pull Request 를 작성하며 자주 하는 실수중 하나는 설명이 부족하거나 활용 예제가 충분히 명확하지 않은 경우입니다.
+이는 리뷰 진행 속도를 늦출 뿐입니다.
+Pull Request 를 명확히 설명하는 것도 좋지만, 해당 기능을 어떻게 사용할 것인지도 밝혀주세요.</p>
+<p>가끔 더 나은 다른 방법이 있거나, Pull Request 없이도 할 수 있는 방법이 있을 수 있습니다. 이런 가능성들을 배제하기 전까진 Pull Request 가 받아들여지지 않을 것입니다. </p>
+<h2 id="_5">어떻게 동작하는지 보여주세요<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>제출되는 Pull Request 의 코드는 정상적으로 작동해야 하며, 리뷰어들에게 정상적으로 동작한다고 설득하는 것은 당신 몫입니다.</p>
+<p>가장 효과적으로 이를 보여주는 방법은 예제 모드 또는 JUnit 테스트를 추가하여 의도한대로 동작함을 증명하는 것입니다.</p>
+<p>포지 개발 환경을 설정하고 예제 모드를 실행하는 방법은 <a href="../">이 가이드</a>를 참고하여 주세요.</p>
+<h2 id="breaking-changes">포지와 Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link"> </a></h2>
+<p>포지는 다른 모드들간의 호환성을 깨트리는 업데이트를 할 수 없습니다.
+다시 말해서, 제출되는 모든 Pull Request 들은 이전 포지 버전들과 호환되어야만 합니다.
+이전 포지 버전들과의 호환성을 깨트리는 업데이트를 Breaking Change 라고 합니다.</p>
+<p>이러한 업데이트를 하는 예외 상황들은 다음과 같습니다:</p>
 <ul>
-<li>Forge accepts Breaking Changes at the beginning of new Minecraft versions, where Minecraft itself already causes Breaking Changes for modders.  </li>
-<li>Sometimes an emergency breaking change is required outside of that time window, but it is rare and can cause dependency headaches for everyone in the modded Minecraft community.</li>
+<li>새로운 마인크래프트 버전으로 업데이트 할 때, 어차피 마인크래프트가 업데이트되며 이전 버전과 호환이 되지 않기 때문입니다.</li>
+<li>긴급 상황이라서 어쩔 수 없을 때, 하지만 이런 일은 매우 드물게 일어나며 마인크래프트 모드 커뮤니티에게 종속성 문제를 떠앉기게 됩니다. </li>
 </ul>
-<p>Outside of those exceptional times, Pull Requests with breaking changes are not accepted. They must be adapted to support the old behavior or wait for the next Minecraft version.</p>
-<h2 id="be-patient-civil-and-empathetic">Be Patient, Civil, and Empathetic<a class="headerlink" href="#be-patient-civil-and-empathetic" title="Permanent link"> </a></h2>
-<p>When submitting Pull Requests, you will often have to survive code review and make several changes before it is the best Pull Request possible.<br />
-Keep in mind that code review is not judgement against you. Bugs in your code are not personal. Nobody is perfect, and that is why we are working together. </p>
-<p>Negativity will not help. Threatening to give up on your Pull Request and write a coremod instead will just make people upset and make the modded ecosystem worse.<br />
-It is important that while working together you assume the best intentions of the people who are reviewing your Pull Request and not take things personally.</p>
-<h2 id="review">Review<a class="headerlink" href="#review" title="Permanent link"> </a></h2>
-<p>If you do your best to understand the slow and perfectionistic nature of the Pull Request process, we will do our best to understand your point of view as well.</p>
-<p>After your Pull Request has been reviewed and cleaned up to the best of everyone&rsquo;s ability, it will be marked for a final review by Lex, who has the final say on what is included in the project or not.</p>
+<p>이런 예외 상황들 말고는 Breaking Change 를 담고 있는 Pull Request 는 받아들여지지 않습니다. 무조건 호환성을 유지하거나, 다음 마인크래프트 업데이트까지 기다려야 합니다.</p>
+<h2 id="_6">인내심을 가지고 친절하게 대해주세요<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
+<p>Pull Request 를 제출할 땐 리뷰 과정을 거치며 여러번 수정이 일어나게 됩니다.
+리뷰 과정은 당신에 대한 심판이 아니며, 실수는 누구나 합니다. 그래서 협업을 하는 것이지요.</p>
+<p>부정적인 응답은 누구에게도 도움되지 않습니다. Pull Request 리뷰 과정을 중단하고 coremod 를 대신 작성하겠다고 하는 것은 연류된 이들의 마음을 상하게 할 뿐 아니라 모드 개발 생태계를 악화시킵니다.
+리뷰어들이 좋은 의도로 참여하고 있음을 믿고 개인적으로 받아들이지 않는 것이 중요함을 숙지해 주세요.</p>
+<h2 id="_7">리뷰<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
+<p>저희의 느리고 깐깐한 리뷰 과정을 수용하신다면 저희또한 당신의 관점에서 문제를 바라보도록 하겠습니다.
+리뷰 과정속에서 모두의 손을 거친 Pull Request 는 프로젝트에 추가될지 안될지를 최종적으로 결정하시는 Lex 씨에 의한 최종 리뷰를 거치게 됩니다.  </p>
             
         </article>
         
