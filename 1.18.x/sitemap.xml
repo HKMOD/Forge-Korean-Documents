@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hkmod.github.io/Forge-Korean-Documents/1.18.x/gameeffects/particles/</loc>
+         <lastmod>2023-02-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hkmod.github.io/Forge-Korean-Documents/1.18.x/gameeffects/sounds/</loc>
          <lastmod>2023-02-04</lastmod>
          <changefreq>daily</changefreq>
