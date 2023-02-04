@@ -363,7 +363,7 @@
         
 <li >
     
-    <a href="../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -922,11 +922,11 @@ public MyBE(BlockPos pos, BlockState state) {
 <p><code>BlockEntity</code> 를 만들고 <code>Block</code> 에 붙이기 위해서는 대상 <code>Block</code> 이 <code>EntityBlock</code> 인터페이스를 구현해야 합니다. 해당 인터페이스의 <code>EntityBlock#newBlockEntity(BlockPos, BlockState)</code> 메서드에선 블록에 부착시킬 <code>BlockEntity</code> 의 인스턴스를 반환해야 합니다.</p>
 <p>네&hellip; <code>BlockEntity</code> 에 <code>EntityBlock</code> 이라니, 말장난 같은거 저도 압니다. 모장 공식 클래스 이름인데 어쩌겠어요.</p>
 <h2 id="blockentity_1"><code>BlockEntity</code> 를 활용한 데이터 저장<a class="headerlink" href="#blockentity_1" title="Permanent link"> </a></h2>
-<p><code>BlockEntity</code> 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:
+<p><code>BlockEntity</code> 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:</p>
 <pre class="highlight"><code class="language-java">BlockEntity#saveAdditional(CompoundTag tag) // 전달된 tag 에 BlockEntity 의 추가 데이터를 저장하는 메서드
 
 BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오고, 이를 BlockEntity 에 적용하는 메서드</code></pre>
-이 메서드들은 해당 <code>BlockEntity</code> 가 들어있는 <code>LevelChunk</code> 가 불러와 질 때 호출됩니다.
+<p>이 메서드들은 해당 <code>BlockEntity</code> 가 들어있는 <code>LevelChunk</code> 가 불러와 질 때 호출됩니다.
 이들을 활용하여 <code>BlockEntity</code> 의 필드값을 저장하고 불러오세요.</p>
 <div class="admonition note">
 <p class="admonition-title">Note<p><code>BlockEntity</code> 의 데이터가 변경되었다면 <code>BlockEntity#setChanged</code> 를 호출하셔야 합니다; 그렇지 않으면 <code>LevelChunk</code> 가 해당 <code>BlockEntity</code> 를 아예 무시할 수도 있습니다!</p>
@@ -957,24 +957,24 @@ public static void tick(Level level, BlockPos pos, BlockState state, T blockEnti
 <h2 id="_3">클라이언트와 데이터 동기화하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
 <p>클라이언트와 데이터를 동기화시킬 방법은 총 3가지가 있는데: 청크를 불러올 때 동기화 하기, 블록 업데이트시 동기화 하기, 그리고 커스텀 네트워크 메세지 보내기 입니다.</p>
 <h3 id="levelchunk"><code>LevelChunk</code> 불러올 때 동기화하기<a class="headerlink" href="#levelchunk" title="Permanent link"> </a></h3>
-<p>이를 위해선 다음 두 메서드를 재정의하세요:
+<p>이를 위해선 다음 두 메서드를 재정의하세요:</p>
 <pre class="highlight"><code class="language-java">BlockEntity#getUpdateTag()
 
 IForgeBlockEntity#handleUpdateTag(CompoundTag tag)</code></pre>
-첫번째 메서드는 클라이언트로 전송되어야 할 데이터들을 수집합니다,
+<p>첫번째 메서드는 클라이언트로 전송되어야 할 데이터들을 수집합니다,
 두번째 메서드는 그렇게 수집한 데이터를 처리합니다. 만약 해당 <code>BlockEntity</code> 에 데이터가 많지 않다면 <a href="#`BlockEntity`-를-활용한-데이터-저장"><code>BlockEntity</code> 를 활용한 데이터 저장</a> 섹션에 소개된 메서드들을 응용하여 <code>BlockEntity</code> 전체를 재전송하셔도 됩니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>필요없는 데이터를 동기화 하는 것은 네트워크를 혼잡하게 만들 수 있습니다. 그렇기에 클라이언트가 필요한 정보들을 필요할 때만 보내도록 하여 네트워크를 효율적으로 활용해야 합니다. 예를 들어, 블록 엔티티의 인벤토리가 변경될 때 마다 클라이언트와 동기화를 하는 대신 <code>AbstractContainerMenu</code> 에서 동기화를 진행하도록 하여 블록의 메뉴를 열 때 인벤토리 정보를 업데이트 하도록 할 수 있습니다.</p>
 </div>
 <h3 id="_4">블록이 업데이트될 때 동기화하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
-<p>이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 재정의하면 됩니다.
+<p>이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 재정의하면 됩니다.</p>
 <pre class="highlight"><code class="language-java">BlockEntity#getUpdateTag()
 
 BlockEntity#getUpdatePacket()
 
-IForgeBlockEntity#onDataPacket</code></pre></p>
-<p>아래 예시 <code>BlockEntity</code> 를 참고하세요:
+IForgeBlockEntity#onDataPacket</code></pre>
+<p>아래 예시 <code>BlockEntity</code> 를 참고하세요:</p>
 <pre class="highlight"><code class="language-java">@Override
 public CompoundTag getUpdateTag() {
   CompoundTag tag = new CompoundTag();
@@ -989,14 +989,14 @@ public Packet&lt;ClientGamePacketListener&gt; getUpdatePacket() {
 }
 
 // IForgeBlockEntity#onDataPacket 을 재정의하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.</code></pre>
-이때 여기서 사용된 정적 생성자 <code>ClientboundBlockEntityDataPacket#create</code> 는 아래 2개의 인자를 받습니다: </p>
+<p>이때 여기서 사용된 정적 생성자 <code>ClientboundBlockEntityDataPacket#create</code> 는 아래 2개의 인자를 받습니다: </p>
 <ul>
 <li><code>BlockEntity</code>.</li>
 <li><code>CompoundTag</code> 를 <code>BlockEntity</code> 로 부터 얻어오는 함수(<code>Function&lt;BlockEntity, CompoundTag&gt;</code>). 기본값으로 <code>BlockEntity#getUpdateTag</code> 를 사용합니다.</li>
 </ul>
-<p>이제 서버측에서 블록 업데이트를 클라이언트들에 전송할 수 있습니다. 
+<p>이제 서버측에서 블록 업데이트를 클라이언트들에 전송할 수 있습니다. </p>
 <pre class="highlight"><code class="language-java">Level#sendBlockUpdated(BlockPos pos, BlockState oldState, BlockState newState, int flags)</code></pre>
-<code>pos</code> 는 업데이트할 <code>BlockEntity</code> 의 위치 입니다.
+<p><code>pos</code> 는 업데이트할 <code>BlockEntity</code> 의 위치 입니다.
 <code>oldState</code> 랑 <code>newState</code> 는 해당 위치의 <code>BlockState</code> 를 전달하시면 됩니다.
 <code>flags</code> 는 비트 마스크들로, <code>2</code> 를 포함하고 있어야 합니다. 그래야 서버가 클라이언트들에 업데이트 패킷을 전송합니다. <code>Block</code> 클래스를 참고하여 다른 플래그들의 역할 또한 볼 수 있습니다. <code>2</code> 는 <code>Block#UPDATE_CLIENTS</code> 와 동일합니다.</p>
 <h3 id="_5">커스텀 네트워크 메세지로 동기화하기<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>

@@ -363,7 +363,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -926,27 +926,19 @@
 <h2 id="_4">블록에 상태 추가하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <p>현재 만들고 계신 <code>Block</code> 클래스에 그 블록이 가질 수 있는 모든 속성들을 <code>static final</code> 로 정의된 <code>Property&lt;?&gt;</code> 객체들을 생성하거나 참조하여 표현하세요. 원하신다면 직접 <code>Property&lt;?&gt;</code> 클래스를 구현하여도 됩니다만, 이 문서에서는 이에 대해 다루진 않겠습니다. 바닐라 마인크래프트는 이미 쓸만한 이 클래스의 구현들을 여러개 제공하고 있습니다:</p>
 <ul>
-<li><code>IntegerProperty</code><ul>
+<li><code>IntegerProperty</code></li>
 <li><code>Property&lt;Integer&gt;</code> 의 구현. 정수값을 가지는 속성을 정의함.</li>
 <li><code>IntegerProperty#create(String 속성이름, int 최솟값, int 최댓값)</code> 를 호출하여 생성할 수 있음.</li>
-</ul>
-</li>
-<li><code>BooleanProperty</code><ul>
+<li><code>BooleanProperty</code></li>
 <li><code>Property&lt;Boolean&gt;</code> 의 구현. <code>참</code> 또는 <code>거짓</code> 값을 가지는 속성을 정의함.</li>
 <li><code>BooleanProperty#create(String 속성이름)</code> 를 호출하여 생성할 수 있음.</li>
-</ul>
-</li>
-<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code><ul>
+<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code></li>
 <li><code>Property&lt;E&gt;</code> 의 구현. 열거형 클래스의 열거 상수값을 가지는 속성을 정의함.</li>
 <li><code>EnumProperty#create(String 속성이름, Class&lt;E&gt; 열거형클래스)</code> 를 호출하여 생성할 수 있음.</li>
 <li>사실 열거형 클래스의 열거상수중 일부만 값으로 가지도록 할 수도 있습니다. (예를 들어 <code>DyeColor</code> 의 16개의 색상중 4개만 사용하는 경우). 자세한 내용은 <code>EnumProperty#create</code> 의 오버로드들을 참고하세요.</li>
-</ul>
-</li>
-<li><code>DirectionProperty</code><ul>
+<li><code>DirectionProperty</code></li>
 <li><code>EnumProperty&lt;Direction&gt;</code> 를 조금 더 간소화시킨 구현.</li>
 <li>여러 편리한 기능들도 제공하는데, 예를 들어 앞, 뒤, 양 옆 방향 속성을 정의하려면 <code>DirectionProperty.create("&lt;name&gt;", Direction.Plane.HORIZONTAL)</code> 를 호출하세요. X축 방향 속성을 정의려면 <code>DirectionProperty.create("&lt;name&gt;", Direction.Axis.X)</code> 를 호출하세요.</li>
-</ul>
-</li>
 </ul>
 <p><code>BlockStateProperties</code> 에는 바닐라 마인크래프트에서 제공하는 속성들이 있습니다, 그리고 가능하다면 새로운 속성을 만드시는 것 보다 이 클래스에서 제공하는 속성들을 재사용하세요.</p>
 <p>이제 원하시는 <code>Property&lt;&gt;</code> 객체가 있으니, 블록의 <code>Block#createBlockStateDefinition(StateDefinition$Builder)</code> 메서드를 재정의하세요. 이때 블록에 추가할 <code>Property&lt;?&gt;</code> 를 <code>StateDefinition$Builder#add(...);</code> 에 인자로 전달해 호출하여 속성들을 블록에 추가하실 수 있습니다.</p>

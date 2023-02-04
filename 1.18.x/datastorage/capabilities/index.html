@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -917,11 +917,11 @@
 <p>여담으로, 모드 개발자들 사이에선 캐패빌리티 인터페이스를 캐패빌리티 그 자체인것 처럼 표현하기도 합니다, <code>IItemHandler</code> 캐패빌리티라고 하면, <code>IItemHandler</code> 인터페이스를 규격으로 사용하는 캐패빌리티를 말하는 것입니다.</p>
 <h2 id="_3">이미 존재하는 캐패빌리티 사용하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
 <p>이미 이전에 말했다싶이, <code>BlockEntity</code>, <code>Entity</code>, 그리고 <code>ItemStack</code> 은 캐패빌리티 시스템을 지원합니다. <code>ICapabilityProvider</code> 인터페이스를 구현하는 것으로 캐패빌리티 시스템을 지원할 수 있습니다. 이 인터페이스를 구현하는 객체들은 캐패빌리티 제공자라고 합니다. 이 인터페이스는 <code>#getCapability</code> 메서드를 정의하는데, 이 메서드는 제공자가 가진 캐패빌리티 인터페이스 구현의 인스턴스를 감싸는 <code>LazyOptional</code> 이 반환합니다. 이에 대해서는 아래에서 더 다루도록 하겠습니다.</p>
-<p>한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. <code>IItemHandler</code> 의 경우 <code>CapabilityItemHandler#ITEM_HANDLER_CAPABILITY</code> 에 인스턴스가 할당되어 있지만, 다른 캐패빌리티들은 <code>CapabilityManager#get</code> 를 사용하여 참조할 수 있습니다
+<p>한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. <code>IItemHandler</code> 의 경우 <code>CapabilityItemHandler#ITEM_HANDLER_CAPABILITY</code> 에 인스턴스가 할당되어 있지만, 다른 캐패빌리티들은 <code>CapabilityManager#get</code> 를 사용하여 참조할 수 있습니다</p>
 <pre class="highlight"><code class="language-Java">static Capability&lt;IItemHandler&gt; ITEM_HANDLER_CAPABILITY = CapabilityManager.get(new CapabilityToken&lt;&gt;(){});
 
 static Capability&lt;IItemHandler&gt; STATIC_REFERENCE = CapabilityItemHandler#ITEM_HANDLER_CAPABILITY;
-// 위 두가지 다 동일한 캐패빌리티의 인스턴스를 반환합니다</code></pre></p>
+// 위 두가지 다 동일한 캐패빌리티의 인스턴스를 반환합니다</code></pre>
 <p><code>CapabilityManager#get</code> 은 호출되었을 경우 null 이 아닌 요청된 타입의 캐패빌리티 인스턴스를 반환합니다. <code>CapabilityToken</code> 익명 클래스는 포지가 강제적인 의존성을 부여하는 것을 피하면서, 올바른 캐패빌리티 인스턴스를 반환하기 위해 필요한 제너릭 타입 인자에 대한 정보를 제공받을 수 있도록 합니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -970,11 +970,11 @@ public void invalidateCaps() {
 <p>이 이벤트는 <code>#addCapability</code> 메서드가 있는데, 이 이벤트는 대상 제공자 객체에다가 새로운 캐패빌리티를 부착하는데 사용할 수 있습니다. 리스트에 캐패빌리티 그 자체를 추가하기 보다는 캐패빌리티 제공자를 추가합니다, 즉 이미 존재하는 제공자에다가 또 다른 제공자를 추가하는 것이지요. 이때, 추가되는 제공자들은 보편적으로 익명클래스입니다. 또한, 추가되는 제공자들은 방향에 따라 다른 캐패빌리티를 반환할 수도 있습니다. 캐패빌리티 제공자는 <code>ICapabilityProvider</code> 만 구현하면 되지만, 만약 캐패빌리티의 데이터가 유지되어야 할 경우, <code>ICapabilitySerializable&lt;T extends Tag&gt;</code> 를 대신 구현할 수도 있습니다, 이 인터페이스는 캐패빌리티를 제공하는 메서드 뿐만 아니라 NBT를 저장하고 불러오는 메서드 또한  가지고 있습니다.</p>
 <p><code>ICapabilityProvider</code> 구현에 관해서는 <a href="#캐패빌리티-노출하기">캐패빌리티 노출시키기</a> 섹션을 참고하세요.</p>
 <h2 id="_6">캐패빌리티 직접 만들기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
-<p>일반적으로, 캐패빌리티는 모드 버스에 방송되는 <code>RegisterCapabilitiesEvent</code> 이벤트에 <code>#register</code> 를 호출하여 등록됩니다.
+<p>일반적으로, 캐패빌리티는 모드 버스에 방송되는 <code>RegisterCapabilitiesEvent</code> 이벤트에 <code>#register</code> 를 호출하여 등록됩니다.</p>
 <pre class="highlight"><code class="language-java">@SubscribeEvent
 public void registerCaps(RegisterCapabilitiesEvent event) {
   event.register(IExampleCapability.class);
-}</code></pre></p>
+}</code></pre>
 <h2 id="levelchunk-blockentity">LevelChunk 와 BlockEntity 캐패빌리티 데이터 유지시키지<a class="headerlink" href="#levelchunk-blockentity" title="Permanent link"> </a></h2>
 <p>레벨, 엔티티, 아이템 스택과 다르게, 레벨 청크와 블록 엔티티들은 그 데이터가 수정되었다고 표기되었을 경우에만 디스크에 써집니다. 그렇기 때문에 레벨 청크 또는 블록 엔티티에 사용할 캐패빌리티의 데이터를 올바르게 유지시키지 위해서는 캐패빌리티의 데이터가 변경되었을 때 해당 객체의 데이터가 수정되었다고 표기하여야만 합니다.</p>
 <p>블록 엔티티에 인벤토리를 추가하는 <code>ItemStackHandler</code> 는 <code>void onContentsChanged(int slot)</code> 이라는 메서드를 가지고 있습니다. 이 메서드는 블록 엔티티의 데이터가 수정되었다고 표기하기 위해 사용됩니다.</p>

@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -916,15 +916,19 @@
 }</code></pre>
 <p>This is fairly self-explanatory, but some notes:</p>
 <ul>
-<li>The link under <code>homepage</code> is the link the user will be shown when the mod is outdated.</li>
-<li>Forge uses an internal algorithm to determine whether one version string of your mod is &ldquo;newer&rdquo; than another. Most versioning schemes should be compatible, but see the <code>ComparableVersion</code> class if you are concerned about whether your scheme is supported. Adherence to <a href="https://semver.org/">semantic versioning</a> is highly recommended.</li>
-<li>The changelog string can be separated into lines using <code>\n</code>. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.</li>
+<li>
+<p>The link under <code>homepage</code> is the link the user will be shown when the mod is outdated.</p>
+</li>
+<li>
+<p>Forge uses an internal algorithm to determine whether one version string of your mod is &ldquo;newer&rdquo; than another. Most versioning schemes should be compatible, but see the <code>ComparableVersion</code> class if you are concerned about whether your scheme is supported. Adherence to <a href="https://semver.org/">semantic versioning</a> is highly recommended.</p>
+</li>
+<li>
+<p>The changelog string can be separated into lines using <code>\n</code>. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.</p>
+</li>
 <li>
 <p>Manually inputting data can be chore. You can configure your <code>build.gradle</code> to automatically update this file when building a release as Groovy has native JSON parsing support. Doing this is left as an exercise to the reader.</p>
 </li>
-<li>
-<p>Some examples can be found here for <a href="https://cadiboo.github.io/projects/nocubes/update.json">nocubes</a>, <a href="https://github.com/Corail31/tombstone_lite/blob/master/update.json">Corail Tombstone</a> and <a href="https://github.com/Aeltumn/Chisels-and-Bits-2/blob/master/update.json">Chisels &amp; Bits 2</a>.</p>
-</li>
+<li>Some examples can be found here for <a href="https://cadiboo.github.io/projects/nocubes/update.json">nocubes</a>, <a href="https://github.com/Corail31/tombstone_lite/blob/master/update.json">Corail Tombstone</a> and <a href="https://github.com/Aeltumn/Chisels-and-Bits-2/blob/master/update.json">Chisels &amp; Bits 2</a>.</li>
 </ul>
 <h2 id="retrieving-update-check-results">Retrieving Update Check Results<a class="headerlink" href="#retrieving-update-check-results" title="Permanent link"> </a></h2>
 <p>You can retrieve the results of the Forge Update Checker using <code>VersionChecker#getResult(IModInfo)</code>. You can obtain your <code>IModInfo</code> via <code>ModContainer#getModInfo</code>. You can get your <code>ModContainer</code> using <code>ModLoadingContext.get().getActiveContainer()</code> inside your constructor, <code>ModList.get().getModContainerById(&lt;your modId&gt;)</code>, or <code>ModList.get().getModContainerByObject(&lt;your mod instance&gt;)</code>. You can obtain any other mod&rsquo;s <code>ModContainer</code> using <code>ModList.get().getModContainerById(&lt;modId&gt;)</code>. The returned object has a field <code>status</code> which indicates the status of the version check.</p>

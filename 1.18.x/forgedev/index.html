@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -840,8 +840,6 @@
         
         <li class="toc-subitem"><a href="#_6">개발 환경 설정하기</a></li>
         
-        <li class="toc-subitem"><a href="#pull-request">코드 수정 및 Pull Request 제출하기</a></li>
-        
         
     </ul>
     
@@ -935,31 +933,23 @@
 <p>Jetbrains 의 IDE 는 기본적으로 포지가 이용하는 빌드 시스템인 <a href="https://www.gradle.org">Gradle</a> 을 지원합니다. 하지만 마인크래프트 모드 개발의 특이성 때문에 설정 과정이 조금 복잡합니다.</p>
 <h4 id="idea-2021">IDEA 2021 이후<a class="headerlink" href="#idea-2021" title="Permanent link"> </a></h4>
 <ol>
-<li>IntelliJ IDEA 를 실행해 주세요.<ul>
-<li>이미 다른 프로젝트에서 작업 중이시라면 <code>파일 -&gt; 프로젝트 닫기</code> 를 눌러 기존 프로젝트를 닫아주세요.</li>
-</ul>
-</li>
+<li>IntelliJ IDEA 를 실행해 주세요.
+   - 이미 다른 프로젝트에서 작업 중이시라면 <code>파일 -&gt; 프로젝트 닫기</code> 를 눌러 기존 프로젝트를 닫아주세요.</li>
 <li>&ldquo;IntelliJ IDEA에 오신 것을 환영합니다&rdquo; 창에서, 오른쪽 위 &ldquo;열기&rdquo; 버튼을 누르고 이전에 내려받은 포지 리포지토리를 열어주세요.</li>
 <li>만약 프로젝트를 신뢰할 것인지 물어본다면 &ldquo;프로젝트 신뢰&rdquo; 를 눌러주세요.</li>
-<li>IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 다음과 같이 실행해야 합니다:<ul>
-<li>화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 <code>Tasks</code> -&gt; <code>other</code> -&gt; <code>setup</code>(<code>MinecraftForge[Setup]</code> 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.</li>
-</ul>
-</li>
-<li>실행 구성 생성하기:<ul>
-<li>화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 <code>Tasks</code> -&gt; <code>forgegradle runs</code> -&gt; <code>genIntellijRuns</code>(<code>MinecraftForge[genIntellijRuns]</code> 이라고 표시될 수도 있습니다) 를 더블 클릭해서 실행해 주세요.</li>
-<li>만약 아직 작업한 것이 없는데도 라이선스 문제가 발생한다면 <code>Tasks</code> -&gt; <code>other</code> -&gt; <code>updateLicenses</code> 를 실행하면 해결될 수도 있습니다.</li>
-</ul>
-</li>
+<li>IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 다음과 같이 실행해야 합니다:
+   - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 <code>Tasks</code> -&gt; <code>other</code> -&gt; <code>setup</code>(<code>MinecraftForge[Setup]</code> 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.</li>
+<li>실행 구성 생성하기:
+   - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 <code>Tasks</code> -&gt; <code>forgegradle runs</code> -&gt; <code>genIntellijRuns</code>(<code>MinecraftForge[genIntellijRuns]</code> 이라고 표시될 수도 있습니다) 를 더블 클릭해서 실행해 주세요.
+- 만약 아직 작업한 것이 없는데도 라이선스 문제가 발생한다면 <code>Tasks</code> -&gt; <code>other</code> -&gt; <code>updateLicenses</code> 를 실행하면 해결될 수도 있습니다.</li>
 </ol>
 <h4 id="idea-2019-2020">IDEA 2019-2020<a class="headerlink" href="#idea-2019-2020" title="Permanent link"> </a></h4>
 <p>이 설정 과정은 IDEA 2021과 크게 다르지 않습니다. </p>
 <ol>
 <li>포지의 <code>build.gradle</code> 파일을 IDEA 프로젝트로 열어주세요. &ldquo;Welcome to Intellij IDEA&rdquo; 창에서 &ldquo;Import Project&rdquo; 를 누르시고, 내려받은 포지 리포지토리의 <code>build.gradle</code> 파일을 열어주세요.</li>
-<li>IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 둘 중 하나의 방법으로 실행해야 합니다:<ol>
+<li>IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 둘 중 하나의 방법으로 실행해야 합니다:</li>
 <li>화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 <code>Tasks</code> -&gt; <code>other</code> -&gt; <code>setup</code>(<code>MinecraftForge[Setup]</code> 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.</li>
 <li>CTRL 키를 두번 누르신 다음 <code>Run</code> 명령 창에 <code>gradle setup</code> 를 적고 엔터를 누르세요.</li>
-</ol>
-</li>
 </ol>
 <p>이제 <code>forge_client</code> Gradle 작업으로 포지를 실행하실 수 있습니다 (<code>Tasks -&gt; fg_runs -&gt; forge_client</code>): 해당 작업을 우클릭 한 이후 실행 또는 디버그하시면 됩니다.</p>
 <h4 id="idea">구버전 IDEA<a class="headerlink" href="#idea" title="Permanent link"> </a></h4>
@@ -967,7 +957,8 @@
 <p>IDEA 2016 - 2018 는 설정 과정이 더 복잡하지만 그래도 사용하실 순 있습니다. 그래도 IDEA 2019 또는 이후 버전을 이용하시는 것을 강력히 권장드립니다.
 cpw 씨께서 올려주신 <a href="https://www.youtube.com/watch?v=yanCpy8p2ZE">비디오</a>를 따라 IDEA 2016.1 를 설정하실 수 있습니다.</p>
 <p>IDEA 를 이용하여 개발 환경을 구성하는 것은 이게 다입니다. 하지만 바로 포지에 동봉된 테스트 및 디버그 모드들을 바로 실행하실 순 없을 것입니다.</p>
-<h2 id="pull-request">코드 수정 및 Pull Request 제출하기<a class="headerlink" href="#pull-request" title="Permanent link"> </a></h2>
+<p>코드 수정 및 Pull Request 제출하기</p>
+<hr />
 <p>개발 환경 설정을 끝마치셨다면 이젠 포지의 코드베이스를 수정하실 차례입니다. 그렇지만, 프로젝트 코드를 수정하며 잊지 말아야 할 것은 오직 &ldquo;Forge&rdquo; 서브 프로젝트의 코드만 수정하셔야 한다는 것입니다. &ldquo;Clean&rdquo; 프로젝트를 수정하시게 되면 ForgeGradle 이 나중에 패치를 생성할 때 문제가 발생합니다. 잘못하면 개발 환경 설정을 처음부터 다시 해야 할 수도 있습니다.</p>
 <h3 id="_7">패치 생성하기<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
 <p>이제 코드 베이스를 수정하셨고 테스트도 끝마치셨다면, 패치를 생성하셔도 좋습니다. 이는 마인크래프트 코드를 수정하였을 때만 필요합니다. 포지는 패치를 이용하여 마인크래프트에 다른 코드를 주입하기 때문에 패치가 있어야 변경 사항을 주입할 수 있습니다. ForgeGradle 은 이를 위해 자동으로 패치를 생성해 줍니다.</p>

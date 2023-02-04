@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../particles/" class="elem-text">파티클</a>
+    <a href="../particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -952,65 +952,55 @@
 <p>Note that each takes a <code>SoundEvent</code>, the ones registered above. Additionally, the terms <em>&ldquo;Server Behavior&rdquo;</em> and <em>&ldquo;Client Behavior&rdquo;</em> refer to the respective <a href="../../concepts/sides/"><strong>logical</strong> side</a>.</p>
 <h3 id="level"><code>Level</code><a class="headerlink" href="#level" title="Permanent link"> </a></h3>
 <ol>
-<li>
-<p><a name="level-playsound-pbecvp"></a> <code>playSound(Player, BlockPos, SoundEvent, SoundCategory, volume, pitch)</code></p>
+<li><a name="level-playsound-pbecvp"></a> <code>playSound(Player, BlockPos, SoundEvent, SoundCategory, volume, pitch)</code></li>
+</ol>
 <ul>
 <li>Simply forwards to <a href="#level-playsound-pxyzecvp">overload (2)</a>, adding 0.5 to each coordinate of the <code>BlockPos</code> given.</li>
 </ul>
-</li>
-<li>
-<p><a name="level-playsound-pxyzecvp"></a> <code>playSound(Player, double x, double y, double z, SoundEvent, SoundCategory, volume, pitch)</code></p>
+<ol start="2">
+<li><a name="level-playsound-pxyzecvp"></a> <code>playSound(Player, double x, double y, double z, SoundEvent, SoundCategory, volume, pitch)</code></li>
+</ol>
 <ul>
 <li><strong>Client Behavior</strong>: If the passed in player is <em>the</em> client player, plays the sound event to the client player.</li>
 <li><strong>Server Behavior</strong>: Plays the sound event to everyone nearby <strong>except</strong> the passed in player. Player can be <code>null</code>.</li>
 <li><strong>Usage</strong>: The correspondence between the behaviors implies that these two methods are to be called from some player-initiated code that will be run on both logical sides at the same time: the logical client handles playing it to the user, and the logical server handles everyone else hearing it without re-playing it to the original user. They can also be used to play any sound in general at any position server-side by calling it on the logical server and passing in a <code>null</code> player, thus letting everyone hear it.</li>
 </ul>
-</li>
-<li>
-<p><a name="level-playsound-xyzecvpd"></a> <code>playLocalSound(double x, double y, double z, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code></p>
+<ol start="3">
+<li><a name="level-playsound-xyzecvpd"></a> <code>playLocalSound(double x, double y, double z, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code></li>
+</ol>
 <ul>
 <li><strong>Client Behavior</strong>: Just plays the sound event in the client level. If <code>distanceDelay</code> is <code>true</code>, then delays the sound based on how far it is from the player.</li>
 <li><strong>Server Behavior</strong>: Does nothing.</li>
 <li><strong>Usage</strong>: This method only works client-side, and thus is useful for sounds sent in custom packets, or other client-only effect-type sounds. Used for thunder.</li>
 </ul>
-</li>
-</ol>
 <h3 id="clientlevel"><code>ClientLevel</code><a class="headerlink" href="#clientlevel" title="Permanent link"> </a></h3>
 <ol>
-<li><a name="clientlevel-playsound-becvpd"></a> <code>playLocalSound(BlockPos, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code><ul>
-<li>Simply forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-xyzecvpd">overload (3)</a>, adding 0.5 to each coordinate of the <code>BlockPos</code> given.</li>
-</ul>
-</li>
+<li><a name="clientlevel-playsound-becvpd"></a> <code>playLocalSound(BlockPos, SoundEvent, SoundCategory, volume, pitch, distanceDelay)</code>
+   - Simply forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-xyzecvpd">overload (3)</a>, adding 0.5 to each coordinate of the <code>BlockPos</code> given.</li>
 </ol>
 <h3 id="entity"><code>Entity</code><a class="headerlink" href="#entity" title="Permanent link"> </a></h3>
 <ol>
-<li><a name="entity-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code><ul>
-<li>Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>null</code> as the player.</li>
-<li><strong>Client Behavior</strong>: Does nothing.</li>
-<li><strong>Server Behavior</strong>: Plays the sound event to everyone at this entity&rsquo;s position.</li>
-<li><strong>Usage</strong>: Emitting any sound from any non-player entity server-side.</li>
-</ul>
-</li>
+<li><a name="entity-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code>
+   - Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>null</code> as the player.
+   - <strong>Client Behavior</strong>: Does nothing.
+   - <strong>Server Behavior</strong>: Plays the sound event to everyone at this entity&rsquo;s position.
+   - <strong>Usage</strong>: Emitting any sound from any non-player entity server-side.</li>
 </ol>
 <h3 id="player"><code>Player</code><a class="headerlink" href="#player" title="Permanent link"> </a></h3>
 <ol>
-<li><a name="player-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#entity-playsound-evp"><code>Entity</code></a>)<ul>
-<li>Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.</li>
-<li><strong>Client Behavior</strong>: Does nothing, see override in <a href="#localplayer-playsound-evp"><code>LocalPlayer</code></a>.</li>
-<li><strong>Server Behavior</strong>: Plays the sound to everyone nearby <em>except</em> this player.</li>
-<li><strong>Usage</strong>: See <a href="#localplayer-playsound-evp"><code>LocalPlayer</code></a>.</li>
-</ul>
-</li>
+<li><a name="player-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#entity-playsound-evp"><code>Entity</code></a>)
+   - Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.
+   - <strong>Client Behavior</strong>: Does nothing, see override in <a href="#localplayer-playsound-evp"><code>LocalPlayer</code></a>.
+   - <strong>Server Behavior</strong>: Plays the sound to everyone nearby <em>except</em> this player.
+   - <strong>Usage</strong>: See <a href="#localplayer-playsound-evp"><code>LocalPlayer</code></a>.</li>
 </ol>
 <h3 id="localplayer"><code>LocalPlayer</code><a class="headerlink" href="#localplayer" title="Permanent link"> </a></h3>
 <ol>
-<li><a name="localplayer-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#player-playsound-evp"><code>Player</code></a>)<ul>
-<li>Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.</li>
-<li><strong>Client Behavior</strong>: Just plays the Sound Event.</li>
-<li><strong>Server Behavior</strong>: Method is client-only.</li>
-<li><strong>Usage</strong>: Just like the ones in <code>Level</code>, these two overrides in the player classes seem to be for code that runs together on both sides. The client handles playing the sound to the user, while the server handles everyone else hearing it without re-playing to the original user.</li>
-</ul>
-</li>
+<li><a name="localplayer-playsound-evp"></a> <code>playSound(SoundEvent, volume, pitch)</code> (overriding the one in <a href="#player-playsound-evp"><code>Player</code></a>)
+   - Forwards to <code>Level</code>&lsquo;s <a href="#level-playsound-pxyzecvp">overload (2)</a>, passing in <code>this</code> as the player.
+   - <strong>Client Behavior</strong>: Just plays the Sound Event.
+   - <strong>Server Behavior</strong>: Method is client-only.
+   - <strong>Usage</strong>: Just like the ones in <code>Level</code>, these two overrides in the player classes seem to be for code that runs together on both sides. The client handles playing the sound to the user, while the server handles everyone else hearing it without re-playing to the original user.</li>
 </ol>
             
         </article>

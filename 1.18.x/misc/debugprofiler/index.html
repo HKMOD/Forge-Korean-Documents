@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -905,7 +905,7 @@
 파일의 이름은 현재 시간으로 다음과 같이 포매팅 됩니다: <code>yyyy-mm-dd_hh_mi_ss-월드이름-게임버전.zip</code></p>
 <h2 id="_3">프로파일러 결과 보기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
 <p>각 사이드를 대표하는 폴더(<code>client</code> 랑 <code>server</code>)에는 <code>profiling.txt</code> 라는 파일이 있을텐데, 이 파일은 프로파일링 결과를 담고 있습니다. 이 파일 맨 위에는 게임 버전과 프로파일링이 진행된 시간이 밀리세컨드로 표시되어 있습니다.</p>
-<p>그 아래는 하위와 비슷한 형식으로 프로파일링 결과가 표시되어 있습니다.
+<p>그 아래는 하위와 비슷한 형식으로 프로파일링 결과가 표시되어 있습니다.</p>
 <pre class="highlight"><code>[00] levels - 96.70%/96.70%
 [01] |   Level Name - 99.76%/96.47%
 [02] |   |   tick - 99.31%/95.81%
@@ -915,7 +915,7 @@
 [05] |   |   |   |   |   unspecified - 64.26%/0.26%
 [05] |   |   |   |   |   minecraft:furnace - 33.35%/0.14%
 [05] |   |   |   |   |   minecraft:chest - 2.39%/0.01%</code></pre>
-각 부분이 무슨 뜻을 가지는지 간략하게 설명하면 다음과 같습니다:</p>
+<p>각 부분이 무슨 뜻을 가지는지 간략하게 설명하면 다음과 같습니다:</p>
 <table>
 <thead>
 <tr>
@@ -935,11 +935,11 @@
 </tbody>
 </table>
 <h2 id="_4">직접 짠 코드 프로파일링 하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
-<p>디버그 프로파일러는 <code>Entity</code> 와 <code>BlockEntity</code> 프로파일링을 자동으로 해주지만 그것 이외에 다른 것에 프로파일러를 쓰고 싶다면 다음과 같이 부분을 직접 만드셔야 합니다:
+<p>디버그 프로파일러는 <code>Entity</code> 와 <code>BlockEntity</code> 프로파일링을 자동으로 해주지만 그것 이외에 다른 것에 프로파일러를 쓰고 싶다면 다음과 같이 부분을 직접 만드셔야 합니다:</p>
 <pre class="highlight"><code class="language-java">ProfilerFiller#push(섹션 이름 : String);
 // 프로파일링할 코드
 ProfilerFiller#pop();</code></pre>
-<code>ProfilerFiller</code> 인스턴스는 <code>Level</code>, <code>MinecraftServer</code> 또는 <code>Minecraft</code> 인스턴스에서 접근하실 수 있습니다.
+<p><code>ProfilerFiller</code> 인스턴스는 <code>Level</code>, <code>MinecraftServer</code> 또는 <code>Minecraft</code> 인스턴스에서 접근하실 수 있습니다.
 이제 사용하신 부분 이름을 프로파일링 결과에서 찾아보시면 됩니다.</p>
             
         </article>

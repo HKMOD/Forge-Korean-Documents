@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -930,15 +930,15 @@ minecraft {
 <p>접근 변환자를 마인크래프트 클래스에 사용할때, 필드나 메서드 이름으로 SRG 이름을 사용하셔야 합니다.</p>
 </div>
 <h3 id="_5">클래스<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
-<p>클래스를 지정하려면:
+<p>클래스를 지정하려면:</p>
 <pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt;</code></pre>
-내부 클래스들은, 외부 클래스의 완전한 이름과 내부 클래스의 이름을 <code>$</code>로 분리하여 표시합니다.</p>
+<p>내부 클래스들은, 외부 클래스의 완전한 이름과 내부 클래스의 이름을 <code>$</code>로 분리하여 표시합니다.</p>
 <h3 id="_6">필드<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
-<p>필드를 지정하려면:
-<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;필드 이름&gt;</code></pre></p>
+<p>필드를 지정하려면:</p>
+<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;필드 이름&gt;</code></pre>
 <h3 id="_7">메서드<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
-<p>메서드를 지정하는 것은 특수한 문법을 통하여 메서드의 인자들과 반환 타입까지 표시합니다:
-<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;메서드 이름&gt;(&lt;인자의 타입들&gt;)&lt;반환 타입&gt;</code></pre></p>
+<p>메서드를 지정하는 것은 특수한 문법을 통하여 메서드의 인자들과 반환 타입까지 표시합니다:</p>
+<pre class="highlight"><code>&lt;접근 수정자&gt; &lt;완전한 클래스 이름&gt; &lt;메서드 이름&gt;(&lt;인자의 타입들&gt;)&lt;반환 타입&gt;</code></pre>
 <h4 id="specifying-types">Specifying Types<a class="headerlink" href="#specifying-types" title="Permanent link"> </a></h4>
 <p>이는 &ldquo;필드 디스크립터&rdquo;라고 불리기도 합니다.자세한 사항은  <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.3.2">Oracle 기술 문서에서 확인하세요(Java Virtual Machine Specification, SE 8, sections 4.3.2 and 4.3.3)</a></p>
 <ul>
@@ -950,22 +950,14 @@ minecraft {
 <li><code>J</code> - <code>long</code>, 64비트 정수</li>
 <li><code>S</code> - <code>short</code>, 부호가 있는 16비트 정수</li>
 <li><code>Z</code> - <code>boolean</code>, <code>true</code> 또는 <code>false</code> 인 값</li>
-<li><code>[</code> - 배열의 차원 1개를 표시함<ul>
+<li><code>[</code> - 배열의 차원 1개를 표시함</li>
 <li>예: <code>[[S</code> 는 <code>short[][]</code> 를 가리킵니다</li>
-</ul>
-</li>
-<li><code>L&lt;class name&gt;;</code> - 참조 타입을 참조함<ul>
+<li><code>L&lt;class name&gt;;</code> - 참조 타입을 참조함</li>
 <li>예: <code>Ljava/lang/String;</code> 는 참조 타입 <code>java.lang.String</code> 를 가리킵니다 <em>(빗금 대신 마침표를 사용합니다)</em></li>
-</ul>
-</li>
-<li><code>(</code> - 메서드 디스크립터를 참조합니다, 인자들은 있다면 이곳에서 기술되어야 합니다<ul>
+<li><code>(</code> - 메서드 디스크립터를 참조합니다, 인자들은 있다면 이곳에서 기술되어야 합니다</li>
 <li>예: <code>&lt;method&gt;(I)Z</code> 는 인자로 Int 1개를 받고 Boolean을 반환하는 메서드를 가리킵니다</li>
-</ul>
-</li>
-<li><code>V</code> - 반환하는 값이 없는 메서드를 가리킵니다, 메서드 디스크립터 맨 뒤에 사용할 수 있습니다<ul>
+<li><code>V</code> - 반환하는 값이 없는 메서드를 가리킵니다, 메서드 디스크립터 맨 뒤에 사용할 수 있습니다</li>
 <li>예: <code>&lt;method&gt;()V</code> 는 받는 인자가 없으며 반환하는 값도 없는 메서드를 가리킵니다</li>
-</ul>
-</li>
 </ul>
 <h2 id="_8">예제들<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
 <pre class="highlight"><code># MenuScreens 클래스의 ScreenConstructor 를 public으로 만듭니다

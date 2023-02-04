@@ -365,7 +365,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -914,7 +914,7 @@
 <p>mods.toml 은 무조건 라이선스를 지정해야만 합니다. 라이선스가 지정되지 않으면 오류가 발생합니다. 이곳을 참조하여 라이센스를 선택하세요.: https://choosealicense.com, 모든 라이센스 리스트는 이곳에 나와 있습니다: https://www.olis.or.kr/license/compareGuide.do</p>
 </div>
 <p>이 파일은 모드의 메타데이터를 정의합니다. 이 메타데이터의 일부는 메인 화면의 &lsquo;Mods&rsquo; 탭에 표시됩니다. 또한 파일 하나로 모드 여러개를 기술할 수 있습니다.</p>
-<p><code>mods.toml</code> 파일은 <a href="https://github.com/toml-lang/toml">TOML</a> 형식으로 작성되어 있습니다, MDK 에 들어있는 예제 <code>mods.toml</code> 파일은 파일의 내용을 기술하는여러 주석들이 작성되어 있습니다. 이 파일은 <code>src/main/resources/META-INF/mods.toml</code> 에 위치하고 있습니다. 모드 1개를 기술하는 간단한 <code>mods.toml</code> 은 다음과 같이 작성하실 수 있습니다:
+<p><code>mods.toml</code> 파일은 <a href="https://github.com/toml-lang/toml">TOML</a> 형식으로 작성되어 있습니다, MDK 에 들어있는 예제 <code>mods.toml</code> 파일은 파일의 내용을 기술하는여러 주석들이 작성되어 있습니다. 이 파일은 <code>src/main/resources/META-INF/mods.toml</code> 에 위치하고 있습니다. 모드 1개를 기술하는 간단한 <code>mods.toml</code> 은 다음과 같이 작성하실 수 있습니다:</p>
 <pre class="highlight"><code class="language-toml"># 사용할 모드로더의 이름입니다. - 대다수의 포지 @Mod 모드들은 javafml 을 사용합니다.
 modLoader="javafml"
 # 사용할 모드 로더의 버전 범위를 지정합니다 - 대다수의 포지 @Mod 모드들은 포지 버전을 사용합니다.
@@ -954,7 +954,7 @@ showAsResourcePack=false
     mandatory=true
     versionRange="[1.19,1.20)"
     ordering="NONE"
-    side="BOTH"</code></pre></p>
+    side="BOTH"</code></pre>
 <p>만약 문자열이 <code>${file.jarVersion}</code> 처럼 작성되었다면 포지는 런타임 도중 이 문자열을 manifest 의 <strong>Implementation Version</strong> 으로 대체합니다. 모드 개발 환경에서는 manifest 를 읽어들일 모드 jar 가 없기 때문에 <code>NONE</code> 이 대신 표시됩니다. 그렇기에 이 필드는 그대로 냅두는 것이 권장됩니다. 아래 표에는 모드가 가질 수 있는 속성들이 표시되어 있습니다, <code>필수</code> 로 표시되어 있는 속성은 기본값이 없기 때문에 무조건 정의되어야 합니다. 그렇지 않으면 오류가 날 것입니다.</p>
 <table>
 <thead>

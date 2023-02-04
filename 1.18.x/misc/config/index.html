@@ -346,7 +346,7 @@
         
 <li >
     
-    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    <a href="../../gameeffects/particles.md" class="elem-text">파티클</a>
     
     
 </li>
@@ -971,11 +971,11 @@ ConfigValue&lt;T&gt; value = builder.comment("Comment")
 <p>The values themselves can be obtained using <code>ConfigValue#get</code>. The values are additionally cached to prevent multiple readings from files.</p>
 <h4 id="additional-config-value-types">Additional Config Value Types<a class="headerlink" href="#additional-config-value-types" title="Permanent link"> </a></h4>
 <ul>
-<li><strong>Range Values</strong><ul>
+<li><strong>Range Values</strong></li>
 <li>Description: Value must be between the defined bounds</li>
 <li>Class Type: <code>Comparable&lt;T&gt;</code></li>
 <li>Method Name: <code>#defineInRange</code></li>
-<li>Additional Components:</li>
+<li>Additional Components:<ul>
 <li>The minimum and maximum the config value may be</li>
 <li>A class representing the data type of the config value</li>
 </ul>
@@ -988,43 +988,55 @@ ConfigValue&lt;T&gt; value = builder.comment("Comment")
 <ul>
 <li>
 <p><strong>Whitelisted Values</strong></p>
-<ul>
-<li>Description: Value must be in supplied collection</li>
+</li>
+<li>
+<p>Description: Value must be in supplied collection</p>
+</li>
 <li>Class Type: <code>T</code></li>
 <li>Method Name: <code>#defineInList</code></li>
-<li>Additional Components:</li>
+<li>
+<p>Additional Components:</p>
+<ul>
 <li>A collection of the allowed values the configuration can be</li>
 </ul>
 </li>
 <li>
 <p><strong>List Values</strong></p>
-<ul>
-<li>Description: Value is a list of entries</li>
+</li>
+<li>
+<p>Description: Value is a list of entries</p>
+</li>
 <li>Class Type: <code>List&lt;T&gt;</code></li>
 <li>Method Name: <code>#defineList</code>, <code>#defineListAllowEmpty</code> if list can be empty</li>
-<li>Additional Components:</li>
+<li>
+<p>Additional Components:</p>
+<ul>
 <li>A validator to make sure a deserialized element from the list is valid</li>
 </ul>
 </li>
 <li>
 <p><strong>Enum Values</strong></p>
-<ul>
-<li>Description: An enum value in the supplied collection</li>
+</li>
+<li>
+<p>Description: An enum value in the supplied collection</p>
+</li>
 <li>Class Type: <code>Enum&lt;T&gt;</code></li>
 <li>Method Name: <code>#defineEnum</code></li>
-<li>Additional Components:</li>
+<li>
+<p>Additional Components:</p>
+<ul>
 <li>A getter to convert a string or integer into an enum</li>
 <li>A collection of the allowed values the configuration can be</li>
 </ul>
 </li>
 <li>
 <p><strong>Boolean Values</strong></p>
-<ul>
-<li>Description: A <code>boolean</code> value</li>
+</li>
+<li>
+<p>Description: A <code>boolean</code> value</p>
+</li>
 <li>Class Type: <code>Boolean</code></li>
 <li>Method Name: <code>#define</code></li>
-</ul>
-</li>
 </ul>
 <h2 id="registering-a-configuration">Registering a Configuration<a class="headerlink" href="#registering-a-configuration" title="Permanent link"> </a></h2>
 <p>Once a <code>ForgeConfigSpec</code> has been built, it must be registered to allow Forge to load, track, and sync the configuration settings as required. Configurations should be registered in the mod constructor via <code>ModLoadingContext#registerConfig</code>. A configuration can be registered with a given type representing the side the config belongs to, the <code>ForgeConfigSpec</code>, and optionally a specific file name for the configuration.</p>
