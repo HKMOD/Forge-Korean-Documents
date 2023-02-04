@@ -90,8 +90,7 @@
     `ParticleFactoryRegisterEvent` 는 클라이언트 전용 코드입니다! 그렇기에 `DistExecutor` 또는 `@EventBusSubscriber` 를 통해 등록하세요!
 
 !!! important
-    `ParticleProvider` 를 `ParticleEngine#register(ParticleType, ParticleProvider)` 를 호출하여 직접 등록하시는 것은 텍스쳐를 추가하지 않을 때 이용합니다. 텍스쳐를 추가하신다면 아래 섹션을 충분히 숙지하신 후 `ParticleEngine#register(ParticleType, SpriteParticleRegistration)` 을 대신 호출하세요!    
-
+    `ParticleProvider` 를 `ParticleEngine#register(ParticleType, ParticleProvider)` 를 호출하여 직접 등록하시는 것은 텍스쳐를 추가하지 않을 때 이용합니다. 텍스쳐를 추가하신다면 아래 섹션을 충분히 숙지하신 후 `ParticleEngine#register(ParticleType, SpriteParticleRegistration)` 을 대신 호출하세요!
 
 #### ParticleDescription, SpriteSet, SpriteParticleRegistration
 
@@ -112,9 +111,9 @@
 }
 ```
 
-파티클 텍스쳐를 참조하기 위해선, `TextureSheetParticle` 의 자식 클래스는 `SpriteSet`, 또는 `SpriteSet` 에서 얻은 `TextureAtlasSprite` 를 받아야 합니다. `SpriteSet` 은 각 `ParticleDescription` 에서 등록한 텍스쳐들의 리스트를 보유합니다. `SpriteSet` 은 `TextureAtlasSprite` 를 반환하는 메서드 2개를 정의하는데, 첫 번째 메서드는 두 개의 정수를 인자로 받습니다. 이는 텍스쳐가 시간에 따라 변화할 수 있도록 하기 위함입니다. 두 번째 메서드는 무작위 텍스쳐를 반환하는 것으로, `Random` 의 인스턴스를 인자로 받습니다. `TextureSheetParticle` 은 인자로 전달된 `SpriteSet` 에서 무작위 텍스쳐를 가져와 반환하는 `#pickSprite` 와, `Particle` 의 나이와 수명으로 텍스쳐를 가져와 반환하는 `#setSpriteFromAge` 를 제공합니다.
+`TextureSheetParticle` 의 자식 클래스에서 파티클의 텍스쳐를 사용하기 위해선 `SpriteSet`, 또는 `SpriteSet` 에서 얻은 `TextureAtlasSprite` 의 참조가 필요합니다. `SpriteSet` 은 각 `ParticleDescription` 에서 등록한 텍스쳐들의 리스트를 보유합니다. `SpriteSet` 은 `TextureAtlasSprite` 를 반환하는 메서드 2개를 정의하는데, 첫 번째 메서드는 두 개의 정수를 인자로 받습니다. 이는 텍스쳐가 시간에 따라 변화할 수 있도록 하기 위함입니다. 두 번째 메서드는 무작위 텍스쳐를 반한하는 것으로, `Random` 의 인스턴스를 인자로 받습니다. `TextureSheetParticle` 은 인자로 전달된 `SpriteSet` 에서 무작위 텍스쳐를 가져와 반환하는 `#pickSprite` 와, `Particle` 의 나이와 수명으로 텍스쳐를 가져와 반환하는 `#setSpriteFromAge` 를 제공합니다.
 
-파티클의 텍스쳐들을 등록하기 위해선, `SpriteParticleRegistration` 의 인스턴스를 `ParticleEngine#register(ParticleType, SpriteParticleRegistration)` 에 전달하여 호출해 주세요. `SpriteParticleRegistration` 은 `SpriteSet` 을 받아 `ParticleProvider` 의 인스턴스를 만드는 메서드 `#create` 를 정의하는 함수형 인터페이스입니다. 이때 `ParticleProvider` 의 하위 클래스의 생성자가 `SpriteSet` 을 인자로 받도록 한 다음, `#create` 메서드에서 이를 전달하여 `ParticleProvider` 의 인스턴스를 만들고 반환하는 것이 가장 간단합니다.
+파티클의 텍스쳐들을 등록하기 위해선, `SpriteParticleRegistration` 의 인스턴스를 `ParticleEngine#register(ParticleType, SpriteParticleRegistration)` 에 전달하여 호출해 주세요. `SpriteParticleRegistration` 은 `SpriteSet` 을 받아 `ParticleProvider` 의 인스턴스를 만드는 메서드 `#create` 를 정의하는 함수형 인터페이스 입니다. 이때 `ParticleProvider` 의 하위 클래스의 생성자가 `SpriteSet` 을 인자로 받도록 한 다음, `#create` 메서드에서 이를 전달하여 `ParticleProvider` 의 인스턴스를 만들고 반환하는 것이 가장 간단합니다.
 
 파티클 소환하기
 -------------------
