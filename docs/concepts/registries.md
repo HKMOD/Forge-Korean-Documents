@@ -123,6 +123,7 @@ public static final RegistryObject<ManaType> COFFEINUM = RegistryObject.create(n
     만약 추론된 리소스 위치를 통해 객체를 참조하여 이를 필드에 주입하려고 할 때, 그 객체가 존재하지 않는다면 이에 관한 메세지가 출력될 것이며 필드에 값이 주입되지 않습니다.
 
 위에 기술된 규칙들이 복잡해 보이실 수 있으니, 몇가지 예제를 준비해 보았습니다:
+
 ```java
 @ObjectHolder("minecraft") // 상속 가능한 네임 스페이스: "minecraft"
 class AnnotatedHolder {
@@ -165,7 +166,7 @@ class AnnotatedHolder {
 
   public static Block bedrock = null;             // 어노테이션 없음, [public static final] 키워드가 있어야함.
                                                     // 그러나 없음, 그렇기에 이 필드는 무시됨.
-    
+
   public static final ItemGroup group = null;     // 어노테이션 없음, [public static final] 키워드가 있어야함.
                                                     // ItemGroup 은 이에 맞는 레지스트리가 없음.
                                                     // ItemGroup 의 조상중 맞는 레지스트리가 없음.
@@ -227,11 +228,11 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 
 각 누락된 항목마다, 이 4가지 방법중 하나를 선택하여 어떻게 처리할지 선택할 수 있습니다:
 
-|   동작   | 설명                           |
-|:------:|:-----------------------------|
+| 동작     | 설명                           |
+|:------:|:---------------------------- |
 | IGNORE | 누락된 항목을 무시하고 레지스트리 매핑을 버립니다. |
-|  WARN  | 로그에 경고를 띄웁니다.                |
-|  FAIL  | 월드를 불러오는 것을 막습니다.            |
+| WARN   | 로그에 경고를 띄웁니다.                |
+| FAIL   | 월드를 불러오는 것을 막습니다.            |
 | REMAP  | 다른 항목으로 대체합니다.               |
 
 만약 누락된 항목을 처리하는 방법이 지정되지 않았다면 플레이어에게 이에 대해 알리는 기본 동작을 수행하게 됩니다. 플레이어는 월드를 불러오고 싶을 것이기에, REMAP 을 제외한 다른 동작의 경우. 누락된 항목이 다시 추가될 수 있으니 레지스트리의 다른 객체들이 누락된 항목을 대체하는 것을 막습니다.

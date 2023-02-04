@@ -50,18 +50,18 @@ switch (meta) {
 현재 만들고 계신 `Block` 클래스에 그 블록이 가질 수 있는 모든 속성들을 `static final` 로 정의된 `Property<?>` 객체들을 생성하거나 참조하여 표현하세요. 원하신다면 직접 `Property<?>` 클래스를 구현하여도 됩니다만, 이 문서에서는 이에 대해 다루진 않겠습니다. 바닐라 마인크래프트는 이미 쓸만한 이 클래스의 구현들을 여러개 제공하고 있습니다:
 
 * `IntegerProperty`
-    * `Property<Integer>` 의 구현. 정수값을 가지는 속성을 정의함.
-    * `IntegerProperty#create(String 속성이름, int 최솟값, int 최댓값)` 를 호출하여 생성할 수 있음.
+  * `Property<Integer>` 의 구현. 정수값을 가지는 속성을 정의함.
+  * `IntegerProperty#create(String 속성이름, int 최솟값, int 최댓값)` 를 호출하여 생성할 수 있음.
 * `BooleanProperty`
-    * `Property<Boolean>` 의 구현. `참` 또는 `거짓` 값을 가지는 속성을 정의함.
-    * `BooleanProperty#create(String 속성이름)` 를 호출하여 생성할 수 있음.
+  * `Property<Boolean>` 의 구현. `참` 또는 `거짓` 값을 가지는 속성을 정의함.
+  * `BooleanProperty#create(String 속성이름)` 를 호출하여 생성할 수 있음.
 * `EnumProperty<E extends Enum<E>>`
-    * `Property<E>` 의 구현. 열거형 클래스의 열거 상수값을 가지는 속성을 정의함.
-    * `EnumProperty#create(String 속성이름, Class<E> 열거형클래스)` 를 호출하여 생성할 수 있음.
-    * 사실 열거형 클래스의 열거상수중 일부만 값으로 가지도록 할 수도 있습니다. (예를 들어 `DyeColor` 의 16개의 색상중 4개만 사용하는 경우). 자세한 내용은 `EnumProperty#create` 의 오버로드들을 참고하세요.
+  * `Property<E>` 의 구현. 열거형 클래스의 열거 상수값을 가지는 속성을 정의함.
+  * `EnumProperty#create(String 속성이름, Class<E> 열거형클래스)` 를 호출하여 생성할 수 있음.
+  * 사실 열거형 클래스의 열거상수중 일부만 값으로 가지도록 할 수도 있습니다. (예를 들어 `DyeColor` 의 16개의 색상중 4개만 사용하는 경우). 자세한 내용은 `EnumProperty#create` 의 오버로드들을 참고하세요.
 * `DirectionProperty`
-    * `EnumProperty<Direction>` 를 조금 더 간소화시킨 구현.
-    * 여러 편리한 기능들도 제공하는데, 예를 들어 앞, 뒤, 양 옆 방향 속성을 정의하려면 `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)` 를 호출하세요. X축 방향 속성을 정의려면 `DirectionProperty.create("<name>", Direction.Axis.X)` 를 호출하세요.
+  * `EnumProperty<Direction>` 를 조금 더 간소화시킨 구현.
+  * 여러 편리한 기능들도 제공하는데, 예를 들어 앞, 뒤, 양 옆 방향 속성을 정의하려면 `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)` 를 호출하세요. X축 방향 속성을 정의려면 `DirectionProperty.create("<name>", Direction.Axis.X)` 를 호출하세요.
 
 `BlockStateProperties` 에는 바닐라 마인크래프트에서 제공하는 속성들이 있습니다, 그리고 가능하다면 새로운 속성을 만드시는 것 보다 이 클래스에서 제공하는 속성들을 재사용하세요.
 

@@ -125,11 +125,11 @@ Custom ingredients can be created by implementing `IIngredientSerializer` for th
 
 There are three important methods to implement for each ingredient subclass:
 
- Method       | Description
- :---:        | :---
-getSerializer | Returns the [serializer] used to read and write the ingredient.
-test          | Returns true if the input is valid for this ingredient.
-isSimple      | Returns false if the ingredient matches on the stack's tag. `AbstractIngredient` subclasses will need to define this behavior, while `Ingredient` subclasses return `true` by default.
+| Method        | Description                                                                                                                                                                            |
+|:-------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| getSerializer | Returns the [serializer] used to read and write the ingredient.                                                                                                                        |
+| test          | Returns true if the input is valid for this ingredient.                                                                                                                                |
+| isSimple      | Returns false if the ingredient matches on the stack's tag. `AbstractIngredient` subclasses will need to define this behavior, while `Ingredient` subclasses return `true` by default. |
 
 All other defined methods are left as an exercise to the reader to use as required for the ingredient subclass.
 
@@ -137,11 +137,11 @@ All other defined methods are left as an exercise to the reader to use as requir
 
 `IIngredientSerializer` subtypes must implement three methods:
 
- Method         | Description
- :---:          | :---
-parse (JSON)    | Converts a `JsonObject` to an `Ingredient`.
-parse (Network) | Reads the network buffer to decode an `Ingredient`.
-write           | Writes an `Ingredient` to the network buffer.
+| Method          | Description                                         |
+|:---------------:|:--------------------------------------------------- |
+| parse (JSON)    | Converts a `JsonObject` to an `Ingredient`.         |
+| parse (Network) | Reads the network buffer to decode an `Ingredient`. |
+| write           | Writes an `Ingredient` to the network buffer.       |
 
 Additionally, `Ingredient` subclasses should implement `Ingredient#toJson` for use with [data generation][datagen]. `AbstractIngredient` subclasses make `#toJson` an abstract method requiring the method to be implemented.
 

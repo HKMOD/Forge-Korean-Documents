@@ -58,27 +58,30 @@ Eclipse 의 작업공간 덕분에, ForgeGradle 이 대부분의 개발 환경 �
 Jetbrains 의 IDE 는 기본적으로 포지가 이용하는 빌드 시스템인 [Gradle][gradle] 을 지원합니다. 하지만 마인크래프트 모드 개발의 특이성 때문에 설정 과정이 조금 복잡합니다.
 
 #### IDEA 2021 이후
+
 1. IntelliJ IDEA 를 실행해 주세요.
-    - 이미 다른 프로젝트에서 작업 중이시라면 `파일 -> 프로젝트 닫기` 를 눌러 기존 프로젝트를 닫아주세요.
+   - 이미 다른 프로젝트에서 작업 중이시라면 `파일 -> 프로젝트 닫기` 를 눌러 기존 프로젝트를 닫아주세요.
 2. "IntelliJ IDEA에 오신 것을 환영합니다" 창에서, 오른쪽 위 "열기" 버튼을 누르고 이전에 내려받은 포지 리포지토리를 열어주세요.
 3. 만약 프로젝트를 신뢰할 것인지 물어본다면 "프로젝트 신뢰" 를 눌러주세요.
 4. IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 다음과 같이 실행해야 합니다:
-    - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
+   - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
 5. 실행 구성 생성하기:
-    - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `forgegradle runs` -> `genIntellijRuns`(`MinecraftForge[genIntellijRuns]` 이라고 표시될 수도 있습니다) 를 더블 클릭해서 실행해 주세요.
+   - 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `forgegradle runs` -> `genIntellijRuns`(`MinecraftForge[genIntellijRuns]` 이라고 표시될 수도 있습니다) 를 더블 클릭해서 실행해 주세요.
 - 만약 아직 작업한 것이 없는데도 라이선스 문제가 발생한다면 `Tasks` -> `other` -> `updateLicenses` 를 실행하면 해결될 수도 있습니다.
 
 #### IDEA 2019-2020
+
 이 설정 과정은 IDEA 2021과 크게 다르지 않습니다. 
 
 1. 포지의 `build.gradle` 파일을 IDEA 프로젝트로 열어주세요. "Welcome to Intellij IDEA" 창에서 "Import Project" 를 누르시고, 내려받은 포지 리포지토리의 `build.gradle` 파일을 열어주세요.
 2. IDEA 가 프로젝트를 불러오고 색인 생성을 다 마쳤다면 Gradle 의 setup 작업을 둘 중 하나의 방법으로 실행해야 합니다:
-    1. 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
-    2. CTRL 키를 두번 누르신 다음 `Run` 명령 창에 `gradle setup` 를 적고 엔터를 누르세요.
+   1. 화면 오른쪽의 Gradle 탭을 연 다음, 포지 프로젝트 트리에서 `Tasks` -> `other` -> `setup`(`MinecraftForge[Setup]` 이라고 표시될 수도 있습니다) 을 더블 클릭해서 실행해 주세요.
+   2. CTRL 키를 두번 누르신 다음 `Run` 명령 창에 `gradle setup` 를 적고 엔터를 누르세요.
 
 이제 `forge_client` Gradle 작업으로 포지를 실행하실 수 있습니다 (`Tasks -> fg_runs -> forge_client`): 해당 작업을 우클릭 한 이후 실행 또는 디버그하시면 됩니다.
 
 #### 구버전 IDEA
+
 2016보다 오래된 IDEA 버전들은 포지 개발 환경에 필요한 멀티 프로젝트 및 Gradle 지원이 없어서 이용하실 수 없습니다, 
 
 IDEA 2016 - 2018 는 설정 과정이 더 복잡하지만 그래도 사용하실 순 있습니다. 그래도 IDEA 2019 또는 이후 버전을 이용하시는 것을 강력히 권장드립니다.
@@ -87,7 +90,6 @@ cpw 씨께서 올려주신 [비디오][intellijsetup]를 따라 IDEA 2016.1 를 
 IDEA 를 이용하여 개발 환경을 구성하는 것은 이게 다입니다. 하지만 바로 포지에 동봉된 테스트 및 디버그 모드들을 바로 실행하실 순 없을 것입니다.
 
 [comment]: <> (섹션 `Enabling test mods` 와 `Testing with existing mods` 는 구버전 ForgeGradle 을 기반으로 작성되었기 때문에 제거하였습니다.)
-
 코드 수정 및 Pull Request 제출하기
 --------------------------------
 

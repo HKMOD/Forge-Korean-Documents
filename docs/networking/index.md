@@ -17,4 +17,5 @@ Forge 에서는 [netty][]를 기반으로 만든 네트워크 통신을 조금 �
 그중 신생 모드를 위한 가장 간단한 방법은 [SimpleImpl][channel] 을 사용하는 것입니다, [netty][] 의 복잡한 시스템을 추상화 하고 메세지와 핸들러만 사용하여 통신을 구현할 수 있도록 합니다.
 
 [netty]: https://netty.io "Netty 공식 사이트"
+
 [channel]: ./simpleimpl.md "SimpleImpl 이란?"

@@ -35,10 +35,10 @@ Recipe Manager
 
 Recipes are loaded and stored via the `RecipeManager`. Any operations relating to getting available recipe(s) are handled by this manager. There are two important methods to know of:
 
- Method         | Description
- :---:          | :---
-`getRecipeFor`  | Gets the first recipe that matches the current input.
-`getRecipesFor` | Gets all recipes that match the current input.
+| Method          | Description                                           |
+|:---------------:|:----------------------------------------------------- |
+| `getRecipeFor`  | Gets the first recipe that matches the current input. |
+| `getRecipesFor` | Gets all recipes that match the current input.        |
 
 Each method takes in a `RecipeType`, which denotes what method is being applied to use the recipe (crafting, smelting, etc.), a `Container` which holds the configuration of the inputs, and the current level which is passed to `Recipe#matches` along with the container.
 

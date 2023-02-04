@@ -9,6 +9,7 @@ MDK 의 `build.gradle` 은 기본적으로 `runData` 를 추가하여 데이터 
 
 이미 존재하던 파일
 --------------
+
 데이터 생성을 통해 만들어지지 않은 모든 텍스쳐 및 데이터들을 참조하려면, 일단 그 데이터들이 시스템에 존재하긴 하는지를 확인하여야 합니다, 이는 이러한 참조들이 유효함을 확인하기 위함이며, 레지스트리 이름 등에 발생한 오타를 찾기 편하게 해줍니다.
 
 `ExistingFileHelper` 는 해당 데이터들이 존재하는지 확인하는 클래스입니다. 이 클래스의 인스턴스는 `GatherDataEvent#getExistingFileHelper` 를 통해 받을 수 있습니다.
@@ -42,14 +43,16 @@ MDK 의 `build.gradle` 은 기본적으로 `runData` 를 추가하여 데이터 
 `GatherDataEvent` 는 데이터 생성기가 초기화 될 때 모드 버스에 방송됩니다, `DataGenerator` 인스턴스를 이 이벤트에서 접근하실 수 있습니다. `DataGenerator#addProvider` 를 사용해 데이터 제공자를 만들고 등록하세요.
 
 ### 클라이언트 에셋
-  * `net.minecraftforge.common.data.LanguageProvider` - 언어 문자열 생성: `#addTranslations` 를 재정의하세요
-  * `ModelProvider<?>` - 모든 모델 제공자들의 기반이 되는 클래스
-    * _이 클래스들은 `net.minecraftforge.client.model.generators` 패캐지에 있습니다_
-    * `ItemModelProvider` - 아이템 모델 생성; `#registerModels` 를 재정의하세요
-    * `BlockStateProvider` - BlockState 정의, 블록 모델, 아이템 모델 생성: `#registerStatesAndModels` 를 재정의하세요
-    * `BlockModelProvider` - 블록 모델 생성; `#registerModels` 를 재정의하세요
+
+* `net.minecraftforge.common.data.LanguageProvider` - 언어 문자열 생성: `#addTranslations` 를 재정의하세요
+* `ModelProvider<?>` - 모든 모델 제공자들의 기반이 되는 클래스
+  * _이 클래스들은 `net.minecraftforge.client.model.generators` 패캐지에 있습니다_
+  * `ItemModelProvider` - 아이템 모델 생성; `#registerModels` 를 재정의하세요
+  * `BlockStateProvider` - BlockState 정의, 블록 모델, 아이템 모델 생성: `#registerStatesAndModels` 를 재정의하세요
+  * `BlockModelProvider` - 블록 모델 생성; `#registerModels` 를 재정의하세요
 
 ### 서버 데이터
+
 * [`net.minecraftforge.common.data.GlobalLootModifierProvider`][glmgen] - [전체 전리품 수정 데이터 생성][glm]; `#start` 를 재정의하세요
 * _아래 클래스들은 `net.minecraft.data` 패키지에 있습니다_
 * [`LootTableProvider`][loottablegen] - [컨테이너 전리품 테이블 생성][loottable]; `#getTables` 를 재정의하세요

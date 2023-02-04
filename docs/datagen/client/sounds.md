@@ -17,11 +17,11 @@ The `SoundDefinition` can be created using `#definition`. The definition contain
 
 A definition specifies a few methods:
 
-Method     | Description
-:---:      | :---
-`with`     | Adds a sound(s) which may be played when the definition is selected.
-`subtitle` | Sets the translation key of the definition.
-`replace`  | When `true`, removes the sounds already defined by other `sounds.json` for this definition instead of appending to it.
+| Method     | Description                                                                                                            |
+|:----------:|:---------------------------------------------------------------------------------------------------------------------- |
+| `with`     | Adds a sound(s) which may be played when the definition is selected.                                                   |
+| `subtitle` | Sets the translation key of the definition.                                                                            |
+| `replace`  | When `true`, removes the sounds already defined by other `sounds.json` for this definition instead of appending to it. |
 
 ### `SoundDefinition$Sound`
 
@@ -29,21 +29,21 @@ A sound supplied to the `SoundDefinition` can be specified using `SoundDefinitio
 
 The `SoundType` can be one of two values:
 
-Sound Type | Definition
-:---:      | :---
-`SOUND`    | Specifies a reference to the sound located at `assets/<namespace>/sounds/<path>.ogg`.
-`EVENT`    | Specifies a reference to the name of another sound defined by the `sounds.json`.
+| Sound Type | Definition                                                                            |
+|:----------:|:------------------------------------------------------------------------------------- |
+| `SOUND`    | Specifies a reference to the sound located at `assets/<namespace>/sounds/<path>.ogg`. |
+| `EVENT`    | Specifies a reference to the name of another sound defined by the `sounds.json`.      |
 
 Each `Sound` created from `SoundDefinitionsProvider#sound` can specify additional configurations on how to load and play the sound provided:
 
-Method                | Description
-:---:                 | :---
-`volume`              | Sets the volume scale of the sound, must be greater than `0`.
-`pitch`               | Sets the pitch scale of the sound, must be greater than `0`.
-`weight`              | Sets the likelihood of the sound getting played when the sound is selected.
-`stream`              | When `true`, reads the sound from file instead of loading the sound into memory. Recommended for long sounds: background music, music discs, etc.
-`attenuationDistance` | Sets the number of blocks the sound can be heard from.
-`preload`             | When `true`, immediately loads the sound into memory as soon as the resource pack is loaded.
+| Method                | Description                                                                                                                                       |
+|:---------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `volume`              | Sets the volume scale of the sound, must be greater than `0`.                                                                                     |
+| `pitch`               | Sets the pitch scale of the sound, must be greater than `0`.                                                                                      |
+| `weight`              | Sets the likelihood of the sound getting played when the sound is selected.                                                                       |
+| `stream`              | When `true`, reads the sound from file instead of loading the sound into memory. Recommended for long sounds: background music, music discs, etc. |
+| `attenuationDistance` | Sets the number of blocks the sound can be heard from.                                                                                            |
+| `preload`             | When `true`, immediately loads the sound into memory as soon as the resource pack is loaded.                                                      |
 
 ```java
 // In some SoundDefinitionsProvider#registerSounds

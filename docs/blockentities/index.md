@@ -35,19 +35,21 @@ public MyBE(BlockPos pos, BlockState state) {
 ## `BlockEntity` 를 활용한 데이터 저장
 
 `BlockEntity` 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:
+
 ```java
 BlockEntity#saveAdditional(CompoundTag tag) // 전달된 tag 에 BlockEntity 의 추가 데이터를 저장하는 메서드
 
 BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오고, 이를 BlockEntity 에 적용하는 메서드
 ```
+
 이 메서드들은 해당 `BlockEntity` 가 들어있는 `LevelChunk` 가 불러와 질 때 호출됩니다.
 이들을 활용하여 `BlockEntity` 의 필드값을 저장하고 불러오세요.
 
 !!! note
-		`BlockEntity` 의 데이터가 변경되었다면 `BlockEntity#setChanged` 를 호출하셔야 합니다; 그렇지 않으면 `LevelChunk` 가 해당 `BlockEntity` 를 아예 무시할 수도 있습니다!
+        `BlockEntity` 의 데이터가 변경되었다면 `BlockEntity#setChanged` 를 호출하셔야 합니다; 그렇지 않으면 `LevelChunk` 가 해당 `BlockEntity` 를 아예 무시할 수도 있습니다!
 
 !!! important
-		위 메서드를 재정의할 때는 `super` 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!
+        위 메서드를 재정의할 때는 `super` 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!
 
     그리고 `x`, `y`, `z`, `ForgeData`, 그리고 `ForgeCaps` 는  `super` 메서드에서 사용하는 태그들의 이름입니다!
 
@@ -79,11 +81,13 @@ public static void tick(Level level, BlockPos pos, BlockState state, T blockEnti
 ### `LevelChunk` 불러올 때 동기화하기
 
 이를 위해선 다음 두 메서드를 재정의하세요:
+
 ```java
 BlockEntity#getUpdateTag()
 
 IForgeBlockEntity#handleUpdateTag(CompoundTag tag)
 ```
+
 첫번째 메서드는 클라이언트로 전송되어야 할 데이터들을 수집합니다,
 두번째 메서드는 그렇게 수집한 데이터를 처리합니다. 만약 해당 `BlockEntity` 에 데이터가 많지 않다면 [`BlockEntity` 를 활용한 데이터 저장][데이터-저장하기] 섹션에 소개된 메서드들을 응용하여 `BlockEntity` 전체를 재전송하셔도 됩니다.
 
@@ -93,6 +97,7 @@ IForgeBlockEntity#handleUpdateTag(CompoundTag tag)
 ### 블록이 업데이트될 때 동기화하기
 
 이 방법은 살짝 더 복잡하지만, 아래 메서드 3개만 재정의하면 됩니다.
+
 ```java
 BlockEntity#getUpdateTag()
 
@@ -102,6 +107,7 @@ IForgeBlockEntity#onDataPacket
 ```
 
 아래 예시 `BlockEntity` 를 참고하세요:
+
 ```java
 @Override
 public CompoundTag getUpdateTag() {
@@ -118,15 +124,18 @@ public Packet<ClientGamePacketListener> getUpdatePacket() {
 
 // IForgeBlockEntity#onDataPacket 을 재정의하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.
 ```
+
 이때 여기서 사용된 정적 생성자 `ClientboundBlockEntityDataPacket#create` 는 아래 2개의 인자를 받습니다: 
 
 * `BlockEntity`.
 * `CompoundTag` 를 `BlockEntity` 로 부터 얻어오는 함수(`Function<BlockEntity, CompoundTag>`). 기본값으로 `BlockEntity#getUpdateTag` 를 사용합니다.
 
 이제 서버측에서 블록 업데이트를 클라이언트들에 전송할 수 있습니다. 
+
 ```java
 Level#sendBlockUpdated(BlockPos pos, BlockState oldState, BlockState newState, int flags)
 ```
+
 `pos` 는 업데이트할 `BlockEntity` 의 위치 입니다.
 `oldState` 랑 `newState` 는 해당 위치의 `BlockState` 를 전달하시면 됩니다.
 `flags` 는 비트 마스크들로, `2` 를 포함하고 있어야 합니다. 그래야 서버가 클라이언트들에 업데이트 패킷을 전송합니다. `Block` 클래스를 참고하여 다른 플래그들의 역할 또한 볼 수 있습니다. `2` 는 `Block#UPDATE_CLIENTS` 와 동일합니다.

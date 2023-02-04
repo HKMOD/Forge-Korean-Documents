@@ -1,4 +1,5 @@
 # Documentation
+
 This is the official MinecraftForge documentation, located at https://mcforge.readthedocs.org.
 
 It is intended to provide detailed documentation of Forge development concepts. This does not include javadocs.

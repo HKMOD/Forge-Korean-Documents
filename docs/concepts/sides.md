@@ -55,6 +55,7 @@ public static Object safeCallMethodExample() {
 DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ExampleClass.unsafeRunMethodExample(var1, var2));
 DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> ExampleClass::safeCallMethodExample);
 ```
+
 !!! warning
     Java 9, 또는 이후 버전은 `invokedynamic` 명령이 변경되어 `DistExecutor` 의 `#safe*` 가 개발 환경에서 더 이상 정상적으로 동작하지 않습니다, 그 대신 `BootstrapMethodError` 예외를 발생시킵니다. 그러니 `#unsafe*` 또는 [`FMLEnvironment#dist`][dist] 를 대신 사용하세요. ([해당 이슈 페이지][DistExecutor이슈페이지])
 
@@ -79,17 +80,18 @@ DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> ExampleClass::safeCallMethodExamp
 
 또, `Minecraft` 클래스와 같이 물리 클라이언트 전용 코드를, 양쪽 사이드에서 실행되거나, 또는 논리 서버에서 접근하는 것 또한 사이드를 가로지르는 것입니다. 이는 물리 클라이언트에서만 디버그를 하는 초보자 분들이 놓치기 쉬운 것입니다. 물리 클라이언트에서 작동은 되겠지만 물리 서버에서는 바로 튕깁니다.
 
-
 한쪽 사이드 전용 모드 만들기
 ----------------------
 
 최근 출시된 마인크래프트 버전에서 포지는 "sideness" 속성을 mods.toml 에서 제거하였습니다. 다시 말해서 모드를 물리 서버에 설치하든 물리 클라이언트에 설치하든 작동은 해야  한다는 것입니다. 그렇기에 한쪽 사이드만을 위한 모드를 만드신다면 이벤트 핸들러를 직접적으로 등록하기 보단 `DistExecutor#safeRunWhenOn` 또는 `DistExecutor#unsafeRunWhenOn` 를 사용하여 등록하여야 합니다. 그렇게 하여 만약 모드가 잘못된 사이드에 설치되었다면 존재는 하지만 아무것도 안하도록 하는 것이지요. 이러한 모드들은 블록이나 엔티티, 아이템 등을 등록하면 안됩니다, 왜냐하면 이러한 것들은 반대쪽 사이드에도 존재해야 하기 때문입니다.
 
 추가적으로 한쪽 사이드 전용 모드를 만드신다면 그 모드가 없는 유저가 서버에 들어올 수 있도록 하는 것이 좋습니다. 그렇기에 `IExtensionPoint$DisplayTest` extension point 를 등록하여, 해당 서버에 접속하기 위해 그 모드가 요구되지 않도록 않도록 할 수 있습니다. 이를 등록하는 방법은 다음과 같은 내용을 모드의 메인 클래스 생성자에 추가하세요:
+
 ```
 // 모드가 없어도 클라이언트에서 서버가 호환되지 않는다고 표시하지 않도록 하세요.
 ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true));
 ```
+
 이는 클라이언트가 서버 버전이 없어도 무시하도록 하고, 서버는 클라이언트에 모드 설치를 요구하지 않도록 합니다. 그렇기에 위 코드는 서버 전용 또는 클라이언트 전용 모드 둘다에서 작동합니다.
 
 [invokedynamic]: https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-6.html#jvms-6.5.invokedynamic

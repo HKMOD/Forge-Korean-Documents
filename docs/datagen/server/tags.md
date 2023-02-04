@@ -13,14 +13,14 @@ The tags provider has two methods used for generating tags: creating a tag with 
 
 When `#tag` is called, a `TagAppender` is created which acts as a chainable consumer of elements to add to the tag:
 
-Method           | Description
-:---:            | :---
-`add`            | Adds an object to a tag. 
-`addOptional`    | Adds an object to a tag through its name. If the object is not present, then the object will be skipped when loading.
-`addTag`         | Adds a tag to a tag. All elements within the inner tag are now a part of the outer tag.
-`addOptionalTag` | Adds a tag to a tag through its name. If the tag is not present, then the tag will be skipped when loading.
-`replace`        | When `true`, all previously loaded entries added to this tag from other datapacks will be discarded. If a datapack is loaded after this one, then it will still append the entries to the tag.
-`remove`         | Removes an object or tag from a tag.
+| Method           | Description                                                                                                                                                                                    |
+|:----------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add`            | Adds an object to a tag.                                                                                                                                                                       |
+| `addOptional`    | Adds an object to a tag through its name. If the object is not present, then the object will be skipped when loading.                                                                          |
+| `addTag`         | Adds a tag to a tag. All elements within the inner tag are now a part of the outer tag.                                                                                                        |
+| `addOptionalTag` | Adds a tag to a tag through its name. If the tag is not present, then the tag will be skipped when loading.                                                                                    |
+| `replace`        | When `true`, all previously loaded entries added to this tag from other datapacks will be discarded. If a datapack is loaded after this one, then it will still append the entries to the tag. |
+| `remove`         | Removes an object or tag from a tag.                                                                                                                                                           |
 
 ```java
 // In some TagProvider#addTags
@@ -40,15 +40,15 @@ this.tag(EXAMPLE_TAG_2)
 
 Minecraft contains a few tag providers for certain registries that can be subclassed instead. Additionally, some providers contain additional helper methods to more easily create tags.
 
-Registry Object Type         | Tag Provider
-:---:                        | :---
-`Block`                      | `BlockTagsProvider`
-`Item`                       | `ItemTagsProvider`
-`EntityType`                 | `EntityTypeTagsProvider`
-`Fluid`                      | `FluidTagsProvider`
-`GameEvent`                  | `GameEventTagsProvider`
-`Biome`                      | `BiomeTagsProvider`
-`ConfiguredStructureFeature` | `ConfiguredStructureTagsProvider`
+| Registry Object Type         | Tag Provider                      |
+|:----------------------------:|:--------------------------------- |
+| `Block`                      | `BlockTagsProvider`               |
+| `Item`                       | `ItemTagsProvider`                |
+| `EntityType`                 | `EntityTypeTagsProvider`          |
+| `Fluid`                      | `FluidTagsProvider`               |
+| `GameEvent`                  | `GameEventTagsProvider`           |
+| `Biome`                      | `BiomeTagsProvider`               |
+| `ConfiguredStructureFeature` | `ConfiguredStructureTagsProvider` |
 
 #### `ItemTagsProvider#copy`
 

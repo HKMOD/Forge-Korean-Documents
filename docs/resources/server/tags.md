@@ -5,6 +5,7 @@ Tags are generalized sets of objects in the game used for grouping related thing
 
 Declaring Your Own Groupings
 ----------------------------
+
 Tags are declared in your mod's [datapack][datapack]. For example, a `TagKey<Block>` with a given identifier of  `modid:foo/tagname` will reference a tag at `/data/<modid>/tags/blocks/foo/tagname.json`. Tags for `Block`s, `Item`s, `EntityType`s, `Fluid`s, and `GameEvent`s use the plural forms for their folder location while all other registries use the singular version (`EntityType` uses the folder `entity_types` while `Potion` would use the folder `potion`).
 Similarly, you may append to or override tags declared in other domains, such as Vanilla, by declaring your own JSONs.
 For example, to add your own mod's saplings to the Vanilla sapling tag, you would specify it in `/data/minecraft/tags/blocks/saplings.json`, and Vanilla will merge everything into one tag at reload, if the `replace` option is false.
@@ -30,9 +31,9 @@ See the [Vanilla wiki][tags] for a description of the base syntax.
 There is also a Forge extension on the Vanilla syntax.
 You may declare a `remove` array of the same format as the `values` array. Any values listed here will be removed from the tag. This acts as a finer grained version of the Vanilla `replace` option.
 
-
 Using Tags In Code
 ------------------
+
 Tags for all registries are automatically sent from the server to any remote clients on login and reload. `Block`s, `Item`s, `EntityType`s, `Fluid`s, and `GameEvent`s are special cased as they have `Holder`s allowing for available tags to be accessible through the object itself.
 
 !!! note
@@ -50,12 +51,12 @@ Custom registries can create tags when constructing their `DeferredRegister` via
 
 There are four methods of creating a tag wrapper:
 
-Method                          | For
-:---:                           | :---
-`*Tags#create`                  | `Block`, `Item`, `EntityType`, `Fluid`, and `Biome` where `*` represents one of these types.
-`ITagManager#createTagKey`      | Forge wrapped vanilla registries, registries can be obtained from `ForgeRegistries`.
-`DeferredRegister#createTagKey` | Custom forge registries.
-`TagKey#create`                 | Vanilla registries without forge wrappers, registries can be obtained from `Registry`.
+| Method                          | For                                                                                          |
+|:-------------------------------:|:-------------------------------------------------------------------------------------------- |
+| `*Tags#create`                  | `Block`, `Item`, `EntityType`, `Fluid`, and `Biome` where `*` represents one of these types. |
+| `ITagManager#createTagKey`      | Forge wrapped vanilla registries, registries can be obtained from `ForgeRegistries`.         |
+| `DeferredRegister#createTagKey` | Custom forge registries.                                                                     |
+| `TagKey#create`                 | Vanilla registries without forge wrappers, registries can be obtained from `Registry`.       |
 
 Registry objects can check their tags or registry objects either through their `Holder` or through `ITag`/`IReverseTag` for vanilla or forge registry objects respectively.
 
@@ -66,6 +67,7 @@ Forge registry objects can grab their tag definition using either `ITagManager#g
 Tag-holding registry objects contain a method called `#is` in either their registry object or state-aware class to check whether the object belongs to a certain tag.
 
 As an example:
+
 ```java
 public static final TagKey<Item> myItemTag = ItemTags.create(new ResourceLocation("mymod", "myitemgroup"));
 
@@ -96,7 +98,6 @@ There are several conventions that will help facilitate compatibility in the eco
 * Tag naming conventions should follow Vanilla conventions. In particular, item and block groupings are plural instead of singular (e.g. `minecraft:logs`, `minecraft:saplings`).
 * Item tags should be sorted into subdirectories according to their type (e.g. `forge:ingots/iron`, `forge:nuggets/brass`, etc.).
 
-
 Migration from OreDictionary
 ----------------------------
 
@@ -105,7 +106,6 @@ Migration from OreDictionary
 * If you are declaring a new type of item grouping, follow a couple naming conventions:
   * Use `domain:type/material`. When the name is a common one that all modders should adopt, use the `forge` domain.
   * For example, brass ingots should be registered under the `forge:ingots/brass` tag and cobalt nuggets under the `forge:nuggets/cobalt` tag.
-
 
 Using Tags in Recipes and Advancements
 --------------------------------------

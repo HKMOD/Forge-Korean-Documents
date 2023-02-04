@@ -25,6 +25,7 @@
 이미 이전에 말했다싶이, `BlockEntity`, `Entity`, 그리고 `ItemStack` 은 캐패빌리티 시스템을 지원합니다. `ICapabilityProvider` 인터페이스를 구현하는 것으로 캐패빌리티 시스템을 지원할 수 있습니다. 이 인터페이스를 구현하는 객체들은 캐패빌리티 제공자라고 합니다. 이 인터페이스는 `#getCapability` 메서드를 정의하는데, 이 메서드는 제공자가 가진 캐패빌리티 인터페이스 구현의 인스턴스를 감싸는 `LazyOptional` 이 반환합니다. 이에 대해서는 아래에서 더 다루도록 하겠습니다.
 
 한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. `IItemHandler` 의 경우 `CapabilityItemHandler#ITEM_HANDLER_CAPABILITY` 에 인스턴스가 할당되어 있지만, 다른 캐패빌리티들은 `CapabilityManager#get` 를 사용하여 참조할 수 있습니다
+
 ```Java
 static Capability<IItemHandler> ITEM_HANDLER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
 
@@ -75,7 +76,6 @@ public void invalidateCaps() {
 }
 ```
 
-
 `Item` 들은 조금 특이하게 다루어야 하는데, 캐패빌리티 제공자들을 `Item` 이 아니라 `ItemStack` 에 부착하기 때문입니다. 그렇기 때문에 `Item#initCapabilities` 에서 새로운 제공자들을 부착하여야 합니다. 이때 부착된 캐패빌리티들은 그 아이템 스택의 생명주기가 끝나면 무효화 됩니다.
 
 캐패빌리티 요청은 매 틱마다, 수십번씩 발생할 수 있으니, 캐패빌리티 제공자는 매우 빨라야만 합니다, 그렇지 않으면 게임의 전반적인 성능을 저해할 수 있습니다. 그렇기 때문에 외부 자료구조 등을 사용하는 것은 권장되지 않습니다.
@@ -101,6 +101,7 @@ public void invalidateCaps() {
 ----------------------------
 
 일반적으로, 캐패빌리티는 모드 버스에 방송되는 `RegisterCapabilitiesEvent` 이벤트에 `#register` 를 호출하여 등록됩니다.
+
 ```java
 @SubscribeEvent
 public void registerCaps(RegisterCapabilitiesEvent event) {

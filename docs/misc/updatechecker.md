@@ -32,12 +32,14 @@ The JSON itself has a relatively simple format as follows:
 ```
 
 This is fairly self-explanatory, but some notes:
- 
-* The link under `homepage` is the link the user will be shown when the mod is outdated.
-* Forge uses an internal algorithm to determine whether one version string of your mod is "newer" than another. Most versioning schemes should be compatible, but see the `ComparableVersion` class if you are concerned about whether your scheme is supported. Adherence to [semantic versioning][semver] is highly recommended.
-* The changelog string can be separated into lines using `\n`. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.
-* Manually inputting data can be chore. You can configure your `build.gradle` to automatically update this file when building a release as Groovy has native JSON parsing support. Doing this is left as an exercise to the reader.
 
+* The link under `homepage` is the link the user will be shown when the mod is outdated.
+
+* Forge uses an internal algorithm to determine whether one version string of your mod is "newer" than another. Most versioning schemes should be compatible, but see the `ComparableVersion` class if you are concerned about whether your scheme is supported. Adherence to [semantic versioning][semver] is highly recommended.
+
+* The changelog string can be separated into lines using `\n`. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.
+
+* Manually inputting data can be chore. You can configure your `build.gradle` to automatically update this file when building a release as Groovy has native JSON parsing support. Doing this is left as an exercise to the reader.
 - Some examples can be found here for [nocubes][], [Corail Tombstone][corail] and [Chisels & Bits 2][chisel].
 
 Retrieving Update Check Results
@@ -45,14 +47,14 @@ Retrieving Update Check Results
 
 You can retrieve the results of the Forge Update Checker using `VersionChecker#getResult(IModInfo)`. You can obtain your `IModInfo` via `ModContainer#getModInfo`. You can get your `ModContainer` using `ModLoadingContext.get().getActiveContainer()` inside your constructor, `ModList.get().getModContainerById(<your modId>)`, or `ModList.get().getModContainerByObject(<your mod instance>)`. You can obtain any other mod's `ModContainer` using `ModList.get().getModContainerById(<modId>)`. The returned object has a field `status` which indicates the status of the version check.
 
-|          Status | Description |
-|----------------:|:------------|
-|        `FAILED` | The version checker could not connect to the URL provided. |
-|    `UP_TO_DATE` | The current version is equal to or newer than the latest stable version. |
-|      `OUTDATED` | There is a new stable version. |
-| `BETA_OUTDATED` | There is a new unstable version. |
-|          `BETA` | The current version is equal to or newer than the latest unstable version. |
-|       `PENDING` | The result requested has not finished yet, so you should try again in a little bit. |
+| Status          | Description                                                                         |
+| ---------------:|:----------------------------------------------------------------------------------- |
+| `FAILED`        | The version checker could not connect to the URL provided.                          |
+| `UP_TO_DATE`    | The current version is equal to or newer than the latest stable version.            |
+| `OUTDATED`      | There is a new stable version.                                                      |
+| `BETA_OUTDATED` | There is a new unstable version.                                                    |
+| `BETA`          | The current version is equal to or newer than the latest unstable version.          |
+| `PENDING`       | The result requested has not finished yet, so you should try again in a little bit. |
 
 The returned object will also have the target version and any changelog lines as specified in `update.json`.
 

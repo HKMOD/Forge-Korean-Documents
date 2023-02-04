@@ -9,8 +9,8 @@ Creating a Game Test
 A standard Game Test follows three basic steps:
 
 1. A structure, or template, is loaded holding the scene on which the interaction or behavior is tested.
-1. A method conducts the logic to perform on the scene.
-1. The method logic executes. If a successful state is reached, then the test succeeds. Otherwise, the test fails and the result is stored within a lectern adjacent to the scene.
+2. A method conducts the logic to perform on the scene.
+3. The method logic executes. If a successful state is reached, then the test succeeds. Otherwise, the test fails and the result is stored within a lectern adjacent to the scene.
 
 As such, to create a Game Test, there must be an existing template holding the initial start state of the scene and a method which provides the logic of execution.
 
@@ -59,12 +59,12 @@ A Game Test method is responsible for one thing: marking the test was successful
 
 There are many abstracted methods within `GameTestHelper` which can be used to define a successful state; however, four are extremely important to be aware of.
 
-Method               | Description
-:---:                | :---
-`#succeed`           | The test is marked as successful.
-`#succeedIf`         | The supplied `Runnable` is tested immediately and succeeds if no `GameTestAssertException` is thrown. If the test does not succeed on the immediate tick, then it is marked as a failure.
-`#succeedWhen`       | The supplied `Runnable` is tested every tick until timeout and succeeds if the check on one of the ticks does not throw a `GameTestAssertException`.
-`#succeedOnTickWhen` | The supplied `Runnable` is tested on the specified tick and will succeed if no `GameTestAssertException` is thrown. If the `Runnable` succeeds on any other tick, then it is marked as a failure.
+| Method               | Description                                                                                                                                                                                       |
+|:--------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#succeed`           | The test is marked as successful.                                                                                                                                                                 |
+| `#succeedIf`         | The supplied `Runnable` is tested immediately and succeeds if no `GameTestAssertException` is thrown. If the test does not succeed on the immediate tick, then it is marked as a failure.         |
+| `#succeedWhen`       | The supplied `Runnable` is tested every tick until timeout and succeeds if the check on one of the ticks does not throw a `GameTestAssertException`.                                              |
+| `#succeedOnTickWhen` | The supplied `Runnable` is tested on the specified tick and will succeed if no `GameTestAssertException` is thrown. If the `Runnable` succeeds on any other tick, then it is marked as a failure. |
 
 !!! important
     Game Tests are executed every tick until the test is marked as a success. As such, methods which schedule success on a given tick must be careful to always fail on any previous tick.
@@ -73,11 +73,11 @@ Method               | Description
 
 Not all actions will occur when a test begins. Actions can be scheduled to occur at specific times or intervals:
 
-Method           | Description
-:---:            | :---
-`#runAtTickTime` | The action is ran on the specified tick.
-`#runAfterDelay` | The action is ran `x` ticks after the current tick.
-`#onEachTick`    | The action is ran every tick.
+| Method           | Description                                         |
+|:----------------:|:--------------------------------------------------- |
+| `#runAtTickTime` | The action is ran on the specified tick.            |
+| `#runAfterDelay` | The action is ran `x` ticks after the current tick. |
+| `#onEachTick`    | The action is ran every tick.                       |
 
 #### Assertions
 
@@ -215,13 +215,13 @@ Running Game Tests
 
 Game Tests can be run using the `/test` command. The `test` command is highly configurable; however, only a few are of importance to running tests:
 
-Subcommand  | Description
-:---:       | :---
-`run`       | Runs the specified test: `run <test_name>`.
-`runall`    | Runs all available tests.
-`runthis`   | Runs the nearest test to the player within 15 blocks.
-`runthese`  | Runs tests within 200 blocks of the player.
-`runfailed` | Runs all tests that failed in the previous run.
+| Subcommand  | Description                                           |
+|:-----------:|:----------------------------------------------------- |
+| `run`       | Runs the specified test: `run <test_name>`.           |
+| `runall`    | Runs all available tests.                             |
+| `runthis`   | Runs the nearest test to the player within 15 blocks. |
+| `runthese`  | Runs tests within 200 blocks of the player.           |
+| `runfailed` | Runs all tests that failed in the previous run.       |
 
 !!! note
     Subcommands follow the test command: `/test <subcommand>`.

@@ -23,12 +23,12 @@
 
 // This event is on the forge bus
 private void forgeEventHandler(AddReloadListenerEvent event) {
-	// Do things here
+    // Do things here
 }
 
 // 이 이벤트는 모드 버스에서 방송됩니다
 private static void modEventHandler(RegistryEvent.Register<RecipeSerializer<?>> event) {
-	// ...
+    // ...
 }
 
 // 모드의 생성자
@@ -42,10 +42,10 @@ modEventBus.addGenericListener(RecipeSerializer.class, ExampleMod::modEventHandl
 
 ```java
 public class MyForgeEventHandler {
-	@SubscribeEvent
-	public void pickupItem(EntityItemPickupEvent event) {
-		System.out.println("아이템을 주웠습니다!!");
-	}
+    @SubscribeEvent
+    public void pickupItem(EntityItemPickupEvent event) {
+        System.out.println("아이템을 주웠습니다!!");
+    }
 }
 ```
 
@@ -57,10 +57,10 @@ public class MyForgeEventHandler {
 
 ```java
 public class MyStaticForgeEventHandler {
-	@SubscribeEvent
-	public static void arrowNocked(ArrowNockEvent event) {
-		System.out.println("화살 당겨짐!");
-	}
+    @SubscribeEvent
+    public static void arrowNocked(ArrowNockEvent event) {
+        System.out.println("화살 당겨짐!");
+    }
 }
 ```
 
@@ -77,10 +77,10 @@ public class MyStaticForgeEventHandler {
 ```java
 @Mod.EventBusSubscriber(modid = "mymod", bus = Bus.FORGE, value = Dist.CLIENT)
 public class MyStaticClientOnlyEventHandler {
-	@SubscribeEvent
-	public static void drawLast(RenderLevelLastEvent event) {
-		System.out.println("월드 그리는중!");
-	}
+    @SubscribeEvent
+    public static void drawLast(RenderLevelLastEvent event) {
+        System.out.println("월드 그리는중!");
+    }
 }
 ```
 

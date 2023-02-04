@@ -54,11 +54,11 @@ A `RecipeSerializer` is responsible for decoding JSONs and communicating across 
 
 Only three methods need to be implemented for a `RecipeSerializer`:
 
- Method     | Description
- :---:      | :---
-fromJson    | Decodes a JSON into the `Recipe` subtype.
-toNetwork   | Encodes a `Recipe` to the buffer to send to the client. The recipe identifier does not need to be encoded.
-fromNetwork | Decodes a `Recipe` from the buffer sent from the server. The recipe identifier does not need to be decoded.
+| Method      | Description                                                                                                 |
+|:-----------:|:----------------------------------------------------------------------------------------------------------- |
+| fromJson    | Decodes a JSON into the `Recipe` subtype.                                                                   |
+| toNetwork   | Encodes a `Recipe` to the buffer to send to the client. The recipe identifier does not need to be encoded.  |
+| fromNetwork | Decodes a `Recipe` from the buffer sent from the server. The recipe identifier does not need to be decoded. |
 
 !!! tip
     For ease of convenience, the `RecipeSerializer` subtype can extend `ForgeRegistryEntry` to implement the methods within `IForgeRegistryEntry`.

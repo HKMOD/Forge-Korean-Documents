@@ -8,10 +8,10 @@ Creating a Configuration
 
 A configuration can be created using a subtype of `IConfigSpec`. Forge implements the type via `ForgeConfigSpec` and enables its construction through `ForgeConfigSpec$Builder`. The builder can separate the config values into sections via `Builder#push` to create a section and `Builder#pop` to leave a section. Afterwards, the configuration can be built using one of two methods:
 
- Method     | Description
- :---       | :---
-`build`     | Creates the `ForgeConfigSpec`.
-`configure` | Creates a pair of the class holding the config values and the `ForgeConfigSpec`.
+| Method      | Description                                                                      |
+|:----------- |:-------------------------------------------------------------------------------- |
+| `build`     | Creates the `ForgeConfigSpec`.                                                   |
+| `configure` | Creates a pair of the class holding the config values and the `ForgeConfigSpec`. |
 
 !!! note
     `ForgeConfigSpec$Builder#configure` is typically used with a `static` block and a class that takes in `ForgeConfigSpec$Builder` as part of its constructor to attach and hold the values:
@@ -21,7 +21,7 @@ A configuration can be created using a subtype of `IConfigSpec`. Forge implement
     ExampleConfig(ForgeConfigSpec.Builder builder) {
       // Define values here in final fields
     }
-
+    
     // Somewhere the constructor is accessible
     static {
       Pair<ExampleConfig, ForgeConfigSpec> pair = new ForgeConfigSpec.Builder()
@@ -32,11 +32,11 @@ A configuration can be created using a subtype of `IConfigSpec`. Forge implement
 
 Each config value can be supplied with additional context to provide additional behavior. Contexts must be defined before the config value is fully built:
 
-Method       | Description
-:---         | :---
-`comment`      | Provides a description of what the config value does. Can provide multiple strings for a multiline comment.
-`translation`  | Provides a translation key for the name of the config value.
-`worldRestart` | The world must be restarted before the config value can be changed.
+| Method         | Description                                                                                                 |
+|:-------------- |:----------------------------------------------------------------------------------------------------------- |
+| `comment`      | Provides a description of what the config value does. Can provide multiple strings for a multiline comment. |
+| `translation`  | Provides a translation key for the name of the config value.                                                |
+| `worldRestart` | The world must be restarted before the config value can be changed.                                         |
 
 ### ConfigValue
 
@@ -63,42 +63,46 @@ The values themselves can be obtained using `ConfigValue#get`. The values are ad
 #### Additional Config Value Types
 
 * **Range Values**
-    * Description: Value must be between the defined bounds
-    * Class Type: `Comparable<T>`
-    * Method Name: `#defineInRange`
-    * Additional Components:
-      * The minimum and maximum the config value may be
-      * A class representing the data type of the config value
+  * Description: Value must be between the defined bounds
+  * Class Type: `Comparable<T>`
+  * Method Name: `#defineInRange`
+  * Additional Components:
+    * The minimum and maximum the config value may be
+    * A class representing the data type of the config value
 
 !!! note
     `DoubleValue`s, `IntValue`s, and `LongValue`s are range values which specify the class as `Double`, `Integer`, and `Long` respectively.
 
 * **Whitelisted Values**
-    * Description: Value must be in supplied collection
-    * Class Type: `T`
-    * Method Name: `#defineInList`
-    * Additional Components:
-      * A collection of the allowed values the configuration can be
+  
+  * Description: Value must be in supplied collection
+  * Class Type: `T`
+  * Method Name: `#defineInList`
+  * Additional Components:
+    * A collection of the allowed values the configuration can be
 
 * **List Values**
-    * Description: Value is a list of entries
-    * Class Type: `List<T>`
-    * Method Name: `#defineList`, `#defineListAllowEmpty` if list can be empty
-    * Additional Components:
-      * A validator to make sure a deserialized element from the list is valid
+  
+  * Description: Value is a list of entries
+  * Class Type: `List<T>`
+  * Method Name: `#defineList`, `#defineListAllowEmpty` if list can be empty
+  * Additional Components:
+    * A validator to make sure a deserialized element from the list is valid
 
 * **Enum Values**
-    * Description: An enum value in the supplied collection
-    * Class Type: `Enum<T>`
-    * Method Name: `#defineEnum`
-    * Additional Components:
-      * A getter to convert a string or integer into an enum
-      * A collection of the allowed values the configuration can be
+  
+  * Description: An enum value in the supplied collection
+  * Class Type: `Enum<T>`
+  * Method Name: `#defineEnum`
+  * Additional Components:
+    * A getter to convert a string or integer into an enum
+    * A collection of the allowed values the configuration can be
 
 * **Boolean Values**
-    * Description: A `boolean` value
-    * Class Type: `Boolean`
-    * Method Name: `#define`
+  
+  * Description: A `boolean` value
+  * Class Type: `Boolean`
+  * Method Name: `#define`
 
 Registering a Configuration
 ---------------------------
@@ -112,11 +116,11 @@ ModLoadingContext.get().registerConfig(Type.COMMON, CONFIG);
 
 Here is a list of the available configuration types:
 
-Type   | Loaded           | Synced to Client | Client Location                              | Server Location                      | Default File Suffix
-:---:  | :---:            | :---:            | :---:                                        | :---:                                | :---
-CLIENT | Client Side Only | No               | `.minecraft/config`                          | N/A                                  | `-client`
-COMMON | On Both Sides    | No               | `.minecraft/config`                          | `<server_folder>/config`             | `-common`
-SERVER | Server Side Only | Yes              | `.minecraft/saves/<level_name>/serverconfig` | `<server_folder>/world/serverconfig` | `-server`
+| Type   | Loaded           | Synced to Client | Client Location                              | Server Location                      | Default File Suffix |
+|:------:|:----------------:|:----------------:|:--------------------------------------------:|:------------------------------------:|:------------------- |
+| CLIENT | Client Side Only | No               | `.minecraft/config`                          | N/A                                  | `-client`           |
+| COMMON | On Both Sides    | No               | `.minecraft/config`                          | `<server_folder>/config`             | `-common`           |
+| SERVER | Server Side Only | Yes              | `.minecraft/saves/<level_name>/serverconfig` | `<server_folder>/world/serverconfig` | `-server`           |
 
 !!! tip
     Forge documents the [config types][type] within their codebase.

@@ -13,7 +13,7 @@ Currently, conditional loading is implemented for recipes and advancements. For 
   // The type needs to be specified for recipes as they can have custom serializers
   // Advancements do not need this type
   "type": "forge:conditional",
-  
+
   "recipes": [ // Or 'advancements' for Advancements
     {
       // The conditions to check
@@ -59,7 +59,6 @@ Boolean conditions consist of no data and return the expected value of the condi
 ### Not, And, and Or
 
 Boolean operator conditions consist of the condition(s) being operated upon and apply the following logic. They are represented by `forge:not`, `forge:and`, and `forge:or`.
-
 
 ```js
 // For some condition
@@ -136,10 +135,10 @@ Custom conditions can be created by implementing `ICondition` and its associated
 
 Any condition only need to implement two methods:
 
-Method | Description
-:---:  | :---
-getID  | The registry name of the condition. Must be equivalent to [`IConditionSerializer#getID`][serializer]. Used only for [data generation][datagen].
-test   | Returns true if the condition has been satisfied.
+| Method | Description                                                                                                                                     |
+|:------:|:----------------------------------------------------------------------------------------------------------------------------------------------- |
+| getID  | The registry name of the condition. Must be equivalent to [`IConditionSerializer#getID`][serializer]. Used only for [data generation][datagen]. |
+| test   | Returns true if the condition has been satisfied.                                                                                               |
 
 !!! note
     Every `#test` has access to some `IContext` representing the state of the game. Currently, only tags can be obtained from a registry.
@@ -148,11 +147,11 @@ test   | Returns true if the condition has been satisfied.
 
 Serializers need to implement three methods:
 
-Method | Description
-:---:  | :---
-getID  | The registry name of the condition. Must be equivalent to [`ICondition#getID`][condition].
-read   | Reads the condition data from JSON.
-write  | Writes the given condition data to JSON.
+| Method | Description                                                                                |
+|:------:|:------------------------------------------------------------------------------------------ |
+| getID  | The registry name of the condition. Must be equivalent to [`ICondition#getID`][condition]. |
+| read   | Reads the condition data from JSON.                                                        |
+| write  | Writes the given condition data to JSON.                                                   |
 
 !!! note
     Condition serializers are not responsible for writing or reading the type of the serializer, similar to other serializer implementations in Minecraft.

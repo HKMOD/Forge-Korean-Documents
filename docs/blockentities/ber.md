@@ -15,6 +15,7 @@ BER 을 만들기 위해서는 `BlockEntityRenderer` 의 자식 클래스를 만
 이 메서드는 `BlockEntity` 를 렌더링하기 위해 매 프레임마다 호출됩니다.
 
 #### 메서드의 인자들
+
 * `blockEntity`: 렌더링할 `BlockEntity`.
 * `partialTicks`: 이전 틱으로부터 시간이 얼마나 지났는지 알려주는 0.0 부터 1.0 사이의 값. 0.0이면 이전 틱 끝나고 바로, 1.0 이면 현재 틱 끝나기 직전임.
 * `poseStack`: `BlockEntity` 를 화면의 올바른 위치에 렌더링하기 위한 4x4 행렬들이 들어있는 스택.
