@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -890,7 +904,7 @@
         <article class="docs-entry">
             
             <h1 id="_1">버전 구조<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
-<p>일반적으로 프로젝트들은 <a href="https://semver.org/lang/ko/">유의적 버전</a>를 사용합니다(이는 <code>MAJOR.MINOR.PATH</code> 포맷을 사용합니다). 그러나 모드 개발에 있어서는 <code>MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATH</code> 를 사용하여 월드에 영향을 주거나 API 와 더이상 호환되지 않는 변경점을 구분하는 것이 더 나을 수 있습니다.</p>
+<p>일반적으로 프로젝트들은 <a href="https://semver.org/lang/ko/">유의적 버전</a>를 사용합니다(이는 <code>MAJOR.MINOR.PATH</code> 포맷을 사용합니다). 그러나 모드 개발에 있어서는 <code>MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATH</code>를 사용하여 월드에 영향을 주거나 API 와 더이상 호환되지 않는 변경점을 구분하는 것이 더 나을 수 있습니다.</p>
 <h2 id="_2">예시<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
 <p>다음 상황들은 위에서 말한 포맷에서 사용하는 변수들의 값이 증가할 때 입니다:</p>
 <ul>
@@ -919,7 +933,7 @@
 <h3 id="_5">최종 릴리즈<a class="headerlink" href="#_5" title="Permanent link"> </a></h3>
 <p>특정 마인크래프트 버전 지원을 중단할 때는 그 마지막 빌드에 <code>-final</code> 접미사를 붙여야 합니다. 이는 이 모드가 더 이상 지원을 받지 않을 것이며 업데이트와 버그 패치를 받기 위해서는 새로운 마인크래프트 버전으로 업그레이드 하여야 함을 뜻합니다.</p>
 <h3 id="_6">시험 릴리즈<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
-<p>아직 개발중인 기능을 시험판처럼 배포할 수도 있습니다, 이는 하나의 &ldquo;베타&rdquo; 테스트 처럼 볼 수 있으며 버전에 <code>-betaX</code> 접미사를 사용하셔야 합니다, 이때 <code>X</code> 는 출시된 시험판 갯수 입니다.(이 가이드에서는 현재로썬 <code>-pre</code> 를 사용하지 않습니다, 이는 <code>-beta</code> 의 이명이 아닙니다). 이미 출시된 버전 또는 초기 릴리즈 이전에 사용한 버전들은 시험판 버전으로 사용하실 수 없습니다; 그렇기에 버전 변수를 를 <code>-beta</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 초기 릴리즈 이전 빌드들은 작업중인 빌드입니다.</p>
+<p>아직 개발중인 기능을 시험판처럼 배포할 수도 있습니다, 이는 하나의 &ldquo;베타&rdquo; 테스트 처럼 볼 수 있으며 버전에 <code>-betaX</code> 접미사를 사용하셔야 합니다, 이때 <code>X</code> 는 출시된 시험판 갯수 입니다.(이 가이드에서는 현재로썬 <code>-pre</code>를 사용하지 않습니다, 이는 <code>-beta</code> 의 이명이 아닙니다). 이미 출시된 버전 또는 초기 릴리즈 이전에 사용한 버전들은 시험판 버전으로 사용하실 수 없습니다; 그렇기에 버전 변수를를 <code>-beta</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 초기 릴리즈 이전 빌드들은 작업중인 빌드입니다.</p>
 <h3 id="_7">출시 후보<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
 <p>출시 후보는 실제로 버전을 변경하기 이전에 출시하는 시험판과 같습니다. 이 버전들은 <code>-rcX</code> 접미사를 사용하여야 하며, 이때 <code>X</code> 는 출시 후보 갯수입니다, 이 값은 일반적으로 버그 패치 할때만 증가됩니다. 이미 출시된 버전은 출시 후보를 사용하실 수 없습니다; 그렇기에 버전 변수를 <code>rc</code> 접미사를 붙이기 이전에 올바르게 변경하셔야 합니다(이때 일반적으로 <code>MINOR</code> 만 변경하지만 <code>MAJOR</code> 또는 <code>MAJORMOD</code> 또한 변경될 수 있습니다). 출시 후보를 안정 빌드로 릴리즈 할때 마지막 출시 후보와 완전히 똑같거나 몇몇 버그 패치를 포함할 수도 있습니다.</p>
             

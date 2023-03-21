@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -924,7 +938,7 @@ public void registerBlocks(RegistryEvent.Register&lt;Block&gt; event) {
     event.getRegistry().registerAll(new Block(...), new Block(...), ...);
 }</code></pre>
 <h3 id="_3">포지 레지스트리가 아닌 레지스트리들<a class="headerlink" href="#_3" title="Permanent link"> </a></h3>
-<p>바닐라코드의 몇몇 특성 때믄에, 포지가 모든 레지스트리를 감쌀 순 없습니다. <code>RecipeType</code> 과 같은 정적이라서 사용해도 안전한 레지스트리나, <code>ConfiguredFeature</code> 와 같은 동적 레지스트리, 또는 월드젠 관련된 레지스트리들이 있습니다, 이 레지스트리들은 보통 JSON 을 통해 관리 및 등록을 합니다. 이러한 레지스트리에 등록하는 것은 다른 레지스트리 객체가 필요로 할때만 하여야 합니다. <code>DeferredRegister#create</code> 는 동명의 메서드, 또는 오버로드가 여러개 있는데, 그중 <code>RegistryObject</code> 들이 등록될 바닐라 레지스트리의 레지스트리 키를 받는 것도 있습니다. 이를 통해 만든 <code>DeferredRegister</code> 의 인스턴스는 다른 인스턴스들과 동일한 방식으로 객체를 등록하거나 모드 버스에 등록할 수 있습니다. </p>
+<p>바닐라코드의 몇몇 특성 때믄에, 포지가 모든 레지스트리를 감쌀 순 없습니다. <code>RecipeType</code> 과 같은 정적이라서 사용해도 안전한 레지스트리나, <code>ConfiguredFeature</code> 와 같은 동적 레지스트리, 또는 월드젠 관련된 레지스트리들이 있습니다, 이 레지스트리들은 보통 JSON을 통해 관리 및 등록을 합니다. 이러한 레지스트리에 등록하는 것은 다른 레지스트리 객체가 필요로 할때만 하여야 합니다. <code>DeferredRegister#create</code> 는 동명의 메서드, 또는 오버로드가 여러개 있는데, 그중 <code>RegistryObject</code> 들이 등록될 바닐라 레지스트리의 레지스트리 키를 받는 것도 있습니다. 이를 통해 만든 <code>DeferredRegister</code> 의 인스턴스는 다른 인스턴스들과 동일한 방식으로 객체를 등록하거나 모드 버스에 등록할 수 있습니다. </p>
 <pre class="highlight"><code class="language-java">private static final DeferredRegister&lt;RecipeType&lt;?&gt;&gt; REGISTER = DeferredRegister.create(Registry.RECIPE_TYPE_REGISTRY, "examplemod");
 
 // RecipeType 은 인터페이스이기 때문에, 익명 클래스를 생성하여 등록합니다
@@ -943,8 +957,8 @@ public static final RegistryObject&lt;RecipeType&lt;ExampleRecipe&gt;&gt; EXAMPL
 <p>객체를 등록하실때 이를 특정 필드에 저장하면 안됩니다, 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 이벤트가 방송될때 마다 새로 만들어 지고 등록되어야 하기 때문입니다. 이는 추후에 포지에서 동적으로 모드를 활성화/비활성화하기 위함입니다.</p>
 <p>등록되는 객체들은 무조건 <code>RegistryObject</code> 또는 <code>@ObjectHolder</code> 어노테이션이 있는 필드를 통하여 참조되어야만 합니다.</p>
 <h3 id="registryobject">RegistryObject 로 참조하기<a class="headerlink" href="#registryobject" title="Permanent link"> </a></h3>
-<p><code>RegistryObject</code>들은 등록된 객체들의 참조를 반환합니다. 등록되지 않은 객체에는 사용하실 수 없습니다. <code>DeferredRegister</code> 를 통해 등록하시면 <code>RegistryObject</code> 의 인스턴스의 참조가 반환됩니다. <code>@ObjectHolder</code> 어노테이션과 <code>RegistryObject</code> 들은 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 가 방송될때 갱신됩니다.</p>
-<p><code>RegistryObject</code> 인스턴스의 참조를 다른 방법으로 얻기 위해서는 <code>RegistryObject#create</code> 를 등록된 객체의 <code>ResourceLocation</code>과 레지스트리의 <code>IForgeRegistry</code> 를 사용하여 호출하세요. 커스텀 레지스트리는 등록될 객체들의 클래스를 공급하는 공급자를 이용하여 <code>RegistryObject</code>에 접근할 수 있습니다. <code>RegistryObject</code>를 <code>public static final</code> 필드를 이용해 저장하고 <code>#get</code> 함수를 이용해 등록된 객체에 접근하세요.</p>
+<p><code>RegistryObject</code>들은 등록된 객체들의 참조를 반환합니다. 등록되지 않은 객체에는 사용하실 수 없습니다. <code>DeferredRegister</code>를 통해 등록하시면 <code>RegistryObject</code> 의 인스턴스의 참조가 반환됩니다. <code>@ObjectHolder</code> 어노테이션과 <code>RegistryObject</code> 들은 알맞는 <code>RegistryEvent$Register&lt;T&gt;</code> 가 방송될때 갱신됩니다.</p>
+<p><code>RegistryObject</code> 인스턴스의 참조를 다른 방법으로 얻기 위해서는 <code>RegistryObject#create</code>를 등록된 객체의 <code>ResourceLocation</code>과 레지스트리의 <code>IForgeRegistry</code>를 사용하여 호출하세요. 커스텀 레지스트리는 등록될 객체들의 클래스를 공급하는 공급자를 이용하여 <code>RegistryObject</code>에 접근할 수 있습니다. <code>RegistryObject</code>를 <code>public static final</code> 필드를 이용해 저장하고 <code>#get</code> 함수를 이용해 등록된 객체에 접근하세요.</p>
 <p><code>RegistryObject</code> 사용 예시:</p>
 <pre class="highlight"><code class="language-java">public static final RegistryObject&lt;Item&gt; BOW = RegistryObject.create(new ResourceLocation("minecraft:bow"), ForgeRegistries.ITEMS);
 
@@ -952,16 +966,16 @@ public static final RegistryObject&lt;RecipeType&lt;ExampleRecipe&gt;&gt; EXAMPL
 public static final RegistryObject&lt;ManaType&gt; COFFEINUM = RegistryObject.create(new ResourceLocation("neomagicae", "coffeinum"), new ResourceLocation("neomagicae", "mana_type"), "neomagicae");</code></pre>
 <h3 id="objectholder">@ObjectHolder 사용하기<a class="headerlink" href="#objectholder" title="Permanent link"> </a></h3>
 <p><code>@ObjectHolder</code> 어노테이션을 클래스 또는 필드에 달고 <code>ResourceLocation</code>을 추론해 내기 충분한 정보를 제공하여,  <code>public static</code> 필드에 레지스트리의 등록된 객체들을 주입할 수 있습니다.</p>
-<p><code>@ObjectHolder</code> 를 사용하는 방법은 다음과 같습니다:</p>
+<p><code>@ObjectHolder</code>를 사용하는 방법은 다음과 같습니다:</p>
 <ul>
-<li>만약 클래스에 <code>@ObjectHolder</code> 어노테이션이 있다면, 어노테이션의 value 를 그 클래스의 필드들의 네임스페이스 기본값으로 사용합니다.</li>
-<li>만약 클래스에 <code>@Mod</code> 어노테이션이 있다면, <code>modid</code> 를 그 클래스의 네임스페이스 기본값으로 사용합니다.</li>
+<li>만약 클래스에 <code>@ObjectHolder</code> 어노테이션이 있다면, 어노테이션의 value를 그 클래스의 필드들의 네임스페이스 기본값으로 사용합니다.</li>
+<li>만약 클래스에 <code>@Mod</code> 어노테이션이 있다면, <code>modid</code>를 그 클래스의 네임스페이스 기본값으로 사용합니다.</li>
 <li>필드가 다음 조건들을 충족시킨다면 주입이 이루어 집니다:</li>
 <li>최소한 <code>public static</code> 키워드가 있을때;</li>
 <li>다음중 하나라도 참일때:<ul>
 <li>필드를 <strong>감싸는 클래스</strong>에 <code>@ObjectHolder</code> 어노테이션이 있으며 필드가 <code>final</code> 이라면:</li>
 <li>필드의 이름을 리소스 위치의 경로로 사용합니다.</li>
-<li>리소스 위치의 네임 스페이스는 클래스의 <code>ObjectHolder</code>의 value 를 상속받아 사용합니다.</li>
+<li>리소스 위치의 네임 스페이스는 클래스의 <code>ObjectHolder</code>의 value를 상속받아 사용합니다.</li>
 <li><em>만약 네임 스페이스를 찾을 수도, 상속 받을 수도 없다면 예외가 발생합니다.</em></li>
 <li><strong>필드</strong>에 <code>@ObjectHolder</code>가 있을때:</li>
 <li>리소스 위치의 경로는 필드의 어노테이션의 value 값을 사용합니다.</li>
@@ -1053,20 +1067,20 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
                                                     // 그렇기에, 이는 예외를 발생시킴.
 }</code></pre>
 <h2 id="_5">커스텀 포지 레지스트리 만들기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
-<p>모드에서 커스텀 레지스트리를 만들 때 Map<K, V> 를 사용하여 만드는 경우는 꽤나 흔합니다; 그러나 이는 강제적으로 레지스트리에 의존성을 부여하며 사이드간의 데이터 동기화를 수동으로 시켜 주어야 한다는 단점이 있습니다. 커스텀 포지 레지스트리는 강제적인 의존성을 피하고, 자동으로 동기화를 해 주며(설정시 변경 가능) 관리또한 잘 해주는 참 좋은 대안입니다. 등록되는 객체들도 포지 레지스트리 시스템을 사용하니 등록 과정이 동일합니다.</p>
-<p>커스텀 포지 레지스트리는 <code>NewRegistryEvent</code> 또는 <code>DeferredRegister</code> 를 통해 <code>RegistryBuilder</code> 를 사용하여 만듭니다. <code>RegistryBuilder</code> 는 레지스트리의 이름, 레지스트리에 등록될 객체들의 클래스, 여러 이벤트들에 반응할 콜백들 등 여러가지 설정 가능한 속성들이 있습니다. 새롭게 만들어진 레지스트리들은 <code>RegistryManager</code> 에 <code>NewRegistryEvent</code> 가 끝나고 등록됩니다. </p>
-<p>레지스트리에 등록될 객체의 클래스는 무조건 <code>IForgeRegisterEntry</code> 인터페이스를 구현하여야 합니다, 이 인터페이스는 <code>#setRegistryName</code> 과 <code>#getRegistryName</code> 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 <code>ForgeRegistryEntry</code> 를 상속하는 것이 권장됩니다, 이 클래스는 <code>IForgeRegistryEntry</code> 인터페이스의 기본적인 구현을 제공합니다. <code>#setRegistryName(String)</code> 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 해당 모드의 아이디로 추론됩니다.</p>
+<p>모드에서 커스텀 레지스트리를 만들 때 Map<K, V>를 사용하여 만드는 경우는 꽤나 흔합니다; 그러나 이는 강제적으로 레지스트리에 의존성을 부여하며 사이드간의 데이터 동기화를 수동으로 시켜 주어야 한다는 단점이 있습니다. 커스텀 포지 레지스트리는 강제적인 의존성을 피하고, 자동으로 동기화를 해 주며(설정시 변경 가능) 관리또한 잘 해주는 참 좋은 대안입니다. 등록되는 객체들도 포지 레지스트리 시스템을 사용하니 등록 과정이 동일합니다.</p>
+<p>커스텀 포지 레지스트리는 <code>NewRegistryEvent</code> 또는 <code>DeferredRegister</code>를 통해 <code>RegistryBuilder</code>를 사용하여 만듭니다. <code>RegistryBuilder</code> 는 레지스트리의 이름, 레지스트리에 등록될 객체들의 클래스, 여러 이벤트들에 반응할 콜백들 등 여러가지 설정 가능한 속성들이 있습니다. 새롭게 만들어진 레지스트리들은 <code>RegistryManager</code> 에 <code>NewRegistryEvent</code> 가 끝나고 등록됩니다. </p>
+<p>레지스트리에 등록될 객체의 클래스는 무조건 <code>IForgeRegisterEntry</code> 인터페이스를 구현하여야 합니다, 이 인터페이스는 <code>#setRegistryName</code> 과 <code>#getRegistryName</code> 메서드를 정의합니다. 이 인터페이스를 바로 구현하는 것 보단 <code>ForgeRegistryEntry</code>를 상속하는 것이 권장됩니다, 이 클래스는 <code>IForgeRegistryEntry</code> 인터페이스의 기본적인 구현을 제공합니다. <code>#setRegistryName(String)</code> 이 문자열을 인자로 받아 호출될 때, 만약 그 문자열에 네임 스페이스가 포함되어 있지 않다면, 이는 자동으로 해당 모드의 아이디로 추론됩니다.</p>
 <p>모든 새로 만들어진 레지스트리들 또한 <a href="#객체-등록하기">이 방법들</a>을 통해 객체들을 등록하여야 합니다.</p>
 <h3 id="newregistryevent">NewRegistryEvent 쓰기<a class="headerlink" href="#newregistryevent" title="Permanent link"> </a></h3>
-<p><code>NewRegistryEvent</code> 를 사용할 때, <code>#create</code> 를 <code>RegistryBuilder</code> 를 인자로 호출하면 <code>Supplier</code> 로 감싸진 레지스트리가 반환됩니다. 이 감싸진 레지스트리는 모드 버스에 방송된 <code>NewRegistryEvent</code> 가 완전히 끝난 이후 접근하실 수 있으며, 그 이전에 접근하실 경우 <code>null</code> 이 대신 반환됩니다.</p>
+<p><code>NewRegistryEvent</code>를 사용할 때, <code>#create</code>를 <code>RegistryBuilder</code>를 인자로 호출하면 <code>Supplier</code> 로 감싸진 레지스트리가 반환됩니다. 이 감싸진 레지스트리는 모드 버스에 방송된 <code>NewRegistryEvent</code> 가 완전히 끝난 이후 접근하실 수 있으며, 그 이전에 접근하실 경우 <code>null</code> 이 대신 반환됩니다.</p>
 <h3 id="deferredregister_1">DeferredRegister 쓰기<a class="headerlink" href="#deferredregister_1" title="Permanent link"> </a></h3>
-<p><code>DeferredRegister</code> 는, 다시 말하지만, 위 이벤트를 사용하는 wrapper 입니다. <code>DeferredRegister</code> 를 레지스트리 이름과 모드 아이디를 인자로 받는 오버로드 메서드 <code>#create</code> 를 통해 생성하고 이를 상수 필드에 할당한 이후, <code>DeferredRegister#makeRegistry</code> 를 통해 레지스트리를 생성하실 수 있습니다. 이 메서드는 레지스트리에 등록될 객체의 클래스와 생성될 레지스트리의 속성 및 설정값들을 담고 있는 <code>RegistryBuilder</code> 를 감싸는 <code>Supplier</code> 를 인자로 받습니다. <code>DeferredRegister#makeRegistry</code> 는 자동으로 <code>RegistryBuilder#setName</code> 과 <code>RegistryBuilder#setType</code> 을 호출합니다. 해당 메서드는 언제든지 반환될 수 있기 때문에 <code>IForgeRegistry</code> 를 <code>Supplier</code> 로 감싼 것을 대신 반환합니다. <code>NewRegistryEvent</code> 가 끝나기 이전 커스텀 레지스트리에 접근하려고 하면 <code>null</code> dㅣ 대신 반환됩니다.</p>
+<p><code>DeferredRegister</code> 는, 다시 말하지만, 위 이벤트를 사용하는 wrapper 입니다. <code>DeferredRegister</code>를 레지스트리 이름과 모드 아이디를 인자로 받는 오버로드 메서드 <code>#create</code>를 통해 생성하고 이를 상수 필드에 할당한 이후, <code>DeferredRegister#makeRegistry</code>를 통해 레지스트리를 생성하실 수 있습니다. 이 메서드는 레지스트리에 등록될 객체의 클래스와 생성될 레지스트리의 속성 및 설정값들을 담고 있는 <code>RegistryBuilder</code>를 감싸는 <code>Supplier</code>를 인자로 받습니다. <code>DeferredRegister#makeRegistry</code> 는 자동으로 <code>RegistryBuilder#setName</code> 과 <code>RegistryBuilder#setType</code>을 호출합니다. 해당 메서드는 언제든지 반환될 수 있기 때문에 <code>IForgeRegistry</code>를 <code>Supplier</code> 로 감싼 것을 대신 반환합니다. <code>NewRegistryEvent</code> 가 끝나기 이전 커스텀 레지스트리에 접근하려고 하면 <code>null</code> dㅣ 대신 반환됩니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><code>DeferredRegister#makeRegistry</code> 는 무조건 <code>DeferredRegister#register</code> 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, <code>#makeRegistry</code> 는 <code>#register</code> 를 통해 등록 되어야만 <code>NewRegistryEvent</code> 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 <code>#makeRegistry</code> 를 먼저 하시고 <code>#register</code> 를 이후에 하는 것을 잊지 마세요.</p>
+<p><code>DeferredRegister#makeRegistry</code> 는 무조건 <code>DeferredRegister#register</code> 가 호출되어 모드 버스에 등록되기 이전에 호출되어야만 합니다. 또한, <code>#makeRegistry</code> 는 <code>#register</code>를 통해 등록 되어야만 <code>NewRegistryEvent</code> 이벤트 도중 레지스트리를 만들 수 있습니다. 그러니 <code>#makeRegistry</code>를 먼저 하시고 <code>#register</code>를 이후에 하는 것을 잊지 마세요.</p>
 </div>
 <h2 id="_6">누락된 항목 처리하기<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
-<p>가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 <code>RegistryEvent$MissingMappings</code> 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 <code>getMappings</code> 를 통해 해당 모드의 누락된 매핑 리스트를 받아올 수 있으며, <code>#getAllMappings</code> 를 통해 어떤 모드에서 이 오류가 발생했는가와 관련 없이 모든 매핑들을 받아올 수 있습니다.</p>
+<p>가끔씩, 모드가 업데이트되거나 제거되었을 때 레지스트리의 객체가 갑자기 없어질 수도 있습니다. 갑자기 없어진 항목을 처리하는 방법을 세번째 레지스트리 이벤트인 <code>RegistryEvent$MissingMappings</code> 이벤트로 지정할 수 있습니다. 이 이벤트 도중에 <code>getMappings</code>를 통해 해당 모드의 누락된 매핑 리스트를 받아올 수 있으며, <code>#getAllMappings</code>를 통해 어떤 모드에서 이 오류가 발생했는가와 관련 없이 모든 매핑들을 받아올 수 있습니다.</p>
 <p>각 누락된 항목마다, 이 4가지 방법중 하나를 선택하여 어떻게 처리할지 선택할 수 있습니다:</p>
 <table>
 <thead>
@@ -1094,7 +1108,7 @@ class UnannotatedHolder { // 이 클래스는 @ObjectHolder 가 없음.
 </tr>
 </tbody>
 </table>
-<p>만약 누락된 항목을 처리하는 방법이 지정되지 않았다면 플레이어에게 이에 대해 알리는 기본 동작을 수행하게 됩니다. 플레이어는 월드를 불러오고 싶을 것이기에, REMAP 을 제외한 다른 동작의 경우. 누락된 항목이 다시 추가될 수 있으니 레지스트리의 다른 객체들이 누락된 항목을 대체하는 것을 막습니다.</p>
+<p>만약 누락된 항목을 처리하는 방법이 지정되지 않았다면 플레이어에게 이에 대해 알리는 기본 동작을 수행하게 됩니다. 플레이어는 월드를 불러오고 싶을 것이기에, REMAP을 제외한 다른 동작의 경우. 누락된 항목이 다시 추가될 수 있으니 레지스트리의 다른 객체들이 누락된 항목을 대체하는 것을 막습니다.</p>
             
         </article>
         

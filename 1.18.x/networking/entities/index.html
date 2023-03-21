@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -905,13 +919,13 @@
 <h2 id="_3">동적인 데이터<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
 <h3 id="_4">데이터 파라미터<a class="headerlink" href="#_4" title="Permanent link"> </a></h3>
 <p>이는 바닐라에서 엔티티의 데이터를 서버와 클라이언트끼리 동기화 시킬때 주로 사용하는 시스템입니다. 그러다보니 바닐라에는 이를 참고할 만한 것들이 많습니다.</p>
-<p>일단, 원하는 데이터를 동기화 시킬 <code>EntityDataAccessor&lt;T&gt;</code> 객체가 필요합니다. 이 객체는 엔티티의 <code>static final</code> 필드에 할당되어야 합니다. 이 객체의 참조는 <code>SynchedEntityData#defineId</code> 에 엔티티의 클래스와 데이터를 직렬화할 serializer 를 전달하는 것으로 얻으실 수 있습니다. 사용 가능한 serializer 는 <code>EntityDataSerializers</code> 클래스에서 찾아보실 수 있습니다.</p>
+<p>일단, 원하는 데이터를 동기화 시킬 <code>EntityDataAccessor&lt;T&gt;</code> 객체가 필요합니다. 이 객체는 엔티티의 <code>static final</code> 필드에 할당되어야 합니다. 이 객체의 참조는 <code>SynchedEntityData#defineId</code> 에 엔티티의 클래스와 데이터를 직렬화할 serializer를 전달하는 것으로 얻으실 수 있습니다. 사용 가능한 serializer 는 <code>EntityDataSerializers</code> 클래스에서 찾아보실 수 있습니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>데이터 파라미터는 <strong>무조건</strong> 당신이 직접 만드시는 엔티티에만, <strong>그 엔티티 클래스 안에서만</strong> 사용하셔야 합니다.
 당신이 만드는 엔티티 이외의 엔티티에 파라미터를 추가하시면 그 데이터를 보낼때 사용하는 ID의 동기화를 깨버릴 수 있으며 디버그하기 힘든 튕기는 오류들을 유발할 수 있습니다.</p>
 </div>
-<p>그 다음 <code>Entity#defineSynchedData</code> 를 재정의하고 그 메서드 안에서 <code>this.entityData.define(...)</code> 를 각각의 데이터 파라미터와 기본값을 전달하여 호출하세요. 늘 <code>super</code> 메서드를 먼저 호출하시는 것을 잊지 마세요!</p>
+<p>그 다음 <code>Entity#defineSynchedData</code>를 재정의하고 그 메서드 안에서 <code>this.entityData.define(...)</code>를 각각의 데이터 파라미터와 기본값을 전달하여 호출하세요. 늘 <code>super</code> 메서드를 먼저 호출하시는 것을 잊지 마세요!</p>
 <p>그다음에는 엔티티의 <code>entityData</code> 인스턴스를 통해 데이터 파라미터의 값을 변경하고 읽으실 수 있습니다. 클라이언트에는 변경사항이 자동으로 보내집니다.</p>
             
         </article>

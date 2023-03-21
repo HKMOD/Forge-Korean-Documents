@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -902,7 +916,7 @@
             <h1 id="_1">모드 구조 짜기<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
 <p>한번 모드 파일들을 어떻게 나누고 정리하는지, 그리고 어떤 파일이 무슨 역할을 하는지 살펴보도록 하죠.</p>
 <h2 id="_2">패캐지 이름 쓰기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
-<p>패키지 이름으로는 고유한 이름을 사용하세요, 만약 프로젝트와 연관된 URL 이 있다면 최상위 패키지로 사용하실 수 있습니다. 예를 들어, &ldquo;example.com&rdquo; 을 소유하고 계신다면 <code>com.example</code> 을 최상위 패키지로 사용하실 수 있습니다. 최상위 패캐지를 만드는 것은 선택사항입니다.</p>
+<p>패키지 이름으로는 고유한 이름을 사용하세요, 만약 프로젝트와 연관된 URL 이 있다면 최상위 패키지로 사용하실 수 있습니다. 예를 들어, &ldquo;example.com&rdquo;을 소유하고 계신다면 <code>com.example</code>을 최상위 패키지로 사용하실 수 있습니다. 최상위 패캐지를 만드는 것은 선택사항입니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>소유하고 계시지 않은 도메인을 최상위 패캐지로 사용하지 마세요. 고유하기만 하다면 도메인 말고도 이메일이나, 이름 또는 닉네임을 사용하실 수도 있습니다.</p>
@@ -915,7 +929,7 @@
 </div>
 <p>이 파일은 모드의 메타데이터를 정의합니다. 이 메타데이터의 일부는 메인 화면의 &lsquo;Mods&rsquo; 탭에 표시됩니다. 또한 파일 하나로 모드 여러개를 기술할 수 있습니다.</p>
 <p><code>mods.toml</code> 파일은 <a href="https://github.com/toml-lang/toml">TOML</a> 형식으로 작성되어 있습니다, MDK 에 들어있는 예제 <code>mods.toml</code> 파일은 파일의 내용을 기술하는여러 주석들이 작성되어 있습니다. 이 파일은 <code>src/main/resources/META-INF/mods.toml</code> 에 위치하고 있습니다. 모드 1개를 기술하는 간단한 <code>mods.toml</code> 은 다음과 같이 작성하실 수 있습니다:</p>
-<pre class="highlight"><code class="language-toml"># 사용할 모드로더의 이름입니다. - 대다수의 포지 @Mod 모드들은 javafml 을 사용합니다.
+<pre class="highlight"><code class="language-toml"># 사용할 모드로더의 이름입니다. - 대다수의 포지 @Mod 모드들은 javafml을 사용합니다.
 modLoader="javafml"
 # 사용할 모드 로더의 버전 범위를 지정합니다 - 대다수의 포지 @Mod 모드들은 포지 버전을 사용합니다.
 # 1.19 포지 버전은 41 입니다.
@@ -955,7 +969,7 @@ showAsResourcePack=false
     versionRange="[1.19,1.20)"
     ordering="NONE"
     side="BOTH"</code></pre>
-<p>만약 문자열이 <code>${file.jarVersion}</code> 처럼 작성되었다면 포지는 런타임 도중 이 문자열을 manifest 의 <strong>Implementation Version</strong> 으로 대체합니다. 모드 개발 환경에서는 manifest 를 읽어들일 모드 jar 가 없기 때문에 <code>NONE</code> 이 대신 표시됩니다. 그렇기에 이 필드는 그대로 냅두는 것이 권장됩니다. 아래 표에는 모드가 가질 수 있는 속성들이 표시되어 있습니다, <code>필수</code> 로 표시되어 있는 속성은 기본값이 없기 때문에 무조건 정의되어야 합니다. 그렇지 않으면 오류가 날 것입니다.</p>
+<p>만약 문자열이 <code>${file.jarVersion}</code> 처럼 작성되었다면 포지는 런타임 도중 이 문자열을 manifest 의 <strong>Implementation Version</strong> 으로 대체합니다. 모드 개발 환경에서는 manifest를 읽어들일 모드 jar 가 없기 때문에 <code>NONE</code> 이 대신 표시됩니다. 그렇기에 이 필드는 그대로 냅두는 것이 권장됩니다. 아래 표에는 모드가 가질 수 있는 속성들이 표시되어 있습니다, <code>필수</code> 로 표시되어 있는 속성은 기본값이 없기 때문에 무조건 정의되어야 합니다. 그렇지 않으면 오류가 날 것입니다.</p>
 <table>
 <thead>
 <tr>

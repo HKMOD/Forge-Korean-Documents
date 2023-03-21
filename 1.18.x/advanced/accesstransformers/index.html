@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -951,26 +965,26 @@ minecraft {
 <li><code>S</code> - <code>short</code>, 부호가 있는 16비트 정수</li>
 <li><code>Z</code> - <code>boolean</code>, <code>true</code> 또는 <code>false</code> 인 값</li>
 <li><code>[</code> - 배열의 차원 1개를 표시함</li>
-<li>예: <code>[[S</code> 는 <code>short[][]</code> 를 가리킵니다</li>
+<li>예: <code>[[S</code> 는 <code>short[][]</code>를 가리킵니다</li>
 <li><code>L&lt;class name&gt;;</code> - 참조 타입을 참조함</li>
-<li>예: <code>Ljava/lang/String;</code> 는 참조 타입 <code>java.lang.String</code> 를 가리킵니다 <em>(빗금 대신 마침표를 사용합니다)</em></li>
+<li>예: <code>Ljava/lang/String;</code> 는 참조 타입 <code>java.lang.String</code>를 가리킵니다 <em>(빗금 대신 마침표를 사용합니다)</em></li>
 <li><code>(</code> - 메서드 디스크립터를 참조합니다, 인자들은 있다면 이곳에서 기술되어야 합니다</li>
 <li>예: <code>&lt;method&gt;(I)Z</code> 는 인자로 Int 1개를 받고 Boolean을 반환하는 메서드를 가리킵니다</li>
 <li><code>V</code> - 반환하는 값이 없는 메서드를 가리킵니다, 메서드 디스크립터 맨 뒤에 사용할 수 있습니다</li>
 <li>예: <code>&lt;method&gt;()V</code> 는 받는 인자가 없으며 반환하는 값도 없는 메서드를 가리킵니다</li>
 </ul>
 <h2 id="_8">예제들<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
-<pre class="highlight"><code># MenuScreens 클래스의 ScreenConstructor 를 public으로 만듭니다
+<pre class="highlight"><code># MenuScreens 클래스의 ScreenConstructor를 public으로 만듭니다
 public net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor
 
 # MinecraftServer의 'random' 필드를 protected 로 만들고 final 키워드를 제거합니다
 protected-f net.minecraft.server.MinecraftServer f_129758_ #random
 
-# Util 에 있는 String 을 인자로 받고 ExecutorService 를 반환하는,
+# Util 에 있는 String을 인자로 받고 ExecutorService를 반환하는,
 # 'makeExecutor' 메서드를 public 으로 만듭니다
 public net.minecraft.Util m_137477_(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; #makeExecutor
 
-# SerializableUUID 에 있는 2개의 long 을 인자로 받고 int[] 를 반환하는,
+# SerializableUUID 에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
 # 'leastMostToIntArray' 메서드를 public으로 만듭니다
 public net.minecraft.core.SerializableUUID m_123274_(JJ)[I #leastMostToIntArray</code></pre>
             

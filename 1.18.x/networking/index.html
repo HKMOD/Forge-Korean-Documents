@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -898,7 +912,7 @@
 </ol>
 <p>이를 구현하는 가장 일반적인 방법은 클라이언트와 서버가 서로 메세지를 주고 받는 것입니다. 일반적으로, 이 메세지들은 통신 과정을 편하게 하기 위해 여러 데이터가 순서대로 들어있는 구조를 가지고 있습니다.</p>
 <p>Forge 에서는 <a href="https://netty.io" title="Netty 공식 사이트">netty</a>를 기반으로 만든 네트워크 통신을 조금 더 간편하게 쓸 수 있는 여러가지 방법들을 제공합니다.</p>
-<p>그중 신생 모드를 위한 가장 간단한 방법은 <a href="simpleimpl/" title="SimpleImpl 이란?">SimpleImpl</a> 을 사용하는 것입니다, <a href="https://netty.io" title="Netty 공식 사이트">netty</a> 의 복잡한 시스템을 추상화 하고 메세지와 핸들러만 사용하여 통신을 구현할 수 있도록 합니다.</p>
+<p>그중 신생 모드를 위한 가장 간단한 방법은 <a href="simpleimpl/" title="SimpleImpl 이란?">SimpleImpl</a>을 사용하는 것입니다, <a href="https://netty.io" title="Netty 공식 사이트">netty</a> 의 복잡한 시스템을 추상화 하고 메세지와 핸들러만 사용하여 통신을 구현할 수 있도록 합니다.</p>
             
         </article>
         

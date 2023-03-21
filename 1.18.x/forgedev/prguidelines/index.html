@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -905,14 +919,14 @@
             
             <h1 id="pull-request">Pull Request 가이드라인<a class="headerlink" href="#pull-request" title="Permanent link"> </a></h1>
 <p>여러 모드들이 포지를 기반으로 만들어지지만, 포지가 특정 기능을 지원하지 않아 모드 개발에 제약이 될 수 있습니다.
-이럴때는 직접 포지에 기능을 추가하고 포지 GitHub 리포지토리에 에 Pull Request 를 제출할 수 있습니다. </p>
-<p>서로의 시간을 아끼기 위해 Pull Request 를 제출할 땐 아래 가이드 라인을 따르는 것을 권장드립니다. 아래 사항은 좋은 Pull Request 를 만들기 위해 기억해두셔야 할 중요한 사항들입니다. </p>
+이럴때는 직접 포지에 기능을 추가하고 포지 GitHub 리포지토리에 에 Pull Request를 제출할 수 있습니다. </p>
+<p>서로의 시간을 아끼기 위해 Pull Request를 제출할 땐 아래 가이드 라인을 따르는 것을 권장드립니다. 아래 사항은 좋은 Pull Request를 만들기 위해 기억해두셔야 할 중요한 사항들입니다. </p>
 <h2 id="_1">포지가 정확히 무엇인가요?<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
 <p>간단하게 말해서, 포지는 마인크래프트 위에 추가되는 모드 호환성 레이어입니다.
 옛날에 만들어진 모드들은 마인크래프트의 코드를 (마치 coremod 들 처럼) 직접 수정하였지만, (마치 coremod 들 처럼) 같은 코드를 수정하려고 할 때마다 서로 충돌하였습니다.</p>
 <p>포지와 같은 호환성 레이어를 이용함으로써, 코드 수정을 중앙화하고 충돌을 피할 수 있습니다.
 또한 포지는 모드들에서 자주 이용되는 기능인 레지스트리, 캐패빌리티등 모드끼리 호환성을 개선하기 위한 기능들 또한 지원합니다.</p>
-<p>좋은 Pull Request 를 만들기 위해선 포지가 저수준에서 어떻게 동작하는지 아셔야 합니다.
+<p>좋은 Pull Request를 만들기 위해선 포지가 저수준에서 어떻게 동작하는지 아셔야 합니다.
 포지는 크게 2가지 코드로 구성되는데: 마인크래프트 패치, 그리고 포지 코드 입니다.</p>
 <h2 id="_2">패치<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
 <p>패치는 마인크래프트 소스 코드에 직접 적용되는 수정 목록입니다. 최소한으로 사용하시는 것이 권장됩니다.
@@ -931,9 +945,9 @@
 <h2 id="_4">적절한 설명이 필요합니다<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
 <p>모든 Pull Request 들은 이것이 왜 필요한지 정당한 사유가 있어야 합니다.
 포지에 추가되는 모든 코드들은 유지보수가 되어야 하고, 코드가 많을 수록 잠재적 버그또한 많아지기에 코드 추가에는 늘 정당한 사유가 필요합니다.</p>
-<p>Pull Request 를 작성하며 자주 하는 실수중 하나는 설명이 부족하거나 활용 예제가 충분히 명확하지 않은 경우입니다.
+<p>Pull Request를 작성하며 자주 하는 실수중 하나는 설명이 부족하거나 활용 예제가 충분히 명확하지 않은 경우입니다.
 이는 리뷰 진행 속도를 늦출 뿐입니다.
-Pull Request 를 명확히 설명하는 것도 좋지만, 해당 기능을 어떻게 사용할 것인지도 밝혀주세요.</p>
+Pull Request를 명확히 설명하는 것도 좋지만, 해당 기능을 어떻게 사용할 것인지도 밝혀주세요.</p>
 <p>가끔 더 나은 다른 방법이 있거나, Pull Request 없이도 할 수 있는 방법이 있을 수 있습니다. 이런 가능성들을 배제하기 전까진 Pull Request 가 받아들여지지 않을 것입니다. </p>
 <h2 id="_5">어떻게 동작하는지 보여주세요<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
 <p>제출되는 Pull Request 의 코드는 정상적으로 작동해야 하며, 리뷰어들에게 정상적으로 동작한다고 설득하는 것은 당신 몫입니다.</p>
@@ -948,11 +962,11 @@ Pull Request 를 명확히 설명하는 것도 좋지만, 해당 기능을 어�
 <li>새로운 마인크래프트 버전으로 업데이트 할 때, 어차피 마인크래프트가 업데이트되며 이전 버전과 호환이 되지 않기 때문입니다.</li>
 <li>긴급 상황이라서 어쩔 수 없을 때, 하지만 이런 일은 매우 드물게 일어나며 마인크래프트 모드 커뮤니티에게 종속성 문제를 떠앉기게 됩니다. </li>
 </ul>
-<p>이런 예외 상황들 말고는 Breaking Change 를 담고 있는 Pull Request 는 받아들여지지 않습니다. 무조건 호환성을 유지하거나, 다음 마인크래프트 업데이트까지 기다려야 합니다.</p>
+<p>이런 예외 상황들 말고는 Breaking Change를 담고 있는 Pull Request 는 받아들여지지 않습니다. 무조건 호환성을 유지하거나, 다음 마인크래프트 업데이트까지 기다려야 합니다.</p>
 <h2 id="_6">인내심을 가지고 친절하게 대해주세요<a class="headerlink" href="#_6" title="Permanent link"> </a></h2>
-<p>Pull Request 를 제출할 땐 리뷰 과정을 거치며 여러번 수정이 일어나게 됩니다.
+<p>Pull Request를 제출할 땐 리뷰 과정을 거치며 여러번 수정이 일어나게 됩니다.
 리뷰 과정은 당신에 대한 심판이 아니며, 실수는 누구나 합니다. 그래서 협업을 하는 것이지요.</p>
-<p>부정적인 응답은 누구에게도 도움되지 않습니다. Pull Request 리뷰 과정을 중단하고 coremod 를 대신 작성하겠다고 하는 것은 연류된 이들의 마음을 상하게 할 뿐 아니라 모드 개발 생태계를 악화시킵니다.
+<p>부정적인 응답은 누구에게도 도움되지 않습니다. Pull Request 리뷰 과정을 중단하고 coremod를 대신 작성하겠다고 하는 것은 연류된 이들의 마음을 상하게 할 뿐 아니라 모드 개발 생태계를 악화시킵니다.
 리뷰어들이 좋은 의도로 참여하고 있음을 믿고 개인적으로 받아들이지 않는 것이 중요함을 숙지해 주세요.</p>
 <h2 id="_7">리뷰<a class="headerlink" href="#_7" title="Permanent link"> </a></h2>
 <p>저희의 느리고 깐깐한 리뷰 과정을 수용하신다면 저희또한 당신의 관점에서 문제를 바라보도록 하겠습니다.

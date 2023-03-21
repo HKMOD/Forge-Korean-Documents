@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -898,7 +912,7 @@
         <article class="docs-entry">
             
             <h1 id="simpleimpl">SimpleImpl<a class="headerlink" href="#simpleimpl" title="Permanent link"> </a></h1>
-<p>SimpleImpl 은 <code>SimpleChannel</code> 을 사용하는 패킷 통신 시스템에 주어진 이름입니다. 이 시스템을 사용하는 것은 가장 쉽게 서버와 클라이언트간 통신을 구현할 수 있는 방법입니다.</p>
+<p>SimpleImpl 은 <code>SimpleChannel</code>을 사용하는 패킷 통신 시스템에 주어진 이름입니다. 이 시스템을 사용하는 것은 가장 쉽게 서버와 클라이언트간 통신을 구현할 수 있는 방법입니다.</p>
 <h2 id="_1">시작하기<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
 <p>가장 첫번째로 <code>SimpleChannel</code> 객체를 만들어야 합니다. 이는 <code>ModidPacketHandler</code> 처럼 따로 클래스를 만든 이후 거기서 하시는 것을 추천드립니다. 이때 만드시는 <code>SimpleChannel</code> 객체는 다음처럼 정적 필드로 만드세요:</p>
 <pre class="highlight"><code class="language-java">private static final String PROTOCOL_VERSION = "1";
@@ -916,11 +930,11 @@ public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 <li><code>ABSENT</code> - 채널이 반대쪽에 없는 경우, 이때 반대쪽은 포지가 설치되어 있으며 다른 모드가 있을 수 있습니다.</li>
 <li><code>ACCEPTVANILLA</code> - 반대쪽이 바닐라거나 포지가 없는 경우.</li>
 </ul>
-<p>위 두 필드들은 반대쪽에 채널이 아예 없어 버전 확인자에서 비교할 프로토콜 버전이 없는 경우 대신 사용됩니다. 이 두 경우에 다 <code>false</code> 를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.</p>
+<p>위 두 필드들은 반대쪽에 채널이 아예 없어 버전 확인자에서 비교할 프로토콜 버전이 없는 경우 대신 사용됩니다. 이 두 경우에 다 <code>false</code>를 반환하면 반대쪽에 채널이 있도록 강제할 수 있습니다. 위에 예제 코드를 그대로 복사해서 쓰시면 반대쪽에 채널이 있도록 강제합니다. 이 버전 확인 방식은 서버 목록 화면에서 호환성 체크를 할 때에도 사용됩니다, 이로 인해 초록색 체크 모양 또는 빨간색 X가 서버 목록에 표시될 수 있습니다.</p>
 <h2 id="_3">패킷 등록하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
-<p>그 다음으로 주고 받을 메세지들을 정의해야 합니다. 이는 <code>INSTANCE#registerMessage</code> 를 이용해 할 수 있는데, 이 메서드는 5개의 인자를 받습니다:</p>
+<p>그 다음으로 주고 받을 메세지들을 정의해야 합니다. 이는 <code>INSTANCE#registerMessage</code>를 이용해 할 수 있는데, 이 메서드는 5개의 인자를 받습니다:</p>
 <ul>
-<li>첫번째 인자는 패킷을 판별할 때 사용할 판별자 입니다. ID 라고 부르기도 합니다. 이 판별자는 같은 채널에서는 고유하여야 합니다, 다른 채널끼리는 판별자가 같아도 문제가 발생하지 않습니다. 판별자로는 어떤 값을 사용하셔도 고유하기만 한다면 상관 없으니 지역 변수를 사용하여 메세지 하나 등록할 때 마다 <code>id++</code> 를 하여 늘 고유한 값이 나오도록 하세요.</li>
+<li>첫번째 인자는 패킷을 판별할 때 사용할 판별자 입니다. ID 라고 부르기도 합니다. 이 판별자는 같은 채널에서는 고유하여야 합니다, 다른 채널끼리는 판별자가 같아도 문제가 발생하지 않습니다. 판별자로는 어떤 값을 사용하셔도 고유하기만 한다면 상관 없으니 지역 변수를 사용하여 메세지 하나 등록할 때 마다 <code>id++</code>를 하여 늘 고유한 값이 나오도록 하세요.</li>
 <li>두번째 인자는 패킷 클래스 <code>MSG</code> 입니다.</li>
 <li>세번째 인자는 <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code> 입니다, 패킷 클래스를 <code>FriendlyByteBuf</code> 에 작성하는 역할을 합니다.</li>
 <li>네번째 인자는 <code>Function&lt;FriendlyByteBuf, MSG&gt;</code> 입니다, <code>FriendlyByteBuf</code> 로 부터 패킷 클래스를 읽어들이는 역할을 합니다.</li>
@@ -951,11 +965,11 @@ public static void handle(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&
 public static void handlePacket(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
   // 무언가 하기
 }</code></pre>
-<p><code>#setPacketHandled</code> 를 여러번 사용하는 것을 보셨을텐데, 이는 네트워크 시스템에게 패킷이 성공적으로 처리되었음을 알리는 것입니다.</p>
+<p><code>#setPacketHandled</code>를 여러번 사용하는 것을 보셨을텐데, 이는 네트워크 시스템에게 패킷이 성공적으로 처리되었음을 알리는 것입니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>마인크래프트 1.8 이후로는 패킷은 네트워크 스레드에서 처리됩니다.</p>
-<p>즉 패킷 핸들러는 게임과 직접적으로 상호작용할 수 <em>없습니다</em>. 포지에서는 <code>NetworkEvent$Context</code> 를 통해 간단하게 코드를 메인 스레드에서 실행하는 방법을 제공합니다. 이는 단순하게 <code>NetworkEvent$Context#enqueueWork(Runnable)</code> 을 호출하는 것인데, 메인 스레드는 이때 전달된  <code>Runnable</code> 을 빠른 시일내에 실행합니다.</p>
+<p>즉 패킷 핸들러는 게임과 직접적으로 상호작용할 수 <em>없습니다</em>. 포지에서는 <code>NetworkEvent$Context</code>를 통해 간단하게 코드를 메인 스레드에서 실행하는 방법을 제공합니다. 이는 단순하게 <code>NetworkEvent$Context#enqueueWork(Runnable)</code>을 호출하는 것인데, 메인 스레드는 이때 전달된  <code>Runnable</code>을 빠른 시일내에 실행합니다.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -965,9 +979,9 @@ public static void handlePacket(MyClientMessage msg, Supplier&lt;NetworkEvent.Co
 </div>
 <h2 id="_5">패킷 보내기<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
 <h3 id="_6">서버에 보내기<a class="headerlink" href="#_6" title="Permanent link"> </a></h3>
-<p>서버로 패킷을 보내는 방법은 하나밖에 없습니다. 왜냐하면 클라이언트는 한번에 <em>하나의</em> 서버에만 접속할 수 있기 때문입니다. 패킷을 보내기 위해서는 이전에 정의한 <code>SimpleChannel</code> 을 다시 사용할 것인데, 단순히 <code>INSTANCE.sendToServer(new MyMessage())</code> 를 호출하세요. 이 메세지는 패킷에 알맞는 핸들러로 (만약 있다면)보내집니다.</p>
+<p>서버로 패킷을 보내는 방법은 하나밖에 없습니다. 왜냐하면 클라이언트는 한번에 <em>하나의</em> 서버에만 접속할 수 있기 때문입니다. 패킷을 보내기 위해서는 이전에 정의한 <code>SimpleChannel</code>을 다시 사용할 것인데, 단순히 <code>INSTANCE.sendToServer(new MyMessage())</code>를 호출하세요. 이 메세지는 패킷에 알맞는 핸들러로 (만약 있다면)보내집니다.</p>
 <h3 id="_7">클라이언트(들)에 보내기<a class="headerlink" href="#_7" title="Permanent link"> </a></h3>
-<p>패킷을 <code>SimpleChannel</code> 을 사용해 직접적으로 클라이언트에 전송할 수 있습니다:</p>
+<p>패킷을 <code>SimpleChannel</code>을 사용해 직접적으로 클라이언트에 전송할 수 있습니다:</p>
 <p><code>INSTANCE.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)</code>. 그러나 이 방식은 사용하기 불편할 수 있는데, 포지에서는 조금 더 쉽게 패킷을 보내주는 함수들을 제공합니다:</p>
 <pre class="highlight"><code class="language-java">// 플레이어 한명에게 보내기
 INSTANCE.send(PacketDistributor.PLAYER.with(serverPlayer), new MyMessage());

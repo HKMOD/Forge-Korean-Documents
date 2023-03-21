@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" selected>1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" >1.19.x</option>
                             
@@ -890,9 +904,9 @@
         <article class="docs-entry">
             
             <h1 id="_1">언어 생성<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
-<p>모드의 <a href="../../../concepts/internationalization/">언어 파일들</a>은 <code>LanguageProvider</code> 의 하위 클래스를 만들고 <code>#addTranslation</code> 을 구현하는 것으로 자동으로 생성할 수 있습니다. 각 <code>LanguageProvider</code> 하위 클래스들은 언어 한개의 언어 파일들을 형성합니다. 하위 클래스를 구현한 이후, <code>DataGenerator</code> 에 <a href="../../#데이터-생성하기">등록</a>되어야 합니다.</p>
+<p>모드의 <a href="../../../concepts/internationalization/">언어 파일들</a>은 <code>LanguageProvider</code> 의 하위 클래스를 만들고 <code>#addTranslation</code>을 구현하는 것으로 자동으로 생성할 수 있습니다. 각 <code>LanguageProvider</code> 하위 클래스들은 언어 한개의 언어 파일들을 형성합니다. 하위 클래스를 구현한 이후, <code>DataGenerator</code> 에 <a href="../../#데이터-생성하기">등록</a>되어야 합니다.</p>
 <h2 id="languageprovider"><code>LanguageProvider</code><a class="headerlink" href="#languageprovider" title="Permanent link"> </a></h2>
-<p><code>LanguageProvider</code> 의 하위 클래스들은 궁극적으로는 각 번역 키들을 언어에 맞는 문자열로 바꾸는 <code>Map</code> 입니다. 각 번역 키들은 <code>#add</code> 를 사용해 추가할 수 있습니다. 이뿐만 아니라 <code>Block</code>, <code>Item</code>, <code>ItemStack</code>, <code>Enchantment</code>, <code>MobEffect</code>, 그리고 <code>EntityType</code> 의 번역 키 값을 쓰는 메서드들도 있습니다.</p>
+<p><code>LanguageProvider</code> 의 하위 클래스들은 궁극적으로는 각 번역 키들을 언어에 맞는 문자열로 바꾸는 <code>Map</code> 입니다. 각 번역 키들은 <code>#add</code>를 사용해 추가할 수 있습니다. 이뿐만 아니라 <code>Block</code>, <code>Item</code>, <code>ItemStack</code>, <code>Enchantment</code>, <code>MobEffect</code>, 그리고 <code>EntityType</code> 의 번역 키 값을 쓰는 메서드들도 있습니다.</p>
 <pre class="highlight"><code class="language-java">// LanguageProvider#addTranslations
 this.addBlock(EXAMPLE_BLOCK, "예제 블록");
 this.add("object.examplemod.example_object", "예제 오브젝트");</code></pre>
