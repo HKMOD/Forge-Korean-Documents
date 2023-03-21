@@ -1,5 +1,4 @@
-# Contributing Documentation
+# 문서에 기여하기
+문서에 기여하기 위한 가이드라인은 [이곳][스타일가이드]에서 볼 수 있습니다.
 
-Guidelines for contributing can be found [on the docs][contributing].
-
-[contributing]: https://docs.minecraftforge.net/en/latest/contributing/
+[스타일가이드]: docs/contributing.md

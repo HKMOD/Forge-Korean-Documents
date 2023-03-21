@@ -4,11 +4,11 @@ name: Github pages
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the 1.19.x branch
+  # Triggers the workflow on push or pull request events but only for the FG/6.x branch
   push:
-    branches: [ 1.19.x ]
+    branches: [ FG/6.x ]
   pull_request:
-    branches: [ 1.19.x ]
+    branches: [ FG/6.x ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -51,7 +51,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_dir: 1.19.x
+          destination_dir: FG/6.x
           user_name: 'tmvkrpxl0'
           user_email: 'ironman466@naver.com'
           publish_dir: ./site
