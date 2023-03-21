@@ -89,8 +89,8 @@ nav:
     - Porting to This Version: 'legacy/porting.md'
 
 # Do not edit in PRs below here
-site_name: Forge Documentation
-site_url: https://docs.minecraftforge.net/en/1.19.2/
+site_name: Forge Korean Documentation
+site_url: https://hkmod.github.io/Forge-Korean-Documents/1.19.2/
 
 markdown_extensions:
   - admonition
@@ -113,6 +113,7 @@ extra:
     ForgeGradle: fg-6.x
   current_version: 1.19.2
   versions:
+    1.16.x: 1.16.x
     1.18.x: 1.18.x
     1.19.2: 1.19.2
     1.19.x: 1.19.x
