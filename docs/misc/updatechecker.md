@@ -43,15 +43,16 @@ This is fairly self-explanatory, but some notes:
 Retrieving Update Check Results
 -------------------------------
 
-You can retrieve the results of the Forge Update Checker using `VersionChecker#getResult(IModInfo)`. You can obtain your `IModInfo` via `ModContainer#getModInfo`. You can get your `ModContainer` using `ModLoadingContext.get().getActiveContainer()` inside your constructor, `ModList.get().getModContainerById(<your modId>)`, or `ModList.get().getModContainerByObject(<your mod instance>)`. You can obtain any other mod's `ModContainer` using `ModList.get().getModContainerById(<modId>)`. The returned object has a field `status` which indicates the status of the version check.
+You can retrieve the results of the Forge Update Checker using `VersionChecker#getResult(IModInfo)`. You can obtain your `IModInfo` via `ModContainer#getModInfo`. You can get your `ModContainer` using `ModLoadingContext.get().getActiveContainer()` inside your constructor, `ModList.get().getModContainerById(<your modId>)`, or `ModList.get().getModContainerByObject(<your mod instance>)`. You can obtain any other mod's `ModContainer` using `ModList.get().getModContainerById(<modId>)`. The returned object has a method `#status` which indicates the status of the version check.
 
 |          Status | Description |
 |----------------:|:------------|
 |        `FAILED` | The version checker could not connect to the URL provided. |
-|    `UP_TO_DATE` | The current version is equal to or newer than the latest stable version. |
-|      `OUTDATED` | There is a new stable version. |
-| `BETA_OUTDATED` | There is a new unstable version. |
-|          `BETA` | The current version is equal to or newer than the latest unstable version. |
+|    `UP_TO_DATE` | The current version is equal to the recommended version. |
+|         `AHEAD` | The current version is newer than the recommended version if there is not latest version. |
+|      `OUTDATED` | There is a new recommended or latest version. |
+| `BETA_OUTDATED` | There is a new latest version. |
+|          `BETA` | The current version is equal to or newer than the latest version. |
 |       `PENDING` | The result requested has not finished yet, so you should try again in a little bit. |
 
 The returned object will also have the target version and any changelog lines as specified in `update.json`.

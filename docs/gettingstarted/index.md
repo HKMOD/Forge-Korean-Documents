@@ -12,6 +12,7 @@
     * `build.gradle`
     * `gradlew.bat`
     * `gradlew`
+    * `settings.gradle`
     * `gradle` 폴더
 4. 위 파일들을 새로운 폴더로 옮기세요. 그 폴더는 모드 프로젝트의 폴더가 될 것입니다.
 5. IDE를 선택하세요:
@@ -19,21 +20,17 @@
     * Eclipse와 Intellij IDEA는 Gradle을 관리해 주기 때문에 초기 개발환경 설정을 보다 간편하게 하실 수 있습니다. 그 초기 개발환경 설정에는, 모장 또는 포지와 같은 여러 소프트웨어 공유 사이트에서 패키지를 받는 것이 포함됩니다. VSCode는 `Gradle Tasks` 플러그인을 사용해 초기 개발환경 설정을 관리하도록 할 수 있습니다.
     * 대부분의 상황에선 `build.gradle`을 수정하고 이를 적용하기 위해서는 Gradle을 호출하여 프로젝트를 다시 처리하도록 해야 합니다. 위에서 언급한 두 IDE는 Gradle 패널의 새로고침 버튼으로 프로젝트를 다시 처리 할 수 있습니다.
 6. IDE 실행 설정 생성하기:
-7. * 아래의 `이것`처럼 강조되는건 Gradle Task입니다. IDE 별로 이름이 다르지만 이는 모두 게임 설정을 생성하고 게임에 필요한 에셋을 다운로드합니다. 이 작업이 끝난 후 프로젝트를 새로고침 해야 합니다.
-    * **Eclipse:** `genEclipseRuns`를 실행하세요. (`gradlew genEclipseRuns`).
-    * **IntelliJ:** `genIntellijRuns`를 실행하세요. (`gradlew genIntellijRuns`). 만약 "module not specified" 와 같은 오류가 발생한다면 설정을 수정하여 "main" 모듈을 선택하거나 `ideaModule` 속성을 사용해 모듈을 선택하실 수 있습니다.
-    * **VSCode:** `genVSCodeRuns`를 실행하세요. (`gradlew genVSCodeRuns`). 
+    * Eclipse: `genEclipseRuns`를 실행하세요. (`gradlew genEclipseRuns`). 이후 프로젝트를 새로고치시면 됩니다.
+    * IntelliJ: `genIntellijRuns`를 실행하세요. (`gradlew genIntellijRuns`). 만약 "module not specified" 와 같은 오류가 발생한다면 설정을 수정하여 "main" 모듈을 선택하거나 `ideaModule` 속성을 사용해 직접 메인 모듈을 선택하실 수 있습니다.
+    * VSCode: `genVSCodeRuns`를 실행하세요. (`gradlew genVSCodeRuns`). 
 
 내 모드 정보 수정하기
 --------------------------------
 
-프로젝트의 `build.gradle`파일을 수정하여 모드가 어떻게 빌드 되어야 하는지 설정할 수 있습니다. (빌드된 모드의 파일 이름, 버전 등)
+프로젝트의 `build.gradle`파일을 수정하여 모드가 어떻게 빌드 되어야 하는지 설정할 수 있습니다. (빌드된 모드의 파일 이름, 버전 등). `build.gradle`의 대부분의 내용은 지우거나 수정하셔도 됩니다.
 
 !!! important
-    **절대로** `build.gradle` 파일에 있는 `buildscript {}` 부분을 수정하지 마세요. 기본적으로 적혀있는 내용들은 ForgeGradle이 작동하기 위해 필수적입니다.
-
-`// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.` 아래에 있는 내용들은 거의 수정하셔도 괜찮습니다.
-    
+    확신 없이면 **절대로** `settings.gradle`을 수정하지 마세요. ForgeGradle 플러그인 적용을 위해 필수적인 내용이 적혀 있습니다. 
 
 ### 간단한 `build.gradle` 설정
 
@@ -58,6 +55,6 @@
 !!! note
     만약 모드가 전용 서버에서 작동되어야 한다면 전용 서버에서 또한 모드를 테스트 해보십시오.
     
-[files]: https://files.minecraftforge.net "Forge Files distribution site"
-[jdk]: https://adoptium.net/temurin/releases "Temurin Prebuilt Binaries"
+[files]: https://files.minecraftforge.net "포지 파일 배포 사이트"
+[jdk]: https://adoptium.net/temurin/releases?version=17 "Temurin 17 JDK 다운받는 곳"
 [mojmap]: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md

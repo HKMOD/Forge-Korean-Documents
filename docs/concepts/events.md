@@ -21,19 +21,19 @@ Event handlers can be directly registered using `IEventBus#addListener` for or `
 ```java
 // In the main mod class ExampleMod
 
-// This event is on the forge bus
-private void forgeEventHandler(AddReloadListenerEvent event) {
+// This event is on the mod bus
+private void modEventHandler(RegisterEvent event) {
 	// Do things here
 }
 
-// This event is on the mod bus
-private static void modEventHandler(RegistryEvent.Register<RecipeSerializer<?>> event) {
+// This event is on the forge bus
+private static void forgeEventHandler(AttachCapabilitiesEvent<Entity> event) {
 	// ...
 }
 
 // In the mod constructor
-forgeEventBus.addListener(this::forgeEventHandler);
-modEventBus.addGenericListener(RecipeSerializer.class, ExampleMod::modEventHandler);
+modEventBus.addListener(this::modEventHandler);
+forgeEventBus.addGenericListener(Entity.class, ExampleMod::forgeEventHandler);
 ```
 
 ### Instance Annotated Event Handlers
@@ -72,13 +72,13 @@ A class may be annotated with the `@Mod$EventBusSubscriber` annotation. Such a c
 
 You can pass the bus you want to listen to the `@Mod$EventBusSubscriber` annotation. It is recommended you also specify the mod id, since the annotation process may not be able to figure it out, and the bus you are registering to, since it serves as a reminder to make sure you are on the correct one. You can also specify the `Dist`s or physical sides to load this event subscriber on. This can be used to not load client specific event subscribers on the dedicated server.
 
-An example for a static event listener listening to `RenderLevelLastEvent` which will only be called on the client:
+An example for a static event listener listening to `RenderLevelStageEvent` which will only be called on the client:
 
 ```java
 @Mod.EventBusSubscriber(modid = "mymod", bus = Bus.FORGE, value = Dist.CLIENT)
 public class MyStaticClientOnlyEventHandler {
 	@SubscribeEvent
-	public static void drawLast(RenderLevelLastEvent event) {
+	public static void drawLast(RenderLevelStageEvent event) {
 		System.out.println("Drawing!");
 	}
 }
@@ -132,9 +132,9 @@ These four lifecycle events are all ran in parallel since they all are a subclas
 
 Next to the lifecycle events, there are a few miscellaneous events that are fired on the mod event bus where you can register, set up, or initialize various things. Most of these events are not ran in parallel in contrast to the lifecycle events. A few examples:
 
-* `ColorHandlerEvent`
-* `ModelBakeEvent`
+* `RegisterColorHandlersEvent`
+* `ModelEvent$BakingCompleted`
 * `TextureStitchEvent`
-* `RegistryEvent`
+* `RegisterEvent`
 
 A good rule of thumb: events are fired on the mod event bus when they should be handled during initialization of a mod.

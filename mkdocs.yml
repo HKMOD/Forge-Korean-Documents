@@ -32,11 +32,15 @@ nav:
   - 데이터 저장소:
     - 캐패빌리티: 'datastorage/capabilities.md'
     - 월드 저장 데이터: 'datastorage/saveddata.md'
+    - 코덱: 'datastorage/codecs.md'
+  - GUI:
+    - 메뉴: 'gui/menus.md'
+    - 스크린: 'gui/screens.md'
   - 렌더링:
     - 모델 로더:
       - 소개: 'rendering/modelloaders/index.md'
       - 최적화된 모델: 'rendering/modelloaders/bakedmodel.md'
-      - 시점: 'rendering/modelloaders/perspective.md'
+      - 시점: 'rendering/modelloaders/transform.md'
       - 아이템 속성에 따른 동적 텍스쳐 변경: 'rendering/modelloaders/itemoverrides.md'
   - 리소스:
     - 클라이언트용 애셋:
@@ -69,8 +73,10 @@ nav:
       - 태그 생성하기: 'datagen/server/tags.md'
       - 도전과제 생성하기: 'datagen/server/advancements.md'
       - 전체 전리품 수정 데이터 생성하기: 'datagen/server/glm.md'
+      - 데이터팩 레지스트리 객체 생성하기: 'datagen/server/datapackregistries.md'
   - 기타 기능:
     - 모드 설정 파일: 'misc/config.md'
+    - 키바인드: 'misc/keymappings.md'
     - 인게임 테스트: 'misc/gametest.md'
     - 자동 업데이트 확인: 'misc/updatechecker.md'
     - 디버그 프로파일러: 'misc/debugprofiler.md'
@@ -102,10 +108,15 @@ theme:
   custom_dir: forge_theme
 
 extra:
+  current_type: MinecraftForge
+  types:
+    MinecraftForge: latest
+    ForgeGradle: fg-6.x
   current_version: 1.19.x
   versions:
     1.16.x: 1.16.x
     1.18.x: 1.18.x
+    1.19.2: 1.19.2
     1.19.x: 1.19.x
 
 extra_css:

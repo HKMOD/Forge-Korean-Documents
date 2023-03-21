@@ -50,18 +50,18 @@ Implementing Block States
 In your Block class, create or reference `static final` `Property<?>` objects for every property that your Block has. You are free to make your own `Property<?>` implementations, but the means to do that are not covered in this article. The vanilla code provides several convenience implementations:
 
 * `IntegerProperty`
-  * Implements `Property<Integer>`. Defines a property that holds an integer value.
-  * Created by calling `IntegerProperty#create(String propertyName, int minimum, int maximum)`.
+    * Implements `Property<Integer>`. Defines a property that holds an integer value.
+    * Created by calling `IntegerProperty#create(String propertyName, int minimum, int maximum)`.
 * `BooleanProperty`
-  * Implements `Property<Boolean>`. Defines a property that holds a `true` or `false` value.
-  * Created by calling `BooleanProperty#create(String propertyName)`.
+    * Implements `Property<Boolean>`. Defines a property that holds a `true` or `false` value.
+    * Created by calling `BooleanProperty#create(String propertyName)`.
 * `EnumProperty<E extends Enum<E>>`
-  * Implements `Property<E>`. Defines a property that can take on the values of an Enum class.
-  * Created by calling `EnumProperty#create(String propertyName, Class<E> enumClass)`.
-  * It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 `DyeColor`s). See the overloads of `EnumProperty#create`.
+    * Implements `Property<E>`. Defines a property that can take on the values of an Enum class.
+    * Created by calling `EnumProperty#create(String propertyName, Class<E> enumClass)`.
+    * It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 `DyeColor`s). See the overloads of `EnumProperty#create`.
 * `DirectionProperty`
-  * This is a convenience implementation of `EnumProperty<Direction>`
-  * Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)`; to get the X directions, `DirectionProperty.create("<name>", Direction.Axis.X)`.
+    * This is a convenience implementation of `EnumProperty<Direction>`
+    * Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call `DirectionProperty.create("<name>", Direction.Plane.HORIZONTAL)`; to get the X directions, `DirectionProperty.create("<name>", Direction.Axis.X)`.
 
 The class `BlockStateProperties` contains shared vanilla properties which should be used or referenced whenever possible, in place of creating your own properties.
 
@@ -92,4 +92,4 @@ Using `BlockState`'s
 You can get the value of a property by calling `BlockState#getValue(Property<?>)`, passing it the property you want to get the value of.
 If you want to get a `BlockState` with a different set of values, simply call `BlockState#setValue(Property<T>, T)` with the property and its value.
 
-You can get and place `BlockState`'s in the level using `Level#setBlockAndUpdate(BlockPos, BlockState)` and `Level#getBlockState(BlockState)`. If you are placing a `Block`, call `Block#defaultBlockState()` to get the "default" state, and use subsequent calls to `BlockState#setValue(Property<T>, T)` as stated above to achieve the desired state.
+You can get and place `BlockState`'s in the level using `Level#setBlockAndUpdate(BlockPos, BlockState)` and `Level#getBlockState(BlockPos)`. If you are placing a `Block`, call `Block#defaultBlockState()` to get the "default" state, and use subsequent calls to `BlockState#setValue(Property<T>, T)` as stated above to achieve the desired state.

@@ -143,7 +143,7 @@ public class ExampleGameTests {
 
 ### RegisterGameTestsEvent
 
-`RegisterGameTestEvent` can also register either classes or methods using `#register`. The event listener must be [added][event] to the mod event bus. Test methods registered this way must supply their mod id to `GameTest#templateNamespace` on every method annotated with `@GameTest`.
+`RegisterGameTestsEvent` can also register either classes or methods using `#register`. The event listener must be [added][event] to the mod event bus. Test methods registered this way must supply their mod id to `GameTest#templateNamespace` on every method annotated with `@GameTest`.
 
 ```java
 // In some class
@@ -246,6 +246,19 @@ property 'forge.enabledGameTestNamespaces', 'modid1,modid2,modid3'
 ### Game Test Server Run Configuration
 
 The Game Test Server is a special configuration which runs a build server. The build server returns an exit code of the number of required, failed Game Tests. All failed tests, whether required or optional, are logged. This server can be run using `gradlew runGameTestServer`.
+
+!!! important
+    Due to a quirk in how Gradle works, by default, if a task forces a system exit, the Gradle daemon will be killed, causing the Gradle runner to report a build failure. ForgeGradle sets by default a force exit on run tasks such that any subprojects are not executed in sequence. However, as such, the Game Test Server will always fail.
+
+    This can be fixed by disabling the force exit on the run configuration using the `#setForceExit` method:
+
+    ```gradle
+    // Game Test Server run configuration
+    gameTestServer {
+        // ...
+        setForceExit false
+    }
+    ```
 
 ### Enabling Game Tests in Other Run Configurations
 

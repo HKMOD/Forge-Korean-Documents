@@ -3,7 +3,7 @@
 
 캐패빌리티는 여러 인터페이스 구현하느라 고생할 필요 없이 동적이고 유연하게 여러 기능들을 노출시킬 수 있도록 해줍니다. 이 시스템은 특정 객체에 캐패빌리티를 추가하거나 노출시켜, 동적으로 기능을 추가하거나 데이터를 추가할 수 있도록 합니다.
 
-일반적으로, 캐패빌리티는 규격을 정의하는 *인터페이스*, 그 인터페이스의 *기본 구현*, 그리고 *데이터 핸들러* 이 3가지로 이루어져 있습니다. 캐패빌리티의 인터페이스를 구현하는 클래스는 여러개 있을 수 있으나, 무조건 하나 이상은 있어야 하기에 기본 구현이 요구됩니다. 그리고 데이터 핸들러는 기본 구현만 지원할 수도 있습니다.
+일반적으로, 캐패빌리티는 규격을 정의하는 인터페이스로 정의됩니다.
 
 포지는 BlockEntity, Entity, ItemStack, Level, 그리고 LevelChunk 가 기본적으로 캐패빌리티 시스템을 지원하도록 합니다, 그렇기에 이 객체들에는 캐패빌리티를 이벤트를 통해서 추가하거나, 객체들을 구현하며 노출시킬 수 있습니다. 이에 대해서는 아래 더 자세히 다루도록 하겠습니다.
 
@@ -11,20 +11,19 @@
 ---------------------------
 
 포지에서는 `IItemHandler`, `IFluidHandler`, 그리고 `IEnergyStorage` 캐패빌리티를 제공합니다.
-`IItemHandler` 는 인벤토리 슬롯을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 BlockEntity, Entity, 또는 ItemStack 에 사용할 수 있습니다. `IInventory` 와 `ISidedInventory` 대신 사용하세요.
 
-`IFluidHandler` 는 액체 저장 공간을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 BlockEntity, Entity, 또는 ItemStack 에 적용할 수 있습니다. 
+`IItemHandler` 는 인벤토리 슬롯을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 BlockEntity, Entity, 또는 ItemStack 에 사용할 수 있습니다. `Container` 와 `WordlyContainer` 대신 사용하세요.
+
+`IFluidHandler` 는 액체 저장 공간을 관리하는 캐패빌리티의 규격입니다. 이 캐패빌리티는 BlockEntity, Entity, 또는 ItemStack 에 적용할 수 있습니다.
 
 `IEnergyStorage` 는 에너지 저장 공간을 관리하는 캐패빌리티의 규격입니다. 이는 BlockEntity, Entity, 또는 ItemStack 에 적용할 수 있습니다. TeamCoFH 의 RedstoneFlux API 를 기반으로 하여 만들어 졌습니다.
-
-여담으로, 모드 개발자들 사이에선 캐패빌리티 인터페이스를 캐패빌리티 그 자체인것 처럼 표현하기도 합니다, `IItemHandler` 캐패빌리티라고 하면, `IItemHandler` 인터페이스를 규격으로 사용하는 캐패빌리티를 말하는 것입니다.
 
 이미 존재하는 캐패빌리티 사용하기
 ----------------------------
 
 이미 이전에 말했다싶이, `BlockEntity`, `Entity`, 그리고 `ItemStack` 은 캐패빌리티 시스템을 지원합니다. `ICapabilityProvider` 인터페이스를 구현하는 것으로 캐패빌리티 시스템을 지원할 수 있습니다. 이 인터페이스를 구현하는 객체들은 캐패빌리티 제공자라고 합니다. 이 인터페이스는 `#getCapability` 메서드를 정의하는데, 이 메서드는 제공자가 가진 캐패빌리티 인터페이스 구현의 인스턴스를 감싸는 `LazyOptional` 이 반환합니다. 이에 대해서는 아래에서 더 다루도록 하겠습니다.
 
-한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. `IItemHandler` 의 경우 `CapabilityItemHandler#ITEM_HANDLER_CAPABILITY` 에 인스턴스가 할당되어 있지만, 다른 캐패빌리티들은 `CapabilityManager#get` 를 사용하여 참조할 수 있습니다
+한 제공자가 여러 캐패빌리티를 가지고 있을 수 있다 보니, 그중 하나만 선택하여 참조하기 위해서는, 해당 캐패빌리티의 인스턴스가 필요합니다. `IItemHandler` 의 경우 `ForgeCapabilities#ITEM_HANDLER` 에 인스턴스가 할당되어 있지만, 다른 캐패빌리티들은 `CapabilityManager#get` 를 사용하여 참조할 수 있습니다
 ```Java
 static Capability<IItemHandler> ITEM_HANDLER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
 
@@ -61,7 +60,7 @@ inventoryHandlerLazyOptional = LazyOptional.of(inventoryHandlerSupplier);
 @Override
 public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
   // cap 은 캐패빌리티 인스턴스
-  if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+  if (cap == ForgeCapabilities.ITEM_HANDLER) {
     return inventoryHandlerLazyOptional.cast();
   }
   // super 를 호출하지 않으면 부착된 다른 캐패빌리티를 사용할 수 없게 됩니다!!
@@ -75,6 +74,15 @@ public void invalidateCaps() {
 }
 ```
 
+!!! tip
+    만약 객체에 캐패빌리티가 1개만 있다면, if/else 조건문 대신 `Capability#orEmpty`를 사용하실 수도 있습니다.
+
+    ```java
+    @Override
+    public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
+      return ForgeCapabilities.ITEM_HANDLER.orEmpty(cap, inventoryHandlerLazyOptional);
+    }
+    ```
 
 `Item` 들은 조금 특이하게 다루어야 하는데, 캐패빌리티 제공자들을 `Item` 이 아니라 `ItemStack` 에 부착하기 때문입니다. 그렇기 때문에 `Item#initCapabilities` 에서 새로운 제공자들을 부착하여야 합니다. 이때 부착된 캐패빌리티들은 그 아이템 스택의 생명주기가 끝나면 무효화 됩니다.
 
@@ -100,7 +108,12 @@ public void invalidateCaps() {
 캐패빌리티 직접 만들기
 ----------------------------
 
-일반적으로, 캐패빌리티는 모드 버스에 방송되는 `RegisterCapabilitiesEvent` 이벤트에 `#register` 를 호출하여 등록됩니다.
+캐패빌리티는 `RegisterCapabilitiesEvent` 또는 `@AutoRegisterCapability`를 활용해 등록할 수 있습니다.
+
+### RegisterCapabilitiesEvent
+
+`RegisterCapabilitiesEvent#supply`에 캐패빌리티 인터페이스를 전달하여 캐패빌리티를 등록할 수 있습니다. 이 이벤트는 모드 이벤트 버스에서 [방송]됩니다.
+
 ```java
 @SubscribeEvent
 public void registerCaps(RegisterCapabilitiesEvent event) {
@@ -108,7 +121,18 @@ public void registerCaps(RegisterCapabilitiesEvent event) {
 }
 ```
 
-LevelChunk 와 BlockEntity 캐패빌리티 데이터 유지시키지
+### @AutoRegisterCapability
+
+캐패빌리티를 `@AutoRegisterCapability`를 아래와 같이 어노테이션에 추가하는 것으로 등록할 수도 있습니다.
+
+```java
+@AutoRegisterCapability
+public interface IExampleCapability {
+  // ...
+}
+```
+
+LevelChunk, BlockEntity의 캐패빌리티 데이터 유지시키지
 --------------------------------------------
 
 레벨, 엔티티, 아이템 스택과 다르게, 레벨 청크와 블록 엔티티들은 그 데이터가 수정되었다고 표기되었을 경우에만 디스크에 써집니다. 그렇기 때문에 레벨 청크 또는 블록 엔티티에 사용할 캐패빌리티의 데이터를 올바르게 유지시키지 위해서는 캐패빌리티의 데이터가 변경되었을 때 해당 객체의 데이터가 수정되었다고 표기하여야만 합니다.
@@ -173,4 +197,5 @@ IEEP 를 캐패빌리티로 변환하는법:
 4. IEEP를 사용하셨다면, 아마 이벤트 핸들러를 등록하는 `register()` 라는 메서드를 IEEP 에 정의해 두셨을 텐데, 없다면 하나 만드세요. 이 메서드에서는 캐패빌리티를 등록하는 메서드를 호출하세요 (그리고 다시 한번 말씀들이지만, 이 메서드를 `FMLCommonSetupEvent` 도중 호출하는 것을 잊지 마세요).
 
 [expose]: #캐패빌리티-노출하기
+[방송]: ../concepts/events.md#creating-an-event-handler
 [network]: ../networking/index.md

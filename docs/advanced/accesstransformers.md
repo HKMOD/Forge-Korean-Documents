@@ -92,8 +92,8 @@ minecraft {
 --------
 
 ```
-# MenuScreens 클래스의 내부의 ScreenConstructor를 public으로 만듭니다
-public net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor
+# Crypt 클래스의 내부의 인터페이스 ByteArrayToKeyFunction을 public으로 만듭니다
+public net.minecraft.util.Crypt$ByteArrayToKeyFunction
 
 # MinecraftServer의 'random' 필드를 protected로 만들고 final 키워드를 제거합니다
 protected-f net.minecraft.server.MinecraftServer f_129758_ #random
@@ -102,9 +102,9 @@ protected-f net.minecraft.server.MinecraftServer f_129758_ #random
 # 'makeExecutor' 메서드를 public으로 만듭니다
 public net.minecraft.Util m_137477_(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; #makeExecutor
 
-# SerializableUUID에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
+# UUIDUtil에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
 # 'leastMostToIntArray' 메서드를 public으로 만듭니다
-public net.minecraft.core.SerializableUUID m_123274_(JJ)[I #leastMostToIntArray
+public net.minecraft.core.UUIDUtil m_235872_(JJ)[I #leastMostToIntArray
 ```
 
 [specs]: https://github.com/MinecraftForge/AccessTransformers/blob/master/FMLAT.md
