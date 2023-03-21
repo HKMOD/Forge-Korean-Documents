@@ -2,7 +2,7 @@
 
 `BlockEntity` 는 간소화된 `Entity` 로, 블럭에 종속된 엔티티 입니다. 
 `BlockEntity` 는 동적으로 변하는 데이터를 저장하거나, 매 틱마다 수행되야 하는 작업을 하거나, 동적 렌더링을 해야 할 때 등, [`BlockState`][blockstate] 만으로는 구현하기 어려운 기능들을 만들 때 사용합니다.
-마인크래프트는 `BlockEntity` 를 상자 인벤토리, 화로 제련, 신호기의 광역 포션 효과를 구현하는데에 사용합니다.
+마인크래프트는 `BlockEntity`를 상자 인벤토리, 화로 제련, 신호기의 광역 포션 효과를 구현하는데에 사용합니다.
 더 복잡한 예제들은 굴착기, 아이템 정렬하는 기계, 파이프, 디스플레이 등 다른 모드에서 찾아보실 수 있습니다.
 
 !!! note
@@ -11,16 +11,16 @@
 
 ## 등록하기
 
-`BlockEntity` 들은 얼마든지 생성되고 제거될 수 있습니다, 그러다보니 `BlockEntity` 를 레지스트리에 등록하는 대신 `BlockEntity` 의 *종류* 를 표현하는 `BlockEntityType` 을 레지스트리에 등록합니다.
+`BlockEntity` 들은 얼마든지 생성되고 제거될 수 있습니다, 그러다보니 `BlockEntity`를 레지스트리에 등록하는 대신 `BlockEntity` 의 *종류*를 표현하는 `BlockEntityType`을 레지스트리에 등록합니다.
 
-`BlockEntityType` 은 다른 레지스트리 객체들과 동일한 방법으로 [등록]합니다. `BlockEntityType` 을 만들기 위해선 먼저 `BlockEntityType$Builder` 가 필요한데, `BlockEntityType$Builder#of` 를 호출하여 빌더를 만들 수 있습니다. 이 메서드는 `BlockPos` 와 `BlockState` 를 인자로 받아 해당 `BlockEntity` 의 새로운 인스턴스를 만들어주는 `BlockEntityType$BlockEntitySupplier`, 그리고 해당 `BlockEntity` 가 부착될 수 있는 `Block` 가변 인자를 받습니다. 이제 `BlockEntityType$Builder` 가 있으니, `BlockEntityType$Builder#build` 를 호출하여 `BlockEntityType` 을 생성할 수 있습니다. 이 메서드는 `DataFixer` 에서 사용할 `Type` 을 인자로 받는데, 이는 이 레지스트리 객체를 타입 오류 위험 없이 참조할 때 사용됩니다. `DataFixer` 를 사용하는 것은 완전히 선택사항이기 때문에 `Type` 으로 `null` 을 전달하셔도 됩니다.
+`BlockEntityType` 은 다른 레지스트리 객체들과 동일한 방법으로 [등록]합니다. `BlockEntityType`을 만들기 위해선 먼저 `BlockEntityType$Builder` 가 필요한데, `BlockEntityType$Builder#of`를 호출하여 빌더를 만들 수 있습니다. 이 메서드는 `BlockPos` 와 `BlockState`를 인자로 받아 해당 `BlockEntity` 의 새로운 인스턴스를 만들어주는 `BlockEntityType$BlockEntitySupplier`, 그리고 해당 `BlockEntity` 가 부착될 수 있는 `Block` 가변 인자를 받습니다. 이제 `BlockEntityType$Builder` 가 있으니, `BlockEntityType$Builder#build`를 호출하여 `BlockEntityType`을 생성할 수 있습니다. 이 메서드는 `DataFixer` 에서 사용할 `Type`을 인자로 받는데, 이는 이 레지스트리 객체를 타입 오류 위험 없이 참조할 때 사용됩니다. `DataFixer`를 사용하는 것은 완전히 선택사항이기 때문에 `Type` 으로 `null`을 전달하셔도 됩니다.
 
 ```java
 // DeferredRegister<BlockEntityType<?>> REGISTER 가 이미 정의되어있다고 할 때
 public static final RegistryObject<BlockEntityType<MyBE>> MY_BE = REGISTER.register("mybe", () -> BlockEntityType.Builder.of(MyBE::new, validBlocks).build(null));
 
 
-// BlockEntity 를 상속하는 MyBE 클래스 내에서
+// BlockEntity를 상속하는 MyBE 클래스 내에서
 public MyBE(BlockPos pos, BlockState state) {
   super(MY_BE.get(), pos, state);
 }
@@ -28,11 +28,11 @@ public MyBE(BlockPos pos, BlockState state) {
 
 ## `BlockEntity` 만들기
 
-`BlockEntity` 를 만들고 `Block` 에 붙이기 위해서는 대상 `Block` 이 `EntityBlock` 인터페이스를 구현해야 합니다. 해당 인터페이스의 `EntityBlock#newBlockEntity(BlockPos, BlockState)` 메서드에선 블록에 부착시킬 `BlockEntity` 의 인스턴스를 반환해야 합니다.
+`BlockEntity`를 만들고 `Block` 에 붙이기 위해서는 대상 `Block` 이 `EntityBlock` 인터페이스를 구현해야 합니다. 해당 인터페이스의 `EntityBlock#newBlockEntity(BlockPos, BlockState)` 메서드에선 블록에 부착시킬 `BlockEntity` 의 인스턴스를 반환해야 합니다.
 
 네... `BlockEntity` 에 `EntityBlock` 이라니, 말장난 같은거 저도 압니다. 모장 공식 클래스 이름인데 어쩌겠어요.
 
-## `BlockEntity` 를 활용한 데이터 저장
+## `BlockEntity`를 활용한 데이터 저장
 
 `BlockEntity` 의 데이터를 저장하기 위해선 아래 두 메서드를 재정의하셔야 합니다:
 
@@ -46,7 +46,7 @@ BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오
 이들을 활용하여 `BlockEntity` 의 필드값을 저장하고 불러오세요.
 
 !!! note
-        `BlockEntity` 의 데이터가 변경되었다면 `BlockEntity#setChanged` 를 호출하셔야 합니다; 그렇지 않으면 `LevelChunk` 가 해당 `BlockEntity` 를 아예 무시할 수도 있습니다!
+        `BlockEntity` 의 데이터가 변경되었다면 `BlockEntity#setChanged`를 호출하셔야 합니다; 그렇지 않으면 `LevelChunk` 가 해당 `BlockEntity`를 아예 무시할 수도 있습니다!
 
 !!! important
         위 메서드를 재정의할 때는 `super` 메서드를 무조건 호출하세요! 그렇지 않으면 필수 정보가 누락될 수 있습니다!
@@ -55,7 +55,7 @@ BlockEntity#load(CompoundTag tag) // 전달된 tag 에서 데이터를 불러오
 
 ## `BlockEntities` 틱 처리
 
-아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 `BlockEntity` 를 만들기 위해선 `EntityBlock#getTicker(Level, BlockState, BlockEntityType)` 를 재정의하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker 를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 `BlockEntityTicker` 를 반환해야 하는데, `BlockEntityTicker` 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:
+아이템을 굽는 화로처럼, 1틱마다 특정 작업을 수행하는 `BlockEntity`를 만들기 위해선 `EntityBlock#getTicker(Level, BlockState, BlockEntityType)`를 재정의하셔야 합니다. 이때 요청된 논리 사이드에 따라 다른 ticker를 반환하거나, 아니면 기본 ticker 하나만 사용하여도 됩니다. 이 메서드를 어떻게 구현하시든 최종적으론 `BlockEntityTicker`를 반환해야 하는데, `BlockEntityTicker` 는 함수형 인터페이스라서 메서드 참조를 대신 반환해도 됩니다:
 
 ```java
 // Block 의 자식 클래스 내부
@@ -89,7 +89,7 @@ IForgeBlockEntity#handleUpdateTag(CompoundTag tag)
 ```
 
 첫번째 메서드는 클라이언트로 전송되어야 할 데이터들을 수집합니다,
-두번째 메서드는 그렇게 수집한 데이터를 처리합니다. 만약 해당 `BlockEntity` 에 데이터가 많지 않다면 [`BlockEntity` 를 활용한 데이터 저장][데이터-저장하기] 섹션에 소개된 메서드들을 응용하여 `BlockEntity` 전체를 재전송하셔도 됩니다.
+두번째 메서드는 그렇게 수집한 데이터를 처리합니다. 만약 해당 `BlockEntity` 에 데이터가 많지 않다면 [`BlockEntity`를 활용한 데이터 저장][데이터-저장하기] 섹션에 소개된 메서드들을 응용하여 `BlockEntity` 전체를 재전송하셔도 됩니다.
 
 !!! important
     필요없는 데이터를 동기화 하는 것은 네트워크를 혼잡하게 만들 수 있습니다. 그렇기에 클라이언트가 필요한 정보들을 필요할 때만 보내도록 하여 네트워크를 효율적으로 활용해야 합니다. 예를 들어, 블록 엔티티의 인벤토리가 변경될 때 마다 클라이언트와 동기화를 하는 대신 `AbstractContainerMenu` 에서 동기화를 진행하도록 하여 블록의 메뉴를 열 때 인벤토리 정보를 업데이트 하도록 할 수 있습니다.
@@ -106,7 +106,7 @@ BlockEntity#getUpdatePacket()
 IForgeBlockEntity#onDataPacket
 ```
 
-아래 예시 `BlockEntity` 를 참고하세요:
+아래 예시 `BlockEntity`를 참고하세요:
 
 ```java
 @Override
@@ -118,17 +118,17 @@ public CompoundTag getUpdateTag() {
 
 @Override
 public Packet<ClientGamePacketListener> getUpdatePacket() {
-  // #getUpdateTag 를 호출하여 전송할 tag 를 가져옵니다
+  // #getUpdateTag를 호출하여 전송할 tag를 가져옵니다
   return ClientboundBlockEntityDataPacket.create(this);
 }
 
-// IForgeBlockEntity#onDataPacket 을 재정의하는 것은 선택사항입니다. 기본적으로 #load 를 호출합니다.
+// IForgeBlockEntity#onDataPacket을 재정의하는 것은 선택사항입니다. 기본적으로 #load를 호출합니다.
 ```
 
 이때 여기서 사용된 정적 생성자 `ClientboundBlockEntityDataPacket#create` 는 아래 2개의 인자를 받습니다: 
 
 * `BlockEntity`.
-* `CompoundTag` 를 `BlockEntity` 로 부터 얻어오는 함수(`Function<BlockEntity, CompoundTag>`). 기본값으로 `BlockEntity#getUpdateTag` 를 사용합니다.
+* `CompoundTag`를 `BlockEntity` 로 부터 얻어오는 함수(`Function<BlockEntity, CompoundTag>`). 기본값으로 `BlockEntity#getUpdateTag`를 사용합니다.
 
 이제 서버측에서 블록 업데이트를 클라이언트들에 전송할 수 있습니다. 
 
@@ -137,22 +137,22 @@ Level#sendBlockUpdated(BlockPos pos, BlockState oldState, BlockState newState, i
 ```
 
 `pos` 는 업데이트할 `BlockEntity` 의 위치 입니다.
-`oldState` 랑 `newState` 는 해당 위치의 `BlockState` 를 전달하시면 됩니다.
-`flags` 는 비트 마스크들로, `2` 를 포함하고 있어야 합니다. 그래야 서버가 클라이언트들에 업데이트 패킷을 전송합니다. `Block` 클래스를 참고하여 다른 플래그들의 역할 또한 볼 수 있습니다. `2` 는 `Block#UPDATE_CLIENTS` 와 동일합니다.
+`oldState` 랑 `newState` 는 해당 위치의 `BlockState`를 전달하시면 됩니다.
+`flags` 는 비트 마스크들로, `2`를 포함하고 있어야 합니다. 그래야 서버가 클라이언트들에 업데이트 패킷을 전송합니다. `Block` 클래스를 참고하여 다른 플래그들의 역할 또한 볼 수 있습니다. `2` 는 `Block#UPDATE_CLIENTS` 와 동일합니다.
 
 ### 커스텀 네트워크 메세지로 동기화하기
 
 이 방법은 가장 복잡하지만, 그러면서도 가장 많은 최적화를 적용할 수 있습니다.
 동기화를 해야 하는 정보들만 실제로 동기화가 되도록 세밀하게 조절할 수 있기 때문입니다.
 이 방법을 시도해보기 전에 [네트워킹][네트워크-통신] 에 대해 미리 알아보시고 오세요, 특히 [`SimpleImpl`][simple_impl] 에 대해 잘 알고 계셔야 합니다.
-커스텀 네트워크 메세지를 정의하셨다면, 해당 `BlockEntity` 를 추적하고 있는 모든 클라이언트에 커스텀 메세지를 `SimpleChannel#send(PacketDistributor$PacketTarget, MSG)` 를 통해 보낼 수 있습니다.
+커스텀 네트워크 메세지를 정의하셨다면, 해당 `BlockEntity`를 추적하고 있는 모든 클라이언트에 커스텀 메세지를 `SimpleChannel#send(PacketDistributor$PacketTarget, MSG)`를 통해 보낼 수 있습니다.
 이때 사용하는 `PacketDistributor` 는 `TRACKING_ENTITY` 입니다.
 
 !!! warning
     플레이어에게 패킷이 전달되었을 때는 해당 `BlockEntity` 가 부서지거나 다른 블록으로 대체되어 레벨에 존재하지 않을 수도 있습니다. 그렇기 때문에 블록이 진짜 존재하는지 무조건 확인하셔야 합니다! 또한 해당 `BlockEntity` 가 들어있는 청크가 불러와졌는지도 확인하셔야 합니다! (`Level#hasChunkAt(BlockPos)`).
 
 [등록]: ../concepts/registries.md#객체-등록하기
-[데이터-저장하기]: #`BlockEntity`-를-활용한-데이터-저장
+[데이터-저장하기]: #blockentity-를-활용한-데이터-저장
 [네트워크-통신]: ../networking/index.md
 [simple_impl]: ../networking/simpleimpl.md
 [blockstate]: ../blocks/states.md

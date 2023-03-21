@@ -16,7 +16,7 @@
 
 이벤트 핸들러 메서드들은 결과를 반환하지 않고 인자가 하나만 있습니다. 이 메서드들은 정적이어도 되고 아니어도 됩니다.
 
-이벤트 핸들러들은 `IEventBus#addListener` 를 사용하여 바로 등록하실 수 있습니다. 만약 이벤트가 제너릭 클래스이고, `GenericEvent<T>` 의 자식 클래스일 경우 `IEventBus#addGenericListener` 를 대신 사용하실 수 있습니다, 둘 다 전달될 메서드를 표현하는 `Consumer` 를 인자로 받습니다. 제너릭 이벤트에 반응할 핸들러들은 타입 인자또한 전달하여야 합니다. 이벤트 핸들러들은 무조건 모드의 메인 클래스의 생성자에서 등록되어야 합니다.
+이벤트 핸들러들은 `IEventBus#addListener`를 사용하여 바로 등록하실 수 있습니다. 만약 이벤트가 제너릭 클래스이고, `GenericEvent<T>` 의 자식 클래스일 경우 `IEventBus#addGenericListener`를 대신 사용하실 수 있습니다, 둘 다 전달될 메서드를 표현하는 `Consumer`를 인자로 받습니다. 제너릭 이벤트에 반응할 핸들러들은 타입 인자또한 전달하여야 합니다. 이벤트 핸들러들은 무조건 모드의 메인 클래스의 생성자에서 등록되어야 합니다.
 
 ```java
 // In the main mod class ExampleMod
@@ -49,7 +49,7 @@ public class MyForgeEventHandler {
 }
 ```
 
-이 이벤트 핸들러를 등록하기 위해서는 `MinecraftForge.EVENT_BUS.register(...)` 를 사용하세요. 그리고 이 메서드에 이벤트 핸들러 메서드가 있는 클래스의 인스턴스를 매개변수로 전달하세요. 만약 핸들러를 모드별 버스에 등록하고 싶다면 `FMLJavaModLoadingContext.get().getModEventBus().register(...)` 를 대신 사용하세요.
+이 이벤트 핸들러를 등록하기 위해서는 `MinecraftForge.EVENT_BUS.register(...)`를 사용하세요. 그리고 이 메서드에 이벤트 핸들러 메서드가 있는 클래스의 인스턴스를 매개변수로 전달하세요. 만약 핸들러를 모드별 버스에 등록하고 싶다면 `FMLJavaModLoadingContext.get().getModEventBus().register(...)`를 대신 사용하세요.
 
 ### 어노테이션을 활용한 정적 이벤트 핸들러
 
@@ -64,7 +64,7 @@ public class MyStaticForgeEventHandler {
 }
 ```
 
-이는 `MinecraftForge.EVENT_BUS.register(MyStaticForgeEventHandler.class)` 를 통해 등록합니다.
+이는 `MinecraftForge.EVENT_BUS.register(MyStaticForgeEventHandler.class)`를 통해 등록합니다.
 
 ### 자동으로 정적 이벤트 핸들러 등록하기
 
@@ -90,15 +90,15 @@ public class MyStaticClientOnlyEventHandler {
 이벤트 취소하기
 ---------
 
-만약 이벤트가 취소될 수 있다면, `@Cancelable` 어노테이션이 있을 것입니다, 그리고 메서드 `Event#isCancelable()` 는 `true` 를 반환합니다. 이벤트의 취소 여부는 `Event#setCanceled(boolean canceled` 메서드를 통해 변경될 수 있습니다, `true` 를 전달할 시 이벤트가 취소되고 `false` 를 전달할 시 이벤트의 "취소를 취소합니다". 그러나 만약에 이벤트가 취소될 수 없다면, 이 메서드를 사용하는 것 만으로 `UnsupportedOperationException` 예외가 발생합니다. 최소될 수 없는 이벤트의 취소 여부는 불변값으로 취급되기 때문입니다.
+만약 이벤트가 취소될 수 있다면, `@Cancelable` 어노테이션이 있을 것입니다, 그리고 메서드 `Event#isCancelable()` 는 `true`를 반환합니다. 이벤트의 취소 여부는 `Event#setCanceled(boolean canceled` 메서드를 통해 변경될 수 있습니다, `true`를 전달할 시 이벤트가 취소되고 `false`를 전달할 시 이벤트의 "취소를 취소합니다". 그러나 만약에 이벤트가 취소될 수 없다면, 이 메서드를 사용하는 것 만으로 `UnsupportedOperationException` 예외가 발생합니다. 최소될 수 없는 이벤트의 취소 여부는 불변값으로 취급되기 때문입니다.
 
 !!! important
-    모든 이벤트가 취소될 수 있는 것은 아닙니다! 취소할 수 없는 이벤트를 취소하려고 할 시 `UnsuppoortedOperationException` 예외가 발생하고 게임이 튕기게 됩니다! 그렇기에 이벤트를 취소하기 전에 `Event#isCancelable()` 을 사용하는 등 이벤트가 취소될 수 있는지를 먼저 확실하게 확인하세요!
+    모든 이벤트가 취소될 수 있는 것은 아닙니다! 취소할 수 없는 이벤트를 취소하려고 할 시 `UnsuppoortedOperationException` 예외가 발생하고 게임이 튕기게 됩니다! 그렇기에 이벤트를 취소하기 전에 `Event#isCancelable()`을 사용하는 등 이벤트가 취소될 수 있는지를 먼저 확실하게 확인하세요!
 
 결과
 -------
 
-일부 이벤트들은 `Event$Result` 클래스를 사용합니다 결과는 이벤트를 중단하는 `DENY`, 기본 바닐라 코드를 실행하는 `DEFAULT`, 강제적으로 특정 동작을 수행하도록 하는 `ALLOW`, 이렇게 3가지가 있습니다. 이벤트의 결과는 이벤트 도중 `#setResult` 를 사용해 지정할 수 있습니다. 모든 이벤트가 결과가 있는 것은 아닙니다; 결과가 있는 이벤트는 `@HasResult` 어노테이션이 있습니다.
+일부 이벤트들은 `Event$Result` 클래스를 사용합니다 결과는 이벤트를 중단하는 `DENY`, 기본 바닐라 코드를 실행하는 `DEFAULT`, 강제적으로 특정 동작을 수행하도록 하는 `ALLOW`, 이렇게 3가지가 있습니다. 이벤트의 결과는 이벤트 도중 `#setResult`를 사용해 지정할 수 있습니다. 모든 이벤트가 결과가 있는 것은 아닙니다; 결과가 있는 이벤트는 `@HasResult` 어노테이션이 있습니다.
 
 !!! important
     여러 이벤트들은 각자 다른 방식으로 결과를 처리할 수 있습니다, 그렇기에 이벤트의 JavaDoc 에서 이벤트가 결과를 어떻게 처리할지를 미리 숙지하도록 하세요!
@@ -128,7 +128,7 @@ public class MyStaticClientOnlyEventHandler {
 !!! note
     `FMLClientSetupEvent` 와 `FMLDedicatedServerSetupEvent` 는 올바른 배포판에서만 방송됩니다!
 
-이 4개의 생명주기 이벤트들은 모두 `ParallelDispatchEvent` 의 자식 클래스이기 때문에 병렬적으로 방송됩니다. 만약 `ParallelDispatchEvent` 또는 그 자식 클래스 이벤트가 방송되는 도중 메인 스레드에서 코드를 실행하고 싶다면 `#enqueueWork` 를 사용하세요.
+이 4개의 생명주기 이벤트들은 모두 `ParallelDispatchEvent` 의 자식 클래스이기 때문에 병렬적으로 방송됩니다. 만약 `ParallelDispatchEvent` 또는 그 자식 클래스 이벤트가 방송되는 도중 메인 스레드에서 코드를 실행하고 싶다면 `#enqueueWork`를 사용하세요.
 
 생명주기 이벤트 말고, 모드 버스에서 방송되는 다른 이벤트들도 있습니다. 이 이벤트들 또한 무언가를 등록하거나, 초기화 하는 등의 용도로 쓰입니다. 이 이벤트들은 대부분 생명주기 이벤트들과 다르게 비동기적이지 않습니다. 이러한 이벤트들의 예로:
 

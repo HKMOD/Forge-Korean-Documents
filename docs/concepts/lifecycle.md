@@ -25,14 +25,14 @@ public class MyMod {
 !!! warning
     대부분의 생명주기 이벤트들은 병렬적으로 방송됩니다: 모든 모드들은 동시에 같은 이벤트에 반응합니다.
 
-    모드들은 다른 모드의 API 또는 마인크래프트 시스템에 접근할 때, 스레드 안전성을 준수해야만 합니다. `ParallelDispatchEvent#enqueueWork` 를 이용해 코드 실행을 예약하여 나중에 실행되도록 하세요.
+    모드들은 다른 모드의 API 또는 마인크래프트 시스템에 접근할 때, 스레드 안전성을 준수해야만 합니다. `ParallelDispatchEvent#enqueueWork`를 이용해 코드 실행을 예약하여 나중에 실행되도록 하세요.
 
 레지스트리 이벤트
 ---------------
 
 레지스트리 이벤트들은 모드 인스턴스 초기화 이후에 방송됩니다. 이 이벤트들의 종류는 `NewRegistryEvent` 그리고 `RegistryEvent$Register` 가 있습니다. 이 이벤트들은 모드들을 불러올때 동기적으로 방송됩니다.
 
-`NewRegistryEvent` 이벤트는 모드 개발자들이 직접 만든 레지스트리를 `RegistryBuilder` 를 사용해 등록할 수 있도록 해줍니다.
+`NewRegistryEvent` 이벤트는 모드 개발자들이 직접 만든 레지스트리를 `RegistryBuilder`를 사용해 등록할 수 있도록 해줍니다.
 
 `RegistryEvent$Register<?>` 이벤트는 [객체들을 레지스트리에 등록할 때][등록] 사용합니다. 이 이벤트는 각 레지스트리당 한번씩 방송됩니다, 이는 개발자가 직접 등록한 레지스트리도 포함됩니다.
 
@@ -56,11 +56,11 @@ InterModComms
 
 이 생명주기 단계에서는 모드끼리 메세지를 보내 모드간 호환성을 유지할 수 있도록 합니다. 이때 방송되는 이벤트는 `InterModEnqueueEvent` 와 `InterModProcessEvent` 가 있습니다.
 
-`InterModComms` 의 역할은 모드 통신에 사용되는 메세지를 보유하는 것입니다. 그리고 이 클래스의 메서드들은 `ConcurrentMap` 을 사용하기 때문에 병렬적으로 방송되는 생명주기 이벤트에서 호출하여도 안전합니다.
+`InterModComms` 의 역할은 모드 통신에 사용되는 메세지를 보유하는 것입니다. 그리고 이 클래스의 메서드들은 `ConcurrentMap`을 사용하기 때문에 병렬적으로 방송되는 생명주기 이벤트에서 호출하여도 안전합니다.
 
-`InterModEnqueueEvent` 도중 `InterModComms#sendTo` 를 사용해 다른 모드에 메세지를 전송할 수 있습니다. `InterModComms#sendTo` 와 동일한 이름을 가진 메서드가 여럿 있는데, 이 메서드들은 메세지를 받을 모드의 아이디, 메세지들을 구분하기 위해 사용하는 키, 메세지의 데이터를 공급하는 `Supplier` 입니다. 추가적으로 메세지 송신자를 지정할 수도 있으나, 기본값으로는 메세지를 보내는 모드의 아이디 입니다.
+`InterModEnqueueEvent` 도중 `InterModComms#sendTo`를 사용해 다른 모드에 메세지를 전송할 수 있습니다. `InterModComms#sendTo` 와 동일한 이름을 가진 메서드가 여럿 있는데, 이 메서드들은 메세지를 받을 모드의 아이디, 메세지들을 구분하기 위해 사용하는 키, 메세지의 데이터를 공급하는 `Supplier` 입니다. 추가적으로 메세지 송신자를 지정할 수도 있으나, 기본값으로는 메세지를 보내는 모드의 아이디 입니다.
 
-또, `InterModProcessEvent` 도중 `InterModComms#getMessages` 를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 `Predicate` 를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 `Stream<IMCMessage>` 를 반환합니다, `IMCMessage` 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.
+또, `InterModProcessEvent` 도중 `InterModComms#getMessages`를 사용해 받은 모든 메세지들을의 흐름(Stream)을 받을 수 있습니다. 이때 전달하는 모드의 아이디는 거의 언제나 이 이 메서드를 실행하는 모드의 것입니다. 추가적으로 `Predicate`를 전달하여 몇몇 메세지를 필터링 할 수도 있습니다. 이 메서드는 `Stream<IMCMessage>`를 반환합니다, `IMCMessage` 는 데이터를 보낸 송신자, 수신자, 데이터의 키, 마지막으로 메세지의 데이터를 담고 있습니다.
 
 !!! note
     그외에도 모드 인스턴스 생성 직후, 레지스트리 이벤트가 방송되기 이전에 방송되는 `FMLConstructModEvent` 생명주기 이벤트와 `InterModComms` 이후에 방송되어 모드를 완전히 불러왔음을 알리는 `FMLLoadCompleteEvent` 생명주기 이벤트가 있습니다.

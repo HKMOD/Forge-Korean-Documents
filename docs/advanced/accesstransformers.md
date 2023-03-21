@@ -90,9 +90,9 @@ minecraft {
 * `S` - `short`, 부호가 있는 16비트 정수
 * `Z` - `boolean`, `true` 또는 `false` 인 값
 * `[` - 배열의 차원 1개를 표시함
-  * 예: `[[S` 는 `short[][]` 를 가리킵니다
+  * 예: `[[S` 는 `short[][]`를 가리킵니다
 * `L<class name>;` - 참조 타입을 참조함
-  * 예: `Ljava/lang/String;` 는 참조 타입 `java.lang.String` 를 가리킵니다 _(빗금 대신 마침표를 사용합니다)_
+  * 예: `Ljava/lang/String;` 는 참조 타입 `java.lang.String`를 가리킵니다 _(빗금 대신 마침표를 사용합니다)_
 * `(` - 메서드 디스크립터를 참조합니다, 인자들은 있다면 이곳에서 기술되어야 합니다
   * 예: `<method>(I)Z` 는 인자로 Int 1개를 받고 Boolean을 반환하는 메서드를 가리킵니다
 * `V` - 반환하는 값이 없는 메서드를 가리킵니다, 메서드 디스크립터 맨 뒤에 사용할 수 있습니다
@@ -102,17 +102,17 @@ minecraft {
 --------
 
 ```
-# MenuScreens 클래스의 ScreenConstructor 를 public으로 만듭니다
+# MenuScreens 클래스의 ScreenConstructor를 public으로 만듭니다
 public net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor
 
 # MinecraftServer의 'random' 필드를 protected 로 만들고 final 키워드를 제거합니다
 protected-f net.minecraft.server.MinecraftServer f_129758_ #random
 
-# Util 에 있는 String 을 인자로 받고 ExecutorService 를 반환하는,
+# Util 에 있는 String을 인자로 받고 ExecutorService를 반환하는,
 # 'makeExecutor' 메서드를 public 으로 만듭니다
 public net.minecraft.Util m_137477_(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; #makeExecutor
 
-# SerializableUUID 에 있는 2개의 long 을 인자로 받고 int[] 를 반환하는,
+# SerializableUUID 에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
 # 'leastMostToIntArray' 메서드를 public으로 만듭니다
 public net.minecraft.core.SerializableUUID m_123274_(JJ)[I #leastMostToIntArray
 ```
