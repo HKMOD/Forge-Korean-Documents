@@ -1,97 +1,11 @@
 # If you add a page, you must add it to the index here
 nav:
   - Home: 'index.md'
-  - 문서에 기여하기: 'contributing.md'
-  - 시작하기:
-    - 소개: 'gettingstarted/index.md'
-    - 모드 기본 구조 작성하기: 'gettingstarted/structuring.md'
-    - 버전 구조: 'gettingstarted/versioning.md'
-  - 핵심 개념들:
-    - 레지스트리: 'concepts/registries.md'
-    - 사이드: 'concepts/sides.md'
-    - 이벤트 : 'concepts/events.md'
-    - 모드 생명주기: 'concepts/lifecycle.md'
-    - 리소스: 'concepts/resources.md'
-    - 다국어 지원: 'concepts/internationalization.md'
-  - 블록:
-    - 소개: 'blocks/index.md'
-    - 블록의 상태: 'blocks/states.md'
-  - 아이템:
-    - 소개: 'items/index.md'
-    - BlockEntityWithoutLevelRenderer: 'items/bewlr.md'
-  - 네트워킹:
-    - 소개: 'networking/index.md'
-    - SimpleImpl: 'networking/simpleimpl.md'
-    - 엔티티 동기화하기: 'networking/entities.md'
-  - 블록 엔티티:
-    - 소개: 'blockentities/index.md'
-    - BlockEntityRenderer: 'blockentities/ber.md'
-  - 인게임 효과:
-    - 파티클: 'gameeffects/particles.md'
-    - 효과음: 'gameeffects/sounds.md'
-  - 데이터 저장소:
-    - 캐패빌리티: 'datastorage/capabilities.md'
-    - 월드 저장 데이터: 'datastorage/saveddata.md'
-    - 코덱: 'datastorage/codecs.md'
-  - GUI:
-    - 메뉴: 'gui/menus.md'
-    - 스크린: 'gui/screens.md'
-  - 렌더링:
-    - 모델 로더:
-      - 소개: 'rendering/modelloaders/index.md'
-      - 최적화된 모델: 'rendering/modelloaders/bakedmodel.md'
-      - 시점: 'rendering/modelloaders/transform.md'
-      - 아이템 속성에 따른 동적 텍스쳐 변경: 'rendering/modelloaders/itemoverrides.md'
-  - 리소스:
-    - 클라이언트용 애셋:
-      - 소개: 'resources/client/index.md'
-      - 모델:
-        - 모델 소개: 'resources/client/models/index.md'
-        - 텍스쳐 염색: 'resources/client/models/tinting.md'
-        - 아이템 속성: 'resources/client/models/itemproperties.md'
-    - 서버 데이터:
-      - 소개: 'resources/server/index.md'
-      - 조합법:
-        - 조합법 소개: 'resources/server/recipes/index.md'
-        - 사용자지정 조합법: 'resources/server/recipes/custom.md'
-        - 재료: 'resources/server/recipes/ingredients.md'
-        - 데이터팩을 쓰지 않는 조합법:  'resources/server/recipes/incode.md'
-      - 컨테이너 전리품 테이블: 'resources/server/loottables.md'
-      - 전체 전리품 수정하기: 'resources/server/glm.md'
-      - 태그: 'resources/server/tags.md'
-      - 도전과제: 'resources/server/advancements.md'
-      - 조건적으로 불러와지는 데이터: 'resources/server/conditional.md'
-  - 데이터 생성:
-    - 소개: 'datagen/index.md'
-    - 클라이언트 애셋:
-      - 모델 생성하기: 'datagen/client/modelproviders.md'
-      - 언어 생성하기: 'datagen/client/localization.md'
-      - 소리 생성하기: 'datagen/client/sounds.md'
-    - 서버 데이터:
-      - 조합법 생성하기: 'datagen/server/recipes.md'
-      - 컨테이너 전리품 테이블 생성하기: 'datagen/server/loottables.md'
-      - 태그 생성하기: 'datagen/server/tags.md'
-      - 도전과제 생성하기: 'datagen/server/advancements.md'
-      - 전체 전리품 수정 데이터 생성하기: 'datagen/server/glm.md'
-      - 데이터팩 레지스트리 객체 생성하기: 'datagen/server/datapackregistries.md'
-  - 기타 기능:
-    - 모드 설정 파일: 'misc/config.md'
-    - 키바인드: 'misc/keymappings.md'
-    - 인게임 테스트: 'misc/gametest.md'
-    - 자동 업데이트 확인: 'misc/updatechecker.md'
-    - 디버그 프로파일러: 'misc/debugprofiler.md'
-  - 심화 주제:
-    - 접근 변형자: 'advanced/accesstransformers.md'
-  - 포지에 기여하기:
-    - 소개: 'forgedev/index.md'
-    - PR 가이드라인: 'forgedev/prguidelines.md'
-  - 구버전:
-    - 소개: 'legacy/index.md'
-    - 1.19로 모드 포트하기: 'legacy/porting.md'
+  - Contributing to the Docs: 'contributing.md'
 
 # Do not edit in PRs below here
 site_name: Forge Korean Documentation
-site_url: https://hkmod.github.io/Forge-Korean-Documents/1.19.x/
+site_url: https://hkmod.github.io/Forge-Korean-Documents/fg-6.x
 
 markdown_extensions:
   - admonition
@@ -108,16 +22,13 @@ theme:
   custom_dir: forge_theme
 
 extra:
-  current_type: MinecraftForge
+  current_type: ForgeGradle
   types:
     MinecraftForge: latest
     ForgeGradle: fg-6.x
-  current_version: 1.19.x
+  current_version: 6.x
   versions:
-    1.16.x: 1.16.x
-    1.18.x: 1.18.x
-    1.19.2: 1.19.2
-    1.19.x: 1.19.x
+    6.x: 6.x
 
 extra_css:
   - css/version_warning_fix.css
