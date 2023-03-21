@@ -102,10 +102,15 @@ theme:
   custom_dir: forge_theme
 
 extra:
+  current_type: MinecraftForge
+  types:
+    MinecraftForge: latest
+    ForgeGradle: fg-6.x
   current_version: 1.18.x
   versions:
     1.16.x: 1.16.x
     1.18.x: 1.18.x
+    1.19.2: 1.19.2
     1.19.x: 1.19.x
 
 extra_css:
