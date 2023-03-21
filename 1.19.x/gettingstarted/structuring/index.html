@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -409,6 +423,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -448,7 +500,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -758,6 +810,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -777,6 +838,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -918,8 +988,8 @@
 <pre class="highlight"><code class="language-toml"># The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml"
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-# Forge for 1.18 is version 38
-loaderVersion="[38,)"
+# Forge for 1.19.3 is version 44
+loaderVersion="[44,)"
 # The license for your mod. This is mandatory and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license="All Rights Reserved"
@@ -940,18 +1010,19 @@ showAsResourcePack=false
   description='''
   Lets you craft dirt into diamonds. This is a traditional mod that has existed for eons. It is ancient. The holy Notch created it. Jeb rainbowfied it. Dinnerbone made it upside down. Etc.
   '''
+  displayTest="MATCH_VERSION"
 
   [[dependencies.examplemod]]
     modId="forge"
     mandatory=true
-    versionRange="[38,)"
+    versionRange="[44,)"
     ordering="NONE"
     side="BOTH"
 
   [[dependencies.examplemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,1.19)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"</code></pre></p>
 <p>If any string is specified as <code>${file.jarVersion}</code>, Forge will replace the string with the <strong>Implementation Version</strong> specified in your jar manifest at runtime. Since the user development environment has no jar manifest to pull from, it will be <code>NONE</code> instead. As such, it is usually recommended to leave the <code>version</code> field alone. Here is a table of attributes that may be given to a mod, where <code>mandatory</code> means there is no default and the absence of the property causes an error.</p>
@@ -1018,6 +1089,12 @@ showAsResourcePack=false
 <td align="center">string</td>
 <td align="center">mandatory</td>
 <td align="left">A description of this mod.</td>
+</tr>
+<tr>
+<td align="right">displayTest</td>
+<td align="center">string</td>
+<td align="center"><code>"MATCH_VERSION"</code></td>
+<td align="left">Controls the display of the mod in the server connection screen.</td>
 </tr>
 <tr>
 <td align="right">dependencies</td>

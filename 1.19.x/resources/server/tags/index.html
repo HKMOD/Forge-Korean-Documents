@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -756,6 +808,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -775,6 +836,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -916,7 +986,7 @@ Values listed that are not present will cause the tag to error unless the value 
     }
   ]
 }</code></pre>
-<p>See the <a href="https://minecraft.gamepedia.com/Tag#JSON_format">Vanilla wiki</a> for a description of the base syntax.</p>
+<p>See the <a href="https://minecraft.fandom.com/wiki/Tag#JSON_format">Vanilla wiki</a> for a description of the base syntax.</p>
 <p>There is also a Forge extension on the Vanilla syntax.
 You may declare a <code>remove</code> array of the same format as the <code>values</code> array. Any values listed here will be removed from the tag. This acts as a finer grained version of the Vanilla <code>replace</code> option.</p>
 <h2 id="using-tags-in-code">Using Tags In Code<a class="headerlink" href="#using-tags-in-code" title="Permanent link"> </a></h2>
@@ -941,7 +1011,7 @@ You may declare a <code>remove</code> array of the same format as the <code>valu
 <tbody>
 <tr>
 <td align="center"><code>*Tags#create</code></td>
-<td align="left"><code>Block</code>, <code>Item</code>, <code>EntityType</code>, <code>Fluid</code>, and <code>Biome</code> where <code>*</code> represents one of these types.</td>
+<td align="left"><code>BannerPattern</code>, <code>Biome</code>, <code>Block</code>, <code>CatVariant</code>, <code>EntityType</code>, <code>FlatLevelGeneratorPreset</code>, <code>Fluid</code>, <code>GameEvent</code>, <code>Instrument</code>, <code>Item</code>, <code>PaintingVariant</code>, <code>PoiType</code>, <code>Structure</code>, and <code>WorldPreset</code> where <code>*</code> represents one of these types.</td>
 </tr>
 <tr>
 <td align="center"><code>ITagManager#createTagKey</code></td>
@@ -966,7 +1036,7 @@ You may declare a <code>remove</code> array of the same format as the <code>valu
 
 public static final TagKey&lt;Potion&gt; myPotionTag = ForgeRegistries.POTIONS.tags().createTagKey(new ResourceLocation("mymod", "mypotiongroup"));
 
-public static final TagKey&lt;VillagerType&gt; myVillagerTypeTag = TagKey.create(Registry.VILLAGER_TYPE, new ResourceLocation("mymod", "myvillagertypegroup"));
+public static final TagKey&lt;VillagerType&gt; myVillagerTypeTag = TagKey.create(Registries.VILLAGER_TYPE, new ResourceLocation("mymod", "myvillagertypegroup"));
 
 // In some method:
 
@@ -977,12 +1047,12 @@ Potion potion = /*...*/;
 boolean isInPotionGroup  = ForgeRegistries.POTIONS.tags().getTag(myPotionTag).contains(potion);
 
 ResourceKey&lt;VillagerType&gt; villagerTypeKey = /*...*/;
-boolean isInVillagerTypeGroup = Registry.VILLAGER_TYPE.getHolder(villagerTypeKey).map(holder -&gt; holder.is(myVillagerTypeTag)).orElse(false);</code></pre></p>
+boolean isInVillagerTypeGroup = BuiltInRegistries.VILLAGER_TYPE.getHolder(villagerTypeKey).map(holder -&gt; holder.is(myVillagerTypeTag)).orElse(false);</code></pre></p>
 <h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link"> </a></h2>
 <p>There are several conventions that will help facilitate compatibility in the ecosystem:</p>
 <ul>
-<li>If there is a Vanilla tag that fits your block or item, add it to that tag. See the <a href="https://minecraft.gamepedia.com/Tag#List_of_tags">list of Vanilla tags</a>.</li>
-<li>If there is a Forge tag that fits your block or item, add it to that tag. The list of tags declared by Forge can be seen on <a href="https://github.com/MinecraftForge/MinecraftForge/tree/1.18.x/src/generated/resources/data/forge/tags">GitHub</a>.</li>
+<li>If there is a Vanilla tag that fits your block or item, add it to that tag. See the <a href="https://minecraft.fandom.com/wiki/Tag#List_of_tags">list of Vanilla tags</a>.</li>
+<li>If there is a Forge tag that fits your block or item, add it to that tag. The list of tags declared by Forge can be seen on <a href="https://github.com/MinecraftForge/MinecraftForge/tree/1.19.x/src/generated/resources/data/forge/tags">GitHub</a>.</li>
 <li>If there is a group of something you feel should be shared by the community, use the <code>forge</code> namespace instead of your mod id.</li>
 <li>Tag naming conventions should follow Vanilla conventions. In particular, item and block groupings are plural instead of singular (e.g. <code>minecraft:logs</code>, <code>minecraft:saplings</code>).</li>
 <li>Item tags should be sorted into subdirectories according to their type (e.g. <code>forge:ingots/iron</code>, <code>forge:nuggets/brass</code>, etc.).</li>
@@ -996,7 +1066,7 @@ boolean isInVillagerTypeGroup = Registry.VILLAGER_TYPE.getHolder(villagerTypeKey
 <li>For example, brass ingots should be registered under the <code>forge:ingots/brass</code> tag and cobalt nuggets under the <code>forge:nuggets/cobalt</code> tag.</li>
 </ul>
 <h2 id="using-tags-in-recipes-and-advancements">Using Tags in Recipes and Advancements<a class="headerlink" href="#using-tags-in-recipes-and-advancements" title="Permanent link"> </a></h2>
-<p>Tags are directly supported by Vanilla. See the respective Vanilla wiki pages for <a href="https://minecraft.gamepedia.com/Recipe#JSON_format">recipes</a> and <a href="https://minecraft.gamepedia.com/Advancements">advancements</a> for usage details.</p>
+<p>Tags are directly supported by Vanilla. See the respective Vanilla wiki pages for <a href="https://minecraft.fandom.com/wiki/Recipe#JSON_format">recipes</a> and <a href="https://minecraft.fandom.com/wiki/Advancement">advancements</a> for usage details.</p>
             
         </article>
         

@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -438,7 +490,7 @@
         
 <li >
     
-    <a href="perspective/" class="elem-text">시점</a>
+    <a href="transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -748,6 +800,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -767,6 +828,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -890,13 +960,13 @@
         <article class="docs-entry">
             
             <h1 id="custom-model-loaders">Custom Model Loaders<a class="headerlink" href="#custom-model-loaders" title="Permanent link"> </a></h1>
-<p>A &ldquo;model&rdquo; is simply a shape. It can be a simple cube, it can be several cubes, it can be a truncated icosidodecahedron, or anything in between. Most models you&rsquo;ll see will be in the vanilla JSON format. Models in other formats are loaded into <code>IModelGeometry</code>s by an <code>IModelLoader</code> at runtime. Forge provides default implementations for WaveFront OBJ files, buckets, composite models, models in different render layers, and a reimplementation of Vanilla&rsquo;s <code>builtin/generated</code> item model. Most things do not care about what loaded the model or what format it&rsquo;s in as they are all eventually represented by an <code>BakedModel</code> in code.</p>
+<p>A &ldquo;model&rdquo; is simply a shape. It can be a simple cube, it can be several cubes, it can be a truncated icosidodecahedron, or anything in between. Most models you&rsquo;ll see will be in the vanilla JSON format. Models in other formats are loaded into <code>IUnbakedGeometry</code>s by an <code>IGeometryLoader</code> at runtime. Forge provides default implementations for WaveFront OBJ files, buckets, composite models, models in different render layers, and a reimplementation of Vanilla&rsquo;s <code>builtin/generated</code> item model. Most things do not care about what loaded the model or what format it&rsquo;s in as they are all eventually represented by an <code>BakedModel</code> in code.</p>
 <h2 id="wavefront-obj-models">WaveFront OBJ Models<a class="headerlink" href="#wavefront-obj-models" title="Permanent link"> </a></h2>
 <p>Forge adds a loader for the <code>.obj</code> file format. To use these models, the JSON must reference the <code>forge:obj</code> loader. This loader accepts any model location that is in a registered namespace and whose path ends in <code>.obj</code>. The <code>.mtl</code> file should be placed in the same location with the same name as the <code>.obj</code> to be used automatically. The <code>.mtl</code> file will probably have to be manually edited to change the paths pointing to textures defined within the JSON. Additionally, the V axis for textures may be flipped depending on the external program that created the model (i.e. V = 0 may be the bottom edge, not the top). This may be rectified in the modelling program itself or done in the model JSON like so:</p>
 <pre class="highlight"><code class="language-js">{
   // Add the following line on the same level as a 'model' declaration
   "loader": "forge:obj",
-  "flip-v": true,
+  "flip_v": true,
   "model": "examplemod:models/block/model.obj",
   "textures": {
     // Can refer to in .mtl using #texture0

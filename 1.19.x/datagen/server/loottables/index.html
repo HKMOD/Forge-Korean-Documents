@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -713,9 +765,7 @@
         
         
         
-        <li class="toc-subitem"><a href="#the-loottableprovider-subclass">The LootTableProvider Subclass</a></li>
-        
-        <li class="toc-subitem"><a href="#table-builders">Table Builders</a></li>
+        <li class="toc-subitem"><a href="#loottablesubprovider">LootTableSubProvider</a></li>
         
         <li class="toc-subitem"><a href="#loot-table-builders">Loot Table Builders</a></li>
         
@@ -752,6 +802,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -771,6 +830,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -894,64 +962,59 @@
         <article class="docs-entry">
             
             <h1 id="loot-table-generation">Loot Table Generation<a class="headerlink" href="#loot-table-generation" title="Permanent link"> </a></h1>
-<p><a href="../../../resources/server/loottables/">Loot tables</a> can be generated for a mod by subclassing <code>LootTableProvider</code> with a few modifications. After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
-<h2 id="the-loottableprovider-subclass">The <code>LootTableProvider</code> Subclass<a class="headerlink" href="#the-loottableprovider-subclass" title="Permanent link"> </a></h2>
-<p><code>LootTableProvider</code> is simplified into two methods: <code>#getTables</code>, which collect the table builders, and <code>#validate</code>, which checks whether the generated loot tables are valid. Both of these methods need to be overridden to use <code>LootTableProvider</code>.</p>
-<p><code>#validate</code> can be simplified to call <code>LootTables#validate</code> for every single table. It initially fails since it expects the tables defined within <code>BuiltInLootTables</code> to be generated as well.</p>
-<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
-@Override
-protected void validate(Map&lt;ResourceLocation, LootTable&gt; tables, ValidationContext ctx) {
-  tables.forEach((name, table) -&gt; LootTables.validate(ctx, name, table));
+<p><a href="../../../resources/server/loottables/">Loot tables</a> can be generated for a mod by constructing a new <code>LootTableProvider</code> and providing <code>LootTableProvider$SubProviderEntry</code>s. The provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<pre class="highlight"><code class="language-java">// On the MOD event bus
+@SubscribeEvent
+public void gatherData(GatherDataEvent event) {
+    event.getGenerator().addProvider(
+        // Tell generator to run only when server data are generating
+        event.includeServer(),
+        output -&gt; new MyLootTableProvider(
+          output,
+          // Specify registry names of tables that are required to generate, or can leave empty
+          Collections.emptySet(),
+          // Sub providers which generate the loot
+          List.of(subProvider1, subProvider2, /*...*/)
+        )
+    );
 }</code></pre>
-<p><code>#getTables</code> defines a list of factory methods for table builders for a given <code>LootContextParamSet</code>. Each table builder consumes a writer used to generate the given table for a specific name. To simplify understanding:</p>
-<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
-@Override
-protected
-  List&lt; // Get a list
-    Pair&lt; // of pairs
-      Supplier&lt; // for a factory
-        Consumer&lt; // which takes in
-          BiConsumer&lt; // a writer of
-            ResourceLocation, // the name of the table
-            LootTable.Builder // and the table to generate
-          &gt;
-        &gt;
-      &gt;,
-      LootContextParamSet // with a given parameter set
-    &gt;
-  &gt;
-getTables() {
-  // Return table builders here
-}</code></pre>
-<h2 id="table-builders">Table Builders<a class="headerlink" href="#table-builders" title="Permanent link"> </a></h2>
-<p>Each table builder has a method which takes in the writer to generate a table. This is typically done implementing a <code>Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt;</code>.</p>
-<pre class="highlight"><code class="language-java">public class ExampleLoot implements Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt; {
+<h2 id="loottablesubprovider"><code>LootTableSubProvider</code><a class="headerlink" href="#loottablesubprovider" title="Permanent link"> </a></h2>
+<p>Each <code>LootTableProvider$SubProviderEntry</code> takes in a supplied <code>LootTableSubProvider</code>, which generates the loot table, for a given <code>LootContextParamSet</code>. The <code>LootTableSubProvider</code> contains a method which takes in the writer (<code>Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt;</code>) to generate a table.</p>
+<pre class="highlight"><code class="language-java">public class ExampleSubProvider implements LootTableSubProvider {
 
   // Used to create a factory method for the wrapping Supplier
-  public ExampleLoot() {}
+  public ExampleSubProvider() {}
 
   // The method used to generate the loot tables
   @Override
-  public void accept(BiConsumer&lt;ResourceLocation, LootTable.Builder&gt; writer) {
+  public void generate(BiConsumer&lt;ResourceLocation, LootTable.Builder&gt; writer) {
     // Generate loot tables here by calling writer#accept
   }
 }</code></pre>
 <p>The table can then be added to <code>LootTableProvider#getTables</code> for any available <code>LootContextParamSet</code>:</p>
-<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
-@Override
-protected List&lt;Pair&lt;Supplier&lt;Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt;&gt;, LootContextParamSet&gt;&gt; getTables() {
-  return ImmutableList.of(
-    Pair.of(ExampleLoot::new, LootContextParamSets.EMPTY) // Loot table builder for the 'empty' parameter set
-    //...
-  );
+<pre class="highlight"><code class="language-java">// In the list passed into the LootTableProvider constructor
+new LootTableProvider.SubProviderEntry(
+  ExampleSubProvider::new,
+  // Loot table generator for the 'empty' param set
+  LootContextParamSets.EMPTY
+)</code></pre>
+<h3 id="blocklootsubprovider-and-entitylootsubprovider-subclasses"><code>BlockLootSubProvider</code> and <code>EntityLootSubProvider</code> Subclasses<a class="headerlink" href="#blocklootsubprovider-and-entitylootsubprovider-subclasses" title="Permanent link"> </a></h3>
+<p>For <code>LootContextParamSets#BLOCK</code> and <code>#ENTITY</code>, there are special types (<code>BlockLootSubProvider</code> and <code>EntityLootSubProvider</code> respectively) which provide additional helper methods for creating and validating that there are loot tables.</p>
+<p>The <code>BlockLootSubProvider</code>&lsquo;s constructor takes in a list of items, which are explosion resistant to determine whether the loot table can be generated if a block is exploded, and a <code>FeatureFlagSet</code>, which determines whether the block is enabled so that a loot table is generated for it.</p>
+<pre class="highlight"><code class="language-java">// In some BlockLootSubProvider subclass
+public MyBlockLootSubProvider() {
+  super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
 }</code></pre>
-<h3 id="blockloot-and-entityloot-subclasses"><code>BlockLoot</code> and <code>EntityLoot</code> Subclasses<a class="headerlink" href="#blockloot-and-entityloot-subclasses" title="Permanent link"> </a></h3>
-<p>For <code>LootContextParamSets#BLOCK</code> and <code>#ENTITY</code>, there are special types (<code>BlockLoot</code> and <code>EntityLoot</code> respectively) which provide additional helper methods for creating and validating that there are loot tables.</p>
-<p>To use them, all registered objects must be supplied to either <code>BlockLoot#getKnownBlocks</code> and <code>EntityLoot#getKnownEntities</code> respectively. These methods are to make sure all objects within the iterable has a loot table.</p>
+<p>The <code>EntityLootSubProvider</code>&lsquo;s constructor takes in a <code>FeatureFlagSet</code>, which determines whether the entity type is enabled so that a loot table is generated for it.</p>
+<pre class="highlight"><code class="language-java">// In some EntityLootSubProvider subclass
+public MyEntityLootSubProvider() {
+  super(FeatureFlags.REGISTRY.allFlags());
+}</code></pre>
+<p>To use them, all registered objects must be supplied to either <code>BlockLootSubProvider#getKnownBlocks</code> and <code>EntityLootSubProvider#getKnownEntityTypes</code> respectively. These methods are to make sure all objects within the iterable has a loot table.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If <code>DeferredRegister</code> is being used to register a mod&rsquo;s objects, then the <code>#getKnown*</code> methods can be supplied the entries via <code>DeferredRegister#getEntities</code>:</p>
-<pre class="highlight"><code class="language-java">// In some BlockLoot subclass for some DeferredRegister BLOCK_REGISTRAR
+<p>If <code>DeferredRegister</code> is being used to register a mod&rsquo;s objects, then the <code>#getKnown*</code> methods can be supplied the entries via <code>DeferredRegister#getEntries</code>:</p>
+<pre class="highlight"><code class="language-java">// In some BlockLootSubProvider subclass for some DeferredRegister BLOCK_REGISTRAR
 @Override
 protected Iterable&lt;Block&gt; getKnownBlocks() {
   return BLOCK_REGISTRAR.getEntries() // Get all registered entries
@@ -960,8 +1023,14 @@ protected Iterable&lt;Block&gt; getKnownBlocks() {
     ::iterator; // Create the iterable
 }</code></pre>
 </div>
+<p>The loot tables themselves can be added by implementing the <code>#generate</code> method.</p>
+<pre class="highlight"><code class="language-java">// In some BlockLootSubProvider subclass
+@Override
+public void generate() {
+  // Add loot tables here
+}</code></pre>
 <h2 id="loot-table-builders">Loot Table Builders<a class="headerlink" href="#loot-table-builders" title="Permanent link"> </a></h2>
-<p>To generate loot tables, they are accepted by the <code>LootTableProvider</code> as a <code>LootTable$Builder</code>. Afterwards, the specified <code>LootContextParamSet</code> is set and then built via <code>#build</code>. Before being built, the builder can specify entries, conditions, and modifiers which affect how the loot table functions.</p>
+<p>To generate loot tables, they are accepted by the <code>LootTableSubProvider</code> as a <code>LootTable$Builder</code>. Afterwards, the specified <code>LootContextParamSet</code> is set in the <code>LootTableProvider$SubProviderEntry</code> and then built via <code>#build</code>. Before being built, the builder can specify entries, conditions, and modifiers which affect how the loot table functions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The functionality of loot tables is so expansive that it will not be covered by this documentation in its entirety. Instead, a brief description of each component will be mentioned. The specific subtypes of each component can be found using an IDE. Their implementations will be left as an exercise to the reader.</p>

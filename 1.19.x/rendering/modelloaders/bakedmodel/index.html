@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -439,7 +491,7 @@
         
         <li class="toc-subitem"><a href="#gettransforms">getTransforms</a></li>
         
-        <li class="toc-subitem"><a href="#handleperspective">handlePerspective</a></li>
+        <li class="toc-subitem"><a href="#applytransform">applyTransform</a></li>
         
         <li class="toc-subitem"><a href="#getquads">getQuads</a></li>
         
@@ -452,7 +504,7 @@
         
 <li >
     
-    <a href="../perspective/" class="elem-text">시점</a>
+    <a href="../transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -762,6 +814,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -781,6 +842,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -904,7 +974,7 @@
         <article class="docs-entry">
             
             <h1 id="bakedmodel"><code>BakedModel</code><a class="headerlink" href="#bakedmodel" title="Permanent link"> </a></h1>
-<p><code>BakedModel</code> is the result of calling <code>UnbakedModel#bake</code> for the vanilla model loader or <code>IModelGeometry#bake</code> for custom model loaders. Unlike <code>UnbakedModel</code> or <code>IModelGeometry</code>, which purely represents a shape without any concept of items or blocks, <code>BakedModel</code> is not as abstract. It represents geometry that has been optimized and reduced to a form where it is (almost) ready to go to the GPU. It can also process the state of an item or block to change the model.</p>
+<p><code>BakedModel</code> is the result of calling <code>UnbakedModel#bake</code> for the vanilla model loader or <code>IUnbakedGeometry#bake</code> for custom model loaders. Unlike <code>UnbakedModel</code> or <code>IUnbakedGeometry</code>, which purely represents a shape without any concept of items or blocks, <code>BakedModel</code> is not as abstract. It represents geometry that has been optimized and reduced to a form where it is (almost) ready to go to the GPU. It can also process the state of an item or block to change the model.</p>
 <p>In a majority of cases, it is not really necessary to implement this interface manually. One can instead use one of the existing implementations.</p>
 <h3 id="getoverrides"><code>getOverrides</code><a class="headerlink" href="#getoverrides" title="Permanent link"> </a></h3>
 <p>Returns the <a href="../itemoverrides/"><code>ItemOverrides</code></a> to use for this model. This is only used if this model is being rendered as an item.</p>
@@ -917,22 +987,22 @@
 <p class="admonition-title">Important</p>
 <p>Unless you know what you&rsquo;re doing, just <code>return false</code> from this and continue on.</p>
 </div>
-<p>When rendering this as an item, returning <code>true</code> causes the model to not be rendered, instead falling back to <code>BlockEntityWithoutLevelRenderer#renderByItem</code>. For certain vanilla items such as chests and banners, this method is hardcoded to copy data from the item into a <code>BlockEntity</code>, before using a <code>BlockEntityRenderer</code> to render that BE in place of the item. For all other items, it will use the <code>BlockEntityWithoutLevelRenderer</code> instance provided by <code>IItemRenderProperties#getItemStackRenderer</code>. Refer to <a href="../../../items/bewlr/">BlockEntityWithoutLevelRenderer</a> page for more information.</p>
+<p>When rendering this as an item, returning <code>true</code> causes the model to not be rendered, instead falling back to <code>BlockEntityWithoutLevelRenderer#renderByItem</code>. For certain vanilla items such as chests and banners, this method is hardcoded to copy data from the item into a <code>BlockEntity</code>, before using a <code>BlockEntityRenderer</code> to render that BE in place of the item. For all other items, it will use the <code>BlockEntityWithoutLevelRenderer</code> instance provided by <code>IClientItemExtensions#getCustomRenderer</code>. Refer to <a href="../../../items/bewlr/">BlockEntityWithoutLevelRenderer</a> page for more information.</p>
 <h3 id="getparticleicon"><code>getParticleIcon</code><a class="headerlink" href="#getparticleicon" title="Permanent link"> </a></h3>
 <p>Whatever texture should be used for the particles. For blocks, this shows when an entity falls on it, when it breaks, etc. For items, this shows when it breaks or when it&rsquo;s eaten.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The vanilla method with no parameters has been deprecated in favor of <code>#getParticleIcon(IModelData)</code> since model data can have an effect on how a particular model might be rendered.</p>
+<p>The vanilla method with no parameters has been deprecated in favor of <code>#getParticleIcon(ModelData)</code> since model data can have an effect on how a particular model might be rendered.</p>
 </div>
 <h3 id="gettransforms"><s><code>getTransforms</code></s><a class="headerlink" href="#gettransforms" title="Permanent link"> </a></h3>
-<p>Deprecated in favor of implementing <code>#handlePerspective</code>. The default implementation is fine if <code>#handlePerspective</code> is implemented. See <a href="../perspective/">Perspective</a>.</p>
-<h3 id="handleperspective"><code>handlePerspective</code><a class="headerlink" href="#handleperspective" title="Permanent link"> </a></h3>
-<p>See <a href="../perspective/">Perspective</a>.</p>
+<p>Deprecated in favor of implementing <code>#applyTransform</code>. The default implementation is fine if <code>#applyTransform</code> is implemented. See <a href="../transform/">Transform</a>.</p>
+<h3 id="applytransform"><code>applyTransform</code><a class="headerlink" href="#applytransform" title="Permanent link"> </a></h3>
+<p>See <a href="../transform/">Transform</a>.</p>
 <h3 id="getquads"><code>getQuads</code><a class="headerlink" href="#getquads" title="Permanent link"> </a></h3>
 <p>This is the main method of <code>BakedModel</code>. It returns a list of <code>BakedQuad</code>s: objects which contain the low-level vertex data that will be used to render the model. If the model is being rendered as a block, then the <code>BlockState</code> passed in is non-null. If the model is being rendered as an item, the <code>ItemOverrides</code> returned from <code>#getOverrides</code> is responsible for handling the state of the item, and the <code>BlockState</code> parameter will be <code>null</code>.</p>
 <p>The <code>Direction</code> passed in is used for face culling. If the block against the given side of another block being rendered is opaque, then the faces associated with that side are not rendered. If that parameter is <code>null</code>, all faces not associated with a side are returned (that will never be culled).</p>
 <p>The <code>rand</code> parameter is an instance of Random.</p>
-<p>It also takes in a non null <code>IModelData</code> instance. This can be used to define extra data when rendering the specific model via <code>ModelProperty</code>s. For example, one such property is <code>CompositeModelData</code>, which is used to store any additional submodel data for a model using the <code>forge:composite</code> model loader.</p>
+<p>It also takes in a non null <code>ModelData</code> instance. This can be used to define extra data when rendering the specific model via <code>ModelProperty</code>s. For example, one such property is <code>CompositeModel$Data</code>, which is used to store any additional submodel data for a model using the <code>forge:composite</code> model loader.</p>
 <p>Note that this method is called very often: once for every combination of non-culled face and supported block render layer (anywhere between 0 to 28 times) <em>per block in a level</em>. This method should be as fast as possible, and should probably cache heavily.</p>
             
         </article>

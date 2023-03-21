@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -750,6 +802,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -769,6 +830,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -893,6 +963,21 @@
             
             <h1 id="tag-generation">Tag Generation<a class="headerlink" href="#tag-generation" title="Permanent link"> </a></h1>
 <p><a href="../../../resources/server/tags/">Tags</a> can be generated for a mod by subclassing <code>TagsProvider</code> and implementing <code>#addTags</code>. After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<pre class="highlight"><code class="language-java">// On the MOD event bus
+@SubscribeEvent
+public void gatherData(GatherDataEvent event) {
+    event.getGenerator().addProvider(
+        // Tell generator to run only when server data are generating
+        event.includeServer(),
+        // Extends net.minecraftforge.common.data.BlockTagsProvider
+        output -&gt; new MyBlockTagsProvider(
+          output,
+          event.getLookupProvider(),
+          MOD_ID,
+          event.getExistingFileHelper()
+        )
+    );
+}</code></pre>
 <h2 id="tagsprovider"><code>TagsProvider</code><a class="headerlink" href="#tagsprovider" title="Permanent link"> </a></h2>
 <p>The tags provider has two methods used for generating tags: creating a tag with objects and other tags via <code>#tag</code>, or using tags from other object types to generate the tag data via <code>#getOrCreateRawBuilder</code>.</p>
 <div class="admonition note">
@@ -910,7 +995,7 @@
 <tbody>
 <tr>
 <td align="center"><code>add</code></td>
-<td align="left">Adds an object to a tag.</td>
+<td align="left">Adds an object to a tag through its resource key.</td>
 </tr>
 <tr>
 <td align="center"><code>addOptional</code></td>
@@ -918,7 +1003,7 @@
 </tr>
 <tr>
 <td align="center"><code>addTag</code></td>
-<td align="left">Adds a tag to a tag. All elements within the inner tag are now a part of the outer tag.</td>
+<td align="left">Adds a tag to a tag through its tag key. All elements within the inner tag are now a part of the outer tag.</td>
 </tr>
 <tr>
 <td align="center"><code>addOptionalTag</code></td>
@@ -930,7 +1015,7 @@
 </tr>
 <tr>
 <td align="center"><code>remove</code></td>
-<td align="left">Removes an object or tag from a tag.</td>
+<td align="left">Removes an object or tag from a tag through its name or key.</td>
 </tr>
 </tbody>
 </table>
@@ -958,7 +1043,7 @@ this.tag(EXAMPLE_TAG_2)
 <tbody>
 <tr>
 <td align="center"><code>Block</code></td>
-<td align="left"><code>BlockTagsProvider</code></td>
+<td align="left"><code>BlockTagsProvider</code>*</td>
 </tr>
 <tr>
 <td align="center"><code>Item</code></td>
@@ -981,24 +1066,61 @@ this.tag(EXAMPLE_TAG_2)
 <td align="left"><code>BiomeTagsProvider</code></td>
 </tr>
 <tr>
-<td align="center"><code>ConfiguredStructureFeature</code></td>
-<td align="left"><code>ConfiguredStructureTagsProvider</code></td>
+<td align="center"><code>FlatLevelGeneratorPreset</code></td>
+<td align="left"><code>FlatLevelGeneratorPresetTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>WorldPreset</code></td>
+<td align="left"><code>WorldPresetTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>Structure</code></td>
+<td align="left"><code>StructureTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>PoiType</code></td>
+<td align="left"><code>PoiTypeTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>BannerPattern</code></td>
+<td align="left"><code>BannerPatternTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>CatVariant</code></td>
+<td align="left"><code>CatVariantTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>PaintingVariant</code></td>
+<td align="left"><code>PaintingVariantTagsProvider</code></td>
+</tr>
+<tr>
+<td align="center"><code>Instrument</code></td>
+<td align="left"><code>InstrumentTagsProvider</code></td>
 </tr>
 </tbody>
 </table>
+<p>* <code>BlockTagsProvider</code> is a Forge added <code>TagsProvider</code>.</p>
 <h4 id="itemtagsprovidercopy"><code>ItemTagsProvider#copy</code><a class="headerlink" href="#itemtagsprovidercopy" title="Permanent link"> </a></h4>
 <p>Blocks have item representations to obtain them in the inventory. As such, many of the block tags can also be an item tag. To easily generate item tags to have the same entries as block tags, the <code>#copy</code> method can be used which takes in the block tag to copy from and the item tag to copy to.</p>
 <pre class="highlight"><code class="language-java">//In ItemTagsProvider#addTags
 this.copy(EXAMPLE_BLOCK_TAG, EXAMPLE_ITEM_TAG);</code></pre>
 <h2 id="custom-tag-providers">Custom Tag Providers<a class="headerlink" href="#custom-tag-providers" title="Permanent link"> </a></h2>
-<p>A custom tag provider can be created via a <code>TagsProvider</code> subclass which takes in the <code>Registry</code> to generate tags for.</p>
-<pre class="highlight"><code class="language-java">public RecipeTypeTagsProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-  super(generator, Registry.RECIPE_TYPE, MOD_ID, fileHelper);
+<p>A custom tag provider can be created via a <code>TagsProvider</code> subclass which takes in the registry key to generate tags for.</p>
+<pre class="highlight"><code class="language-java">public RecipeTypeTagsProvider(PackOutput output, CompletableFuture&lt;HolderLookup.Provider&gt; registries, ExistingFileHelper fileHelper) {
+  super(output, Registries.RECIPE_TYPE, registries, MOD_ID, fileHelper);
 }</code></pre>
-<h3 id="forge-registry-tag-providers">Forge Registry Tag Providers<a class="headerlink" href="#forge-registry-tag-providers" title="Permanent link"> </a></h3>
-<p>If a registry is wrapped by Forge or <a href="../../../concepts/registries/#creating-custom-forge-registries">created by a mod</a>, a provider can be created via a <code>ForgeRegistryTagsProvider</code> subclass instead:</p>
-<pre class="highlight"><code class="language-java">public MotiveTagsProvider(DataGenerator generator, ExistingFileHelper fileHelper) {
-  super(generator, ForgeRegistries.PAINTING_TYPES, MOD_ID, fileHelper);
+<h3 id="intrinsic-holder-tags-providers">Intrinsic Holder Tags Providers<a class="headerlink" href="#intrinsic-holder-tags-providers" title="Permanent link"> </a></h3>
+<p>One special type of <code>TagProvider</code>s are <code>IntrinsicHolderTagsProvider</code>s. When creating a tag using this provider via <code>#tag</code>, the object itself can be used to add itself to the tag via <code>#add</code>. To do so, a function is provided within the constructor to turn an object into its <code>ResourceKey</code>.</p>
+<pre class="highlight"><code class="language-java">// Subtype of `IntrinsicHolderTagsProvider`
+public AttributeTagsProvider(PackOutput output, CompletableFuture&lt;HolderLookup.Provider&gt; registries, ExistingFileHelper fileHelper) {
+  super(
+    output,
+    ForgeRegistries.Keys.ATTRIBUTES,
+    registries,
+    attribute -&gt; ForgeRegistries.ATTRIBUTES.getResourceKey(attribute).get(),
+    MOD_ID,
+    fileHelper
+  );
 }</code></pre>
             
         </article>

@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#perspective" class="elem-text">시점</a>
+    <a href="#transform" class="elem-text">시점</a>
     
     
     <ul class="table-of-contents">
@@ -752,6 +804,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -771,6 +832,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -893,8 +963,8 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="perspective">Perspective<a class="headerlink" href="#perspective" title="Permanent link"> </a></h1>
-<p>When an <a href="../bakedmodel/"><code>BakedModel</code></a> is being rendered as an item, it can apply special handling depending on which perspective it is being rendered in. &ldquo;Perspective&rdquo; means in what context the model is being rendered. The possible perspectives are represented in code by the <code>ItemTransforms$TransformType</code> enum. There are two systems for handling perspective: the deprecated vanilla system, constituted by <code>BakedModel#getTransforms</code>, <code>ItemTransforms</code>, and <code>ItemTransform</code>, and the Forge system, embodied by the method <code>IForgeBakedModel#handlePerspective</code>. The vanilla code is patched to favor using <code>handlePerspective</code> over the vanilla system whenever possible.</p>
+            <h1 id="transform">Transform<a class="headerlink" href="#transform" title="Permanent link"> </a></h1>
+<p>When an <a href="../bakedmodel/"><code>BakedModel</code></a> is being rendered as an item, it can apply special handling depending on which transform it is being rendered in. &ldquo;Transform&rdquo; means in what context the model is being rendered. The possible transforms are represented in code by the <code>ItemTransforms$TransformType</code> enum. There are two systems for handling transform: the deprecated vanilla system, constituted by <code>BakedModel#getTransforms</code>, <code>ItemTransforms</code>, and <code>ItemTransform</code>, and the Forge system, embodied by the method <code>IForgeBakedModel#applyTransform</code>. The vanilla code is patched to favor using <code>applyTransform</code> over the vanilla system whenever possible.</p>
 <h2 id="transformtype"><code>TransformType</code><a class="headerlink" href="#transformtype" title="Permanent link"> </a></h2>
 <p><code>NONE</code> - Unused.</p>
 <p><code>THIRD_PERSON_LEFT_HAND</code>/<code>THIRD_PERSON_RIGHT_HAND</code>/<code>FIRST_PERSON_LEFT_HAND</code>/<code>FIRST_PERSON_RIGHT_HAND</code> - The first person values represent when the player is holding the item in their own hand. The third person values represent when another player is holding the item and the client is looking at them in the 3rd person. Hands are self-explanatory.</p>
@@ -903,19 +973,12 @@
 <p><code>GROUND</code> - Represents when the item is being rendered in the level as an <code>ItemEntity</code>.</p>
 <p><code>FIXED</code> - Used for item frames.</p>
 <h2 id="the-vanilla-way">The Vanilla Way<a class="headerlink" href="#the-vanilla-way" title="Permanent link"> </a></h2>
-<p>The vanilla way of handling perspective is through <code>BakedModel#getTransforms</code>. This method returns an <code>ItemTransforms</code>, which is a simple object that contains various <code>ItemTransform</code>s as <code>public final</code> fields. An <code>ItemTransform</code> represents a rotation, a translation, and a scale to be applied to the model. The <code>ItemTransforms</code> is a container for these, holding one for each of the <code>TransformType</code>s except <code>NONE</code>. In the vanilla implementation, calling <code>#getTransform</code> for <code>NONE</code> results in the default transform, <code>ItemTransform#NO_TRANSFORM</code>.</p>
-<p>The entire vanilla system for handling transforms is deprecated by Forge, and most implementations of <code>BakedModel</code> should simply <code>return ItemTransforms#NO_TRANSFORMS</code> (which is the default implementation) from <code>BakedModel#getTransforms</code>. Instead, they should implement <code>#handlePerspective</code>.</p>
+<p>The vanilla way of handling transform is through <code>BakedModel#getTransforms</code>. This method returns an <code>ItemTransforms</code>, which is a simple object that contains various <code>ItemTransform</code>s as <code>public final</code> fields. An <code>ItemTransform</code> represents a rotation, a translation, and a scale to be applied to the model. The <code>ItemTransforms</code> is a container for these, holding one for each of the <code>TransformType</code>s except <code>NONE</code>. In the vanilla implementation, calling <code>#getTransform</code> for <code>NONE</code> results in the default transform, <code>ItemTransform#NO_TRANSFORM</code>.</p>
+<p>The entire vanilla system for handling transforms is deprecated by Forge, and most implementations of <code>BakedModel</code> should simply <code>return ItemTransforms#NO_TRANSFORMS</code> (which is the default implementation) from <code>BakedModel#getTransforms</code>. Instead, they should implement <code>#applyTransform</code>.</p>
 <h2 id="the-forge-way">The Forge Way<a class="headerlink" href="#the-forge-way" title="Permanent link"> </a></h2>
-<p>The Forge way of handling transforms is <code>#handlePerspective</code>, a method patched into <code>BakedModel</code>. It supersedes the <code>#getTransforms</code> method. Additionally, the class <code>PerspectiveMapWrapper</code> is a simple implementation of an <code>BakedModel</code> with the method; it is a wrapper around other <code>BakedModel</code>s, augmenting them with a <code>Map&lt;TransformType, Transformation&gt;</code> to handle perspective.</p>
-<h4 id="bakedmodelhandleperspective"><code>BakedModel#handlePerspective</code><a class="headerlink" href="#bakedmodelhandleperspective" title="Permanent link"> </a></h4>
-<p>Given a <code>TransformType</code> and <code>PoseStack</code>, this method produces an <code>BakedModel</code> to be rendered. Because the returned <code>BakedModel</code> can be a totally new model, this method is more flexible than the vanilla method (e.g. a piece of paper that looks flat in hand but crumpled on the ground).</p>
-<h3 id="perspectivemapwrapper"><code>PerspectiveMapWrapper</code><a class="headerlink" href="#perspectivemapwrapper" title="Permanent link"> </a></h3>
-<p>A wrapper around other <code>BakedModel</code>s, this class delegates to the wrapped model for all <code>BakedModel</code> methods except <code>#handlePerspective</code>, and utilizes a simple <code>Map&lt;TransformType, Transformation&gt;</code> for <code>#handlePerspective</code>. However, the more interesting parts of this class are the static helper methods.</p>
-<h4 id="gettransforms-and-gettransformswithfallback"><code>getTransforms</code> and <code>getTransformsWithFallback</code><a class="headerlink" href="#gettransforms-and-gettransformswithfallback" title="Permanent link"> </a></h4>
-<p>Given an <code>ItemTransforms</code> or an <code>ModelState</code>, this method will extract an <code>ImmutableMap&lt;TransformType, Transformation&gt;</code> from it. To extract this information from an <code>ModelState</code>, each <code>TransformType</code> is passed to <code>#getPartTransformation</code>.</p>
-<p>This is how models should support custom perspective transforms through <code>ModelState</code>. <code>UnbakedModel</code>s should pass the <code>ModelState</code> in <code>#bake</code>. Then the <code>BakedModel</code> can use these custom transforms in <code>#handlePerspective</code>, composing them on top of its own.</p>
-<h4 id="handleperspective"><code>handlePerspective</code><a class="headerlink" href="#handleperspective" title="Permanent link"> </a></h4>
-<p>Given either a map of transforms or an <code>ModelState</code>, an <code>BakedModel</code>, a <code>TransformType</code>, and a <code>PoseStack</code>, this finds the <code>BakedModel</code> for the transform from the map or the <code>ModelState</code>, and then pairs it with the given model. To extract the transform from an <code>ModelState</code>, the <code>TransformType</code> is passed to <code>#getPartTransformation</code>. This method is meant to be a simple implementation of <code>BakedModel#handlePerspective</code>.</p>
+<p>The Forge way of handling transforms is <code>#applyTransform</code>, a method patched into <code>BakedModel</code>. It supersedes the <code>#getTransforms</code> method.</p>
+<h4 id="bakedmodelapplytransform"><code>BakedModel#applyTransform</code><a class="headerlink" href="#bakedmodelapplytransform" title="Permanent link"> </a></h4>
+<p>Given a <code>TransformType</code>, <code>PoseStack</code>, and a boolean to determine whether to apply the transform for the left hand, this method produces an <code>BakedModel</code> to be rendered. Because the returned <code>BakedModel</code> can be a totally new model, this method is more flexible than the vanilla method (e.g. a piece of paper that looks flat in hand but crumpled on the ground).</p>
             
         </article>
         

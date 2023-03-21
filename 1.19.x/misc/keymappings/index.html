@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SimpleImpl - Forge Korean Documentation</title>
+    <title>키바인드 - Forge Korean Documentation</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
@@ -288,39 +288,13 @@
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
     
-    <ul class="nav-collapsible nav-collapsible-open">
+    <ul class="nav-collapsible ">
         
         
 <li >
     
-    <a href="../" class="elem-text">소개</a>
+    <a href="../../networking/" class="elem-text">소개</a>
     
-    
-</li>
-
-        
-        
-<li class="elem-active elem-toc" >
-    
-    <a href="#simpleimpl" class="elem-text">SimpleImpl</a>
-    
-    
-    <ul class="table-of-contents">
-        
-        
-        
-        <li class="toc-subitem"><a href="#getting-started">Getting Started</a></li>
-        
-        <li class="toc-subitem"><a href="#the-version-checker">The Version Checker</a></li>
-        
-        <li class="toc-subitem"><a href="#registering-packets">Registering Packets</a></li>
-        
-        <li class="toc-subitem"><a href="#handling-packets">Handling Packets</a></li>
-        
-        <li class="toc-subitem"><a href="#sending-packets">Sending Packets</a></li>
-        
-        
-    </ul>
     
 </li>
 
@@ -328,7 +302,16 @@
         
 <li >
     
-    <a href="../entities/" class="elem-text">엔티티 동기화하기</a>
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 동기화하기</a>
     
     
 </li>
@@ -830,12 +813,43 @@
     
     <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 기타 기능</a>
     
-    <ul class="nav-collapsible ">
+    <ul class="nav-collapsible nav-collapsible-open">
         
         
 <li >
     
-    <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    <a href="../config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#key-mappings" class="elem-text">키바인드</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#registering-a-keymapping">Registering a KeyMapping</a></li>
+        
+        <li class="toc-subitem"><a href="#creating-a-keymapping">Creating a KeyMapping</a></li>
+        
+        <li class="toc-subitem"><a href="#checking-a-keymapping">Checking a KeyMapping</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gametest/" class="elem-text">인게임 테스트</a>
     
     
 </li>
@@ -844,7 +858,7 @@
         
 <li >
     
-    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
+    <a href="../updatechecker/" class="elem-text">자동 업데이트 확인</a>
     
     
 </li>
@@ -853,25 +867,7 @@
         
 <li >
     
-    <a href="../../misc/gametest/" class="elem-text">인게임 테스트</a>
-    
-    
-</li>
-
-        
-        
-<li >
-    
-    <a href="../../misc/updatechecker/" class="elem-text">자동 업데이트 확인</a>
-    
-    
-</li>
-
-        
-        
-<li >
-    
-    <a href="../../misc/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    <a href="../debugprofiler/" class="elem-text">디버그 프로파일러</a>
     
     
 </li>
@@ -967,86 +963,112 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="simpleimpl">SimpleImpl<a class="headerlink" href="#simpleimpl" title="Permanent link"> </a></h1>
-<p>SimpleImpl is the name given to the packet system that revolves around the <code>SimpleChannel</code> class. Using this system is by far the easiest way to send custom data between clients and the server.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h2>
-<p>First you need to create your <code>SimpleChannel</code> object. We recommend that you do this in a separate class, possibly something like <code>ModidPacketHandler</code>. Create your <code>SimpleChannel</code> as a static field in this class, like so:</p>
-<pre class="highlight"><code class="language-java">private static final String PROTOCOL_VERSION = "1";
-public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-  new ResourceLocation("mymodid", "main"),
-  () -&gt; PROTOCOL_VERSION,
-  PROTOCOL_VERSION::equals,
-  PROTOCOL_VERSION::equals
-);</code></pre>
-<p>The first argument is a name for the channel. The second argument is a <code>Supplier&lt;String&gt;</code> returning the current network protocol version. The third and fourth arguments respectively are <code>Predicate&lt;String&gt;</code> checking whether an incoming connection protocol version is network-compatible with the client or server, respectively.
-Here, we simply compare with the <code>PROTOCOL_VERSION</code> field directly, meaning that the client and server <code>PROTOCOL_VERSION</code>s must always match or FML will deny login.</p>
-<h2 id="the-version-checker">The Version Checker<a class="headerlink" href="#the-version-checker" title="Permanent link"> </a></h2>
-<p>If your mod does not require the other side to have a specific network channel, or to be a Forge instance at all, you should take care that you properly define your version compatibility checkers (the <code>Predicate&lt;String&gt;</code> parameters) to handle additional &ldquo;meta-versions&rdquo; (defined in <code>NetworkRegistry</code>) that can be received by the version checker. These are:</p>
-<ul>
-<li><code>ABSENT</code> - if this channel is missing on the other endpoint. Note that in this case, the endpoint is still a Forge endpoint, and may have other mods.</li>
-<li><code>ACCEPTVANILLA</code> - if the endpoint is a vanilla (or non-Forge) endpoint.</li>
-</ul>
-<p>Returning <code>false</code> for both means that this channel must be present on the other endpoint. If you just copy the code above, this is what it does. Note that these values are also used during the list ping compatibility check, which is responsible for showing the green check / red cross in the multiplayer server select screen.</p>
-<h2 id="registering-packets">Registering Packets<a class="headerlink" href="#registering-packets" title="Permanent link"> </a></h2>
-<p>Next, we must declare the types of messages that we would like to send and receive. This is done using <code>INSTANCE#registerMessage</code>, which takes 5 parameters:</p>
-<ul>
-<li>The first parameter is the discriminator for the packet. This is a per-channel unique ID for the packet. We recommend you use a local variable to hold the ID, and then call registerMessage using <code>id++</code>. This will guarantee 100% unique IDs.</li>
-<li>The second parameter is the actual packet class <code>MSG</code>.</li>
-<li>The third parameter is a <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code> responsible for encoding the message into the provided <code>FriendlyByteBuf</code>.</li>
-<li>The fourth parameter is a <code>Function&lt;FriendlyByteBuf, MSG&gt;</code> responsible for decoding the message from the provided <code>FriendlyByteBuf</code>.</li>
-<li>The final parameter is a <code>BiConsumer&lt;MSG, Supplier&lt;NetworkEvent.Context&gt;&gt;</code> responsible for handling the message itself.</li>
-</ul>
-<p>The last three parameters can be method references to either static or instance methods in Java. Remember that an instance method <code>MSG#encode(FriendlyByteBuf)</code> still satisfies <code>BiConsumer&lt;MSG, FriendlyByteBuf&gt;</code>; the <code>MSG</code> simply becomes the implicit first argument.</p>
-<h2 id="handling-packets">Handling Packets<a class="headerlink" href="#handling-packets" title="Permanent link"> </a></h2>
-<p>There are a couple things to highlight in a packet handler. A packet handler has both the message object and the network context available to it. The context allows access to the player that sent the packet (if on the server), and a way to enqueue thread-safe work.</p>
-<pre class="highlight"><code class="language-java">public static void handle(MyMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
-  ctx.get().enqueueWork(() -&gt; {
-    // Work that needs to be thread-safe (most work)
-    ServerPlayer sender = ctx.get().getSender(); // the client that sent this packet
-    // Do stuff
-  });
-  ctx.get().setPacketHandled(true);
-}</code></pre>
-<p>Packets sent from the server to the client should be handled in another class and wrapped via <code>DistExecutor#unsafeRunWhenOn</code>.</p>
-<pre class="highlight"><code class="language-java">// In Packet class
-public static void handle(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
-  ctx.get().enqueueWork(() -&gt;
-    // Make sure it's only executed on the physical client
-    DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -&gt; () -&gt; ClientPacketHandlerClass.handlePacket(msg, ctx))
-  );
-  ctx.get().setPacketHandled(true);
-}
+            <h1 id="key-mappings">Key Mappings<a class="headerlink" href="#key-mappings" title="Permanent link"> </a></h1>
+<p>A key mapping, or key binding, defines a particular action that should be tied to an input: mouse click, key press, etc. Each action defined by a key mapping can be checked whenever the client can take an input. Furthermore, each key mapping can be assigned to any input through the <a href="https://minecraft.fandom.com/wiki/Options#Controls">Controls option menu</a>.</p>
+<h2 id="registering-a-keymapping">Registering a <code>KeyMapping</code><a class="headerlink" href="#registering-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be registered by listening to the <code>RegisterKeyMappingsEvent</code> on the <a href="../../concepts/events/#mod-event-bus"><strong>mod event bus</strong></a> only on the physical client and calling <code>#register</code>.</p>
+<pre class="highlight"><code class="language-java">// In some physical client only class
 
-// In ClientPacketHandlerClass
-public static void handlePacket(MyClientMessage msg, Supplier&lt;NetworkEvent.Context&gt; ctx) {
-  // Do stuff
+// Key mapping is lazily initialized so it doesn't exist until it is registered
+public static final Lazy&lt;KeyMapping&gt; EXAMPLE_MAPPING = Lazy.of(() -&gt; /*...*/);
+
+// Event is on the mod event bus only on the physical client
+@SubscribeEvent
+public void registerBindings(RegisterKeyMappingsEvent event) {
+  event.register(EXAMPLE_MAPPING.get());
 }</code></pre>
-<p>Note the presence of <code>#setPacketHandled</code>, which is used to tell the network system that the packet has successfully completed handling.</p>
+<h2 id="creating-a-keymapping">Creating a <code>KeyMapping</code><a class="headerlink" href="#creating-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be created using it&rsquo;s constructor. The <code>KeyMapping</code> takes in a <a href="../../concepts/internationalization/#translatablecontents">translation key</a> defining the name of the mapping, the default input of the mapping, and the <a href="../../concepts/internationalization/#translatablecontents">translation key</a> defining the category the mapping will be put within in the <a href="https://minecraft.fandom.com/wiki/Options#Controls">Controls option menu</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A <code>KeyMapping</code> can be added to a custom category by providing a category <a href="../../concepts/internationalization/#translatablecontents">translation key</a> not provided by vanilla. Custom category translation keys should contain the mod id (e.g. <code>key.categories.examplemod.examplecategory</code>).</p>
+</div>
+<h3 id="default-inputs">Default Inputs<a class="headerlink" href="#default-inputs" title="Permanent link"> </a></h3>
+<p>Each key mapping has a default input associated with it. This is provided through <code>InputConstants$Key</code>. Each input consists of an <code>InputConstants$Type</code>, which defines what device is providing the input, and an integer, which defines the associated identifier of the input on the device.</p>
+<p>Vanilla provides three types of inputs: <code>KEYSYM</code>, which defines a keyboard through the provided <code>GLFW</code> key tokens, <code>SCANCODE</code>, which defines a keyboard through the platform-specific scancode, and <code>MOUSE</code>, which defines a mouse.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is highly recommended to use <code>KEYSYM</code> over <code>SCANCODE</code> for keyboards as <code>GLFW</code> key tokens are not tied to any particular system. You can read more on the <a href="https://www.glfw.org/docs/3.3/input_guide.html#input_key">GLFW docs</a>.</p>
+</div>
+<p>The integer is dependent on the type provided. All input codes are defined in <code>GLFW</code>: <code>KEYSYM</code> tokens are prefixed with <code>GLFW_KEY_*</code> while <code>MOUSE</code> codes are prefixed with <code>GLFW_MOUSE_*</code>.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example1", // Will be localized using this translation key
+  InputConstants.Type.KEYSYM, // Default mapping is on the keyboard
+  GLFW.GLFW_KEY_P, // Default key is P
+  "key.categories.misc" // Mapping will be in the misc category
+)</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the key mapping should not be mapped to a default, the input should be set to <code>InputConstants#UNKNOWN</code>. The vanilla constructor will require you to extract the input code via <code>InputConstants$Key#getValue</code> while the Forge constructor can be supplied the raw input field.</p>
+</div>
+<h3 id="ikeyconflictcontext"><code>IKeyConflictContext</code><a class="headerlink" href="#ikeyconflictcontext" title="Permanent link"> </a></h3>
+<p>Not all mappings are used in every context. Some mappings are only used in a GUI, while others are only used purely in game. To avoid mappings of the same key used in different contexts conflicting with each other, an <code>IKeyConflictContext</code> can be assigned.</p>
+<p>Each conflict context contains two methods: <code>#isActive</code>, which defines if the mapping can be used in the current game state, and <code>#conflicts</code>, which defines whether the mapping conflicts with a key in the same or different conflict context.</p>
+<p>Currently, Forge defines three basic contexts through <code>KeyConflictContext</code>: <code>UNIVERSAL</code>, which is the default meaning the key can be used in every context, <code>GUI</code>, which means the mapping can only be used when a <code>Screen</code> is open, and <code>IN_GAME</code>, which means the mapping can only be used if a <code>Screen</code> is not open. New conflict contexts can be created by implementing <code>IKeyConflictContext</code>.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example2",
+  KeyConflictContext.GUI, // Mapping can only be used when a screen is open
+  InputConstants.Type.MOUSE, // Default mapping is on the mouse
+  GLFW.GLFW_MOUSE_BUTTON_LEFT, // Default mouse input is the left mouse button
+  "key.categories.examplemod.examplecategory" // Mapping will be in the new example category
+)</code></pre>
+<h3 id="keymodifier"><code>KeyModifier</code><a class="headerlink" href="#keymodifier" title="Permanent link"> </a></h3>
+<p>Modders may not want mappings to have the same behavior if a modifier key is held at the same (e.g. <code>G</code> vs <code>CTRL + G</code>). To remedy this, Forge adds an additional parameter to the constructor to take in a <code>KeyModifier</code> which can apply control (<code>KeyModifier#CONTROL</code>), shift (<code>KeyModifier#SHIFT</code>), or alt (<code>KeyModifier#ALT</code>) to any input. <code>KeyModifier#NONE</code> is the default and will apply no modifier.</p>
+<p>A modifier can be added in the <a href="https://minecraft.fandom.com/wiki/Options#Controls">controls option menu</a> by holding down the modifier key and the associated input.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example3",
+  KeyConflictContext.UNIVERSAL,
+  KeyModifier.SHIFT, // Default mapping requires shift to be held down
+  InputConstants.Type.KEYSYM, // Default mapping is on the keyboard
+  GLFW.GLFW_KEY_G, // Default key is G
+  "key.categories.misc"
+)</code></pre>
+<h2 id="checking-a-keymapping">Checking a <code>KeyMapping</code><a class="headerlink" href="#checking-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be checked to see whether it has been clicked. Depending on when, the mapping can be used in a conditional to apply the associated logic.</p>
+<h3 id="within-the-game">Within the Game<a class="headerlink" href="#within-the-game" title="Permanent link"> </a></h3>
+<p>Within the game, a mapping should be checked by listening to <code>ClientTickEvent</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> and checking <code>KeyMapping#consumeClick</code> within a while loop. <code>#consumeClick</code> will return <code>true</code> only the number of times the input was performed and not already previously handled, so it won&rsquo;t infinitely stall the game.</p>
+<pre class="highlight"><code class="language-java">// Event is on the Forge event bus only on the physical client
+public void onClientTick(ClientTickEvent event) {
+  if (event.phase == TickEvent.Phase.END) { // Only call code once as the tick event is called twice every tick
+    while (EXAMPLE_MAPPING.get().consumeClick()) {
+      // Execute logic to perform on click here
+    }
+  }
+}</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>As of Minecraft 1.8 packets are by default handled on the network thread.</p>
-<p>That means that your handler can <em>not</em> interact with most game objects directly. Forge provides a convenient way to make your code execute on the main thread instead through the supplied <code>NetworkEvent$Context</code>. Simply call <code>NetworkEvent$Context#enqueueWork(Runnable)</code>, which will call the given <code>Runnable</code> on the main thread at the next opportunity.</p>
+<p>Do not use the <code>InputEvent</code>s as an alternative to <code>ClientTickEvent</code>. There are separate events for keyboard and mouse inputs only, so they wouldn&rsquo;t handle any additional inputs.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Be defensive when handling packets on the server. A client could attempt to exploit the packet handling by sending unexpected data.</p>
-<p>A common problem is vulnerability to <strong>arbitrary chunk generation</strong>. This typically happens when the server is trusting a block position sent by a client to access blocks and block entities. When accessing blocks and block entities in unloaded areas of the level, the server will either generate or load this area from disk, then promptly write it to disk. This can be exploited to cause <strong>catastrophic damage</strong> to a server&rsquo;s performance and storage space without leaving a trace.</p>
-<p>To avoid this problem, a general rule of thumb is to only access blocks and block entities if <code>Level#hasChunkAt</code> is true.</p>
+<h3 id="inside-a-gui">Inside a GUI<a class="headerlink" href="#inside-a-gui" title="Permanent link"> </a></h3>
+<p>Within a GUI, a mapping can be checked within one of the <code>GuiEventListener</code> methods using <code>IForgeKeyMapping#isActiveAndMatches</code>. The most common methods which can be checked are <code>#keyPressed</code> and <code>#mouseClicked</code>. </p>
+<p><code>#keyPressed</code> takes in the <code>GLFW</code> key token, the platform-specific scan code, and a bitfield of the held down modifiers. A key can be checked against a mapping by creating the input using <code>InputConstants#getKey</code>. The modifiers are already checked within the mapping methods itself.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+public boolean keyPressed(int key, int scancode, int mods) {
+  if (EXAMPLE_MAPPING.get().isActiveAndMatches(InputConstants.getKey(key, scancode))) {
+    // Execute logic to perform on key press here
+    return true;
+  }
+  return super.keyPressed(x, y, button);
+} </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not own the screen which you are trying to check a <strong>key</strong> for, you can listen to the <code>Pre</code> or <code>Post</code> events of <code>ScreenEvent$KeyPressed</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> instead.</p>
 </div>
-<h2 id="sending-packets">Sending Packets<a class="headerlink" href="#sending-packets" title="Permanent link"> </a></h2>
-<h3 id="sending-to-the-server">Sending to the Server<a class="headerlink" href="#sending-to-the-server" title="Permanent link"> </a></h3>
-<p>There is but one way to send a packet to the server. This is because there is only ever <em>one</em> server the client can be connected to at once. To do so, we must again use that <code>SimpleChannel</code> that was defined earlier. Simply call <code>INSTANCE.sendToServer(new MyMessage())</code>. The message will be sent to the handler for its type, if one exists.</p>
-<h3 id="sending-to-clients">Sending to Clients<a class="headerlink" href="#sending-to-clients" title="Permanent link"> </a></h3>
-<p>Packets can be sent directly to a client using the <code>SimpleChannel</code>: <code>HANDLER.sendTo(new MyClientMessage(), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT)</code>. However, this can be quite inconvenient. Forge has some convenience functions that can be used:</p>
-<pre class="highlight"><code class="language-java">// Send to one player
-INSTANCE.send(PacketDistributor.PLAYER.with(serverPlayer), new MyMessage());
-
-// Send to all players tracking this level chunk
-INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(levelChunk), new MyMessage());
-
-// Send to all connected players
-INSTANCE.send(PacketDistributor.ALL.noArg(), new MyMessage());</code></pre>
-<p>There are additional <code>PacketDistributor</code> types available; check the documentation on the <code>PacketDistributor</code> class for more details.</p>
+<p><code>#mouseClicked</code> takes in the mouse&rsquo;s x position, y position, and the button clicked. A mouse button can be checked against a mapping by creating the input using <code>InputConstants$Type#getOrCreate</code> with the <code>MOUSE</code> input.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+public boolean mouseClicked(double x, double y, int button) {
+  if (EXAMPLE_MAPPING.get().isActiveAndMatches(InputConstants.TYPE.MOUSE.getOrCreate(button))) {
+    // Execute logic to perform on mouse click here
+    return true;
+  }
+  return super.mouseClicked(x, y, button);
+} </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not own the screen which you are trying to check a <strong>mouse</strong> for, you can listen to the <code>Pre</code> or <code>Post</code> events of <code>ScreenEvent$MouseButtonPressed</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> instead.</p>
+</div>
             
         </article>
         

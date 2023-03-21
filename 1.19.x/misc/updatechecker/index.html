@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -739,6 +791,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -758,6 +819,15 @@
 <li >
     
     <a href="../config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -927,7 +997,7 @@
 </li>
 </ul>
 <h2 id="retrieving-update-check-results">Retrieving Update Check Results<a class="headerlink" href="#retrieving-update-check-results" title="Permanent link"> </a></h2>
-<p>You can retrieve the results of the Forge Update Checker using <code>VersionChecker#getResult(IModInfo)</code>. You can obtain your <code>IModInfo</code> via <code>ModContainer#getModInfo</code>. You can get your <code>ModContainer</code> using <code>ModLoadingContext.get().getActiveContainer()</code> inside your constructor, <code>ModList.get().getModContainerById(&lt;your modId&gt;)</code>, or <code>ModList.get().getModContainerByObject(&lt;your mod instance&gt;)</code>. You can obtain any other mod&rsquo;s <code>ModContainer</code> using <code>ModList.get().getModContainerById(&lt;modId&gt;)</code>. The returned object has a field <code>status</code> which indicates the status of the version check.</p>
+<p>You can retrieve the results of the Forge Update Checker using <code>VersionChecker#getResult(IModInfo)</code>. You can obtain your <code>IModInfo</code> via <code>ModContainer#getModInfo</code>. You can get your <code>ModContainer</code> using <code>ModLoadingContext.get().getActiveContainer()</code> inside your constructor, <code>ModList.get().getModContainerById(&lt;your modId&gt;)</code>, or <code>ModList.get().getModContainerByObject(&lt;your mod instance&gt;)</code>. You can obtain any other mod&rsquo;s <code>ModContainer</code> using <code>ModList.get().getModContainerById(&lt;modId&gt;)</code>. The returned object has a method <code>#status</code> which indicates the status of the version check.</p>
 <table>
 <thead>
 <tr>
@@ -942,19 +1012,23 @@
 </tr>
 <tr>
 <td align="right"><code>UP_TO_DATE</code></td>
-<td align="left">The current version is equal to or newer than the latest stable version.</td>
+<td align="left">The current version is equal to the recommended version.</td>
+</tr>
+<tr>
+<td align="right"><code>AHEAD</code></td>
+<td align="left">The current version is newer than the recommended version if there is not latest version.</td>
 </tr>
 <tr>
 <td align="right"><code>OUTDATED</code></td>
-<td align="left">There is a new stable version.</td>
+<td align="left">There is a new recommended or latest version.</td>
 </tr>
 <tr>
 <td align="right"><code>BETA_OUTDATED</code></td>
-<td align="left">There is a new unstable version.</td>
+<td align="left">There is a new latest version.</td>
 </tr>
 <tr>
 <td align="right"><code>BETA</code></td>
-<td align="left">The current version is equal to or newer than the latest unstable version.</td>
+<td align="left">The current version is equal to or newer than the latest version.</td>
 </tr>
 <tr>
 <td align="right"><code>PENDING</code></td>

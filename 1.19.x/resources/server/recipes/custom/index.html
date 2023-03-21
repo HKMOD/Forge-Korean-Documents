@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -758,6 +810,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -777,6 +838,15 @@
 <li >
     
     <a href="../../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -923,13 +993,13 @@
 </div>
 <h2 id="recipetype">RecipeType<a class="headerlink" href="#recipetype" title="Permanent link"> </a></h2>
 <p><code>RecipeType</code> is responsible for defining the category or context the recipe will be used within. For example, if a recipe was going to be smelted in a furnace, it would have a type of <code>RecipeType#SMELTING</code>. Being blasted in a blast furnace would have a type of <code>RecipeType#BLASTING</code>.</p>
-<p>If none of the existing types match what context the recipe will be used within, then a new <code>RecipeType</code> must be <a href="../../../../concepts/registries/#registries-that-arent-forge-registries">registered</a>.</p>
+<p>If none of the existing types match what context the recipe will be used within, then a new <code>RecipeType</code> must be <a href="../../../../concepts/registries/#methods-for-registering">registered</a>.</p>
 <p>The <code>RecipeType</code> instance must then be returned by <code>Recipe#getType</code> in the new recipe subtype.</p>
-<pre class="highlight"><code class="language-java">// For some RecipeType EXAMPLE_TYPE
+<pre class="highlight"><code class="language-java">// For some RegistryObject&lt;RecipeType&gt; EXAMPLE_TYPE
 // In ExampleRecipe
 @Override
 public RecipeType&lt;?&gt; getType() {
-  return EXAMPLE_TYPE;
+  return EXAMPLE_TYPE.get();
 }</code></pre>
 <h2 id="recipeserializer">RecipeSerializer<a class="headerlink" href="#recipeserializer" title="Permanent link"> </a></h2>
 <p>A <code>RecipeSerializer</code> is responsible for decoding JSONs and communicating across the network for an associated <code>Recipe</code> subtype. Each recipe decoded by the serializer is saved as a unique instance within the <code>RecipeManager</code>. A <code>RecipeSerializer</code> must be <a href="../../../../concepts/registries/#methods-for-registering">registered</a>.</p>
@@ -956,23 +1026,16 @@ public RecipeType&lt;?&gt; getType() {
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For ease of convenience, the <code>RecipeSerializer</code> subtype can extend <code>ForgeRegistryEntry</code> to implement the methods within <code>IForgeRegistryEntry</code>.</p>
-</div>
-<pre class="highlight"><code class="language-java">public class ExampleSerializer extends ForgeRegistryEntry&lt;RecipeSerializer&lt;?&gt;&gt; implements RecipeSerializer&lt;ExampleRecipe&gt; {
-  // Implement methods here
-}</code></pre>
 <p>The <code>RecipeSerializer</code> instance must then be returned by <code>Recipe#getSerializer</code> in the new recipe subtype.</p>
-<pre class="highlight"><code class="language-java">// For some RecipeSerializer EXAMPLE_SERIALIZER
+<pre class="highlight"><code class="language-java">// For some RegistryObject&lt;RecipeSerializer&gt; EXAMPLE_SERIALIZER
 // In ExampleRecipe
 @Override
 public RecipeSerializer&lt;?&gt; getSerializer() {
-  return EXAMPLE_SERIALIZER;
+  return EXAMPLE_SERIALIZER.get();
 }</code></pre>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>There are some useful methods to make reading and writing data for recipes easier. <code>Ingredient</code>s can use <code>#fromJson</code>, <code>#toNetwork</code>, and <code>#fromNetwork</code> while <code>ItemStack</code>s can use <code>CraftingHelper#getItemStack</code>, <code>FriendlyByteBuf#writeItem</code>, and <code>FriendlyByteBuf# readItem</code>.</p>
+<p>There are some useful methods to make reading and writing data for recipes easier. <code>Ingredient</code>s can use <code>#fromJson</code>, <code>#toNetwork</code>, and <code>#fromNetwork</code> while <code>ItemStack</code>s can use <code>CraftingHelper#getItemStack</code>, <code>FriendlyByteBuf#writeItem</code>, and <code>FriendlyByteBuf#readItem</code>.</p>
 </div>
 <h2 id="building-the-json">Building the JSON<a class="headerlink" href="#building-the-json" title="Permanent link"> </a></h2>
 <p>Custom Recipe JSONs are stored in the same place as other <a href="https://minecraft.fandom.com/wiki/Recipe#JSON_format">recipes</a>. The specified <code>type</code> should represent the registry name of the <strong>recipe serializer</strong>. Any additional data is specified by the serializer during decoding.</p>

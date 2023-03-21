@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>코덱 - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../contributing/" class="elem-text">문서에 기여하기</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 시작하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">모드 기본 구조 작성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/versioning/" class="elem-text">버전 구조</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 핵심 개념들</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">레지스트리</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">사이드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/events/" class="elem-text">이벤트</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">모드 생명주기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">리소스</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">다국어 지원</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">블록의 상태</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 아이템</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 네트워킹</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">엔티티 동기화하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 블록 엔티티</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 인게임 효과</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gameeffects/particles/" class="elem-text">파티클</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gameeffects/sounds/" class="elem-text">효과음</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 저장소</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../capabilities/" class="elem-text">캐패빌리티</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../saveddata/" class="elem-text">월드 저장 데이터</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#codecs" class="elem-text">코덱</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#using-codecs">Using Codecs</a></li>
+        
+        <li class="toc-subitem"><a href="#existing-codecs">Existing Codecs</a></li>
+        
+        <li class="toc-subitem"><a href="#creating-codecs">Creating Codecs</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 렌더링</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델 로더</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/bakedmodel/" class="elem-text">최적화된 모델</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/itemoverrides/" class="elem-text">아이템 속성에 따른 동적 텍스쳐 변경</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 리소스</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 클라이언트용 애셋</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 모델</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/" class="elem-text">모델 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/tinting/" class="elem-text">텍스쳐 염색</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/itemproperties/" class="elem-text">아이템 속성</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 서버 데이터</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 조합법</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/" class="elem-text">조합법 소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/custom/" class="elem-text">사용자지정 조합법</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/ingredients/" class="elem-text">재료</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/incode/" class="elem-text">데이터팩을 쓰지 않는 조합법</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/loottables/" class="elem-text">컨테이너 전리품 테이블</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/glm/" class="elem-text">전체 전리품 수정하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/tags/" class="elem-text">태그</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/advancements/" class="elem-text">도전과제</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/conditional/" class="elem-text">조건적으로 불러와지는 데이터</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 데이터 생성</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 클라이언트 애셋</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/client/modelproviders/" class="elem-text">모델 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/localization/" class="elem-text">언어 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/sounds/" class="elem-text">소리 생성하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 서버 데이터</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/server/recipes/" class="elem-text">조합법 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/loottables/" class="elem-text">컨테이너 전리품 테이블 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/tags/" class="elem-text">태그 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/advancements/" class="elem-text">도전과제 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/glm/" class="elem-text">전체 전리품 수정 데이터 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 기타 기능</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/gametest/" class="elem-text">인게임 테스트</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/updatechecker/" class="elem-text">자동 업데이트 확인</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/debugprofiler/" class="elem-text">디버그 프로파일러</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 심화 주제</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">접근 변형자</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 포지에 기여하기</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">PR 가이드라인</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> 구버전</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">소개</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">1.19로 모드 포트하기</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="codecs">Codecs<a class="headerlink" href="#codecs" title="Permanent link"> </a></h1>
+<p>Codecs are a serialization tool from Mojang&rsquo;s <a href="https://github.com/Mojang/DataFixerUpper">DataFixerUpper</a> used to describe how objects can be transformed between different formats, such as <code>JsonElement</code>s for JSON and <code>Tag</code>s for NBT.</p>
+<h2 id="using-codecs">Using Codecs<a class="headerlink" href="#using-codecs" title="Permanent link"> </a></h2>
+<p>Codecs are primarily used to encode, or serialize, Java objects to some data format type and decode, or deserialize, formatted data objects back to its associated Java type. This is typically accomplished using <code>Codec#encodeStart</code> and <code>Codec#parse</code>, respectively.</p>
+<h3 id="dynamicops">DynamicOps<a class="headerlink" href="#dynamicops" title="Permanent link"> </a></h3>
+<p>To determine what intermediate file format to encode and decode to, both <code>#encodeStart</code> and <code>#parse</code> require a <code>DynamicOps</code> instance to define the data within that format.</p>
+<p>The <a href="https://github.com/Mojang/DataFixerUpper">DataFixerUpper</a> library contains <code>JsonOps</code> to codec JSON data stored in <a href="https://github.com/google/gson"><code>Gson</code>&lsquo;s</a> <code>JsonElement</code> instances. <code>JsonOps</code> supports two versions of <code>JsonElement</code> serialization: <code>JsonOps#INSTANCE</code> which defines a standard JSON file, and <code>JsonOps#COMPRESSED</code> which allows data to be compressed into a single string.</p>
+<pre class="highlight"><code class="language-java">// Let exampleCodec represent a Codec&lt;ExampleJavaObject&gt;
+// Let exampleObject be a ExampleJavaObject
+// Let exampleJson be a JsonElement
+
+// Encode Java object to regular JsonElement
+exampleCodec.encodeStart(JsonOps.INSTANCE, exampleObject);
+
+// Encode Java object to compressed JsonElement
+exampleCodec.encodeStart(JsonOps.COMPRESSED, exampleObject);
+
+// Decode JsonElement into Java object
+// Assume JsonElement was parsed normally
+exampleCodec.parse(JsonOps.INSTANCE, exampleJson);</code></pre>
+<p>Minecraft also provides <code>NbtOps</code> to codec NBT data stored in <code>Tag</code> instances. This can be referenced using <code>NbtOps#INSTANCE</code>.</p>
+<pre class="highlight"><code class="language-java">// Let exampleCodec represent a Codec&lt;ExampleJavaObject&gt;
+// Let exampleObject be a ExampleJavaObject
+// Let exampleNbt be a Tag
+
+// Encode Java object to Tag
+exampleCodec.encodeStart(JsonOps.INSTANCE, exampleObject);
+
+// Decode Tag into Java object
+exampleCodec.parse(JsonOps.INSTANCE, exampleNbt);</code></pre>
+<h4 id="format-conversion">Format Conversion<a class="headerlink" href="#format-conversion" title="Permanent link"> </a></h4>
+<p><code>DynamicOps</code> can also be used separately to convert between two different encoded formats. This can be done using <code>#convertTo</code> and supplying the <code>DynamicOps</code> format and the encoded object to convert.</p>
+<pre class="highlight"><code class="language-java">// Convert Tag to JsonElement
+// Let exampleTag be a Tag
+JsonElement convertedJson = NbtOps.INSTANCE.convertTo(JsonOps.INSTANCE, exampleTag);</code></pre>
+<h3 id="dataresult">DataResult<a class="headerlink" href="#dataresult" title="Permanent link"> </a></h3>
+<p>Encoded or decoded data using codecs return a <code>DataResult</code> which holds the converted instance or some error data depending on whether the conversion was successful. When the conversion is successful, the <code>Optional</code> supplied by <code>#result</code> will contain the successfully converted object. If the conversion fails, the <code>Optional</code> supplied by <code>#error</code> will contain the <code>PartialResult</code>, which holds the error message and a partially converted object depending on the codec.</p>
+<p>Additionally, there are many methods on <code>DataResult</code> that can be used to transform the result or error into the desired format. For example, <code>#resultOrPartial</code> will return an <code>Optional</code> containing the result on success, and the partially converted object on failure. The method takes in a string consumer to determine how to report the error message if present.</p>
+<pre class="highlight"><code class="language-java">// Let exampleCodec represent a Codec&lt;ExampleJavaObject&gt;
+// Let exampleJson be a JsonElement
+
+// Decode JsonElement into Java object
+DataResult&lt;ExampleJavaObject&gt; result = exampleCodec.parse(JsonOps.INSTANCE, exampleJson);
+
+result
+  // Get result or partial on error, report error message
+  .resultOrPartial(errorMessage -&gt; /* Do something with error message */)
+  // If result or partial is present, do something
+  .ifPresent(decodedObject -&gt; /* Do something with decoded object */);</code></pre>
+<h2 id="existing-codecs">Existing Codecs<a class="headerlink" href="#existing-codecs" title="Permanent link"> </a></h2>
+<h3 id="primitives">Primitives<a class="headerlink" href="#primitives" title="Permanent link"> </a></h3>
+<p>The <code>Codec</code> class contains static instances of codecs for certain defined primitives.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Codec</th>
+<th align="left">Java Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>BOOL</code></td>
+<td align="left"><code>Boolean</code></td>
+</tr>
+<tr>
+<td align="center"><code>BYTE</code></td>
+<td align="left"><code>Byte</code></td>
+</tr>
+<tr>
+<td align="center"><code>SHORT</code></td>
+<td align="left"><code>Short</code></td>
+</tr>
+<tr>
+<td align="center"><code>INT</code></td>
+<td align="left"><code>Integer</code></td>
+</tr>
+<tr>
+<td align="center"><code>LONG</code></td>
+<td align="left"><code>Long</code></td>
+</tr>
+<tr>
+<td align="center"><code>FLOAT</code></td>
+<td align="left"><code>Float</code></td>
+</tr>
+<tr>
+<td align="center"><code>DOUBLE</code></td>
+<td align="left"><code>Double</code></td>
+</tr>
+<tr>
+<td align="center"><code>STRING</code></td>
+<td align="left"><code>String</code></td>
+</tr>
+<tr>
+<td align="center"><code>BYTE_BUFFER</code></td>
+<td align="left"><code>ByteBuffer</code></td>
+</tr>
+<tr>
+<td align="center"><code>INT_STREAM</code></td>
+<td align="left"><code>IntStream</code></td>
+</tr>
+<tr>
+<td align="center"><code>LONG_STREAM</code></td>
+<td align="left"><code>LongStream</code></td>
+</tr>
+<tr>
+<td align="center"><code>PASSTHROUGH</code></td>
+<td align="left"><code>Dynamic&lt;?&gt;</code>*</td>
+</tr>
+<tr>
+<td align="center"><code>EMPTY</code></td>
+<td align="left"><code>Unit</code>**</td>
+</tr>
+</tbody>
+</table>
+<p>* <code>Dynamic</code> is an object which holds a value encoded in a supported <code>DynamicOps</code> format. These are typically used to convert encoded object formats into other encoded object formats.</p>
+<p>** <code>Unit</code> is an object used to represent <code>null</code> objects.</p>
+<h3 id="vanilla-and-forge">Vanilla and Forge<a class="headerlink" href="#vanilla-and-forge" title="Permanent link"> </a></h3>
+<p>Minecraft and Forge define many codecs for objects that are frequently encoded and decoded. Some examples include <code>ResourceLocation#CODEC</code> for <code>ResourceLocation</code>s, <code>ExtraCodecs#INSTANT_ISO8601</code> for <code>Instant</code>s in the <code>DateTimeFormatter#ISO_INSTANT</code> format, and <code>CompoundTag#CODEC</code> for <code>CompoundTag</code>s.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>CompoundTag</code>s cannot decode lists of numbers from JSON using <code>JsonOps</code>. <code>JsonOps</code>, when converting, sets a number to its most narrow type. <code>ListTag</code>s force a specific type for its data, so numbers with different types (e.g. <code>64</code> would be <code>byte</code>, <code>384</code> would be <code>short</code>) will throw an error on conversion.</p>
+</div>
+<p>Vanilla and Forge registries also have codecs for the type of object the registry contains (e.g. <code>Registry#BLOCK</code> or <code>ForgeRegistries#BLOCKS</code> have a <code>Codec&lt;Block&gt;</code>). <code>Registry#byNameCodec</code> and <code>IForgeRegistry#getCodec</code> will encode the registry object to their registry name, or an integer identifier if compressed. Vanilla registries also have a <code>Registry#holderByNameCodec</code> which encodes to a registry name and decodes to the registry object wrapped in a <code>Holder</code>.</p>
+<h2 id="creating-codecs">Creating Codecs<a class="headerlink" href="#creating-codecs" title="Permanent link"> </a></h2>
+<p>Codecs can be created for encoding and decoding any object. For understanding purposes, the equivalent encoded JSON will be shown.</p>
+<h3 id="records">Records<a class="headerlink" href="#records" title="Permanent link"> </a></h3>
+<p>Codecs can define objects through the use of records. Each record codec defines any object with explicit named fields. There are many ways to create a record codec, but the simplest is via <code>RecordCodecBuilder#create</code>.</p>
+<p><code>RecordCodecBuilder#create</code> takes in a function which defines an <code>Instance</code> and returns an application (<code>App</code>) of the object. A correlation can be drawn to creating a class <em>instance</em> and the constructors used to <em>apply</em> the class to the constructed object.</p>
+<pre class="highlight"><code class="language-java">// Some object to create a codec for
+public class SomeObject {
+
+  public SomeObject(String s, int i, boolean b) { /* ... */ }
+
+  public String s() { /* ... */ }
+
+  public int i() { /* ... */ }
+
+  public boolean b() { /* ... */ }
+}</code></pre>
+<h4 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link"> </a></h4>
+<p>An <code>Instance</code> can define up to 16 fields using <code>#group</code>. Each field must be an application defining the instance the object is being made for and the type of the object. The simplest way to meet this requirement is by taking a <code>Codec</code>, setting the name of the field to decode from, and setting the getter used to encode the field.</p>
+<p>A field can be created from a <code>Codec</code> using <code>#fieldOf</code>, if the field is required, or <code>#optionalFieldOf</code>, if the field is wrapped in an <code>Optional</code> or defaulted. Either method requires a string containing the name of the field in the encoded object. The getter used to encode the field can then be set using <code>#forGetter</code>, taking in a function which given the object, returns the field data.</p>
+<p>From there, the resulting product can be applied via <code>#apply</code> to define how the instance should construct the object for the application. For ease of convenience, the grouped fields should be listed in the same order they appear in the constructor such that the function can simply be a constructor method reference.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;SomeObject&gt; RECORD_CODEC = RecordCodecBuilder.create(instance -&gt; // Given an instance
+  instance.group( // Define the fields within the instance
+    Codec.STRING.fieldOf("s").forGetter(SomeObject::s), // String
+    Codec.INT.optionalFieldOf("i", 0).forGetter(SomeObject::i), // Integer, defaults to 0 if field not present
+    Codec.BOOL.fieldOf("b").forGetter(SomeObject::b) // Boolean
+  ).apply(instance, SomeObject::new) // Define how to create the object
+);</code></pre>
+<pre class="highlight"><code class="language-js">// Encoded SomeObject
+{
+  "s": "value",
+  "i": 5,
+  "b": false
+}
+
+// Another encoded SomeObject
+{
+  "s": "value2",
+  // i is omitted, defaults to 0
+  "b": true
+}</code></pre>
+<h3 id="transformers">Transformers<a class="headerlink" href="#transformers" title="Permanent link"> </a></h3>
+<p>Codecs can be transformed into equivalent, or partially equivalent, representations through mapping methods. Each mapping method takes in two functions: one to transform the current type into the new type, and one to transform the new type back to the current type. This is done through the <code>#xmap</code> function.</p>
+<pre class="highlight"><code class="language-java">// A class
+public class ClassA {
+
+  public ClassB toB() { /* ... */ }
+}
+
+// Another equivalent class
+public class ClassB {
+
+  public ClassA toA() { /* ... */ }
+}
+
+// Assume there is some codec A_CODEC
+public static final Codec&lt;ClassB&gt; B_CODEC = A_CODEC.xmap(ClassA::toB, ClassB::toA);</code></pre>
+<p>If a type is partially equivalent, meaning that there are some restrictions during conversion, there are mapping functions which return a <code>DataResult</code> which can be used to return an error state whenever an exception or invalid state is reached.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Is A Fully Equivalent to B</th>
+<th align="center">Is B Fully Equivalent to A</th>
+<th align="left">Transform Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left"><code>#xmap</code></td>
+</tr>
+<tr>
+<td align="center">Yes</td>
+<td align="center">No</td>
+<td align="left"><code>#flatComapMap</code></td>
+</tr>
+<tr>
+<td align="center">No</td>
+<td align="center">Yes</td>
+<td align="left"><code>#comapFlatMap</code></td>
+</tr>
+<tr>
+<td align="center">No</td>
+<td align="center">No</td>
+<td align="left"><code>#flatXMap</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight"><code class="language-java">// Given an string codec to convert to a integer
+// Not all strings can become integers (A is not fully equivalent to B)
+// All integers can become strings (B is fully equivalent to A)
+public static final Codec&lt;Integer&gt; INT_CODEC = Codec.STRING.comapFlatMap(
+  s -&gt; { // Return data result containing error on failure
+    try {
+      return DataResult.success(Integer.valueOf(s));
+    } catch (NumberFormatException e) {
+      return DataResult.error(s + " is not an integer.");
+    }
+  },
+  Integer::toString // Regular function
+);</code></pre>
+<pre class="highlight"><code class="language-js">// Will return 5
+"5"
+
+// Will error, not an integer
+"value"</code></pre>
+<h4 id="range-codecs">Range Codecs<a class="headerlink" href="#range-codecs" title="Permanent link"> </a></h4>
+<p>Range codecs are an implementation of <code>#flatXMap</code> which returns an error <code>DataResult</code> if the value is not inclusively between the set minimum and maximum. The value is still provided as a partial result if outside the bounds. There are implementations for integers, floats, and doubles via <code>#intRange</code>, <code>#floatRange</code>, and <code>#doubleRange</code> respectively.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;Integer&gt; RANGE_CODEC = Codec.intRange(0, 4); </code></pre>
+<pre class="highlight"><code class="language-js">// Will be valid, inside [0, 4]
+4
+
+// Will error, outside [0, 4]
+5</code></pre>
+<h3 id="defaults">Defaults<a class="headerlink" href="#defaults" title="Permanent link"> </a></h3>
+<p>If the result of encoding or decoding fails, a default value can be supplied instead via <code>Codec#orElse</code> or <code>Codec#orElseGet</code>.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;Integer&gt; DEFAULT_CODEC = Codec.INT.orElse(0); // Can also be a supplied value via #orElseGet</code></pre>
+<pre class="highlight"><code class="language-js">// Not an integer, defaults to 0
+"value"</code></pre>
+<h3 id="unit">Unit<a class="headerlink" href="#unit" title="Permanent link"> </a></h3>
+<p>A codec which supplies an in-code value and encodes to nothing can be represented using <code>Codec#unit</code>. This is useful if a codec uses a non-encodable entry within the data object.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;IForgeRegistry&lt;Block&gt;&gt; UNIT_CODEC = Codec.unit(
+  () -&gt; ForgeRegistries.BLOCKS // Can also be a raw value
+);</code></pre>
+<pre class="highlight"><code class="language-js">// Nothing here, will return block registry codec</code></pre>
+<h3 id="list">List<a class="headerlink" href="#list" title="Permanent link"> </a></h3>
+<p>A codec for a list of objects can be generated from an object codec via <code>Codec#listOf</code>.</p>
+<pre class="highlight"><code class="language-java">// BlockPos#CODEC is a Codec&lt;BlockPos&gt;
+public static final Codec&lt;List&lt;BlockPos&gt;&gt; LIST_CODEC = BlockPos.CODEC.listOf();</code></pre>
+<pre class="highlight"><code class="language-js">// Encoded List&lt;BlockPos&gt;
+[
+  [1, 2, 3], // BlockPos(1, 2, 3)
+  [4, 5, 6], // BlockPos(4, 5, 6)
+  [7, 8, 9]  // BlockPos(7, 8, 9)
+]</code></pre>
+<p>List objects decoded using a list codec are stored in an <strong>immutable</strong> list. If a mutable list is needed, a <a href="#transformer-codecs">transformer</a> should be applied to the list codec.</p>
+<h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link"> </a></h3>
+<p>A codec for a map of keys and value objects can be generated from two codecs via <code>Codec#unboundedMap</code>. Unbounded maps can specify any string-based or string-transformed value to be a key.</p>
+<pre class="highlight"><code class="language-java">// BlockPos#CODEC is a Codec&lt;BlockPos&gt;
+public static final Codec&lt;Map&lt;String, BlockPos&gt;&gt; MAP_CODEC = Codec.unboundedMap(Codec.STRING, BlockPos.CODEC);</code></pre>
+<pre class="highlight"><code class="language-js">// Encoded Map&lt;String, BlockPos&gt;
+{
+  "key1": [1, 2, 3], // key1 -&gt; BlockPos(1, 2, 3)
+  "key2": [4, 5, 6], // key2 -&gt; BlockPos(4, 5, 6)
+  "key3": [7, 8, 9]  // key3 -&gt; BlockPos(7, 8, 9)
+}</code></pre>
+<p>Map objects decoded using a unbounded map codec are stored in an <strong>immutable</strong> map. If a mutable map is needed, a <a href="#transformer-codecs">transformer</a> should be applied to the map codec.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unbounded maps only support keys that encode/decode to/from strings. A key-value <a href="#pair">pair</a> list codec can be used to get around this restriction.</p>
+</div>
+<h3 id="pair">Pair<a class="headerlink" href="#pair" title="Permanent link"> </a></h3>
+<p>A codec for pairs of objects can be generated from two codecs via <code>Codec#pair</code>.</p>
+<p>A pair codec decodes objects by first decoding the left object in the pair, then taking the remaining part of the encoded object and decodes the right object from that. As such, the codecs must either express something about the encoded object after decoding (such as <a href="#records">records</a>), or they have to be augmented into a <code>MapCodec</code> and transformed into a regular codec via <code>#codec</code>. This can typically done by making the codec a <a href="#fields">field</a> of some object.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;Pair&lt;Integer, String&gt;&gt; PAIR_CODEC = Codec.pair(
+  Codec.INT.fieldOf("left").codec(),
+  Codec.STRING.fieldOf("right").codec()
+);</code></pre>
+<pre class="highlight"><code class="language-js">// Encoded Pair&lt;Integer, String&gt;
+{
+  "left": 5,       // fieldOf looks up 'left' key for left object
+  "right": "value" // fieldOf looks up 'right' key for right object
+}</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A map codec with a non-string key can be encoded/decoded using a list of key-value pairs applied with a <a href="#transformer-codecs">transformer</a>.</p>
+</div>
+<h3 id="either">Either<a class="headerlink" href="#either" title="Permanent link"> </a></h3>
+<p>A codec for two different methods of encoding/decoding some object data can be generated from two codecs via <code>Codec#either</code>.</p>
+<p>An either codec attempts to decode the object using the first codec. If it fails, it attempts to decode using the second codec. If that also fails, then the <code>DataResult</code> will only contain the error from the second codec failure.</p>
+<pre class="highlight"><code class="language-java">public static final Codec&lt;Either&lt;Integer, String&gt;&gt; EITHER_CODEC = Codec.either(
+  Codec.INT,
+  Codec.STRING
+);</code></pre>
+<pre class="highlight"><code class="language-js">// Encoded Either$Left&lt;Integer, String&gt;
+5
+
+// Encoded Either$Right&lt;Integer, String&gt;
+"value"</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can be used in conjunction with a <a href="#transformer-codecs">transformer</a> to get a specific object from two different methods of encoding.</p>
+</div>
+<h3 id="dispatch">Dispatch<a class="headerlink" href="#dispatch" title="Permanent link"> </a></h3>
+<p>Codecs can have subcodecs which can decode a particular object based upon some specified type via <code>Codec#dispatch</code>. This is typically used in registries which contain codecs, such as rule tests or block placers.</p>
+<p>A dispatch codec first attempts to get the encoded type from some string key (usually <code>type</code>). From there, the type is decoded, calling a getter for the specific codec used to decode the actual object. If the <code>DynamicOps</code> used to decode the object compresses its maps, or the object codec itself is not augmented into a <code>MapCodec</code> (such as records or fielded primitives), then the object needs to be stored within a <code>value</code> key. Otherwise, the object is decoded at the same level as the rest of the data.</p>
+<pre class="highlight"><code class="language-java">// Define our object
+public abstract class ExampleObject {
+
+  // Define the method used to specify the object type for encoding
+  public abstract Codec&lt;? extends ExampleObject&gt; type();
+}
+
+// Create simple object which stores a string
+public class StringObject extends ExampleObject {
+
+  public StringObject(String s) { /* ... */ }
+
+  public String s() { /* ... */ }
+
+  public Codec&lt;? extends ExampleObject&gt; type() {
+    // A registered registry object
+    // "string":
+    //   Codec.STRING.xmap(StringObject::new, StringObject::s)
+    return STRING_OBJECT_CODEC.get();
+  }
+}
+
+// Create complex object which stores a string and integer
+public class ComplexObject extends ExampleObject {
+
+  public ComplexObject(String s, int i) { /* ... */ }
+
+  public String s() { /* ... */ }
+
+  public int i() { /* ... */ }
+
+  public Codec&lt;? extends ExampleObject&gt; type() {
+    // A registered registry object
+    // "complex":
+    //   RecordCodecBuilder.create(instance -&gt;
+    //     instance.group(
+    //       Codec.STRING.fieldOf("s").forGetter(ComplexObject::s),
+    //       Codec.INT.fieldOf("i").forGetter(ComplexObject::i)
+    //     ).apply(instance, ComplexObject::new)
+    //   )
+    return COMPLEX_OBJECT_CODEC.get();
+  }
+}
+
+// Assume there is an IForgeRegistry&lt;Codec&lt;? extends ExampleObject&gt;&gt; DISPATCH
+public static final Codec&lt;ExampleObject&gt; = DISPATCH.getCodec() // Gets Codec&lt;Codec&lt;? extends ExampleObject&gt;&gt;
+  .dispatch(
+    ExampleObject::type, // Get the codec from the specific object
+    Function.identity() // Get the codec from the registry
+  );</code></pre>
+<pre class="highlight"><code class="language-js">// Simple object
+{
+  "type": "string", // For StringObject
+  "value": "value" // Codec type is not augmented from MapCodec, needs field
+}
+
+// Complex object
+{
+  "type": "complex", // For ComplexObject
+
+  // Codec type is augmented from MapCodec, can be inlined
+  "s": "value",
+  "i": 0
+}</code></pre>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

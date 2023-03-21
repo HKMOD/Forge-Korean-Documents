@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -403,6 +417,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -442,7 +494,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -752,6 +804,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -771,6 +832,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -896,7 +966,7 @@
             <h1 id="internationalization-and-localization">Internationalization and Localization<a class="headerlink" href="#internationalization-and-localization" title="Permanent link"> </a></h1>
 <p>Internationalization, i18n for short, is a way of designing code so that it requires no changes to be adapted for various languages. Localization is the process of adapting displayed text to the user&rsquo;s language.</p>
 <p>I18n is implemented using <em>translation keys</em>. A translation key is a string that identifies a piece of displayable text in no specific language. For example, <code>block.minecraft.dirt</code> is the translation key referring to the name of the Dirt block. This way, displayable text may be referenced with no concern for a specific language. The code requires no changes to be adapted in a new language.</p>
-<p>Localization will happen in the game&rsquo;s locale. In a Minecraft client the locale is specified by the language settings. On a dedicated server, the only supported locale is <code>en_us</code>. A list of available locales can be found on the <a href="https://minecraft.gamepedia.com/Language#Available_languages">Minecraft Wiki</a>.</p>
+<p>Localization will happen in the game&rsquo;s locale. In a Minecraft client the locale is specified by the language settings. On a dedicated server, the only supported locale is <code>en_us</code>. A list of available locales can be found on the <a href="https://minecraft.fandom.com/wiki/Language#Languages">Minecraft Wiki</a>.</p>
 <h2 id="language-files">Language files<a class="headerlink" href="#language-files" title="Permanent link"> </a></h2>
 <p>Language files are located by <code>assets/[namespace]/lang/[locale].json</code> (e.g. all US English translations provided by <code>examplemod</code> would be within <code>assets/examplemod/lang/en_us.json</code>). The file format is simply a json map from translation keys to values. The file must be encoded in UTF-8. Old .lang files can be converted to json using a <a href="https://tterrag.com/lang2json/">converter</a>.</p>
 <pre class="highlight"><code class="language-js">{
@@ -925,12 +995,13 @@
 <ul>
 <li><code>get(String, Object...)</code> localizes in the client&rsquo;s locale with formatting. The first parameter is a translation key, and the rest are formatting arguments for <code>String.format(String, Object...)</code>.</li>
 </ul>
-<h3 id="translatablecomponent"><code>TranslatableComponent</code><a class="headerlink" href="#translatablecomponent" title="Permanent link"> </a></h3>
-<p><code>TranslatableComponent</code> is a <code>Component</code> that is localized and formatted lazily. It is very useful when sending messages to players because it will be automatically localized in their own locale.</p>
-<p>The first parameter of the <code>TranslatableComponent(String, Object...)</code> constructor is a translation key, and the rest are used for formatting. The only supported format specifiers are <code>%s</code> and <code>%1$s</code>, <code>%2$s</code>, <code>%3$s</code> etc. Formatting arguments may be other <code>Components</code>s that will be inserted into the resulting formatted text with all their attributes preserved.</p>
+<h3 id="translatablecontents"><code>TranslatableContents</code><a class="headerlink" href="#translatablecontents" title="Permanent link"> </a></h3>
+<p><code>TranslatableContents</code> is a <code>ComponentContents</code> that is localized and formatted lazily. It is very useful when sending messages to players because it will be automatically localized in their own locale.</p>
+<p>The first parameter of the <code>TranslatableContents(String, Object...)</code> constructor is a translation key, and the rest are used for formatting. The only supported format specifiers are <code>%s</code> and <code>%1$s</code>, <code>%2$s</code>, <code>%3$s</code> etc. Formatting arguments may be <code>Component</code>s that will be inserted into the resulting formatted text with all their attributes preserved.</p>
+<p>A <code>MutableComponent</code> can be created using <code>Component#translatable</code> by passing in the <code>TranslatableContents</code>&lsquo;s parameters. It can also be created using <code>MutableComponent#create</code> by passing in the <code>ComponentContents</code> itself.</p>
 <h3 id="textcomponenthelper"><code>TextComponentHelper</code><a class="headerlink" href="#textcomponenthelper" title="Permanent link"> </a></h3>
 <ul>
-<li><code>createComponentTranslation(CommandSource, String, Object...)</code> creates a localized and formatted <code>BaseComponent</code> depending on a receiver. The localization and formatting is done eagerly if the receiver is a vanilla client. If not, the localization and formatting is done lazily with a <code>TranslatableComponent</code>. This is only useful if the server should allow vanilla clients to connect.</li>
+<li><code>createComponentTranslation(CommandSource, String, Object...)</code> creates a localized and formatted <code>MutableComponent</code> depending on a receiver. The localization and formatting is done eagerly if the receiver is a vanilla client. If not, the localization and formatting is done lazily with a <code>Component</code> containing <code>TranslatableContents</code>. This is only useful if the server should allow vanilla clients to connect.</li>
 </ul>
             
         </article>

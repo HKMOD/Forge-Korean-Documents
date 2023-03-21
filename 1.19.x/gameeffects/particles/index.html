@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -401,6 +415,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -440,7 +492,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -750,6 +802,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -769,6 +830,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -1048,10 +1118,10 @@
 <p>Implementing a custom render type will be left as an exercise to the reader.</p>
 <h3 id="particleprovider">ParticleProvider<a class="headerlink" href="#particleprovider" title="Permanent link"> </a></h3>
 <p>Finally, a particle is usually created via an <code>ParticleProvider</code>. A factory has a single method <code>#createParticle</code> which is used to create a particle given the particle data, client level, position, and movement delta. Since a <code>Particle</code> is not beholden to any particular <code>ParticleType</code>, it can be reused in different factories as necessary.</p>
-<p>An <code>ParticleProvider</code> must be registered by subscribing to the <code>ParticleFactoryRegisterEvent</code> on the <strong>mod event bus</strong>. Within the event, the factory can be registered via <code>ParticleEngine#register</code> by supplying an instance of the factory to the method.</p>
+<p>An <code>ParticleProvider</code> must be registered by subscribing to the <code>RegisterParticleProvidersEvent</code> on the <strong>mod event bus</strong>. Within the event, the factory can be registered via <code>#register</code> by supplying an instance of the factory to the method.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><code>ParticleFactoryRegisterEvent</code> should only be called on the client and thus sided off in some isolated client class, referenced by either <code>DistExecutor</code> or <code>@EventBusSubscriber</code>.</p>
+<p><code>RegisterParticleProvidersEvent</code> should only be called on the client and thus sided off in some isolated client class, referenced by either <code>DistExecutor</code> or <code>@EventBusSubscriber</code>.</p>
 </div>
 <h4 id="particledescription-spriteset-and-spriteparticleregistration">ParticleDescription, SpriteSet, and SpriteParticleRegistration<a class="headerlink" href="#particledescription-spriteset-and-spriteparticleregistration" title="Permanent link"> </a></h4>
 <p>There are three particle render types that cannot use the above method of registration: <code>PARTICLE_SHEET_OPAQUE</code>, <code>PARTICLE_SHEET_TRANSLUCENT</code>, and <code>PARTICLE_SHEET_LIT</code>. This is because all three of these particle render types use a sprite set that is loaded by the <code>ParticleEngine</code> directly. As such, the textures supplied must be obtained and registered through a different method. This will assume your particle is a subtype of <code>TextureSheetParticle</code> as that is the only vanilla implementation for this logic.</p>
@@ -1068,7 +1138,7 @@
   ]
 }</code></pre>
 <p>To reference a particle texture, the subtype of <code>TextureSheetParticle</code> should either take in an <code>SpriteSet</code> or a <code>TextureAtlasSprite</code> obtained from <code>SpriteSet</code>. <code>SpriteSet</code> holds a list of textures which refer to the sprites as defined by our <code>ParticleDescription</code>. <code>SpriteSet</code> has two methods, both of which grab a <code>TextureAtlasSprite</code> in different methods. The first method takes in two integers. The backing implementation allows the sprite to have a texture change as it ages. The second method takes in a <code>Random</code> instance to get a random texture from the sprite set. The sprite can be set within <code>TextureSheetParticle</code> by using one of the helper methods that takes in the <code>SpriteSet</code>: <code>#pickSprite</code> which uses the random method of picking a texture, and <code>#setSpriteFromAge</code> which uses the percentage method of two integers to pick the texture.</p>
-<p>To register these particle textures, a <code>SpriteParticleRegistration</code> needs to be supplied to the <code>ParticleEngine#register</code> method. This method takes in an <code>SpriteSet</code> holding the associated sprite set for the particle and creates an <code>ParticleProvider</code> to create the particle. The simplest method of implementation can be done by implementing <code>ParticleProvider</code> on some class and having the constructor take in an <code>SpriteSet</code>. Then the <code>SpriteSet</code> can be passed to the particle as normal.</p>
+<p>To register these particle textures, a <code>SpriteParticleRegistration</code> needs to be supplied to the <code>RegisterParticleProvidersEvent#register</code> method. This method takes in an <code>SpriteSet</code> holding the associated sprite set for the particle and creates an <code>ParticleProvider</code> to create the particle. The simplest method of implementation can be done by implementing <code>ParticleProvider</code> on some class and having the constructor take in an <code>SpriteSet</code>. Then the <code>SpriteSet</code> can be passed to the particle as normal.</p>
 <h2 id="spawning-a-particle">Spawning a Particle<a class="headerlink" href="#spawning-a-particle" title="Permanent link"> </a></h2>
 <p>Particles can be spawned from either level instance. However, each side has a specific way to spawn a particle. If on the <code>ClientLevel</code>, <code>#addParticle</code> can be called to spawn a particle or <code>#addAlwaysVisibleParticle</code> can be called to spawn a particle that is visible from any distance. If on the <code>ServerLevel</code>, <code>#sendParticles</code> can be called to send a packet to the client to spawn the particle. Calling the two <code>ClientLevel</code> methods on the server will result in nothing.</p>
             

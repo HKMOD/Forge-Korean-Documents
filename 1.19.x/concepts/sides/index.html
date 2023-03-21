@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -405,6 +419,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -444,7 +496,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -754,6 +806,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -773,6 +834,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -952,10 +1022,20 @@ DistExecutor.safeCallWhenOn(Dist.CLIENT, () -&gt; ExampleClass::safeCallMethodEx
 <p>This mistake can also be made explicitly by accessing physical client-only classes such as <code>Minecraft</code> from common code that runs or can run on the logical server. This mistake is easy to miss for beginners who debug in a physical client. The code will work there, but it will immediately crash on a physical server.</p>
 <h2 id="writing-one-sided-mods">Writing One-Sided Mods<a class="headerlink" href="#writing-one-sided-mods" title="Permanent link"> </a></h2>
 <p>In recent versions, Minecraft Forge has removed a &ldquo;sidedness&rdquo; attribute from the mods.toml. This means that your mods are expected to work whether they are loaded on the physical client or the physical server. So for one-sided mods, you would typically register your event handlers inside a <code>DistExecutor#safeRunWhenOn</code> or <code>DistExecutor#unsafeRunWhenOn</code> instead of directly calling the relevant registration methods in your mod constructor. Basically, if your mod is loaded on the wrong side, it should simply do nothing, listen to no events, and so on. A one-sided mod by nature should not register blocks, items, &hellip; since they would need to be available on the other side, too.</p>
-<p>Additionally, if your mod is one-sided, it typically does not forbid the user from joining a server that is lacking that mod. Therefore, you should register an <code>IExtensionPoint$DisplayTest</code> extension point to make sure that Forge does not think your mod is required on the server, which would lead to the server being shown as incompatible. For that, put something similar to this into your main mod class constructor:
-<pre class="highlight"><code>//Make sure the mod being absent on the other network side does not cause the client to display the server as incompatible
+<p>Additionally, if your mod is one-sided, it typically does not forbid the user from joining a server that is lacking that mod. Therefore, you should set the <code>displayTest</code> property in your <a href="../../gettingstarted/structuring/#the-modstoml-file">mods.toml</a> to whatever value is necessary.</p>
+<pre class="highlight"><code class="language-toml">[[mods]]
+  # ...
+
+  # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
+  # IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
+  # IGNORE_ALL_VERSION means that your mod will not cause a red X if it's present on the client or the server. This is a special case and should only be used if your mod has no server component.
+  # NONE means that no display test is set on your mod. You need to do this yourself, see IExtensionPoint.DisplayTest for more information. You can define any scheme you wish with this value.
+  # IMPORTANT NOTE: this is NOT an instruction as to which environments (CLIENT or DEDICATED SERVER) your mod loads on. Your mod should load (and maybe do nothing!) whereever it finds itself.
+  displayTest="IGNORE_ALL_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)</code></pre>
+<p>If a custom display test is to be used, then the <code>displayTest</code> option should be set to <code>NONE</code>, and an <code>IExtensionPoint$DisplayTest</code> extension should be registered:</p>
+<pre class="highlight"><code class="language-java">//Make sure the mod being absent on the other network side does not cause the client to display the server as incompatible
 ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -&gt; new IExtensionPoint.DisplayTest(() -&gt; NetworkConstants.IGNORESERVERONLY, (a, b) -&gt; true));</code></pre>
-This tells the client that it should ignore the server version being absent, and the server that it should not tell the client this mod should be present. So this snippet works both for client- and server-only-sided mods.</p>
+<p>This tells the client that it should ignore the server version being absent, and the server that it should not tell the client this mod should be present. So this snippet works both for client- and server-only-sided mods.</p>
             
         </article>
         

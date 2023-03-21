@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -607,7 +659,7 @@
         
         <li class="toc-subitem"><a href="#igloballootmodifier">IGlobalLootModifier</a></li>
         
-        <li class="toc-subitem"><a href="#globallootmodifierserializer">GlobalLootModifierSerializer</a></li>
+        <li class="toc-subitem"><a href="#the-loot-modifier-codec">The Loot Modifier Codec</a></li>
         
         
     </ul>
@@ -756,6 +808,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -775,6 +836,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -914,7 +984,7 @@
 <li>The operational code that makes your modifier work. Most modders can extend <code>LootModifier</code> as it supplies base functionality.</li>
 </ul>
 </li>
-<li>Finally, a class that extends <code>GlobalLootModifierSerializer</code> for your operational class.<ul>
+<li>Finally, a codec to encode and decode your operational class.<ul>
 <li>This is <a href="../../../concepts/registries/#methods-for-registering">registered</a> as any other <code>IForgeRegistryEntry</code>.</li>
 </ul>
 </li>
@@ -938,7 +1008,7 @@
 }</code></pre>
 <h2 id="the-serialized-json">The Serialized JSON<a class="headerlink" href="#the-serialized-json" title="Permanent link"> </a></h2>
 <p>This file contains all of the potential variables related to your modifier, including the conditions that must be met prior to modifying any loot. Avoid hard-coded values wherever possible so that data pack makers can adjust balance if they wish to.</p>
-<p><code>type</code> represents the registry name of the <a href="#globallootmodifierserializer"><code>GlobalLootModifierSerializer</code></a> used to read the associated JSON file. This must always be present.</p>
+<p><code>type</code> represents the registry name of the <a href="#the-loot-modifier-codec">codec</a> used to read the associated JSON file. This must always be present.</p>
 <p><code>conditions</code> should represent the loot table conditions for this modifier to activate. Conditions should avoid being hardcoded to allow datapack creators as much flexibility to adjust the criteria. This must also be always present.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -958,11 +1028,12 @@
 }</code></pre>
 <h2 id="igloballootmodifier"><code>IGlobalLootModifier</code><a class="headerlink" href="#igloballootmodifier" title="Permanent link"> </a></h2>
 <p>To supply the functionality a global loot modifier specifies, a <code>IGlobalLootModifier</code> implementation must be specified. These are instances generated each time a serializer decodes the information from JSON and supplies it into this object.</p>
-<p>There is only one method that needs to be defined in order to create a new modifier: <code>#apply</code>. This takes in the current loot that will be generated along with the context information such as the currently level or additional defined parameters. It returns the list of drops to generate.</p>
+<p>There are two methods that needs to be defined in order to create a new modifier: <code>#apply</code> and <code>#codec</code>. <code>#apply</code> takes in the current loot that will be generated along with the context information such as the currently level or additional defined parameters. It returns the list of drops to generate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The returned list of drops from any one modifier is fed into other modifiers in the order they are registered. As such, modified loot can be modified by another loot modifier.</p>
 </div>
+<p><code>#codec</code> returns the registered <a href="#the-loot-modifier-codec">codec</a> used to encode and decode the modifier to/from JSON.</p>
 <h3 id="the-lootmodifier-subclass">The <code>LootModifier</code> Subclass<a class="headerlink" href="#the-lootmodifier-subclass" title="Permanent link"> </a></h3>
 <p><code>LootModifier</code> is an abstract implementation of <code>IGlobalLootModifier</code> to provide the base functionality which most modders can easily extend and implement. This expands upon the existing interface by defining the <code>#apply</code> method to check the conditions to determine whether or not to modify the generated loot.</p>
 <p>There are two things of note within the subclass implementation: the constructor which must take in an array of <code>LootItemCondition</code>s and the <code>#doApply</code> method.</p>
@@ -975,37 +1046,33 @@
     // Store the rest of the parameters
   }
 
-  @Nonnull
+  @NotNull
   @Override
-  protected List&lt;ItemStack&gt; doApply(List&lt;ItemStack&gt; generatedLoot, LootContext context) {
+  protected ObjectArrayList&lt;ItemStack&gt; doApply(ObjectArrayList&lt;ItemStack&gt; generatedLoot, LootContext context) {
     // Modify the loot and return the new drops
   }
+
+  @Override
+  public Codec&lt;? extends IGlobalLootModifier&gt; codec() {
+    // Return the codec used to encode and decode this modifier
+  }
 }</code></pre>
-<h2 id="globallootmodifierserializer"><code>GlobalLootModifierSerializer</code><a class="headerlink" href="#globallootmodifierserializer" title="Permanent link"> </a></h2>
-<p>The connector between the JSON and the <code>IGlobalLootModifier</code> instance is the <code>GlobalLootModifierSerializer&lt;T&gt;</code> implementation, where <code>T</code> represents the type of the <code>IGlobalLootModifier</code> to use.</p>
-<p>Two methods must be defined within the serializer implementation: <code>#read</code> and <code>#write</code>.</p>
-<p><code>#read</code> takes in the registry name of the JSON, the serialized <code>JsonObject</code>, and the array of conditions that, by most implementations, must be true to allow the loot modifier to execute. The only data that should be deserialized from the <code>JsonObject</code> are the custom properties specified for use by the implemented loot modifier. If no custom properties are needed, then no data should be deserialized from the <code>JsonObject</code> as the conditions are supplied as a parameter.</p>
-<p><code>#write</code> is responsible for turning the defined loot modifier and writing it to a <code>JsonObject</code>. This requires that all conditions along with any custom properties must be written. For ease of convenience, <code>#makeConditions</code> can be called to create a new <code>JsonObject</code> with the conditions already serialized within. Any additional properties to be serialized can then be added to this <code>JsonObject</code>. This is utilized for <a href="../../../datagen/server/glm/">data generation</a> of the associated loot modifier.</p>
-<pre class="highlight"><code class="language-java">public ExampleModifierSerializer extends GlobalLootModifierSerializer&lt;ExampleModifier&gt; {
-
-  @Override
-  public ExampleModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] conditions) {
-    String prop1 = GsonHelper.getAsString(object, "prop1");
-    // Deserializer other properties
-    return new ExampleModifier(conditions, prop1, prop2, prop3);
-  }
-
-  @Override
-  public JsonObject write(ExampleModifier instance) {
-    // Create json object with conditions in modifier
-    JsonObject res = this.makeConditions(instance.conditionsIn);
-    res.addProperty("prop1", instance.prop1);
-    // Add other properties in modifier
-    return res;
-  }
-}
-</code></pre>
-<p><a href="https://github.com/MinecraftForge/MinecraftForge/blob/1.18.x/src/test/java/net/minecraftforge/debug/gameplay/loot/GlobalLootModifiersTest.java">Examples</a> can be found on the Forge Git repository, including silk touch and smelting effects.</p>
+<h2 id="the-loot-modifier-codec">The Loot Modifier Codec<a class="headerlink" href="#the-loot-modifier-codec" title="Permanent link"> </a></h2>
+<p>The connector between the JSON and the <code>IGlobalLootModifier</code> instance is a <a href="../../../datastorage/codecs/"><code>Codec&lt;T&gt;</code></a>, where <code>T</code> represents the type of the <code>IGlobalLootModifier</code> to use.</p>
+<p>For ease of convenience, a loot conditions codec has been provided for an easy addition to a record-like codec via <code>LootModifier#codecStart</code>. This is utilized for <a href="../../../datagen/server/glm/">data generation</a> of the associated loot modifier.</p>
+<pre class="highlight"><code class="language-java">// For some DeferredRegister&lt;Codec&lt;? extends IGlobalLootModifier&gt;&gt; REGISTRAR
+public static final RegistryObject&lt;Codec&lt;ExampleModifier&gt;&gt; = REGISTRAR.register("example_codec", () -&gt;
+  RecordCodecBuilder.create(
+    inst -&gt; LootModifier.codecStart(inst).and(
+      inst.group(
+        Codec.STRING.fieldOf("prop1").forGetter(m -&gt; m.prop1),
+        Codec.INT.fieldOf("prop2").forGetter(m -&gt; m.prop2),
+        ForgeRegistries.ITEMS.getCodec().fieldOf("prop3").forGetter(m -&gt; m.prop3)
+      )
+    ).apply(inst, ExampleModifier::new)
+  )
+);</code></pre>
+<p><a href="https://github.com/MinecraftForge/MinecraftForge/blob/1.19.x/src/test/java/net/minecraftforge/debug/gameplay/loot/GlobalLootModifiersTest.java">Examples</a> can be found on the Forge Git repository, including silk touch and smelting effects.</p>
             
         </article>
         

@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -752,6 +804,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -771,6 +832,15 @@
 <li >
     
     <a href="../../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -922,22 +992,15 @@ public void updateAnvil(AnvilUpdateEvent event) {
 }</code></pre>
 <p>The update event must be <a href="../../../../concepts/events/#creating-an-event-handler">attached</a> to the Forge event bus.</p>
 <h2 id="loom-recipes">Loom Recipes<a class="headerlink" href="#loom-recipes" title="Permanent link"> </a></h2>
-<p>Looms are responsible for applying a dye and pattern (either from the loom or from an item) to a banner. While the banner and the dye must be a <code>BannerItem</code> or <code>DyeItem</code> respectively, custom patterns can be created and applied in the loom. Banner Patterns can be created by calling <code>BannerPattern#create</code> during mod construction.</p>
+<p>Looms are responsible for applying a dye and pattern (either from the loom or from an item) to a banner. While the banner and the dye must be a <code>BannerItem</code> or <code>DyeItem</code> respectively, custom patterns can be created and applied in the loom. Banner Patterns can be created by <a href="../../../../concepts/registries/#registries-that-arent-forge-registries">registering</a> a <code>BannerPattern</code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><code>BannerPattern</code>s which return <code>true</code> for <code>#hasPatternItem</code> do not appear as an option in the loom. These patterns must have an accompanying <code>BannerPatternItem</code> to be used.</p>
+<p><code>BannerPattern</code>s which are in the <code>minecraft:no_item_required</code> tag appear as an option in the loom. Patterns not in this tag must have an accompanying <code>BannerPatternItem</code> to be used along with an associated tag.</p>
 </div>
-<pre class="highlight"><code class="language-java">// In the main mod class
-public static final BannerPattern EXAMPLE_PATTERN = BannerPattern.create(
-  "EXAMPLE_MOD_EXAMPLE_PATTERN", // Name of the enum constant
-  "examplemod/example_pattern", // Texture location (assets/minecraft/textures/entity/(banner|shield)/&lt;texture_location&gt;.png)
-  "examplemod:ep", // Pattern name to send over the network
-  false // The pattern is an option in the loom
-);</code></pre>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The enum name supplied to <code>BannerPattern#create</code> should be a valid <a href="https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html#jls-Identifier">identifier</a> and prefixed with the mod id followed by an underscore <code>_</code> (e.g. <code>examplemod:example_pattern</code> should be <code>EXAMPLE_MOD_EXAMPLE_PATTERN</code>).</p>
-</div>
+<pre class="highlight"><code class="language-java">private static final DeferredRegister&lt;BannerPattern&gt; REGISTER = DeferredRegister.create(Registries.BANNER_PATTERN, "examplemod");
+
+// Takes in the pattern name to send over the network
+public static final BannerPattern EXAMPLE_PATTERN = REGISTER.register("example_pattern", () -&gt; new BannerPattern("examplemod:ep"));</code></pre>
             
         </article>
         

@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -748,6 +800,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -767,6 +828,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -891,6 +961,16 @@
             
             <h1 id="language-generation">Language Generation<a class="headerlink" href="#language-generation" title="Permanent link"> </a></h1>
 <p><a href="../../../concepts/internationalization/">Language files</a> can be generated for a mod by subclassing <code>LanguageProvider</code> and implementing <code>#addTranslations</code>. Each <code>LanguageProvider</code> subclass created represents a separate <a href="https://minecraft.fandom.com/wiki/Language#Languages">locale</a> (<code>en_us</code> represents American English, <code>es_es</code> represents Spanish, etc.). After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<pre class="highlight"><code class="language-java">// On the MOD event bus
+@SubscribeEvent
+public void gatherData(GatherDataEvent event) {
+    event.getGenerator().addProvider(
+        // Tell generator to run only when client assets are generating
+        event.includeClient(),
+        // Localizations for American English
+        output -&gt; new MyLanguageProvider(output, MOD_ID, "en_us")
+    );
+}</code></pre>
 <h2 id="languageprovider"><code>LanguageProvider</code><a class="headerlink" href="#languageprovider" title="Permanent link"> </a></h2>
 <p>Each language provider is simple a map of strings where each translation key is mapped to a localized name. A translation key mapping can be added using <code>#add</code>. Additionally, there are methods which use the translation key of a <code>Block</code>, <code>Item</code>, <code>ItemStack</code>, <code>Enchantment</code>, <code>MobEffect</code>, and <code>EntityType</code>.</p>
 <pre class="highlight"><code class="language-java">// In LanguageProvider#addTranslations

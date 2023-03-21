@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -739,6 +791,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -758,6 +819,15 @@
 <li >
     
     <a href="../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -962,40 +1032,6 @@
 </li>
 </ol>
 <p>You can then run Forge using the <code>forge_client</code> gradle task (<code>Tasks -&gt; fg_runs -&gt; forge_client</code>): right-click the task and select either <code>Run</code> or <code>Debug</code> as desired.</p>
-<h4 id="idea-older-versions">IDEA older versions<a class="headerlink" href="#idea-older-versions" title="Permanent link"> </a></h4>
-<p>Versions older than 2016 will not work because they did not have the appropriate Gradle support nor support Forge development multi-project workspaces.</p>
-<p>IDEA 2016 - 2018 will work with extra manual steps required, but it is strongly recommended to update to IDEA 2019+ instead.
-cpw has uploaded <a href="https://www.youtube.com/watch?v=yanCpy8p2ZE">a video</a> for IDEA 2016.1 explaining very similar steps which will lead to a working setup.</p>
-<p>That is all there is to creating a Forge development environment in IntelliJ IDEA. However, you will not be able to run tests and debug mods included in Forge straight away. This takes some extra effort.</p>
-<h4 id="enabling-test-mods">Enabling test mods<a class="headerlink" href="#enabling-test-mods" title="Permanent link"> </a></h4>
-<p>To enable the test mods coming with Forge, you will need to add the compiler output to the classpath. Again, cpw has put up <a href="https://www.youtube.com/watch?v=pLWQk6ed56Q">a video</a> explaining these steps for IDEA 2016.1.</p>
-<ol>
-<li>Build the test classes by selecting the <code>src/main/test</code> directory in your project view and then run <code>Build -&gt; Build module 'Forge_test'</code> from the menu bar.</li>
-<li>Open the &ldquo;Project Structure&rdquo; window under <code>File -&gt; Project Structure</code>.</li>
-<li>Head to the &ldquo;Modules&rdquo; section and expand the <code>Forge</code> module.</li>
-<li>Select the <code>Forge_test</code> submodule and head to the &ldquo;Paths&rdquo; tab.</li>
-<li>Remember the path listed under the &ldquo;Test output path&rdquo; label and select the <code>Forge_main</code> submodule from the tree.</li>
-<li>Open the &ldquo;Dependencies&rdquo; tab, hit the green plus button on the right-hand side, and select &ldquo;JARs or directories&rdquo;.</li>
-<li>Navigate to the path previously displayed as the <code>Forge_test</code> output path and confirm your selection.</li>
-<li>For the &ldquo;Scope&rdquo; of this newly added dependency (currently &ldquo;Compile&rdquo;) choose &ldquo;Runtime&rdquo;, since the main code does not rely on the test code for compilation.</li>
-</ol>
-<p>Now that you have added the test mods to the classpath, you need to rebuild them each time you make a change, as they will not be built automatically. To do so, repeat step 1 from the above list or, in case you make changes to a single test mod file and want them to get rebuilt, simply hit <code>Build -&gt; Rebuild project</code> or the corresponding keyboard shortcut (CTRL+F9 by default).</p>
-<h4 id="testing-with-existing-mods">Testing with existing mods<a class="headerlink" href="#testing-with-existing-mods" title="Permanent link"> </a></h4>
-<p>You might want to test changes in Forge with an existing project. The <a href="https://www.youtube.com/watch?v=pLWQk6ed56Q">video</a> by cpw linked in the test mods section also covers this for IDEA 2016.1. Getting the mod to run requires similar steps to the test mod, but getting your project added to the workspace requires some additional work.</p>
-<ol>
-<li>Open the &ldquo;Project Structure&rdquo; Window under <code>File -&gt; Project Structure</code>.</li>
-<li>Head to the &ldquo;Modules&rdquo; section and press the green plus icon above the tree view.</li>
-<li>Select &ldquo;Import Module&rdquo;, navigate to your project&rsquo;s <code>build.gradle</code> file, and confirm your selection as well as the import settings.</li>
-<li>Close the &ldquo;Project Structure&rdquo; window by clicking the &ldquo;OK&rdquo; button.</li>
-<li>Reopen the window after IDEA is done importing the project and select your project&rsquo;s <code>_main</code> module from the tree.</li>
-<li>Open the &ldquo;Dependencies&rdquo; tab, click the green plus icon on the right-hand side, and select &ldquo;Module dependency&rdquo;.</li>
-<li>In the window that just opened, select the <code>Forge_main</code> module.</li>
-<li>From here on, reproduce the steps from the test mods section, just with your project&rsquo;s <code>_main</code> module instead of the <code>Forge_test</code> one.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You might need to remove existing dependencies from a normal development environment (mainly references to a <code>forgeSrc</code> JAR) or move the Forge module higher up in the dependency list.</p>
-</div>
 <p>You should now be able to work with your mod using the changes you introduce to the Forge and Vanilla codebase.</p>
 <h2 id="making-changes-and-pull-requests">Making Changes and Pull Requests<a class="headerlink" href="#making-changes-and-pull-requests" title="Permanent link"> </a></h2>
 <p>Once you have set up your development environment, it is time to make some changes to Forge&rsquo;s codebase. There are, however, some pitfalls you have to avoid when editing the project&rsquo;s code.</p>

@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -407,6 +421,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -446,7 +498,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -756,6 +808,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -775,6 +836,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -920,9 +990,9 @@ public class MyMod {
 <p>Mods <em>must</em> take care to be thread-safe, like when calling other mods&rsquo; APIs or accessing vanilla systems. Defer code for later execution via <code>ParallelDispatchEvent#enqueueWork</code>.</p>
 </div>
 <h2 id="registry-events">Registry Events<a class="headerlink" href="#registry-events" title="Permanent link"> </a></h2>
-<p>The registry events are fired after the mod instance construction. There are two: the <code>NewRegistryEvent</code> event and the <code>RegistryEvent$Register</code> event. These events are fired synchronously during mod loading.</p>
-<p>The <code>NewRegistryEvent</code> event allows modders to register their own custom registries, using the <code>RegistryBuilder</code> class.</p>
-<p>The <code>RegistryEvent$Register&lt;?&gt;</code> event is for <a href="../registries/#methods-for-registering">registering objects</a> into the registries. A <code>Register</code> event is fired for each registry. </p>
+<p>The registry events are fired after the mod instance construction. There are two: <code>NewRegistryEvent</code> and <code>RegisterEvent</code>. These events are fired synchronously during mod loading.</p>
+<p><code>NewRegistryEvent</code> allows modders to register their own custom registries, using the <code>RegistryBuilder</code> class.</p>
+<p><code>RegisterEvent</code> is for <a href="../registries/#methods-for-registering">registering objects</a> into the registries. The event is fired for each registry. </p>
 <h2 id="data-generation">Data Generation<a class="headerlink" href="#data-generation" title="Permanent link"> </a></h2>
 <p>If the game is setup to run <a href="../../datagen/">data generators</a>, then the <code>GatherDataEvent</code> will be the last event to fire. This event is for registering mods&rsquo; data providers to their associated data generator. This event is also fired synchronously.</p>
 <h2 id="common-setup">Common Setup<a class="headerlink" href="#common-setup" title="Permanent link"> </a></h2>
@@ -936,7 +1006,7 @@ public class MyMod {
 <p>Then during the <code>InterModProcessEvent</code>, use <code>InterModComms#getMessages</code> to get a stream of all received messages. The mod id supplied will almost always be the mod id of the mod the method is called on. Additionally, a predicate can be specified to filter out the message keys. This will return a stream of <code>IMCMessage</code>s which hold the sender of the data, the receiver of the data, the data key, and the supplied data itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are two other lifecycle events: <code>FMLConstructModEvent</code>, fired directly after mod instance construction but before the <code>RegistryEvent</code>s, and <code>FMLLoadCompleteEvent</code>, fired after the <code>InterModComms</code> events, for when the mod loading process is complete.</p>
+<p>There are two other lifecycle events: <code>FMLConstructModEvent</code>, fired directly after mod instance construction but before the <code>RegisterEvent</code>, and <code>FMLLoadCompleteEvent</code>, fired after the <code>InterModComms</code> events, for when the mod loading process is complete.</p>
 </div>
             
         </article>

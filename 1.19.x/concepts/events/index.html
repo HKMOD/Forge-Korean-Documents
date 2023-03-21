@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -409,6 +423,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -448,7 +500,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -758,6 +810,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -777,6 +838,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -910,19 +980,19 @@
 <p>Event handlers can be directly registered using <code>IEventBus#addListener</code> for or <code>IEventBus#addGenericListener</code> for generic events (as denoted by subclassing <code>GenericEvent&lt;T&gt;</code>). Either listener adder takes in a consumer representing the method reference. Generic event handlers need to specify the class of the generic as well. Event handlers must be registered within the constructor of the main mod class.</p>
 <pre class="highlight"><code class="language-java">// In the main mod class ExampleMod
 
-// This event is on the forge bus
-private void forgeEventHandler(AddReloadListenerEvent event) {
+// This event is on the mod bus
+private void modEventHandler(RegisterEvent event) {
     // Do things here
 }
 
-// This event is on the mod bus
-private static void modEventHandler(RegistryEvent.Register&lt;RecipeSerializer&lt;?&gt;&gt; event) {
+// This event is on the forge bus
+private static void forgeEventHandler(AttachCapabilitiesEvent&lt;Entity&gt; event) {
     // ...
 }
 
 // In the mod constructor
-forgeEventBus.addListener(this::forgeEventHandler);
-modEventBus.addGenericListener(RecipeSerializer.class, ExampleMod::modEventHandler);</code></pre>
+modEventBus.addListener(this::modEventHandler);
+forgeEventBus.addGenericListener(Entity.class, ExampleMod::forgeEventHandler);</code></pre>
 <h3 id="instance-annotated-event-handlers">Instance Annotated Event Handlers<a class="headerlink" href="#instance-annotated-event-handlers" title="Permanent link"> </a></h3>
 <p>This event handler listens for the <code>EntityItemPickupEvent</code>, which is, as the name states, posted to the event bus whenever an <code>Entity</code> picks up an item.</p>
 <pre class="highlight"><code class="language-java">public class MyForgeEventHandler {
@@ -944,11 +1014,11 @@ modEventBus.addGenericListener(RecipeSerializer.class, ExampleMod::modEventHandl
 <h3 id="automatically-registering-static-event-handlers">Automatically Registering Static Event Handlers<a class="headerlink" href="#automatically-registering-static-event-handlers" title="Permanent link"> </a></h3>
 <p>A class may be annotated with the <code>@Mod$EventBusSubscriber</code> annotation. Such a class is automatically registered to <code>MinecraftForge#EVENT_BUS</code> when the <code>@Mod</code> class itself is constructed. This is essentially equivalent to adding <code>MinecraftForge.EVENT_BUS.register(AnnotatedClass.class);</code> at the end of the <code>@Mod</code> class&rsquo;s constructor.</p>
 <p>You can pass the bus you want to listen to the <code>@Mod$EventBusSubscriber</code> annotation. It is recommended you also specify the mod id, since the annotation process may not be able to figure it out, and the bus you are registering to, since it serves as a reminder to make sure you are on the correct one. You can also specify the <code>Dist</code>s or physical sides to load this event subscriber on. This can be used to not load client specific event subscribers on the dedicated server.</p>
-<p>An example for a static event listener listening to <code>RenderLevelLastEvent</code> which will only be called on the client:</p>
+<p>An example for a static event listener listening to <code>RenderLevelStageEvent</code> which will only be called on the client:</p>
 <pre class="highlight"><code class="language-java">@Mod.EventBusSubscriber(modid = "mymod", bus = Bus.FORGE, value = Dist.CLIENT)
 public class MyStaticClientOnlyEventHandler {
     @SubscribeEvent
-    public static void drawLast(RenderLevelLastEvent event) {
+    public static void drawLast(RenderLevelStageEvent event) {
         System.out.println("Drawing!");
     }
 }</code></pre>
@@ -988,10 +1058,10 @@ public class MyStaticClientOnlyEventHandler {
 <p>These four lifecycle events are all ran in parallel since they all are a subclass of <code>ParallelDispatchEvent</code>. If you want to run run code on the main thread during any <code>ParallelDispatchEvent</code>, you can use the <code>#enqueueWork</code> to do so.</p>
 <p>Next to the lifecycle events, there are a few miscellaneous events that are fired on the mod event bus where you can register, set up, or initialize various things. Most of these events are not ran in parallel in contrast to the lifecycle events. A few examples:</p>
 <ul>
-<li><code>ColorHandlerEvent</code></li>
-<li><code>ModelBakeEvent</code></li>
+<li><code>RegisterColorHandlersEvent</code></li>
+<li><code>ModelEvent$BakingCompleted</code></li>
 <li><code>TextureStitchEvent</code></li>
-<li><code>RegistryEvent</code></li>
+<li><code>RegisterEvent</code></li>
 </ul>
 <p>A good rule of thumb: events are fired on the mod event bus when they should be handled during initialization of a mod.</p>
             

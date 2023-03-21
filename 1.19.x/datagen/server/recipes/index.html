@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -754,6 +806,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -773,6 +834,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -896,17 +966,26 @@
         <article class="docs-entry">
             
             <h1 id="recipe-generation">Recipe Generation<a class="headerlink" href="#recipe-generation" title="Permanent link"> </a></h1>
-<p>Recipes can be generated for a mod by subclassing <code>RecipeProvider</code> and overriding <code>#buildCraftingRecipes</code>. A recipe is supplied for data generation once a <code>FinishedRecipe</code> view is accepted by the consumer. <code>FinishedRecipe</code>s can either be created and supplied manually or, for convenience, created using a <code>RecipeBuilder</code>.</p>
+<p>Recipes can be generated for a mod by subclassing <code>RecipeProvider</code> and implementing <code>#buildRecipes</code>. A recipe is supplied for data generation once a <code>FinishedRecipe</code> view is accepted by the consumer. <code>FinishedRecipe</code>s can either be created and supplied manually or, for convenience, created using a <code>RecipeBuilder</code>.</p>
 <p>After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<pre class="highlight"><code class="language-java">// On the MOD event bus
+@SubscribeEvent
+public void gatherData(GatherDataEvent event) {
+    event.getGenerator().addProvider(
+        // Tell generator to run only when server data are generating
+        event.includeServer(),
+        MyRecipeProvider::new
+    );
+}</code></pre>
 <h2 id="recipebuilder"><code>RecipeBuilder</code><a class="headerlink" href="#recipebuilder" title="Permanent link"> </a></h2>
 <p><code>RecipeBuilder</code> is a convenience implementation for creating <code>FinishedRecipe</code>s to generate. It provides basic definitions for unlocking, grouping, saving, and getting the result of a recipe. This is done through <code>#unlockedBy</code>, <code>#group</code>, <code>#save</code>, and <code>#getResult</code> respectively.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><a href="../../../resources/server/recipes/#recipe-itemstack-result"><code>ItemStack</code> outputs</a> in recipes are not supported within vanilla recipe builders for <code>RecipeProvider</code>. A <code>FinishedRecipe</code> must be built in a different manner for existing vanilla recipe serializers to generate this data.</p>
+<p><a href="../../../resources/server/recipes/#recipe-itemstack-result"><code>ItemStack</code> outputs</a> in recipes are not supported within vanilla recipe builders. A <code>FinishedRecipe</code> must be built in a different manner for existing vanilla recipe serializers to generate this data.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The item results being generated must have a valid <code>CreativeModeTab</code> specified; otherwise, a <code>NullPointerException</code> will be thrown. If no category accurately represents the item and no tab should be created, set the <code>#tab</code> property during item initialization to <code>CreativeModeTab#TAB_SEARCH</code>.</p>
+<p>The item results being generated must have a valid <code>RecipeCategory</code> specified; otherwise, a <code>NullPointerException</code> will be thrown.</p>
 </div>
 <p>All recipe builders except for [<code>SpecialRecipeBuilder</code>] require an advancement criteria to be specified. All recipes generate a criteria unlocking the recipe if the player has used the recipe previously. However, an additional criteria must be specified that allows the player to obtain the recipe without any prior knowledge. If any of the criteria specified is true, then the played will obtain the recipe for the recipe book.</p>
 <div class="admonition tip">
@@ -915,8 +994,8 @@
 </div>
 <h3 id="shapedrecipebuilder">ShapedRecipeBuilder<a class="headerlink" href="#shapedrecipebuilder" title="Permanent link"> </a></h3>
 <p><code>ShapedRecipeBuilder</code> is used to generate shaped recipes. The builder can be initialized via <code>#shaped</code>. The recipe group, input symbol pattern, symbol definition of ingredients, and the recipe unlock criteria can be specified before saving.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
-ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(result)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result)
   .pattern("a a") // Create recipe pattern
   .define('a', item) // Define what the symbol represents
   .unlockedBy("criteria", criteria) // How the recipe is unlocked
@@ -929,45 +1008,44 @@ ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(result)
 <li>A symbol cannot be defined more than once.</li>
 <li>The space character (<code>' '</code>) is reserved for representing no item in a slot and, as such, cannot be defined.</li>
 <li>A pattern must use all symbols defined by the user.</li>
-<li>A criteria besides from using the recipe must be specified to unlock the recipe.</li>
 </ul>
 <h3 id="shapelessrecipebuilder">ShapelessRecipeBuilder<a class="headerlink" href="#shapelessrecipebuilder" title="Permanent link"> </a></h3>
 <p><code>ShapelessRecipeBuilder</code> is used to generate shapeless recipes. The builder can be initialized via <code>#shapeless</code>. The recipe group, input ingredients, and the recipe unlock criteria can be specified before saving.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
-ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(result)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result)
   .requires(item) // Add item to the recipe
   .unlockedBy("criteria", criteria) // How the recipe is unlocked
   .save(writer); // Add data to builder</code></pre>
 <h3 id="simplecookingrecipebuilder">SimpleCookingRecipeBuilder<a class="headerlink" href="#simplecookingrecipebuilder" title="Permanent link"> </a></h3>
 <p><code>SimpleCookingRecipeBuilder</code> is used to generate smelting, blasting, smoking, and campfire cooking recipes. Additionally, custom cooking recipes using the <code>SimpleCookingSerializer</code> can also be data generated using this builder. The builder can be initialized via <code>#smelting</code>, <code>#blasting</code>, <code>#smoking</code>, <code>#campfireCooking</code>, or <code>#cooking</code> respectively. The recipe group and the recipe unlock criteria can be specified before saving.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
-SimpleCookingRecipeBuilder builder = SimpleCookingRecipeBuilder.smelting(input, result, experience, cookingTime)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+SimpleCookingRecipeBuilder builder = SimpleCookingRecipeBuilder.smelting(input, RecipeCategory.MISC, result, experience, cookingTime)
   .unlockedBy("criteria", criteria) // How the recipe is unlocked 
   .save(writer); // Add data to builder</code></pre>
 <h3 id="singleitemrecipebuilder">SingleItemRecipeBuilder<a class="headerlink" href="#singleitemrecipebuilder" title="Permanent link"> </a></h3>
 <p><code>SingleItemRecipeBuilder</code> is used to generate stonecutting recipes. Additionally, custom single item recipes using a serializer like <code>SingleItemRecipe$Serializer</code> can also be data generated using this builder. The builder can be initialized via <code>#stonecutting</code> or through the constructor respectively. The recipe group and the recipe unlock criteria can be specified before saving.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
-SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(input, result)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(input, RecipeCategory.MISC, result)
   .unlockedBy("criteria", criteria) // How the recipe is unlocked
   .save(writer); // Add data to builder</code></pre>
 <h2 id="non-recipebuilder-builders">Non-<code>RecipeBuilder</code> Builders<a class="headerlink" href="#non-recipebuilder-builders" title="Permanent link"> </a></h2>
 <p>Some recipe builders do not implement <code>RecipeBuilder</code> due to lacking features used by all previously mentioned recipes.</p>
 <h3 id="upgraderecipebuilder">UpgradeRecipeBuilder<a class="headerlink" href="#upgraderecipebuilder" title="Permanent link"> </a></h3>
 <p><code>UpgradeRecipeBuilder</code> is used to generate smithing recipes. Additionally, custom upgrade recipes using a serializer like <code>UpgradeRecipe$Serializer</code> can also be data generated using this builder. The builder can be initialized via <code>#smithing</code> or through the constructor respectively. The recipe unlock criteria can be specified before saving.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
-UpgradeRecipeBuilder builder = UpgradeRecipeBuilder.smithing(base, addition, result)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+UpgradeRecipeBuilder builder = UpgradeRecipeBuilder.smithing(base, addition, RecipeCategory.MISC, result)
   .unlocks("criteria", criteria) // How the recipe is unlocked
   .save(writer, name); // Add data to builder</code></pre>
 <h3 id="specialrecipebuilder">SpecialRecipeBuilder<a class="headerlink" href="#specialrecipebuilder" title="Permanent link"> </a></h3>
 <p><code>SpecialRecipeBuilder</code> is used to generate empty JSONs for dynamic recipes that cannot easily be constrained to the recipe JSON format (dying armor, firework, etc.). The builder can be initialized via <code>#special</code>.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
 SpecialRecipeBuilder.special(dynamicRecipeSerializer)
   .save(writer, name); // Add data to builder</code></pre>
 <h2 id="conditional-recipes">Conditional Recipes<a class="headerlink" href="#conditional-recipes" title="Permanent link"> </a></h2>
 <p><a href="../../../resources/server/conditional/">Conditional recipes</a> can also be data generated via <code>ConditionalRecipe$Builder</code>. The builder can be obtained using <code>#builder</code>.</p>
 <p>Conditions for each recipe can be specified by first calling <code>#addCondition</code> and then calling <code>#addRecipe</code> after all conditions have been specified. This process can be repeated as many times as the programmer would like.</p>
 <p>After all recipes have been specified, advancements can be added for each recipe at the end using <code>#generateAdvancement</code>. Alternatively, the conditional advancement can be set using <code>#setAdvancement</code>.</p>
-<pre class="highlight"><code class="language-java">// In RecipeProvider#buildCraftingRecipes(writer)
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
 ConditionalRecipe.builder()
   // Add the conditions for the recipe
   .addCondition(...)
@@ -1004,7 +1082,7 @@ ConditionalRecipe.builder()
   )
 )</code></pre>
 <h2 id="custom-recipe-serializers">Custom Recipe Serializers<a class="headerlink" href="#custom-recipe-serializers" title="Permanent link"> </a></h2>
-<p>Custom recipe serializers can be data generated by creating a builder that can construct a <code>FinishedRecipe</code>. The finished recipe encodes the recipe data and its unlocking advancement, when present, to JSON. Additionally, the name and serializer of the recipe is also specified to know where to write to and what can decode the object when loading. Once a <code>FinishedRecipe</code> is constructed, it simply needs to be passed to the <code>Consumer</code> supplied by <code>RecipeProvider#buildCraftingRecipes</code>.</p>
+<p>Custom recipe serializers can be data generated by creating a builder that can construct a <code>FinishedRecipe</code>. The finished recipe encodes the recipe data and its unlocking advancement, when present, to JSON. Additionally, the name and serializer of the recipe is also specified to know where to write to and what can decode the object when loading. Once a <code>FinishedRecipe</code> is constructed, it simply needs to be passed to the <code>Consumer</code> supplied by <code>RecipeProvider#buildRecipes</code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>FinishedRecipe</code>s are flexible enough that any object transformation can be data generated, not just items.</p>

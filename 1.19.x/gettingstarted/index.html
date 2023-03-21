@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -403,6 +417,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -442,7 +494,7 @@
         
 <li >
     
-    <a href="../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -752,6 +804,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -771,6 +832,15 @@
 <li >
     
     <a href="../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -897,12 +967,13 @@
 <p>이 페이지는 간단한 모드를 만들 수 있도록 도와주는 가이드입니다. 그렇기에 이 문서의 다른 페이지들을 보시기 전에 이 페이지를 먼저 읽어 보시는걸 권장합니다.</p>
 <h2 id="_2">나의 첫 모드 개발하기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
 <ol>
-<li>먼저, Java 17 개발 키트(JDK) 와 64비트 Java 가상 머신 (JVM)을 설치하세요. 마인크래프트와 포지는 둘 다 Java 17로 컴파일 됨으로 이를 사용하시는 것이 좋습니다. <a href="https://adoptium.net/temurin/releases" title="Temurin Prebuilt Binaries">Eclipse Adoptium</a>에서 JDK를 다운 받으실 수 있습니다. 32비트를 사용하시면 아래 명시된 Gradle 작업 수행중 문제가 발생할 수 있습니다.</li>
-<li><a href="https://files.minecraftforge.net" title="Forge Files distribution site">포지 사이트</a>에서 모드 개발 키트 (MDK)를 다운하세요.</li>
+<li>먼저, Java 17 개발 키트(JDK) 와 64비트 Java 가상 머신 (JVM)을 설치하세요. 마인크래프트와 포지는 둘 다 Java 17로 컴파일 됨으로 이를 사용하시는 것이 좋습니다. <a href="https://adoptium.net/temurin/releases?version=17" title="Temurin 17 JDK 다운받는 곳">Eclipse Adoptium</a>에서 JDK를 다운 받으실 수 있습니다. 32비트를 사용하시면 아래 명시된 Gradle 작업 수행중 문제가 발생할 수 있습니다.</li>
+<li><a href="https://files.minecraftforge.net" title="포지 파일 배포 사이트">포지 사이트</a>에서 모드 개발 키트 (MDK)를 다운하세요.</li>
 <li>다운받은 MDK의 압축을 비어있는 폴더에 해체하도록 하세요. 그러면 여러 파일들과 <code>src/main/java</code>에 있는 예제 모드가 있습니다. 모드를 개발할 때 아래 명시된 파일들은 건드실 필요가 있는 경우가 많지 않으며, 여러 모드 프로젝트에서 재사용 하셔도 괜찮습니다.<ul>
 <li><code>build.gradle</code></li>
 <li><code>gradlew.bat</code></li>
 <li><code>gradlew</code></li>
+<li><code>settings.gradle</code></li>
 <li><code>gradle</code> 폴더</li>
 </ul>
 </li>
@@ -913,23 +984,19 @@
 <li>대부분의 상황에선 <code>build.gradle</code>을 수정하고 이를 적용하기 위해서는 Gradle을 호출하여 프로젝트를 다시 처리하도록 해야 합니다. 위에서 언급한 두 IDE는 Gradle 패널의 새로고침 버튼으로 프로젝트를 다시 처리 할 수 있습니다.</li>
 </ul>
 </li>
-<li>IDE 실행 설정 생성하기:</li>
-<li>
-<ul>
-<li>아래의 <code>이것</code>처럼 강조되는건 Gradle Task입니다. IDE 별로 이름이 다르지만 이는 모두 게임 설정을 생성하고 게임에 필요한 에셋을 다운로드합니다. 이 작업이 끝난 후 프로젝트를 새로고침 해야 합니다.</li>
-<li><strong>Eclipse:</strong> <code>genEclipseRuns</code>를 실행하세요. (<code>gradlew genEclipseRuns</code>).</li>
-<li><strong>IntelliJ:</strong> <code>genIntellijRuns</code>를 실행하세요. (<code>gradlew genIntellijRuns</code>). 만약 &ldquo;module not specified&rdquo; 와 같은 오류가 발생한다면 설정을 수정하여 &ldquo;main&rdquo; 모듈을 선택하거나 <code>ideaModule</code> 속성을 사용해 모듈을 선택하실 수 있습니다.</li>
-<li><strong>VSCode:</strong> <code>genVSCodeRuns</code>를 실행하세요. (<code>gradlew genVSCodeRuns</code>). </li>
+<li>IDE 실행 설정 생성하기:<ul>
+<li>Eclipse: <code>genEclipseRuns</code>를 실행하세요. (<code>gradlew genEclipseRuns</code>). 이후 프로젝트를 새로고치시면 됩니다.</li>
+<li>IntelliJ: <code>genIntellijRuns</code>를 실행하세요. (<code>gradlew genIntellijRuns</code>). 만약 &ldquo;module not specified&rdquo; 와 같은 오류가 발생한다면 설정을 수정하여 &ldquo;main&rdquo; 모듈을 선택하거나 <code>ideaModule</code> 속성을 사용해 직접 메인 모듈을 선택하실 수 있습니다.</li>
+<li>VSCode: <code>genVSCodeRuns</code>를 실행하세요. (<code>gradlew genVSCodeRuns</code>). </li>
 </ul>
 </li>
 </ol>
 <h2 id="_3">내 모드 정보 수정하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
-<p>프로젝트의 <code>build.gradle</code>파일을 수정하여 모드가 어떻게 빌드 되어야 하는지 설정할 수 있습니다. (빌드된 모드의 파일 이름, 버전 등)</p>
+<p>프로젝트의 <code>build.gradle</code>파일을 수정하여 모드가 어떻게 빌드 되어야 하는지 설정할 수 있습니다. (빌드된 모드의 파일 이름, 버전 등). <code>build.gradle</code>의 대부분의 내용은 지우거나 수정하셔도 됩니다.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><strong>절대로</strong> <code>build.gradle</code> 파일에 있는 <code>buildscript {}</code> 부분을 수정하지 마세요. 기본적으로 적혀있는 내용들은 ForgeGradle이 작동하기 위해 필수적입니다.</p>
+<p>확신 없이면 <strong>절대로</strong> <code>settings.gradle</code>을 수정하지 마세요. ForgeGradle 플러그인 적용을 위해 필수적인 내용이 적혀 있습니다. </p>
 </div>
-<p><code>// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.</code> 아래에 있는 내용들은 거의 수정하셔도 괜찮습니다.</p>
 <h3 id="buildgradle">간단한 <code>build.gradle</code> 설정<a class="headerlink" href="#buildgradle" title="Permanent link"> </a></h3>
 <p>이 설정들을 모든 프로젝트에 사용하길 매우 권장합니다.</p>
 <ul>

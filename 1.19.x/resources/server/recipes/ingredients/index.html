@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -750,6 +802,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -769,6 +830,15 @@
 <li >
     
     <a href="../../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -910,8 +980,8 @@
     "type": "examplemod:example_ingredient"
   }
 ]</code></pre>
-<h4 id="nbtingredient">NBTIngredient<a class="headerlink" href="#nbtingredient" title="Permanent link"> </a></h4>
-<p><code>NBTIngredient</code>s compare the item, damage, and the share tags (as defined by <code>IForgeItem#getShareTag</code>) on an <code>ItemStack</code> for exact equivalency. This can be used by specifying the <code>type</code> as <code>forge:nbt</code>.</p>
+<h4 id="strictnbtingredient">StrictNBTIngredient<a class="headerlink" href="#strictnbtingredient" title="Permanent link"> </a></h4>
+<p><code>StrictNBTIngredient</code>s compare the item, damage, and the share tags (as defined by <code>IForgeItem#getShareTag</code>) on an <code>ItemStack</code> for exact equivalency. This can be used by specifying the <code>type</code> as <code>forge:nbt</code>.</p>
 <pre class="highlight"><code class="language-js">// For some input
 {
   "type": "forge:nbt",
@@ -921,7 +991,7 @@
   }
 }</code></pre>
 <h3 id="partialnbtingredient">PartialNBTIngredient<a class="headerlink" href="#partialnbtingredient" title="Permanent link"> </a></h3>
-<p><code>PartialNBTIngredient</code>s are a looser version of <a href="#nbtingredient"><code>NBTIngredient</code></a> as they compare against a single or set of items and only keys specified within the share tag (as defined by <code>IForgeItem#getShareTag</code>). This can be used by specifying the <code>type</code> as <code>forge:partial_nbt</code>.</p>
+<p><code>PartialNBTIngredient</code>s are a looser version of <a href="#strictnbtingredient"><code>StrictNBTIngredient</code></a> as they compare against a single or set of items and only keys specified within the share tag (as defined by <code>IForgeItem#getShareTag</code>). This can be used by specifying the <code>type</code> as <code>forge:partial_nbt</code>.</p>
 <pre class="highlight"><code class="language-js">// For some input
 {
   "type": "forge:partial_nbt",
@@ -1029,13 +1099,15 @@
 </tbody>
 </table>
 <p>Additionally, <code>Ingredient</code> subclasses should implement <code>Ingredient#toJson</code> for use with <a href="../../../../datagen/server/recipes/">data generation</a>. <code>AbstractIngredient</code> subclasses make <code>#toJson</code> an abstract method requiring the method to be implemented.</p>
-<p>Afterwards, a static instance should be declared to hold the initialized serializer and then registered using <code>CraftingHelper#register</code> either during the <code>RegistryEvent$Register</code> for <code>RecipeSerializer</code>s or during <code>FMLCommonSetupEvent</code>. The <code>Ingredient</code> subclass return the static instance of the serializer in <code>Ingredient#getSerializer</code>.</p>
+<p>Afterwards, a static instance should be declared to hold the initialized serializer and then registered using <code>CraftingHelper#register</code> either during the <code>RegisterEvent</code> for <code>RecipeSerializer</code>s or during <code>FMLCommonSetupEvent</code>. The <code>Ingredient</code> subclass return the static instance of the serializer in <code>Ingredient#getSerializer</code>.</p>
 <pre class="highlight"><code class="language-java">// In some serializer class
 public static final ExampleIngredientSerializer INSTANCE = new ExampleIngredientSerializer();
 
 // In some handler class
-public void registerSerializers(RegistryEvent.Register&lt;RecipeSerializer&lt;?&gt;&gt; event) {
-  CraftingHelper.register(registryName, INSTANCE);
+public void registerSerializers(RegisterEvent event) {
+  event.register(ForgeRegistries.Keys.RECIPE_SERIALIZERS,
+    helper -&gt; CraftingHelper.register(registryName, INSTANCE)
+  );
 }
 
 // In some ingredient subclass

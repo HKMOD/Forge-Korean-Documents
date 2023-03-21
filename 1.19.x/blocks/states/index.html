@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -407,6 +421,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -446,7 +498,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -756,6 +808,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -775,6 +836,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -926,19 +996,27 @@ An &ldquo;Oak Chair&rdquo; facing east (<code>oak_chair[facing=east]</code>) is 
 <h2 id="implementing-block-states">Implementing Block States<a class="headerlink" href="#implementing-block-states" title="Permanent link"> </a></h2>
 <p>In your Block class, create or reference <code>static final</code> <code>Property&lt;?&gt;</code> objects for every property that your Block has. You are free to make your own <code>Property&lt;?&gt;</code> implementations, but the means to do that are not covered in this article. The vanilla code provides several convenience implementations:</p>
 <ul>
-<li><code>IntegerProperty</code></li>
+<li><code>IntegerProperty</code><ul>
 <li>Implements <code>Property&lt;Integer&gt;</code>. Defines a property that holds an integer value.</li>
 <li>Created by calling <code>IntegerProperty#create(String propertyName, int minimum, int maximum)</code>.</li>
-<li><code>BooleanProperty</code></li>
+</ul>
+</li>
+<li><code>BooleanProperty</code><ul>
 <li>Implements <code>Property&lt;Boolean&gt;</code>. Defines a property that holds a <code>true</code> or <code>false</code> value.</li>
 <li>Created by calling <code>BooleanProperty#create(String propertyName)</code>.</li>
-<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code></li>
+</ul>
+</li>
+<li><code>EnumProperty&lt;E extends Enum&lt;E&gt;&gt;</code><ul>
 <li>Implements <code>Property&lt;E&gt;</code>. Defines a property that can take on the values of an Enum class.</li>
 <li>Created by calling <code>EnumProperty#create(String propertyName, Class&lt;E&gt; enumClass)</code>.</li>
 <li>It is also possible to use only a subset of the Enum values (e.g. 4 out of 16 <code>DyeColor</code>s). See the overloads of <code>EnumProperty#create</code>.</li>
-<li><code>DirectionProperty</code></li>
+</ul>
+</li>
+<li><code>DirectionProperty</code><ul>
 <li>This is a convenience implementation of <code>EnumProperty&lt;Direction&gt;</code></li>
 <li>Several convenience predicates are also provided. For example, to get a property that represents the cardinal directions, call <code>DirectionProperty.create("&lt;name&gt;", Direction.Plane.HORIZONTAL)</code>; to get the X directions, <code>DirectionProperty.create("&lt;name&gt;", Direction.Axis.X)</code>.</li>
+</ul>
+</li>
 </ul>
 <p>The class <code>BlockStateProperties</code> contains shared vanilla properties which should be used or referenced whenever possible, in place of creating your own properties.</p>
 <p>When you have your desired <code>Property&lt;&gt;</code> objects, override <code>Block#createBlockStateDefinition(StateDefinition$Builder)</code> in your Block class. In that method, call <code>StateDefinition$Builder#add(...);</code>  with the parameters as every <code>Property&lt;?&gt;</code> you wish the block to have.</p>
@@ -957,7 +1035,7 @@ An &ldquo;Oak Chair&rdquo; facing east (<code>oak_chair[facing=east]</code>) is 
 <h2 id="using-blockstates">Using <code>BlockState</code>&lsquo;s<a class="headerlink" href="#using-blockstates" title="Permanent link"> </a></h2>
 <p>You can get the value of a property by calling <code>BlockState#getValue(Property&lt;?&gt;)</code>, passing it the property you want to get the value of.
 If you want to get a <code>BlockState</code> with a different set of values, simply call <code>BlockState#setValue(Property&lt;T&gt;, T)</code> with the property and its value.</p>
-<p>You can get and place <code>BlockState</code>&lsquo;s in the level using <code>Level#setBlockAndUpdate(BlockPos, BlockState)</code> and <code>Level#getBlockState(BlockState)</code>. If you are placing a <code>Block</code>, call <code>Block#defaultBlockState()</code> to get the &ldquo;default&rdquo; state, and use subsequent calls to <code>BlockState#setValue(Property&lt;T&gt;, T)</code> as stated above to achieve the desired state.</p>
+<p>You can get and place <code>BlockState</code>&lsquo;s in the level using <code>Level#setBlockAndUpdate(BlockPos, BlockState)</code> and <code>Level#getBlockState(BlockPos)</code>. If you are placing a <code>Block</code>, call <code>Block#defaultBlockState()</code> to get the &ldquo;default&rdquo; state, and use subsequent calls to <code>BlockState#setValue(Property&lt;T&gt;, T)</code> as stated above to achieve the desired state.</p>
             
         </article>
         

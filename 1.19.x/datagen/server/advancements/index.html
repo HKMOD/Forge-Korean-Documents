@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -731,6 +783,8 @@
         
         
         
+        <li class="toc-subitem"><a href="#forgeadvancementprovideradvancementgenerator">ForgeAdvancementProvider$AdvancementGenerator</a></li>
+        
         <li class="toc-subitem"><a href="#advancementbuilder">Advancement$Builder</a></li>
         
         
@@ -743,6 +797,15 @@
 <li >
     
     <a href="../glm/" class="elem-text">전체 전리품 수정 데이터 생성하기</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
     
     
 </li>
@@ -767,6 +830,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -890,8 +962,34 @@
         <article class="docs-entry">
             
             <h1 id="advancement-generation">Advancement Generation<a class="headerlink" href="#advancement-generation" title="Permanent link"> </a></h1>
-<p><a href="../../../resources/server/advancements/">Advancements</a> can be generated for a mod by subclassing <code>AdvancementProvider</code> and overriding <code>#registerAdvancements</code>. Advancements can either be created and supplied manually or, for convenience, created using <code>Advancement$Builder</code>.</p>
-<p>After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<p><a href="../../../resources/server/advancements/">Advancements</a> can be generated for a mod by constructing a new <code>AdvancementProvider</code> and providing <code>AdvancementSubProvider</code>s. Advancements can either be created and supplied manually or, for convenience, created using <code>Advancement$Builder</code>. The provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Forge provides an extension for the <code>AdvancementProvider</code> called <code>ForgeAdvancementProvider</code> which integrates better for generating advancements. So, this documentation will use <code>ForgeAdvancementProvider</code> along with the sub provider interface <code>ForgeAdvancementProvider$AdvancementGenerator</code>.</p>
+</div>
+<pre class="highlight"><code class="language-java">// On the MOD event bus
+@SubscribeEvent
+public void gatherData(GatherDataEvent event) {
+    event.getGenerator().addProvider(
+        // Tell generator to run only when server data are generating
+        event.includeServer(),
+        output -&gt; new ForgeAdvancementProvider(
+          output,
+          event.getLookupProvider(),
+          event.getExistingFileHelper(),
+          // Sub providers which generate the advancements
+          List.of(subProvider1, subProvider2, /*...*/)
+        )
+    );
+}</code></pre>
+<h2 id="forgeadvancementprovideradvancementgenerator"><code>ForgeAdvancementProvider$AdvancementGenerator</code><a class="headerlink" href="#forgeadvancementprovideradvancementgenerator" title="Permanent link"> </a></h2>
+<p>A <code>ForgeAdvancementProvider$AdvancementGenerator</code> is responsible for generating advancements, containing a method which takes in a registry lookup, the writer (<code>Consumer&lt;Advancement&gt;</code>), and the existing file helper..</p>
+<pre class="highlight"><code class="language-java">// In some subclass of ForgeAdvancementProvider$AdvancementGenerator or as a lambda reference
+
+@Override
+public void generate(HolderLookup.Provider registries, Consumer&lt;Advancement&gt; writer, ExistingFileHelper existingFileHelper) {
+  // Build advancements here
+}</code></pre>
 <h2 id="advancementbuilder"><code>Advancement$Builder</code><a class="headerlink" href="#advancementbuilder" title="Permanent link"> </a></h2>
 <p><code>Advancement$Builder</code> is a convenience implementation for creating <code>Advancement</code>s to generate. It allows the definition of the parent advancement, the display information, the rewards when the advancement has been completed, and the requirements to unlock the advancement. Only the requirements need to be specified to create an <code>Advancement</code>.</p>
 <p>Although not required, there are a number of methods that are important to know of:</p>
@@ -926,11 +1024,10 @@
 </tbody>
 </table>
 <p>Once an <code>Advancement$Builder</code> is ready to be built, the <code>#save</code> method should be called which takes in the writer, the registry name of the advancement, and the file helper used to check whether the supplied parent exists.</p>
-<pre class="highlight"><code class="language-java">// In AdvancementProvider#registerAdvancements(writer, fileHelper)
+<pre class="highlight"><code class="language-java">// In some ForgeAdvancementProvider$AdvancementGenerator#generate(registries, writer, existingFileHelper)
 Advancement example = Advancement.Builder.advancement()
   .addCriterion("example_criterion", triggerInstance) // How the advancement is unlocked
-  .save(writer, name, fileHelper); // Add data to builder
-}</code></pre>
+  .save(writer, name, existingFileHelper); // Add data to builder</code></pre>
             
         </article>
         

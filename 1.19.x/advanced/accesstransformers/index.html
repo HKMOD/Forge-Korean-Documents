@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -739,6 +791,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -758,6 +819,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -960,8 +1030,8 @@ minecraft {
 <li>예: <code>&lt;method&gt;()V</code> 는 받는 인자가 없으며 반환하는 값도 없는 메서드를 가리킵니다</li>
 </ul>
 <h2 id="_8">예제들<a class="headerlink" href="#_8" title="Permanent link"> </a></h2>
-<pre class="highlight"><code># MenuScreens 클래스의 내부의 ScreenConstructor를 public으로 만듭니다
-public net.minecraft.client.gui.screens.MenuScreens$ScreenConstructor
+<pre class="highlight"><code># Crypt 클래스의 내부의 인터페이스 ByteArrayToKeyFunction을 public으로 만듭니다
+public net.minecraft.util.Crypt$ByteArrayToKeyFunction
 
 # MinecraftServer의 'random' 필드를 protected로 만들고 final 키워드를 제거합니다
 protected-f net.minecraft.server.MinecraftServer f_129758_ #random
@@ -970,9 +1040,9 @@ protected-f net.minecraft.server.MinecraftServer f_129758_ #random
 # 'makeExecutor' 메서드를 public으로 만듭니다
 public net.minecraft.Util m_137477_(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; #makeExecutor
 
-# SerializableUUID에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
+# UUIDUtil에 있는 2개의 long을 인자로 받고 int[]를 반환하는,
 # 'leastMostToIntArray' 메서드를 public으로 만듭니다
-public net.minecraft.core.SerializableUUID m_123274_(JJ)[I #leastMostToIntArray</code></pre>
+public net.minecraft.core.UUIDUtil m_235872_(JJ)[I #leastMostToIntArray</code></pre>
             
         </article>
         

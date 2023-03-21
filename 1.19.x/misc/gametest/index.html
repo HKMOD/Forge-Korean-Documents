@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -739,6 +791,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -758,6 +819,15 @@
 <li >
     
     <a href="../config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -1029,7 +1099,7 @@ public class ExampleGameTests {
   // ...
 }</code></pre>
 <h3 id="registergametestsevent">RegisterGameTestsEvent<a class="headerlink" href="#registergametestsevent" title="Permanent link"> </a></h3>
-<p><code>RegisterGameTestEvent</code> can also register either classes or methods using <code>#register</code>. The event listener must be <a href="../../concepts/events/#creating-an-event-handler">added</a> to the mod event bus. Test methods registered this way must supply their mod id to <code>GameTest#templateNamespace</code> on every method annotated with <code>@GameTest</code>.</p>
+<p><code>RegisterGameTestsEvent</code> can also register either classes or methods using <code>#register</code>. The event listener must be <a href="../../concepts/events/#creating-an-event-handler">added</a> to the mod event bus. Test methods registered this way must supply their mod id to <code>GameTest#templateNamespace</code> on every method annotated with <code>@GameTest</code>.</p>
 <pre class="highlight"><code class="language-java">// In some class
 public void registerTests(RegisterGameTestsEvent event) {
   event.register(ExampleGameTests.class);
@@ -1133,6 +1203,16 @@ property 'forge.enabledGameTestNamespaces', 'modid1,modid2,modid3'</code></pre>
 </div>
 <h3 id="game-test-server-run-configuration">Game Test Server Run Configuration<a class="headerlink" href="#game-test-server-run-configuration" title="Permanent link"> </a></h3>
 <p>The Game Test Server is a special configuration which runs a build server. The build server returns an exit code of the number of required, failed Game Tests. All failed tests, whether required or optional, are logged. This server can be run using <code>gradlew runGameTestServer</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Due to a quirk in how Gradle works, by default, if a task forces a system exit, the Gradle daemon will be killed, causing the Gradle runner to report a build failure. ForgeGradle sets by default a force exit on run tasks such that any subprojects are not executed in sequence. However, as such, the Game Test Server will always fail.</p>
+<p>This can be fixed by disabling the force exit on the run configuration using the <code>#setForceExit</code> method:</p>
+<pre class="highlight"><code class="language-gradle">// Game Test Server run configuration
+gameTestServer {
+    // ...
+    setForceExit false
+}</code></pre>
+</div>
 <h3 id="enabling-game-tests-in-other-run-configurations">Enabling Game Tests in Other Run Configurations<a class="headerlink" href="#enabling-game-tests-in-other-run-configurations" title="Permanent link"> </a></h3>
 <p>By default, only the <code>client</code>, <code>server</code>, and <code>gameTestServer</code> run configurations have Game Tests enabled. If another run configuration should run Game Tests, then the <code>forge.enableGameTest</code> property must be set to <code>true</code>.</p>
 <pre class="highlight"><code class="language-gradle">// Inside a run configuration

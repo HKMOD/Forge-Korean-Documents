@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -748,6 +800,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -767,6 +828,15 @@
 <li >
     
     <a href="../../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -890,9 +960,9 @@
         <article class="docs-entry">
             
             <h1 id="models">Models<a class="headerlink" href="#models" title="Permanent link"> </a></h1>
-<p>The <a href="https://minecraft.fandom.com/wiki/Model#File_path">model system</a> is Minecraft&rsquo;s way of giving blocks and items their shapes. Through the model system, blocks and items are mapped to their models, which define how they look. One of the main goals of the model system is to allow not only textures but the entire shape of a block/item to be changed by resource packs. Indeed, any mod that adds items or blocks also contains a mini-resource pack for their blocks and items.</p>
+<p>The <a href="https://minecraft.fandom.com/wiki/Tutorials/Models#File_path">model system</a> is Minecraft&rsquo;s way of giving blocks and items their shapes. Through the model system, blocks and items are mapped to their models, which define how they look. One of the main goals of the model system is to allow not only textures but the entire shape of a block/item to be changed by resource packs. Indeed, any mod that adds items or blocks also contains a mini-resource pack for their blocks and items.</p>
 <h2 id="model-files">Model Files<a class="headerlink" href="#model-files" title="Permanent link"> </a></h2>
-<p>Models and textures are linked through <a href="../../../concepts/resources/#resourcelocation"><code>ResourceLocation</code></a>s but are stored in the <code>ModelManager</code> using <code>ModelResourceLocation</code>s. Models are referenced in different locations through the block or item&rsquo;s registry name depending on whether they are referencing <a href="https://minecraft.fandom.com/wiki/Model#Block_states">block states</a> or <a href="https://minecraft.fandom.com/wiki/Model#Item_models">item models</a>. Blocks will have their <code>ModelResourceLocation</code> represent their registry name along with a stringified version of its current <a href="../../../blocks/states/"><code>BlockState</code></a> while items will use their registry name followed by <code>inventory</code>.</p>
+<p>Models and textures are linked through <a href="../../../concepts/resources/#resourcelocation"><code>ResourceLocation</code></a>s but are stored in the <code>ModelManager</code> using <code>ModelResourceLocation</code>s. Models are referenced in different locations through the block or item&rsquo;s registry name depending on whether they are referencing <a href="https://minecraft.fandom.com/wiki/Tutorials/Models#Block_states">block states</a> or <a href="https://minecraft.fandom.com/wiki/Tutorials/Models#Item_models">item models</a>. Blocks will have their <code>ModelResourceLocation</code> represent their registry name along with a stringified version of its current <a href="../../../blocks/states/"><code>BlockState</code></a> while items will use their registry name followed by <code>inventory</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JSON models only support cuboid elements; there is no way to express a triangular wedge or anything like it. To have more complicated models, another format must be used.</p>

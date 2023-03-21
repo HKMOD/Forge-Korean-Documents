@@ -76,12 +76,26 @@
                 <h2 class="sidebar-heading">
                     <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
                     <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
                         <label for="version-selection-dropdown">Version:</label>
                         <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.16.x" >1.16.x</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
@@ -390,6 +404,44 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">코덱</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> GUI</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">메뉴</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">스크린</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -429,7 +481,7 @@
         
 <li >
     
-    <a href="../../rendering/modelloaders/perspective/" class="elem-text">시점</a>
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">시점</a>
     
     
 </li>
@@ -739,6 +791,15 @@
 </li>
 
         
+        
+<li >
+    
+    <a href="../../datagen/server/datapackregistries/" class="elem-text">데이터팩 레지스트리 객체 생성하기</a>
+    
+    
+</li>
+
+        
     </ul>
 </li>
 
@@ -758,6 +819,15 @@
 <li >
     
     <a href="../../misc/config/" class="elem-text">모드 설정 파일</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">키바인드</a>
     
     
 </li>
@@ -862,7 +932,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#porting-to-minecraft-118" class="elem-text">1.19로 모드 포트하기</a>
+    <a href="#porting-to-minecraft-119" class="elem-text">1.19로 모드 포트하기</a>
     
     
     <ul class="table-of-contents">
@@ -887,7 +957,7 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="porting-to-minecraft-118">Porting to Minecraft 1.18<a class="headerlink" href="#porting-to-minecraft-118" title="Permanent link"> </a></h1>
+            <h1 id="porting-to-minecraft-119">Porting to Minecraft 1.19<a class="headerlink" href="#porting-to-minecraft-119" title="Permanent link"> </a></h1>
 <p>Here you can find a list of primers on how to port from old versions to the current version. Some versions are lumped together since that particular version never saw much usage.</p>
 <table>
 <thead>
@@ -912,6 +982,14 @@
 <tr>
 <td align="center">1.16 -&gt; 1.17</td>
 <td align="left"><a href="https://gist.github.com/50ap5ud5/beebcf056cbdd3c922cc8993689428f4">Primer by 50ap5ud5</a></td>
+</tr>
+<tr>
+<td align="center">1.19.2 -&gt; 1.19.3</td>
+<td align="left"><a href="https://gist.github.com/ChampionAsh5357/c21724bafbc630da2ed8899fe0c1d226">Primer by ChampionAsh5357</a></td>
+</tr>
+<tr>
+<td align="center">1.19.3 -&gt; 1.19.4</td>
+<td align="left"><a href="https://gist.github.com/ChampionAsh5357/163a75e87599d19ee6b4b879821953e8">Primer by ChampionAsh5357</a></td>
 </tr>
 </tbody>
 </table>
