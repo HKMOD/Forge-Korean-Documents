@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menus - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.2" selected>1.19.2</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.x" >1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">Codecs</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Graphical User Interfaces</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#menus" class="elem-text">Menus</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#menutype">MenuType</a></li>
+        
+        <li class="toc-subitem"><a href="#abstractcontainermenu">AbstractContainerMenu</a></li>
+        
+        <li class="toc-subitem"><a href="#opening-a-menu">Opening a Menu</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../screens/" class="elem-text">Screens</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">Transform</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/advancements/" class="elem-text">Advancements</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">Key Mappings</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="menus">Menus<a class="headerlink" href="#menus" title="Permanent link"> </a></h1>
+<p>Menus are one type of backend for Graphical User Interfaces, or GUIs; they handle the logic involved in interacting with some represented data holder. Menus themselves are not data holders. They are views which allow to user to indirectly modify the internal data holder state. As such, a data holder should not be directly coupled to any menu, instead passing in the data references to invoke and modify.</p>
+<h2 id="menutype"><code>MenuType</code><a class="headerlink" href="#menutype" title="Permanent link"> </a></h2>
+<p>Menus are created and removed dynamically and as such are not registry objects. As such, another factory object is registered instead to easily create and refer to the <em>type</em> of the menu. For a menu, these are <code>MenuType</code>s.</p>
+<p><code>MenuType</code>s must be <a href="../../concepts/registries/#methods-for-registering">registered</a>.</p>
+<h3 id="menusupplier"><code>MenuSupplier</code><a class="headerlink" href="#menusupplier" title="Permanent link"> </a></h3>
+<p>A <code>MenuType</code> is created by passing in a <code>MenuSupplier</code> to its constructor. A <code>MenuSupplier</code> represents a function which takes in the id of the container and the inventory of the player viewing the menu, and returns a newly created <a href="#abstractcontainermenu"><code>AbstractContainerMenu</code></a>.</p>
+<pre class="highlight"><code class="language-java">// For some DeferredRegister&lt;MenuType&lt;?&gt;&gt; REGISTER
+public static final RegistryObject&lt;MenuType&lt;MyMenu&gt;&gt; MY_MENU = REGISTER.register("my_menu", () -&gt; new MenuType(MyMenu::new));
+
+// In MyMenu, an AbstractContainerMenu subclass
+public MyMenu(int containerId, Inventory playerInv) {
+  super(MY_MENU.get(), containerId);
+  // ...
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The container identifier is unique for an individual player. This means that the same container id on two different players will represent two different menus, even if they are viewing the same data holder.</p>
+</div>
+<p>The <code>MenuSupplier</code> is usually responsible for creating a menu on the client with dummy data references used to store and interact with the synced information from the server data holder.</p>
+<h3 id="icontainerfactory"><code>IContainerFactory</code><a class="headerlink" href="#icontainerfactory" title="Permanent link"> </a></h3>
+<p>If additional information is needed on the client (e.g. the position of the data holder in the world), then the subclass <code>IContainerFactory</code> can be used instead. In addition to the container id and the player inventory, this also provides a <code>FriendlyByteBuf</code> which can store additional information that was sent from the server. A <code>MenuType</code> can be created using an <code>IContainerFactory</code> via <code>IForgeMenuType#create</code>.</p>
+<pre class="highlight"><code class="language-java">// For some DeferredRegister&lt;MenuType&lt;?&gt;&gt; REGISTER
+public static final RegistryObject&lt;MenuType&lt;MyMenuExtra&gt;&gt; MY_MENU_EXTRA = REGISTER.register("my_menu_extra", () -&gt; IForgeMenuType.create(MyMenu::new));
+
+// In MyMenuExtra, an AbstractContainerMenu subclass
+public MyMenuExtra(int containerId, Inventory playerInv, FriendlyByteBuf extraData) {
+  super(MY_MENU_EXTRA.get(), containerId);
+  // Store extra data from buffer
+  // ...
+}</code></pre>
+<h2 id="abstractcontainermenu"><code>AbstractContainerMenu</code><a class="headerlink" href="#abstractcontainermenu" title="Permanent link"> </a></h2>
+<p>All menus are extended from <code>AbstractContainerMenu</code>. A menu takes in two parameters, the <a href="#menutype"><code>MenuType</code></a>, which represents the type of the menu itself, and the container id, which represents the unique identifier of the menu for the current accessor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The player can only have 100 unique menus open at once.</p>
+</div>
+<p>Each menu should contain two constructors: one used to initialize the menu on the server and one used to initialize the menu on the client. The constructor used to initialize the menu on the client is the one supplied to the <code>MenuType</code>. Any fields that the server menu constructor contains should have some default for the client menu constructor.</p>
+<pre class="highlight"><code class="language-java">// Client menu constructor
+public MyMenu(int containerId, Inventory playerInventory) {
+  this(containerId, playerInventory);
+}
+
+// Server menu constructor
+public MyMenu(int containerId, Inventory playerInventory) {
+  // ...
+}</code></pre>
+<p>Each menu implementation must implement two methods: <code>#stillValid</code> and <a href="#quickmovestack"><code>#quickMoveStack</code></a>. <code>#stillValid</code> determines whether the menu should remain open for a given player. This is typically directed to the Forge-deprecated <code>Container#stillValid</code>. As an alternative, a boolean function which takes in the player will work just as well. The client menu must always return <code>true</code> for this method. The vanilla implementation checks whether the player is within eight blocks of where the data storage object is located.</p>
+<pre class="highlight"><code class="language-java">// Client menu constructor
+public MyMenuValid(int containerId, Inventory playerInventory) {
+  this(containerId, playerInventory, (player) -&gt; true);
+}
+
+// Server menu constructor
+public MyMenuValid(int containerId, Inventory playerInventory, Function&lt;Player, Boolean&gt; stillValid) {
+  // ...
+}
+
+@Override
+public boolean stillValid(Player player) {
+  return this.stillValid.apply(player);
+}</code></pre>
+<h3 id="containerlevelaccess"><code>ContainerLevelAccess</code><a class="headerlink" href="#containerlevelaccess" title="Permanent link"> </a></h3>
+<p>If a menu is opened by a block, sometimes the menu needs access to its location in a given level. This can be done by passing in a <code>ContainerLevelAccess</code> to the menu. The access supplies the current level and location of the block within an enclosed scope. When constructing the menu on the server, a new access can be created by calling <code>ContainerLevelAccess#create</code>. The client menu constructor can pass in <code>ContainerLevelAccess#NULL</code>, which will do nothing.</p>
+<pre class="highlight"><code class="language-java">// Client menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory) {
+  this(containerId, playerInventory, ContainerLevelAccess.NULL);
+}
+
+// Server menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
+  // ...
+}</code></pre>
+<h3 id="data-synchronization">Data Synchronization<a class="headerlink" href="#data-synchronization" title="Permanent link"> </a></h3>
+<p>Some data needs to be present on both the server and the client to display to the player. To do this, the menu implements a basic layer of data synchronization such that whenever the current data does not match the data last synced to the client. For players, this is checked every tick.</p>
+<p>Minecraft supports two forms of data synchronization by default: <code>ItemStack</code>s via <code>Slot</code>s and integers via <code>DataSlot</code>s. <code>Slot</code>s and <code>DataSlot</code>s are views which hold references to data storages that can be be modified by the player in a screen, assuming the action is valid. These can be added to a menu within the constructor through <code>#addSlot</code> and <code>#addDataSlot</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <code>Container</code>s used by <code>Slot</code>s are deprecated by Forge in favor of using the <a href="../../datastorage/capabilities/#forge-provided-capabilities"><code>IItemHandler</code> capability</a>, the rest of the explanation will revolve around using the capability variant: <code>SlotItemHandler</code>.</p>
+</div>
+<p>A <code>SlotItemHandler</code> contains four parameters: the <code>IItemHandler</code> representing the inventory the stacks are within, the index of the stack this slot is specifically representing, and the x and y position of where the top-left position of the slot will render on the screen relative to <code>AbstractContainerScreen#leftPos</code> and <code>#topPos</code>. The client menu constructor should always supply an empty instance of an inventory of the same size.</p>
+<p>In most cases, any slots the menu contains is first added, followed by the player&rsquo;s inventory, and finally concluded with the player&rsquo;s hotbar. To access any individual <code>Slot</code> from the menu, the index must be calculated based upon the order of which slots were added.</p>
+<p>A <code>DataSlot</code> is an abstract class which should implement a getter and setter to reference the data stored in the data storage object. The client menu constructor should always supply a new instance via <code>DataSlot#standalone</code>.</p>
+<p>These, along with slots, should be recreated every time a new menu is initialized.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although a <code>DataSlot</code> stores an integer, it is effectively limited to a <strong>short</strong> (-32768 to 32767) because of how it sends the value across the network. The 16 high-order bits of the integer are ignored.</p>
+</div>
+<pre class="highlight"><code class="language-java">// Assume we have an inventory from a data object of size 5
+// Assume we have a DataSlot constructed on each initialization of the server menu
+
+// Client menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory) {
+  this(containerId, playerInventory, new ItemStackHandler(5), DataSlot.standalone());
+}
+
+// Server menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory, IItemHandler dataInventory, DataSlot dataSingle) {
+  // Check if the data inventory size is some fixed value
+  // Then, add slots for data inventory
+  this.addSlot(new SlotItemHandler(dataInventory, /*...*/));
+
+  // Add slots for player inventory
+  this.addSlot(new Slot(playerInventory, /*...*/));
+
+  // Add data slots for handled integers
+  this.addDataSlot(dataSingle);
+
+  // ...
+}</code></pre>
+<h4 id="containerdata"><code>ContainerData</code><a class="headerlink" href="#containerdata" title="Permanent link"> </a></h4>
+<p>If multiple integers need to be synced to the client, a <code>ContainerData</code> can be used to reference the integers instead. This interface functions as an index lookup such that each index represents a different integer. <code>ContainerData</code>s can also be constructed in the data object itself if the <code>ContainerData</code> is added to the menu through <code>#addDataSlots</code>. The method creates a new <code>DataSlot</code> for the amount of data specified by the interface. The client menu constructor should always supply a new instance via <code>SimpleContainerData</code>.</p>
+<pre class="highlight"><code class="language-java">// Assume we have a ContainerData of size 3
+
+// Client menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory) {
+  this(containerId, playerInventory, new SimpleContainerData(3));
+}
+
+// Server menu constructor
+public MyMenuAccess(int containerId, Inventory playerInventory, ContainerData dataMultiple) {
+  // Check if the ContainerData size is some fixed value
+  checkContainerDataCount(dataMultiple, 3);
+
+  // Add data slots for handled integers
+  this.addDataSlots(dataMultiple);
+
+  // ...
+}</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As <code>ContainerData</code> delegates to <code>DataSlot</code>s, these are also limited to a <strong>short</strong> (-32768 to 32767).</p>
+</div>
+<h4 id="quickmovestack"><code>#quickMoveStack</code><a class="headerlink" href="#quickmovestack" title="Permanent link"> </a></h4>
+<p><code>#quickMoveStack</code> is the second method that must be implemented by any menu. This method is called whenever a stack has been shift-clicked, or quick moved, out of its current slot until the stack has been fully moved out of its previous slot or there is no other place for the stack to go. The method returns a copy of the stack in the slot being quick moved.</p>
+<p>Stacks are typically moved between slots using <code>#moveItemStackTo</code>, which moves the stack into the first available slot. It takes in the stack to be moved, the first slot index (inclusive) to try and move the stack to, the last slot index (exclusive), and whether to check the slots from first to last (when <code>false</code>) or from last to first (when <code>true</code>).</p>
+<p>Across Minecraft implementations, this method is fairly consistent in its logic:</p>
+<pre class="highlight"><code class="language-java">// Assume we have a data inventory of size 5
+// The inventory has 4 inputs (index 1 - 4) which outputs to a result slot (index 0)
+// We also have the 27 player inventory slots and the 9 hotbar slots
+// As such, the actual slots are indexed like so:
+//   - Data Inventory: Result (0), Inputs (1 - 4)
+//   - Player Inventory (5 - 31)
+//   - Player Hotbar (32 - 40)
+@Override
+public ItemStack quickMoveStack(Player player, int quickMovedSlotIndex) {
+  // The quick moved slot stack
+  ItemStack quickMovedStack = ItemStack.EMPTY;
+  // The quick moved slot
+  Slot quickMovedSlot = this.slots.get(quickMovedSlotIndex) 
+
+   // If the slot is in the valid range and the slot is not empty
+  if (quickMovedSlot != null &amp;&amp; quickMovedSlot.hasItem()) {
+    // Get the raw stack to move
+    ItemStack rawStack = quickMovedSlot.getItem(); 
+    // Set the slot stack to a copy of the raw stack
+    quickMovedStack = rawStack.copy();
+
+    /*
+    The following quick move logic can be simplified to if in data inventory,
+    try to move to player inventory/hotbar and vice versa for containers
+    that cannot transform data (e.g. chests).
+    */
+
+    // If the quick move was performed on the data inventory result slot
+    if (quickMovedSlotIndex == 0) {
+      // Try to move the result slot into the player inventory/hotbar
+      if (!this.moveItemStackTo(rawStack, 5, 41, true)) {
+        // If cannot move, no longer quick move
+        return ItemStack.EMPTY;
+      }
+
+      // Perform logic on result slot quick move
+      slot.onQuickCraft(rawStack, quickMovedStack);
+    }
+    // Else if the quick move was performed on the player inventory or hotbar slot
+    else if (quickMovedSlotIndex &gt;= 5 &amp;&amp; quickMovedSlotIndex &lt; 41) {
+      // Try to move the inventory/hotbar slot into the data inventory input slots
+      if (!this.moveItemStackTo(rawStack, 1, 5, false)) {
+        // If cannot move and in player inventory slot, try to move to hotbar
+        if (quickMovedSlotIndex &lt; 32) {
+          if (!this.moveItemStackTo(rawStack, 32, 41, false)) {
+            // If cannot move, no longer quick move
+            return ItemStack.EMPTY;
+          }
+        }
+        // Else try to move hotbar into player inventory slot
+        else if (!this.moveItemStackTo(rawStack, 5, 32, false)) {
+          // If cannot move, no longer quick move
+          return ItemStack.EMPTY;
+        }
+      }
+    }
+    // Else if the quick move was performed on the data inventory input slots, try to move to player inventory/hotbar
+    else if (!this.moveItemStackTo(rawStack, 5, 41, false)) {
+      // If cannot move, no longer quick move
+      return ItemStack.EMPTY;
+    }
+
+    if (rawStack.isEmpty()) {
+      // If the raw stack has completely moved out of the slot, set the slot to the empty stack
+      quickMovedSlot.set(ItemStack.EMPTY);
+    } else {
+      // Otherwise, notify the slot that that the stack count has changed
+      quickMovedSlot.setChanged();
+    }
+
+    /*
+    The following if statement and Slot#onTake call can be removed if the
+    menu does not represent a container that can transform stacks (e.g.
+    chests).
+    */
+    if (rawStack.getCount() == quickMovedStack.getCount()) {
+      // If the raw stack was not able to be moved to another slot, no longer quick move
+      return ItemStack.EMPTY;
+    }
+    // Execute logic on what to do post move with the remaining stack
+    quickMovedSlot.onTake(player, rawStack);
+  }
+
+  return quickMovedStack; // Return the slot stack
+}</code></pre>
+<h2 id="opening-a-menu">Opening a Menu<a class="headerlink" href="#opening-a-menu" title="Permanent link"> </a></h2>
+<p>Once a menu type has been registered, the menu itself has been finished, and a <a href="../screens/">screen</a> has been attached, a menu can then be opened by the player. Menus can be opened by calling <code>NetworkHooks#openScreen</code> on the logical server. The method takes in the player opening the menu, the <code>MenuProvider</code> of the server side menu, and optionally a <code>FriendlyByteBuf</code> if extra data needs to be synced to the client.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>NetworkHooks#openScreen</code> with the <code>FriendlyByteBuf</code> parameter should only be used if a menu type was created using an <a href="#icontainerfactory"><code>IContainerFactory</code></a>.</p>
+</div>
+<h4 id="menuprovider"><code>MenuProvider</code><a class="headerlink" href="#menuprovider" title="Permanent link"> </a></h4>
+<p>A <code>MenuProvider</code> is an interface that contains two methods: <code>#createMenu</code>, which creates the server instance of the menu, and <code>#getDisplayName</code>, which returns a component containing the title of the menu to pass to the <a href="../screens/">screen</a>. The <code>#createMenu</code> method contains three parameter: the container id of the menu, the inventory of the player who opened the menu, and the player who opened the menu.</p>
+<p>A <code>MenuProvider</code> can easily be created using <code>SimpleMenuProvider</code>, which takes in a method reference to create the server menu and the title of the menu.</p>
+<pre class="highlight"><code class="language-java">// In some implementation
+NetworkHooks.openScreen(serverPlayer, new SimpleMenuProvider(
+  (containerId, playerInventory, player) -&gt; new MyMenu(containerId, playerInventory),
+  Component.translatable("menu.title.examplemod.mymenu")
+));</code></pre>
+<h3 id="common-implementations">Common Implementations<a class="headerlink" href="#common-implementations" title="Permanent link"> </a></h3>
+<p>Menus are typically opened on a player interaction of some kind (e.g. when a block or entity is right-clicked).</p>
+<h4 id="block-implementation">Block Implementation<a class="headerlink" href="#block-implementation" title="Permanent link"> </a></h4>
+<p>Blocks typically implement a menu by overriding <code>BlockBehaviour#use</code>. If on the logical client, the interaction returns <code>InteractionResult#SUCCESS</code>. Otherwise, it opens the menu and returns <code>InteractionResult#CONSUME</code>.</p>
+<p>The <code>MenuProvider</code> should be implemented by overriding <code>BlockBehaviour#getMenuProvider</code>. Vanilla methods use this to view the menu in spectator mode.</p>
+<pre class="highlight"><code class="language-java">// In some Block subclass
+@Override
+public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+  return new SimpleMenuProvider(/* ... */);
+}
+
+@Override
+public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+  if (!level.isClientSide &amp;&amp; player instanceof ServerPlayer serverPlayer) {
+    NetworkHooks.openScreen(serverPlayer, this.getMenuProvider(state, level, pos));
+  }
+  return InteractionResult.sidedSuccess(level.isClientSide);
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the simplest way to implement the logic, not the only way. If you want the block to only open the menu under certain conditions, then some data will need to be synced to the client beforehand to return <code>InteractionResult#PASS</code> or <code>#FAIL</code> if the conditions are not met.</p>
+</div>
+<h4 id="mob-implementation">Mob Implementation<a class="headerlink" href="#mob-implementation" title="Permanent link"> </a></h4>
+<p>Mobs typically implement a menu by overriding <code>Mob#mobInteract</code>. This is done similarly to the block implementation with the only difference being that the <code>Mob</code> itself should implement <code>MenuProvider</code> to support spectator mode viewing.</p>
+<pre class="highlight"><code class="language-java">public class MyMob extends Mob implements MenuProvider {
+  // ...
+
+  @Override
+  public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    if (!this.level.isClientSide &amp;&amp; player instanceof ServerPlayer serverPlayer) {
+      NetworkHooks.openScreen(serverPlayer, this);
+    }
+    return InteractionResult.sidedSuccess(this.level.isClientSide);
+  }
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once again, this is the simplest way to implement the logic, not the only way.</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

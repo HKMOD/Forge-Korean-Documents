@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../images/manifest.json">
+    <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../js/theme.js"></script>
+
+    <script>var base_url = '..';</script>
+    
+    <script src="../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href=".." class="logo-image"><img src="../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.2" selected>1.19.2</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.x" >1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href=".." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datastorage/codecs/" class="elem-text">Codecs</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Graphical User Interfaces</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../gui/menus/" class="elem-text">Menus</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gui/screens/" class="elem-text">Screens</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../rendering/modelloaders/transform/" class="elem-text">Transform</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/advancements/" class="elem-text">Advancements</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/keymappings/" class="elem-text">Key Mappings</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#getting-started" class="elem-text">Introduction</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#forking-and-cloning-the-repository">Forking and Cloning the Repository</a></li>
+        
+        
+        
+        <li class="toc-item"><a href="#checking-out-the-correct-branch">Checking out the Correct Branch</a></li>
+        
+        
+        <li class="toc-subitem"><a href="#setting-up-the-environment">Setting Up the Environment</a></li>
+        
+        <li class="toc-subitem"><a href="#making-changes-and-pull-requests">Making Changes and Pull Requests</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h1>
+<p>If you have decided to contribute to Forge, you will have to take some special steps to get started with developing. A simple mod development environment will not suffice to work with Forge&rsquo;s codebase directly. Instead, you can use the following guide to help you with your setup and get you started with improving Forge!</p>
+<h2 id="forking-and-cloning-the-repository">Forking and Cloning the Repository<a class="headerlink" href="#forking-and-cloning-the-repository" title="Permanent link"> </a></h2>
+<p>Like most major open source projects you will find, Forge is hosted on <a href="https://www.github.com">GitHub</a>. If you have contributed to another project before, you will know this process already and can skip right ahead to the next section.</p>
+<p>For those who are beginners when it comes to collaboration via Git, here are two easy steps to get you started.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide assumes that you already have a GitHub account set up. If you do not, visit their <a href="https://www.github.com/join">registration page</a> to create an account. Furthermore, this guide is not a tutorial for git&rsquo;s usage. Please consult different sources first if you are struggling to get it working.</p>
+</div>
+<h3 id="forking">Forking<a class="headerlink" href="#forking" title="Permanent link"> </a></h3>
+<p>First of all, you have to &ldquo;fork&rdquo; the <a href="https://www.github.com/MinecraftForge/MinecraftForge">MinecraftForge repository</a> by clicking the &ldquo;Fork&rdquo; button in the upper right hand corner. If you are in an organization, select the account you want your fork to be hosted on.</p>
+<p>Forking the repository is necessary since not every GitHub user can have free access to every repository. Instead, you create a copy of the original repository to later contribute your changes via a so called Pull Request, which you will learn more about later.</p>
+<h3 id="cloning">Cloning<a class="headerlink" href="#cloning" title="Permanent link"> </a></h3>
+<p>After forking the repository, it is time to get local access to actually make some changes. For this, you need to clone the repository onto your local machine.</p>
+<p>Using your favorite git client, simply clone your fork into a directory of your choice. As general example, here is a command line snippet that should work on all correctly configured systems and clones the repository into a directory called &ldquo;MinecraftForge&rdquo; under the current directory (note that you have to replace <code>&lt;User&gt;</code> with your username):</p>
+<p><code>git clone https://github.com/&lt;User&gt;/MinecraftForge</code></p>
+<h1 id="checking-out-the-correct-branch">Checking out the Correct Branch<a class="headerlink" href="#checking-out-the-correct-branch" title="Permanent link"> </a></h1>
+<p>Forking and cloning the repository are the only mandatory steps to develop for Forge. However, to ease the process of creating Pull Requests for you, it is best to work with branches.</p>
+<p>It is recommended to create and check out a branch for each PR you plan to submit. This way, you can always keep around the latest changes of Forge for new PRs while you still work on older patches.</p>
+<p>After completing this step, you are ready to go and set up your development environment.</p>
+<h2 id="setting-up-the-environment">Setting Up the Environment<a class="headerlink" href="#setting-up-the-environment" title="Permanent link"> </a></h2>
+<p>Depending on your favorite IDE, there is a different set of recommended steps you have to follow to successfully set up a development environment.</p>
+<h3 id="eclipse">Eclipse<a class="headerlink" href="#eclipse" title="Permanent link"> </a></h3>
+<p>Due to the way Eclipse workspaces work, ForgeGradle can do most of the work involved to get you started with a Forge workspace.</p>
+<ol>
+<li>Open a terminal/command prompt and navigate to the directory of your cloned fork.</li>
+<li>Type <code>./gradlew setup</code> and hit enter. Wait until ForgeGradle is done.</li>
+<li>Type <code>./gradlew genEclipseRuns</code> and hit enter. Once again, wait until ForgeGradle is done.</li>
+<li>Open your Eclipse workspace and go to <code>File -&gt; Import -&gt; General -&gt; Existing Gradle Project</code>.</li>
+<li>Browse to the repo directory for the &ldquo;Project root directory&rdquo; option in the dialog that opens.</li>
+<li>Complete the import by clicking the &ldquo;Finish&rdquo; button.</li>
+</ol>
+<p>That is all it takes to get you up and running with Eclipse. There is no extra steps required to get the test mods running. Simply hit &ldquo;Run&rdquo; like in any other project and select the appropriate run configuration.</p>
+<h3 id="intellij-idea">IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Permanent link"> </a></h3>
+<p>JetBrains&rsquo; flagship IDE comes with great integrated support for <a href="https://www.gradle.org">Gradle</a>: Forge&rsquo;s build system of choice. Due to some peculiarities of Minecraft mod development, however, there are additional steps required to get everything to work properly.</p>
+<h4 id="idea-2021-onwards">IDEA 2021 onwards<a class="headerlink" href="#idea-2021-onwards" title="Permanent link"> </a></h4>
+<ol>
+<li>Start IntelliJ IDEA 2021.<ul>
+<li>If you already have another project open, close the project with the File -&gt; Close project option.</li>
+</ul>
+</li>
+<li>In the projects tab of the &ldquo;Welcome to IntelliJ IDEA&rdquo; window, click the &ldquo;Open&rdquo; button on the top right and select the MinecraftForge folder you cloned earlier.</li>
+<li>Click &ldquo;Trust Project&rdquo; if prompted.</li>
+<li>After IDEA is done importing the project and indexing its files, run the Gradle setup task. You can do this by:<ul>
+<li>Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the <code>setup</code> task (may also appear as <code>MinecraftForge[Setup]</code>) found in Forge -&gt; Tasks -&gt; other -&gt; <code>setup</code>.</li>
+</ul>
+</li>
+<li>Generate the run configurations:<ul>
+<li>Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the <code>genIntellijRuns</code> task (may also appear as <code>MinecraftForge[genIntellijRuns]</code>) found in Forge -&gt; Tasks -&gt; forgegradle runs -&gt; <code>genIntellijRuns</code>.</li>
+<li>If you get a licensing error during build before making any changes, running the <code>updateLicenses</code> task may help. This task is found in Forge -&gt; Tasks -&gt; other as well.</li>
+</ul>
+</li>
+</ol>
+<h4 id="idea-2019-2020">IDEA 2019-2020<a class="headerlink" href="#idea-2019-2020" title="Permanent link"> </a></h4>
+<p>There are a few minor differences between IDEA 2021 and these versions for setup.</p>
+<ol>
+<li>Import Forge&rsquo;s <code>build.gradle</code> as an IDEA project. For this, simply click <code>Import Project</code> from the <code>Welcome to IntelliJ IDEA</code> splash screen, then select the <code>build.gradle</code> file.</li>
+<li>After IDEA is done importing the project and indexing the files, run the Gradle setup task. Either:<ol>
+<li>Open the Gradle sidebar on the right hand side of your screen, then open the <code>forge</code> project tree, select <code>Tasks</code>, then <code>other</code> and double-click the <code>setup</code> task (may also appear as <code>MinecraftForge[Setup]</code>. Or alternatively:</li>
+<li>Tap the CTRL key twice, and type <code>gradle setup</code> in the <code>Run</code> command window that pops up.</li>
+</ol>
+</li>
+</ol>
+<p>You can then run Forge using the <code>forge_client</code> gradle task (<code>Tasks -&gt; fg_runs -&gt; forge_client</code>): right-click the task and select either <code>Run</code> or <code>Debug</code> as desired.</p>
+<p>You should now be able to work with your mod using the changes you introduce to the Forge and Vanilla codebase.</p>
+<h2 id="making-changes-and-pull-requests">Making Changes and Pull Requests<a class="headerlink" href="#making-changes-and-pull-requests" title="Permanent link"> </a></h2>
+<p>Once you have set up your development environment, it is time to make some changes to Forge&rsquo;s codebase. There are, however, some pitfalls you have to avoid when editing the project&rsquo;s code.</p>
+<p>The most important thing to note is that if you wish to edit Minecraft source code, you must only do so in the &ldquo;Forge&rdquo; sub-project. Any changes in the &ldquo;Clean&rdquo; project will mess with ForgeGradle and generating the patches. This can have disastrous consequences and might render your environment completely useless. If you wish to have a flawless experience, make sure you only edit code in the &ldquo;Forge&rdquo; project!</p>
+<h3 id="generating-patches">Generating Patches<a class="headerlink" href="#generating-patches" title="Permanent link"> </a></h3>
+<p>After you have made changes to the code base and tested them thoroughly, you may go ahead and generate patches. This is only necessary if you work on the Minecraft code base (i.e. in the &ldquo;Forge&rdquo; project), but this step is vital for your changes to work elsewhere. Forge works by injecting only changed things into Vanilla Minecraft and hence needs those changes available in an appropriate format. Thankfully, ForgeGradle is capable of generating the changeset for you to commit it.</p>
+<p>To initiate the patch generation, simply run the <code>genPatches</code> Gradle task from your IDE or the command line. After its completion, you can commit all your changes (make sure you do not add any unnecessary files) and submit your Pull Request!</p>
+<h3 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link"> </a></h3>
+<p>The last step before your contribution is added to Forge is a Pull Request (PR in short). This is a formal request to incorporate your fork&rsquo;s changes into the live code base. Creating a PR is easy. Simply go to <a href="https://github.com/MinecraftForge/MinecraftForge/compare">this GitHub page</a> and follow the proposed steps. It is now that a good setup with branches pays off, since you are able to select precisely the changes you want to submit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pull Requests are bound to rules; not every request will blindly be accepted. Follow <a href="https://github.com/MinecraftForge/MinecraftForge/blob/1.13.x/CONTRIBUTING.md">this document</a> to get further information and to ensure the best quality of your PR! If you want to maximize the chances of your PR getting accepted, follow these <a href="prguidelines/">PR guidelines</a>!</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

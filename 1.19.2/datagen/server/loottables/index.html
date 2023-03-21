@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loot Table Providers - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../../images/manifest.json">
+    <link rel="mask-icon" href="../../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../../js/theme.js"></script>
+
+    <script>var base_url = '../../..';</script>
+    
+    <script src="../../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../../.." class="logo-image"><img src="../../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.2" selected>1.19.2</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.x" >1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../datastorage/codecs/" class="elem-text">Codecs</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Graphical User Interfaces</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../gui/menus/" class="elem-text">Menus</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../gui/screens/" class="elem-text">Screens</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/transform/" class="elem-text">Transform</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/advancements/" class="elem-text">Advancements</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../../" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#loot-table-generation" class="elem-text">Loot Table Providers</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#the-loottableprovider-subclass">The LootTableProvider Subclass</a></li>
+        
+        <li class="toc-subitem"><a href="#table-builders">Table Builders</a></li>
+        
+        <li class="toc-subitem"><a href="#loot-table-builders">Loot Table Builders</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../advancements/" class="elem-text">Advancement Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/keymappings/" class="elem-text">Key Mappings</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="loot-table-generation">Loot Table Generation<a class="headerlink" href="#loot-table-generation" title="Permanent link"> </a></h1>
+<p><a href="../../../resources/server/loottables/">Loot tables</a> can be generated for a mod by subclassing <code>LootTableProvider</code> with a few modifications. After implementation, the provider must be <a href="../../#data-providers">added</a> to the <code>DataGenerator</code>.</p>
+<h2 id="the-loottableprovider-subclass">The <code>LootTableProvider</code> Subclass<a class="headerlink" href="#the-loottableprovider-subclass" title="Permanent link"> </a></h2>
+<p><code>LootTableProvider</code> is simplified into two methods: <code>#getTables</code>, which collect the table builders, and <code>#validate</code>, which checks whether the generated loot tables are valid. Both of these methods need to be overridden to use <code>LootTableProvider</code>.</p>
+<p><code>#validate</code> can be simplified to call <code>LootTables#validate</code> for every single table. It initially fails since it expects the tables defined within <code>BuiltInLootTables</code> to be generated as well.</p>
+<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
+@Override
+protected void validate(Map&lt;ResourceLocation, LootTable&gt; tables, ValidationContext ctx) {
+  tables.forEach((name, table) -&gt; LootTables.validate(ctx, name, table));
+}</code></pre>
+<p><code>#getTables</code> defines a list of factory methods for table builders for a given <code>LootContextParamSet</code>. Each table builder consumes a writer used to generate the given table for a specific name. To simplify understanding:</p>
+<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
+@Override
+protected
+  List&lt; // Get a list
+    Pair&lt; // of pairs
+      Supplier&lt; // for a factory
+        Consumer&lt; // which takes in
+          BiConsumer&lt; // a writer of
+            ResourceLocation, // the name of the table
+            LootTable.Builder // and the table to generate
+          &gt;
+        &gt;
+      &gt;,
+      LootContextParamSet // with a given parameter set
+    &gt;
+  &gt;
+getTables() {
+  // Return table builders here
+}</code></pre>
+<h2 id="table-builders">Table Builders<a class="headerlink" href="#table-builders" title="Permanent link"> </a></h2>
+<p>Each table builder has a method which takes in the writer to generate a table. This is typically done implementing a <code>Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt;</code>.</p>
+<pre class="highlight"><code class="language-java">public class ExampleLoot implements Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt; {
+
+  // Used to create a factory method for the wrapping Supplier
+  public ExampleLoot() {}
+
+  // The method used to generate the loot tables
+  @Override
+  public void accept(BiConsumer&lt;ResourceLocation, LootTable.Builder&gt; writer) {
+    // Generate loot tables here by calling writer#accept
+  }
+}</code></pre>
+<p>The table can then be added to <code>LootTableProvider#getTables</code> for any available <code>LootContextParamSet</code>:</p>
+<pre class="highlight"><code class="language-java">// In some LootTableProvider subclass
+@Override
+protected List&lt;Pair&lt;Supplier&lt;Consumer&lt;BiConsumer&lt;ResourceLocation, LootTable.Builder&gt;&gt;&gt;, LootContextParamSet&gt;&gt; getTables() {
+  return ImmutableList.of(
+    Pair.of(ExampleLoot::new, LootContextParamSets.EMPTY) // Loot table builder for the 'empty' parameter set
+    //...
+  );
+}</code></pre>
+<h3 id="blockloot-and-entityloot-subclasses"><code>BlockLoot</code> and <code>EntityLoot</code> Subclasses<a class="headerlink" href="#blockloot-and-entityloot-subclasses" title="Permanent link"> </a></h3>
+<p>For <code>LootContextParamSets#BLOCK</code> and <code>#ENTITY</code>, there are special types (<code>BlockLoot</code> and <code>EntityLoot</code> respectively) which provide additional helper methods for creating and validating that there are loot tables.</p>
+<p>To use them, all registered objects must be supplied to either <code>BlockLoot#getKnownBlocks</code> and <code>EntityLoot#getKnownEntities</code> respectively. These methods are to make sure all objects within the iterable has a loot table.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <code>DeferredRegister</code> is being used to register a mod&rsquo;s objects, then the <code>#getKnown*</code> methods can be supplied the entries via <code>DeferredRegister#getEntries</code>:</p>
+<pre class="highlight"><code class="language-java">// In some BlockLoot subclass for some DeferredRegister BLOCK_REGISTRAR
+@Override
+protected Iterable&lt;Block&gt; getKnownBlocks() {
+  return BLOCK_REGISTRAR.getEntries() // Get all registered entries
+    .stream() // Stream the wrapped objects
+    .flatMap(RegistryObject::stream) // Get the object if available
+    ::iterator; // Create the iterable
+}</code></pre>
+</div>
+<h2 id="loot-table-builders">Loot Table Builders<a class="headerlink" href="#loot-table-builders" title="Permanent link"> </a></h2>
+<p>To generate loot tables, they are accepted by the <code>LootTableProvider</code> as a <code>LootTable$Builder</code>. Afterwards, the specified <code>LootContextParamSet</code> is set and then built via <code>#build</code>. Before being built, the builder can specify entries, conditions, and modifiers which affect how the loot table functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functionality of loot tables is so expansive that it will not be covered by this documentation in its entirety. Instead, a brief description of each component will be mentioned. The specific subtypes of each component can be found using an IDE. Their implementations will be left as an exercise to the reader.</p>
+</div>
+<h3 id="loottable">LootTable<a class="headerlink" href="#loottable" title="Permanent link"> </a></h3>
+<p>Loot tables are the base object and can be transformed into the required <code>LootTable$Builder</code> using <code>LootTable#lootTable</code>. The loot table can be built with a list of pools (via <code>#withPool</code>) applied in the order they are specified along with functions (via <code>#apply</code>) to modify the resulting items of those pools.</p>
+<h3 id="lootpool">LootPool<a class="headerlink" href="#lootpool" title="Permanent link"> </a></h3>
+<p>Loot pools represents a group to perform operations and can generate a  <code>LootPool$Builder</code> using <code>LootPool#lootPool</code>. Each loot pool can specify the entries (via <code>#add</code>) which define the operations in the pool, the conditions (via <code>#when</code>) which define if the operations in the pool should be performed, and functions (via <code>#apply</code>) to modify the resulting items of the entries. Each pool can be executed as many times as specified (via <code>#setRolls</code>). Additionally, bonus executions can be specified (via <code>#setBonusRolls</code>) which is modified by the luck of the executor.</p>
+<h3 id="lootpoolentrycontainer">LootPoolEntryContainer<a class="headerlink" href="#lootpoolentrycontainer" title="Permanent link"> </a></h3>
+<p>Loot entries define the operations to occur when selected, typically generating items. Each entry has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootPoolEntryType</code>. They also have their own associated builders which subtype <code>LootPoolEntryContainer$Builder</code>. Multiple entries can execute at the same time (via <code>#append</code>) or sequentially until one fails (via <code>#then</code>). Additionally, entries can default to another entry on failure (via <code>#otherwise</code>).</p>
+<h3 id="lootitemcondition">LootItemCondition<a class="headerlink" href="#lootitemcondition" title="Permanent link"> </a></h3>
+<p>Loot conditions define requirements which need to be met for some operation to execute. Each condition has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootItemConditionType</code>. They also have their own associated builders which subtype <code>LootItemCondition$Builder</code>. By default, all loot conditions specified must return true for an operation to execute. Loot conditions can also be specified such that only one must return true instead (via <code>#or</code>). Additionally, the resulting output of a condition can be inverted (via <code>#invert</code>).</p>
+<h3 id="lootitemfunction">LootItemFunction<a class="headerlink" href="#lootitemfunction" title="Permanent link"> </a></h3>
+<p>Loot functions modify the result of an execution before passing it to the output. Each function has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootItemFunctionType</code>. They also have their own associated builders which subtype <code>LootItemFunction$Builder</code>.</p>
+<h4 id="nbtprovider">NbtProvider<a class="headerlink" href="#nbtprovider" title="Permanent link"> </a></h4>
+<p>NBT providers are a special type of functions defined by <code>CopyNbtFunction</code>. They define where to pull tag information from. Each provider has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootNbtProviderType</code>.</p>
+<h3 id="numberprovider">NumberProvider<a class="headerlink" href="#numberprovider" title="Permanent link"> </a></h3>
+<p>Number providers determine how many times a loot pool executes. Each provider has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootNumberProviderType</code>.</p>
+<h4 id="scoreboardnameprovider">ScoreboardNameProvider<a class="headerlink" href="#scoreboardnameprovider" title="Permanent link"> </a></h4>
+<p>Scoreboard providers are a special type of number providers defined by <code>ScoreboardValue</code>. They define the name of the scoreboard to pull the number of rolls to execute from. Each provider has an associated, <a href="../../../concepts/registries/#registries-that-arent-forge-registries">registered</a> <code>LootScoreProviderType</code>.</p>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

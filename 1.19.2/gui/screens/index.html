@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Screens - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.2" selected>1.19.2</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.x" >1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">Codecs</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Graphical User Interfaces</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../menus/" class="elem-text">Menus</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#screens" class="elem-text">Screens</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#relative-coordinates">Relative Coordinates</a></li>
+        
+        <li class="toc-subitem"><a href="#gui-components">Gui Components</a></li>
+        
+        <li class="toc-subitem"><a href="#widget">Widget</a></li>
+        
+        <li class="toc-subitem"><a href="#guieventlistener">GuiEventListener</a></li>
+        
+        <li class="toc-subitem"><a href="#narratableentry">NarratableEntry</a></li>
+        
+        <li class="toc-subitem"><a href="#the-screen-subtype">The Screen Subtype</a></li>
+        
+        <li class="toc-subitem"><a href="#abstractcontainerscreen">AbstractContainerScreen</a></li>
+        
+        <li class="toc-subitem"><a href="#registering-an-abstractcontainerscreen">Registering an AbstractContainerScreen</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">Transform</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/advancements/" class="elem-text">Advancements</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../misc/config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/keymappings/" class="elem-text">Key Mappings</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../misc/debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="screens">Screens<a class="headerlink" href="#screens" title="Permanent link"> </a></h1>
+<p>Screens are typically the base of all Graphical User Interfaces (GUIs) in Minecraft: taking in user input, verifying it on the server, and syncing the resulting action back to the client. They can be combined with <a href="../menus/">menus</a> to create an communication network for inventory-like views, or they can be standalone which modders can handle through their own <a href="../../networking/">network</a> implementations.</p>
+<p>Screens are made up of numerous parts, making it difficult to fully understand what a &lsquo;screen&rsquo; actually is in Minecraft. As such, this document will go over each of the screen&rsquo;s components and how it is applied before discussing the screen itself.</p>
+<h2 id="relative-coordinates">Relative Coordinates<a class="headerlink" href="#relative-coordinates" title="Permanent link"> </a></h2>
+<p>Whenever anything is rendered, there needs to be some identifier which specifies where it will appear. With numerous abstractions, most of Minecraft&rsquo;s rendering calls takes in an x, y, and z value in a coordinate plane. X values increase from left to right, y from top to bottom, and z from far to near. However, the coordinates are not fixed to a specified range. They can change depending on the size of the screen and the scale at which is specified within the options. As such, extra care must be taken to make sure the values of the coordinates while rendering scale properly to the changeable screen size.</p>
+<p>Information on how to relativize your coordinates will be within the <a href="#the-screen-subtype">screen</a> section.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you choose to use fixed coordinates or incorrectly scale the screen, the rendered objects may look strange or misplaced. An easy way to check if you relativized your coordinates correctly is to click the &lsquo;Gui Scale&rsquo; button in your video settings. This value is used as the divisor to the width and height of your display when determining the scale at which a GUI should render.</p>
+</div>
+<h2 id="gui-components">Gui Components<a class="headerlink" href="#gui-components" title="Permanent link"> </a></h2>
+<p>Any GUI rendered by Minecraft is an instance of a <code>GuiComponent</code>. <code>GuiComponent</code>s contain the most basic methods used to render the most commonly used objects. These fall into three categories: colored rectangles, strings, and textures. There is also an additional method for rendering a snippet of a component (<code>#enableScissor</code> / <code>#disableScissor</code>). All methods take in a <code>PoseStack</code> which applies the transformations necessary to properly render where the component should be rendered. Additionally, colors are in the <a href="https://en.wikipedia.org/wiki/RGBA_color_model#ARGB32">ARGB</a> format.</p>
+<h3 id="colored-rectangles">Colored Rectangles<a class="headerlink" href="#colored-rectangles" title="Permanent link"> </a></h3>
+<p>Colored rectangles are drawn through a position color shader. There are three types of colored rectangles that can be drawn.</p>
+<p>First, there is a colored horizontal and vertical one-pixel wide line, <code>#hLine</code> and <code>#vLine</code> respectively. <code>#hLine</code> takes in two x coordinates defining the left and right (inclusively), the top y coordinate, and the color. <code>#vLine</code> takes in the left x coordinate, two y coordinates defining the top and bottom (inclusively), and the color.</p>
+<p>Second, there is the <code>#fill</code> method, which draws a rectangle to the screen. The line methods internally call this method. This takes in the left x coordinate, the top y coordinate, the right x coordinate, the bottom y coordinate, and the color.</p>
+<p>Finally, there is the <code>#fillGradient</code> method, which draws a rectangle with a vertical gradient. This takes in the right x coordinate, the bottom y coordinate, the left x coordinate, the top y coordinate, the z coordinate, and the bottom and top colors.</p>
+<h3 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link"> </a></h3>
+<p>Strings are drawn through its <code>Font</code>, typically consisting of their own shaders for normal, see through, and offset mode. There are two alignment of strings that can be rendered, each with a back shadow: a left-aligned string (<code>#drawString</code>) and a center-aligned string (<code>#drawCenteredString</code>). These both take in the font the string will be rendered in, the string to draw, the x coordinate representing the left or center of the string respectively, the top y coordinate, and the color.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strings should typically be passed in as <a href="../../concepts/internationalization/#translatablecontents"><code>Component</code>s</a> as they handle a variety of usecases, including the two other overloads of the method.</p>
+</div>
+<h3 id="textures">Textures<a class="headerlink" href="#textures" title="Permanent link"> </a></h3>
+<p>Textures are drawn through blitting, hence the method name <code>#blit</code>, which, for this purpose, copies the bits of an image and draws them directly to the screen. These are drawn through a position texture shader. While there are many different <code>#blit</code> overloads, we will only discuss two: the instance <code>#blit</code> and the static <code>#blit</code> which the instance method delegates to.</p>
+<p>The instance <code>#blit</code> takes in six integers and assumes the texture being rendered is on a 256 x 256 PNG file. It takes in the left x and top y screen coordinate, the left x and top y coordinate within the PNG, and the width and height of the image to render.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the PNG file must be specified so that the coordinates can be normalized to obtain the associated UV values.</p>
+</div>
+<p>The static <code>#blit</code> expands this to nine integers, only assuming the image is on a PNG file. It takes in the left x and top y screen coordinate, the z coordinate (referred to as the blit offset), the left x and top y coordinate within the PNG, the width and height of the image to render, and the width and height of the PNG file.</p>
+<h4 id="blit-offset">Blit Offset<a class="headerlink" href="#blit-offset" title="Permanent link"> </a></h4>
+<p>The z coordinate when rendering a texture is typically set to the blit offset. The offset is responsible for properly layering renders when viewing a screen. Renders with a smaller z coordinate are rendered in the background and vice versa where renders with a larger z coordinate are rendered in the foreground.</p>
+<p>The offset can be obtained by calling <code>#getBlitOffset</code> and set using <code>#setBlitOffset</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When setting the blit offset, you must reset it after rendering your object. Otherwise, other objects within the screen may be rendered in an incorrect layer causing graphical issues.</p>
+</div>
+<h2 id="widget">Widget<a class="headerlink" href="#widget" title="Permanent link"> </a></h2>
+<p><code>Widget</code>s are essentially objects that are rendered. These include screens, buttons, chat boxes, lists, etc. <code>Widget</code>s only have one method: <code>#render</code>. This takes in the <code>PoseStack</code> holding any prior transformations to properly render the widget, the x and y positions of the mouse scaled to the relative screen size, and the tick delta (how many ticks have passed since the last frame).</p>
+<p>Some common widgets which may be used are <code>Button</code>, its subtype <code>ImageButton</code>, and <code>EditBox</code> which is used to input text on the screen.</p>
+<h2 id="guieventlistener">GuiEventListener<a class="headerlink" href="#guieventlistener" title="Permanent link"> </a></h2>
+<p>Any screen rendered in Minecraft implements <code>GuiEventListener</code>. <code>GuiEventListener</code>s are responsible for handling user interaction with the screen. These include inputs from the mouse (movement, clicked, released, dragged, scrolled, mouseover) and keyboard (pressed, released, typed). Each method returns whether the associated action affected the screen successfully. Widgets like buttons, chat boxes, lists, etc. also implement this interface.</p>
+<h3 id="containereventhandler">ContainerEventHandler<a class="headerlink" href="#containereventhandler" title="Permanent link"> </a></h3>
+<p>Almost synonymous with <code>GuiEventListener</code>s are their subtype: <code>ContainerEventHandler</code>s. These are responsible for handling user interaction on screens which contain widgets, managing which is currently focused and how the associated interactions are applied. <code>ContainerEventHandler</code>s add three additional features: interactable children, dragging, and focusing.</p>
+<p>Event handlers hold children which are used to determine the interaction order of elements. During the mouse event handlers (excluding dragging), the first child in the list that the mouse hovers over has their logic executed.</p>
+<p>Dragging an element with the mouse, implemented via <code>#mouseClicked</code> and <code>#mouseReleased</code>, provides more precisely executed logic.</p>
+<p>Focusing allows for a specific child to be checked first and handled during an event&rsquo;s execution, such as during keyboard events or dragging the mouse. Focus is typically set through <code>#setFocused</code> or, when the screen is being opened, <code>#setInitialFocus</code>. In addition, interactable children can be cycled using <code>#changeFocus</code>, selecting the next child in the list, or the previous child if the shift key is held down.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Screens implement <code>ContainerEventHandler</code> and <code>GuiComponent</code> through <code>AbstractContainerEventHandler</code>, which adds in the setter and getter logic for dragging and focusing children.</p>
+</div>
+<h2 id="narratableentry">NarratableEntry<a class="headerlink" href="#narratableentry" title="Permanent link"> </a></h2>
+<p><code>NarratableEntry</code>s are elements which can be spoken about through Minecraft&rsquo;s accessibility narration feature. Each element can provide different narration depending on what is hovered or selected, prioritized typically by focus, hovering, and then all other cases.</p>
+<p><code>NarratableEntry</code>s have three methods: one which determines the priority of the element (<code>#narrationPriority</code>), one which determines whether to speak the narration (<code>#isActive</code>), and finally one which supplies the narration to its associated output, spoken or read (<code>#updateNarration</code>). </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All widgets from Minecraft are <code>NarratableEntry</code>s, so it typically does not need to be manually implemented if using an available subtype.</p>
+</div>
+<h2 id="the-screen-subtype">The Screen Subtype<a class="headerlink" href="#the-screen-subtype" title="Permanent link"> </a></h2>
+<p>With all of the above knowledge, a basic screen can be constructed. To make it easier to understand, the components of a screen will be mentioned in the order they are typically encountered.</p>
+<p>First, all screens take in a <code>Component</code> which represents the title of the screen. This component is typically drawn to the screen by one of its subtypes. It is only used in the base screen for the narration message.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+public MyScreen(Component title) {
+    super(title);
+}</code></pre>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link"> </a></h3>
+<p>Once a screen has been initialized, the <code>#init</code> method is called. The <code>#init</code> method sets the initial settings inside the screen from the <code>ItemRenderer</code> and <code>Minecraft</code> instance to the relative width and height as scaled by the game. Any setup such as adding widgets or precomputing relative coordinates should be done in this method. If the game window is resized, the screen will be reinitialized by calling the <code>#init</code> method.</p>
+<p>There are three ways to add a widget to a screen, each serving a separate purpose:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>#addWidget</code></td>
+<td align="left">Adds a widget that is interactable and narrated, but not rendered.</td>
+</tr>
+<tr>
+<td align="center"><code>#addRenderableOnly</code></td>
+<td align="left">Adds a widget that will only be rendered; it is not interactable or narrated.</td>
+</tr>
+<tr>
+<td align="center"><code>#addRenderableWidget</code></td>
+<td align="left">Adds a widget that is interactable, narrated, and rendered.</td>
+</tr>
+</tbody>
+</table>
+<p>Typically, <code>#addRenderableWidget</code> will be used most often.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+protected void init() {
+    super.init();
+
+    // Add widgets and precomputed values
+    this.addRenderableWidget(new EditBox(/* ... */));
+}</code></pre>
+<h3 id="ticking-screens">Ticking Screens<a class="headerlink" href="#ticking-screens" title="Permanent link"> </a></h3>
+<p>Screens also tick using the <code>#tick</code> method to perform some level of client side logic for rendering purposes. The most common example is the <code>EditBox</code> for the blinking cursor.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+public void tick() {
+    super.tick();
+
+    // Add ticking logic for EditBox in editBox
+    this.editBox.tick();
+}</code></pre>
+<h3 id="input-handling">Input Handling<a class="headerlink" href="#input-handling" title="Permanent link"> </a></h3>
+<p>Since screens are subtypes of <code>GuiEventListener</code>s, the input handlers can also be overridden, such as for handling logic on a specific <a href="../../misc/keymappings/#inside-a-gui">key press</a>.</p>
+<h3 id="rendering-the-screen">Rendering the Screen<a class="headerlink" href="#rendering-the-screen" title="Permanent link"> </a></h3>
+<p>Finally, screens are rendered through the <code>#render</code> method provided by being a <code>Widget</code> subtype. As mentioned, the <code>#render</code> method draws the everything the screen has to render every frame, such as the background, widgets, tooltips, etc. By default, the <code>#render</code> method only renders the widgets to the screen.</p>
+<p>The two most common things rendered within a screen that is typically not handled by a subtype is the background and the tooltips.</p>
+<p>The background can be rendered using <code>#renderBackground</code>, with one method taking in a v Offset for the options background whenever a screen is rendered when the level behind it cannot be.</p>
+<p>Tooltips are rendered through <code>#renderTooltip</code> or <code>#renderComponentTooltip</code> which can take in the text components being rendered, an optional custom tooltip component, and the x / y relative coordinates on where the tooltip should be rendered on the screen.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+
+// mouseX and mouseY indicate the scaled coordinates of where the cursor is in on the screen
+@Override
+public void render(PoseStack pose, int mouseX, int mouseY, float partialTick) {
+    // Background is typically rendered first
+    this.renderBackground(pose);
+
+    // Render things here before widgets (background textures)
+
+    // Then the widgets if this is a direct child of the Screen
+    super.render(pose, mouseX, mouseY, partialTick);
+
+    // Render things after widgets (tooltips)
+}</code></pre>
+<h3 id="closing-the-screen">Closing the Screen<a class="headerlink" href="#closing-the-screen" title="Permanent link"> </a></h3>
+<p>When a screen is closed, two methods handle the teardown: <code>#onClose</code> and <code>#removed</code>.</p>
+<p><code>#onClose</code> is called whenever the user makes an input to close the current screen. This method is typically used as a callback to destroy and save any internal processes in the screen itself. This includes sending packets to the server.</p>
+<p><code>#removed</code> is called just before the screen changes and is released to the garbage collector. This handles anything that hasn&rsquo;t been reset back to its initial state before the screen was opened. This is typically used to disable the keyboard handler sending repeat key presses to the screen when held down.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+
+@Override
+public void onClose() {
+    // Stop any handlers here
+
+    // Call last in case it interferes with the override
+    super.onClose();
+}
+
+@Override
+public void removed() {
+    // Reset initial states here
+    this.minecraft.keyboardHandler.setSendRepeatsToGui(false);
+
+    // Call last in case it interferes with the override
+    super.removed()
+;}</code></pre>
+<h2 id="abstractcontainerscreen"><code>AbstractContainerScreen</code><a class="headerlink" href="#abstractcontainerscreen" title="Permanent link"> </a></h2>
+<p>If a screen is directly attached to a <a href="../menus/">menu</a>, then an <code>AbstractContainerScreen</code> should be subclassed instead. An <code>AbstractContainerScreen</code> acts as the renderer and input handler of a menu and contains logic for syncing and interacting with slots. As such, only two methods typically need to be overridden or implemented to have a working container screen. Once again, to make it easier to understand, the components of a container screen will be mentioned in the order they are typically encountered.</p>
+<p>An <code>AbstractContainerScreen</code> typically requires three parameters: the container menu being opened (represented by the generic <code>T</code>), the player inventory (only for the display name), and the title of the screen itself. Within here, a number of positioning fields can be set:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Field</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>imageWidth</code></td>
+<td align="left">The width of the texture used for the background. This is typically inside a PNG of 256 x 256 and defaults to 176.</td>
+</tr>
+<tr>
+<td align="center"><code>imageHeight</code></td>
+<td align="left">The width of the texture used for the background. This is typically inside a PNG of 256 x 256 and defaults to 166.</td>
+</tr>
+<tr>
+<td align="center"><code>titleLabelX</code></td>
+<td align="left">The relative x coordinate of where the screen title will be rendered.</td>
+</tr>
+<tr>
+<td align="center"><code>titleLabelY</code></td>
+<td align="left">The relative y coordinate of where the screen title will be rendered.</td>
+</tr>
+<tr>
+<td align="center"><code>inventoryLabelX</code></td>
+<td align="left">The relative x coordinate of where the player inventory name will be rendered.</td>
+</tr>
+<tr>
+<td align="center"><code>inventoryLabelY</code></td>
+<td align="left">The relative y coordinate of where the player inventory name will be rendered.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In a previous section, it mentioned that precomputed relative coordinates should be set in the <code>#init</code> method. This still remains true, as the values mentioned here are not precomputed coordinates but static values and relativized coordinates.</p>
+<p>The image values are static and non changing as they represent the background texture size. To make things easier when rendering, two additional values (<code>leftPos</code> and <code>topPos</code>) are precomputed in the <code>#init</code> method which marks the top left corner of where the background will be rendered. The label coordinates are relative to these values.</p>
+<p>The <code>leftPos</code> and <code>topPos</code> is also used as a convenient way to render the background as they already represent the position to pass into the <code>#blit</code> method.</p>
+</div>
+<pre class="highlight"><code class="language-java">// In some AbstractContainerScreen subclass
+public MyContainerScreen(MyMenu menu, Inventory playerInventory, Component title) {
+    super(menu, playerInventory, title);
+
+    this.titleLabelX = 10;
+    this.inventoryLabelX = 10;
+
+    /*
+     * If the 'imageHeight' is changed, 'inventoryLabelY' must also be
+     * changed as the value depends on the 'imageHeight' value.
+     */
+}</code></pre>
+<h3 id="menu-access">Menu Access<a class="headerlink" href="#menu-access" title="Permanent link"> </a></h3>
+<p>As the menu is passed into the screen, any values that were within the menu and synced (either through slots, data slots, or a custom system) can now be accessed through the <code>menu</code> field.</p>
+<h3 id="container-tick">Container Tick<a class="headerlink" href="#container-tick" title="Permanent link"> </a></h3>
+<p>Container screens tick within the <code>#tick</code> method when the player is alive and looking at the screen via <code>#containerTick</code>. This essentially takes the place of <code>#tick</code> within container screens, with its most common usage being to tick the recipe book.</p>
+<pre class="highlight"><code class="language-java">// In some AbstractContainerScreen subclass
+@Override
+protected void containerTick() {
+    super.containerTick();
+
+    // Tick things here
+}</code></pre>
+<h3 id="rendering-the-container-screen">Rendering the Container Screen<a class="headerlink" href="#rendering-the-container-screen" title="Permanent link"> </a></h3>
+<p>The container screen is rendered across three methods: <code>#renderBg</code>, which renders the background textures, <code>#renderLabels</code>, which renders any text on top of the background, and <code>#render</code> which encompass the previous two methods in addition to providing a grayed out background and tooltips.</p>
+<p>Starting with <code>#render</code>, the most common override (and typically the only case) adds the background, calls the super to render the container screen, and finally renders the tooltips on top of it.</p>
+<pre class="highlight"><code class="language-java">// In some AbstractContainerScreen subclass
+@Override
+public void render(PoseStack pose, int mouseX, int mouseY, float partialTick) {
+    this.renderBackground(pose);
+    super.render(pose, mouseX, mouseY, partialTick);
+
+    /*
+     * This method is added by the container screen to render
+     * a tooltip for whatever slot is hovered over.
+     */
+    this.renderTooltip(pose, mouseX, mouseY);
+}</code></pre>
+<p>Within the super, <code>#renderBg</code> is called to render the background of the screen. The most standard representation uses three method calls: two for setup and one to draw the background texture.</p>
+<pre class="highlight"><code class="language-java">// In some AbstractContainerScreen subclass
+
+// The location of the background texture (assets/&lt;namespace&gt;/&lt;path&gt;)
+private static final ResourceLocation BACKGROUND_LOCATION = new ResourceLocation(MOD_ID, "textures/gui/container/my_container_screen.png");
+
+@Override
+protected void renderBg(PoseStack pose, float partialTick, int mouseX, int mouseY) {
+    /*
+     * Sets the tint color when rendering the texture. The shader used 
+     * to apply the texture when calling 'blit' does not contain the 
+     * color, so tints can only be applied through this method.
+     */
+    RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+
+    /*
+     * Sets the texture location for the shader to use. While up to
+     * 12 textures can be set, the shader used within 'blit' only
+     * looks at the first texture index.
+     */
+    RenderSystem.setShaderTexture(0, BACKGROUND_LOCATION);
+
+    /*
+     * Renders the background texture to the screen. 'leftPos' and
+     * 'topPos' should already represent the top left corner of where
+     * the texture should be rendered as it was precomputed from the
+     * 'imageWidth' and 'imageHeight'. The two zeros represent the
+     * integer u/v coordinates inside the 256 x 256 PNG file.
+     */
+    this.blit(pose, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
+}</code></pre>
+<p>Finally, <code>#renderLabels</code> is called to render any text above the background, but below the tooltips. This simply calls uses the font to draw the associated components.</p>
+<pre class="highlight"><code class="language-java">// In some AbstractContainerScreen subclass
+@Override
+protected void renderLabels(PoseStack pose, int mouseX, int mouseY) {
+    super.renderLabels(pose, mouseX, mouseY);
+
+    // Assume we have some Component 'label'
+    // 'label' is drawn at 'labelX' and 'labelY'
+    this.font.draw(pose, label, labelX, labelY, 0x404040);
+}</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When rendering the label, you do <strong>not</strong> need to specify the <code>leftPos</code> and <code>topPos</code> offset. Those have already been translated within the <code>PoseStack</code> so everything within this method is drawn relative to those coordinates.</p>
+</div>
+<h2 id="registering-an-abstractcontainerscreen">Registering an AbstractContainerScreen<a class="headerlink" href="#registering-an-abstractcontainerscreen" title="Permanent link"> </a></h2>
+<p>To use an <code>AbstractContainerScreen</code> with a menu, it needs to be registered. This can be done by calling <code>MenuScreens#register</code> within the <code>FMLClientSetupEvent</code> on the <a href="../../concepts/events/#mod-event-bus"><strong>mod event bus</strong></a>.</p>
+<pre class="highlight"><code class="language-java">// Event is listened to on the mod event bus
+private void clientSetup(FMLClientSetupEvent event) {
+    event.enqueueWork(
+        // Assume RegistryObject&lt;MenuType&lt;MyMenu&gt;&gt; MY_MENU
+        // Assume MyContainerScreen&lt;MyMenu&gt; which takes in three parameters
+        () -&gt; MenuScreens.register(MY_MENU.get(), MyContainerScreen::new)
+    );
+}</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>MenuScreens#register</code> is not thread-safe, so it needs to be called inside <code>#enqueueWork</code> provided by the parallel dispatch event.</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

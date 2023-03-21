@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Key Mappings - Forge Korean Documentation</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/manifest.json">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Forge Docs">
+    <meta name="application-name" content="Forge Docs">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/a1f20be65b.css">
+    <link rel="stylesheet" href="../../css/styles_dark.css?version=2" data-theme="dark">
+    <link rel="stylesheet" href="../../css/styles_light.css?version=2" data-theme="light">
+
+    
+    <link href="../../css/version_warning_fix.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../../js/theme-switch.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jScrollPane/2.0.23/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+    <script type="text/javascript" src="../../js/theme.js"></script>
+
+    <script>var base_url = '../..';</script>
+    
+    <script src="../../search/main.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#" class="open-sidebar"><i class="fa fa-bars"></i></a>
+            <a href="../.." class="logo-image"><img src="../../images/logo.svg" width="244"></a>
+        </div>
+        <nav>
+            <ul class="links clearfix">
+                <li><a href="https://minecraftforge.net/">Forums</a></li>
+            </ul>
+        </nav>
+        
+        <form role="search" id="rtd-search-form" class="search" action="../../search.html" method="get">
+            <input type="submit" value="&#xf002;">
+            <div class="search-field">
+                <input type="search" title="Search" name="q" placeholder="Search...">
+            </div>
+        </form>
+        
+    </div>
+</header>
+<main class="wrapper sidebar-wrapper">
+    <div class="sidebar-left sidebar-sticky">
+        <aside>
+            <section class="sidebar-nav">
+                <h2 class="sidebar-heading">
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Docs:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/latest" selected>MinecraftForge</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/fg-6.x" >ForgeGradle</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <h2 class="sidebar-heading">
+                    <form class="version-selection">
+                        <label for="version-selection-dropdown">Version:</label>
+                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.16.x" >1.16.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.18.x" >1.18.x</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.2" selected>1.19.2</option>
+                            
+                            <option value="https://docs.minecraftforge.net/en/1.19.x" >1.19.x</option>
+                            
+                        </select>
+                    </form>
+                </h2>
+                <ul class="section-content scroll-pane">
+                    
+                    
+<li >
+    
+    <a href="../.." class="elem-text">Home</a>
+    
+    
+</li>
+
+                    
+                    
+<li >
+    
+    <a href="../../contributing/" class="elem-text">Contributing to the Docs</a>
+    
+    
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Getting Started</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/structuring/" class="elem-text">Structuring Your Mod</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gettingstarted/versioning/" class="elem-text">Versioning</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Core Concepts</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../concepts/registries/" class="elem-text">Registries</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/sides/" class="elem-text">Sides</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/events/" class="elem-text">Events</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/lifecycle/" class="elem-text">Mod Lifecycle</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/resources/" class="elem-text">Resources</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../concepts/internationalization/" class="elem-text">Internationalization</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Blocks</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blocks/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blocks/states/" class="elem-text">Block States</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Items</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../items/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../items/bewlr/" class="elem-text">BlockEntityWithoutLevelRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Networking</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../networking/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/simpleimpl/" class="elem-text">SimpleImpl</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../networking/entities/" class="elem-text">Synchronizing Entities</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Block Entities</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../blockentities/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../blockentities/ber/" class="elem-text">BlockEntityRenderer</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Game Effects</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gameeffects/particles/" class="elem-text">Particles</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gameeffects/sounds/" class="elem-text">Sounds</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Storage</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datastorage/capabilities/" class="elem-text">Capabilities</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/saveddata/" class="elem-text">Saved Data</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datastorage/codecs/" class="elem-text">Codecs</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Graphical User Interfaces</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../gui/menus/" class="elem-text">Menus</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../gui/screens/" class="elem-text">Screens</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Rendering</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Model Loaders</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/bakedmodel/" class="elem-text">Baked Model</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/transform/" class="elem-text">Transform</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../rendering/modelloaders/itemoverrides/" class="elem-text">Item Overrides</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Resources</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Models</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/tinting/" class="elem-text">Texture Tinting</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/client/models/itemproperties/" class="elem-text">Item Properties</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Recipes</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/custom/" class="elem-text">Custom Recipes</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/ingredients/" class="elem-text">Ingredients</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/recipes/incode/" class="elem-text">Non-Datapack Recipes</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/loottables/" class="elem-text">Loot Tables</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/glm/" class="elem-text">Global Loot Modifiers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/tags/" class="elem-text">Tags</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/advancements/" class="elem-text">Advancements</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../resources/server/conditional/" class="elem-text">Conditionally-Loaded Data</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Data Generation</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Client Assets</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/client/modelproviders/" class="elem-text">Model Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/localization/" class="elem-text">Language Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/client/sounds/" class="elem-text">Sound Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+        
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Server Data</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../datagen/server/recipes/" class="elem-text">Recipe Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/loottables/" class="elem-text">Loot Table Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/tags/" class="elem-text">Tag Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/advancements/" class="elem-text">Advancement Providers</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../datagen/server/glm/" class="elem-text">Global Loot Modifier Providers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Miscellaneous Features</a>
+    
+    <ul class="nav-collapsible nav-collapsible-open">
+        
+        
+<li >
+    
+    <a href="../config/" class="elem-text">Configuration</a>
+    
+    
+</li>
+
+        
+        
+<li class="elem-active elem-toc" >
+    
+    <a href="#key-mappings" class="elem-text">Key Mappings</a>
+    
+    
+    <ul class="table-of-contents">
+        
+        
+        
+        <li class="toc-subitem"><a href="#registering-a-keymapping">Registering a KeyMapping</a></li>
+        
+        <li class="toc-subitem"><a href="#creating-a-keymapping">Creating a KeyMapping</a></li>
+        
+        <li class="toc-subitem"><a href="#checking-a-keymapping">Checking a KeyMapping</a></li>
+        
+        
+    </ul>
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../gametest/" class="elem-text">Game Tests</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../updatechecker/" class="elem-text">Forge Update Checker</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../debugprofiler/" class="elem-text">Debug Profiler</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Advanced Topics</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../advanced/accesstransformers/" class="elem-text">Access Transformers</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Contributing to Forge</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../forgedev/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../forgedev/prguidelines/" class="elem-text">Pull Request Guidelines</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                    
+<li class="elem-parent">
+    
+    <a href="#" class="elem-text toggle-collapsible"><span class="fa fa-plus collapsible-icon"></span> Legacy Versions</a>
+    
+    <ul class="nav-collapsible ">
+        
+        
+<li >
+    
+    <a href="../../legacy/" class="elem-text">Introduction</a>
+    
+    
+</li>
+
+        
+        
+<li >
+    
+    <a href="../../legacy/porting/" class="elem-text">Porting to This Version</a>
+    
+    
+</li>
+
+        
+    </ul>
+</li>
+
+                    
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <div class="sidebar-sticky-wrapper-content">
+        <article class="docs-entry">
+            
+            <h1 id="key-mappings">Key Mappings<a class="headerlink" href="#key-mappings" title="Permanent link"> </a></h1>
+<p>A key mapping, or key binding, defines a particular action that should be tied to an input: mouse click, key press, etc. Each action defined by a key mapping can be checked whenever the client can take an input. Furthermore, each key mapping can be assigned to any input through the <a href="https://minecraft.fandom.com/wiki/Options#Controls">Controls option menu</a>.</p>
+<h2 id="registering-a-keymapping">Registering a <code>KeyMapping</code><a class="headerlink" href="#registering-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be registered by listening to the <code>RegisterKeyMappingsEvent</code> on the <a href="../../concepts/events/#mod-event-bus"><strong>mod event bus</strong></a> only on the physical client and calling <code>#register</code>.</p>
+<pre class="highlight"><code class="language-java">// In some physical client only class
+
+// Key mapping is lazily initialized so it doesn't exist until it is registered
+public static final Lazy&lt;KeyMapping&gt; EXAMPLE_MAPPING = Lazy.of(() -&gt; /*...*/);
+
+// Event is on the mod event bus only on the physical client
+@SubscribeEvent
+public void registerBindings(RegisterKeyMappingsEvent event) {
+  event.register(EXAMPLE_MAPPING.get());
+}</code></pre>
+<h2 id="creating-a-keymapping">Creating a <code>KeyMapping</code><a class="headerlink" href="#creating-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be created using it&rsquo;s constructor. The <code>KeyMapping</code> takes in a <a href="../../concepts/internationalization/#translatablecontents">translation key</a> defining the name of the mapping, the default input of the mapping, and the <a href="../../concepts/internationalization/#translatablecontents">translation key</a> defining the category the mapping will be put within in the <a href="https://minecraft.fandom.com/wiki/Options#Controls">Controls option menu</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A <code>KeyMapping</code> can be added to a custom category by providing a category <a href="../../concepts/internationalization/#translatablecontents">translation key</a> not provided by vanilla. Custom category translation keys should contain the mod id (e.g. <code>key.categories.examplemod.examplecategory</code>).</p>
+</div>
+<h3 id="default-inputs">Default Inputs<a class="headerlink" href="#default-inputs" title="Permanent link"> </a></h3>
+<p>Each key mapping has a default input associated with it. This is provided through <code>InputConstants$Key</code>. Each input consists of an <code>InputConstants$Type</code>, which defines what device is providing the input, and an integer, which defines the associated identifier of the input on the device.</p>
+<p>Vanilla provides three types of inputs: <code>KEYSYM</code>, which defines a keyboard through the provided <code>GLFW</code> key tokens, <code>SCANCODE</code>, which defines a keyboard through the platform-specific scancode, and <code>MOUSE</code>, which defines a mouse.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is highly recommended to use <code>KEYSYM</code> over <code>SCANCODE</code> for keyboards as <code>GLFW</code> key tokens are not tied to any particular system. You can read more on the <a href="https://www.glfw.org/docs/3.3/input_guide.html#input_key">GLFW docs</a>.</p>
+</div>
+<p>The integer is dependent on the type provided. All input codes are defined in <code>GLFW</code>: <code>KEYSYM</code> tokens are prefixed with <code>GLFW_KEY_*</code> while <code>MOUSE</code> codes are prefixed with <code>GLFW_MOUSE_*</code>.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example1", // Will be localized using this translation key
+  InputConstants.Type.KEYSYM, // Default mapping is on the keyboard
+  GLFW.GLFW_KEY_P, // Default key is P
+  "key.categories.misc" // Mapping will be in the misc category
+)</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the key mapping should not be mapped to a default, the input should be set to <code>InputConstants#UNKNOWN</code>. The vanilla constructor will require you to extract the input code via <code>InputConstants$Key#getValue</code> while the Forge constructor can be supplied the raw input field.</p>
+</div>
+<h3 id="ikeyconflictcontext"><code>IKeyConflictContext</code><a class="headerlink" href="#ikeyconflictcontext" title="Permanent link"> </a></h3>
+<p>Not all mappings are used in every context. Some mappings are only used in a GUI, while others are only used purely in game. To avoid mappings of the same key used in different contexts conflicting with each other, an <code>IKeyConflictContext</code> can be assigned.</p>
+<p>Each conflict context contains two methods: <code>#isActive</code>, which defines if the mapping can be used in the current game state, and <code>#conflicts</code>, which defines whether the mapping conflicts with a key in the same or different conflict context.</p>
+<p>Currently, Forge defines three basic contexts through <code>KeyConflictContext</code>: <code>UNIVERSAL</code>, which is the default meaning the key can be used in every context, <code>GUI</code>, which means the mapping can only be used when a <code>Screen</code> is open, and <code>IN_GAME</code>, which means the mapping can only be used if a <code>Screen</code> is not open. New conflict contexts can be created by implementing <code>IKeyConflictContext</code>.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example2",
+  KeyConflictContext.GUI, // Mapping can only be used when a screen is open
+  InputConstants.Type.MOUSE, // Default mapping is on the mouse
+  GLFW.GLFW_MOUSE_BUTTON_LEFT, // Default mouse input is the left mouse button
+  "key.categories.examplemod.examplecategory" // Mapping will be in the new example category
+)</code></pre>
+<h3 id="keymodifier"><code>KeyModifier</code><a class="headerlink" href="#keymodifier" title="Permanent link"> </a></h3>
+<p>Modders may not want mappings to have the same behavior if a modifier key is held at the same (e.g. <code>G</code> vs <code>CTRL + G</code>). To remedy this, Forge adds an additional parameter to the constructor to take in a <code>KeyModifier</code> which can apply control (<code>KeyModifier#CONTROL</code>), shift (<code>KeyModifier#SHIFT</code>), or alt (<code>KeyModifier#ALT</code>) to any input. <code>KeyModifier#NONE</code> is the default and will apply no modifier.</p>
+<p>A modifier can be added in the <a href="https://minecraft.fandom.com/wiki/Options#Controls">controls option menu</a> by holding down the modifier key and the associated input.</p>
+<pre class="highlight"><code class="language-java">new KeyMapping(
+  "key.examplemod.example3",
+  KeyConflictContext.UNIVERSAL,
+  KeyModifier.SHIFT, // Default mapping requires shift to be held down
+  InputConstants.Type.KEYSYM, // Default mapping is on the keyboard
+  GLFW.GLFW_KEY_G, // Default key is G
+  "key.categories.misc"
+)</code></pre>
+<h2 id="checking-a-keymapping">Checking a <code>KeyMapping</code><a class="headerlink" href="#checking-a-keymapping" title="Permanent link"> </a></h2>
+<p>A <code>KeyMapping</code> can be checked to see whether it has been clicked. Depending on when, the mapping can be used in a conditional to apply the associated logic.</p>
+<h3 id="within-the-game">Within the Game<a class="headerlink" href="#within-the-game" title="Permanent link"> </a></h3>
+<p>Within the game, a mapping should be checked by listening to <code>ClientTickEvent</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> and checking <code>KeyMapping#consumeClick</code> within a while loop. <code>#consumeClick</code> will return <code>true</code> only the number of times the input was performed and not already previously handled, so it won&rsquo;t infinitely stall the game.</p>
+<pre class="highlight"><code class="language-java">// Event is on the Forge event bus only on the physical client
+public void onClientTick(ClientTickEvent event) {
+  if (event.phase == TickEvent.Phase.END) { // Only call code once as the tick event is called twice every tick
+    while (EXAMPLE_MAPPING.get().consumeClick()) {
+      // Execute logic to perform on click here
+    }
+  }
+}</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use the <code>InputEvent</code>s as an alternative to <code>ClientTickEvent</code>. There are separate events for keyboard and mouse inputs only, so they wouldn&rsquo;t handle any additional inputs.</p>
+</div>
+<h3 id="inside-a-gui">Inside a GUI<a class="headerlink" href="#inside-a-gui" title="Permanent link"> </a></h3>
+<p>Within a GUI, a mapping can be checked within one of the <code>GuiEventListener</code> methods using <code>IForgeKeyMapping#isActiveAndMatches</code>. The most common methods which can be checked are <code>#keyPressed</code> and <code>#mouseClicked</code>. </p>
+<p><code>#keyPressed</code> takes in the <code>GLFW</code> key token, the platform-specific scan code, and a bitfield of the held down modifiers. A key can be checked against a mapping by creating the input using <code>InputConstants#getKey</code>. The modifiers are already checked within the mapping methods itself.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+public boolean keyPressed(int key, int scancode, int mods) {
+  if (EXAMPLE_MAPPING.get().isActiveAndMatches(InputConstants.getKey(key, scancode))) {
+    // Execute logic to perform on key press here
+    return true;
+  }
+  return super.keyPressed(x, y, button);
+} </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not own the screen which you are trying to check a <strong>key</strong> for, you can listen to the <code>Pre</code> or <code>Post</code> events of <code>ScreenEvent$KeyPressed</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> instead.</p>
+</div>
+<p><code>#mouseClicked</code> takes in the mouse&rsquo;s x position, y position, and the button clicked. A mouse button can be checked against a mapping by creating the input using <code>InputConstants$Type#getOrCreate</code> with the <code>MOUSE</code> input.</p>
+<pre class="highlight"><code class="language-java">// In some Screen subclass
+@Override
+public boolean mouseClicked(double x, double y, int button) {
+  if (EXAMPLE_MAPPING.get().isActiveAndMatches(InputConstants.TYPE.MOUSE.getOrCreate(button))) {
+    // Execute logic to perform on mouse click here
+    return true;
+  }
+  return super.mouseClicked(x, y, button);
+} </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not own the screen which you are trying to check a <strong>mouse</strong> for, you can listen to the <code>Pre</code> or <code>Post</code> events of <code>ScreenEvent$MouseButtonPressed</code> on the <a href="../../concepts/events/#creating-an-event-handler"><strong>Forge event bus</strong></a> instead.</p>
+</div>
+            
+        </article>
+        
+    </div>
+</main>
+<div class="wrapper">
+    <footer>
+        Built with <a href="https://www.mkdocs.org">MkDocs</a> using a custom theme. Hosted by <a href="https://readthedocs.org">Read the Docs</a>.
+        <div class="theme-switch-wrapper">
+            Enable Dark Theme
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
