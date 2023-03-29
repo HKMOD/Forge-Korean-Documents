@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -488,7 +486,7 @@
         
         
         
-        <li class="toc-subitem"><a href="#transformtype">TransformType</a></li>
+        <li class="toc-subitem"><a href="#itemdisplaycontext">ItemDisplayContext</a></li>
         
         <li class="toc-subitem"><a href="#the-vanilla-way">The Vanilla Way</a></li>
         
@@ -964,21 +962,21 @@
         <article class="docs-entry">
             
             <h1 id="transform">Transform<a class="headerlink" href="#transform" title="Permanent link"> </a></h1>
-<p>When an <a href="../bakedmodel/"><code>BakedModel</code></a> is being rendered as an item, it can apply special handling depending on which transform it is being rendered in. &ldquo;Transform&rdquo; means in what context the model is being rendered. The possible transforms are represented in code by the <code>ItemTransforms$TransformType</code> enum. There are two systems for handling transform: the deprecated vanilla system, constituted by <code>BakedModel#getTransforms</code>, <code>ItemTransforms</code>, and <code>ItemTransform</code>, and the Forge system, embodied by the method <code>IForgeBakedModel#applyTransform</code>. The vanilla code is patched to favor using <code>applyTransform</code> over the vanilla system whenever possible.</p>
-<h2 id="transformtype"><code>TransformType</code><a class="headerlink" href="#transformtype" title="Permanent link"> </a></h2>
-<p><code>NONE</code> - Unused.</p>
+<p>When an <a href="../bakedmodel/"><code>BakedModel</code></a> is being rendered as an item, it can apply special handling depending on which transform it is being rendered in. &ldquo;Transform&rdquo; means in what context the model is being rendered. The possible transforms are represented in code by the <code>ItemDisplayContext</code> enum. There are two systems for handling transform: the deprecated vanilla system, constituted by <code>BakedModel#getTransforms</code>, <code>ItemTransforms</code>, and <code>ItemTransform</code>, and the Forge system, embodied by the method <code>IForgeBakedModel#applyTransform</code>. The vanilla code is patched to favor using <code>applyTransform</code> over the vanilla system whenever possible.</p>
+<h2 id="itemdisplaycontext"><code>ItemDisplayContext</code><a class="headerlink" href="#itemdisplaycontext" title="Permanent link"> </a></h2>
+<p><code>NONE</code> - Used for the display entity by default when no context is set and by Forge when a <code>Block</code>&lsquo;s <code>RenderShape</code> is set to <code>#ENTITYBLOCK_ANIMATED</code>.</p>
 <p><code>THIRD_PERSON_LEFT_HAND</code>/<code>THIRD_PERSON_RIGHT_HAND</code>/<code>FIRST_PERSON_LEFT_HAND</code>/<code>FIRST_PERSON_RIGHT_HAND</code> - The first person values represent when the player is holding the item in their own hand. The third person values represent when another player is holding the item and the client is looking at them in the 3rd person. Hands are self-explanatory.</p>
 <p><code>HEAD</code> - Represents when any player is wearing the item in the helmet slot (e.g. pumpkins).</p>
 <p><code>GUI</code> - Represents when the item is being rendered in a <code>Screen</code>.</p>
 <p><code>GROUND</code> - Represents when the item is being rendered in the level as an <code>ItemEntity</code>.</p>
 <p><code>FIXED</code> - Used for item frames.</p>
 <h2 id="the-vanilla-way">The Vanilla Way<a class="headerlink" href="#the-vanilla-way" title="Permanent link"> </a></h2>
-<p>The vanilla way of handling transform is through <code>BakedModel#getTransforms</code>. This method returns an <code>ItemTransforms</code>, which is a simple object that contains various <code>ItemTransform</code>s as <code>public final</code> fields. An <code>ItemTransform</code> represents a rotation, a translation, and a scale to be applied to the model. The <code>ItemTransforms</code> is a container for these, holding one for each of the <code>TransformType</code>s except <code>NONE</code>. In the vanilla implementation, calling <code>#getTransform</code> for <code>NONE</code> results in the default transform, <code>ItemTransform#NO_TRANSFORM</code>.</p>
+<p>The vanilla way of handling transform is through <code>BakedModel#getTransforms</code>. This method returns an <code>ItemTransforms</code>, which is a simple object that contains various <code>ItemTransform</code>s as <code>public final</code> fields. An <code>ItemTransform</code> represents a rotation, a translation, and a scale to be applied to the model. The <code>ItemTransforms</code> is a container for these, holding one for each of the <code>ItemDisplayContext</code>s except <code>NONE</code>. In the vanilla implementation, calling <code>#getTransform</code> for <code>NONE</code> results in the default transform, <code>ItemTransform#NO_TRANSFORM</code>.</p>
 <p>The entire vanilla system for handling transforms is deprecated by Forge, and most implementations of <code>BakedModel</code> should simply <code>return ItemTransforms#NO_TRANSFORMS</code> (which is the default implementation) from <code>BakedModel#getTransforms</code>. Instead, they should implement <code>#applyTransform</code>.</p>
 <h2 id="the-forge-way">The Forge Way<a class="headerlink" href="#the-forge-way" title="Permanent link"> </a></h2>
 <p>The Forge way of handling transforms is <code>#applyTransform</code>, a method patched into <code>BakedModel</code>. It supersedes the <code>#getTransforms</code> method.</p>
 <h4 id="bakedmodelapplytransform"><code>BakedModel#applyTransform</code><a class="headerlink" href="#bakedmodelapplytransform" title="Permanent link"> </a></h4>
-<p>Given a <code>TransformType</code>, <code>PoseStack</code>, and a boolean to determine whether to apply the transform for the left hand, this method produces an <code>BakedModel</code> to be rendered. Because the returned <code>BakedModel</code> can be a totally new model, this method is more flexible than the vanilla method (e.g. a piece of paper that looks flat in hand but crumpled on the ground).</p>
+<p>Given a <code>ItemDisplayContext</code>, <code>PoseStack</code>, and a boolean to determine whether to apply the transform for the left hand, this method produces an <code>BakedModel</code> to be rendered. Because the returned <code>BakedModel</code> can be a totally new model, this method is more flexible than the vanilla method (e.g. a piece of paper that looks flat in hand but crumpled on the ground).</p>
             
         </article>
         

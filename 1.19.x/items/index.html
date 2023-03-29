@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -1026,9 +1024,9 @@ public void buildContents(CreativeModeTabEvent.Register event) {
     // Set icon of creative tab
     .icon(() -&gt; new ItemStack(ITEM.get()))
     // Add default items to tab
-    .displayItems((enabledFlags, populator, hasPermissions) -&gt; {
-      populator.accept(ITEM.get());
-      populator.accept(BLOCK.get());
+    .displayItems((params, output) -&gt; {
+      output.accept(ITEM.get());
+      output.accept(BLOCK.get());
     })
   );
 }</code></pre>

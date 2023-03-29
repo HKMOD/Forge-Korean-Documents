@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -962,7 +960,7 @@
             <h1 id="blockentitywithoutlevelrenderer">BlockEntityWithoutLevelRenderer<a class="headerlink" href="#blockentitywithoutlevelrenderer" title="Permanent link"> </a></h1>
 <p><code>BlockEntityWithoutLevelRenderer</code> is a method to handle dynamic rendering on items. This system is much simpler than the old <code>ItemStack</code> system, which required a <code>BlockEntity</code>, and did not allow access to the <code>ItemStack</code>.</p>
 <h2 id="using-blockentitywithoutlevelrenderer">Using BlockEntityWithoutLevelRenderer<a class="headerlink" href="#using-blockentitywithoutlevelrenderer" title="Permanent link"> </a></h2>
-<p>BlockEntityWithoutLevelRenderer allows you to render your item using <code>public void renderByItem(ItemStack itemStack, TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay)</code>.</p>
+<p>BlockEntityWithoutLevelRenderer allows you to render your item using <code>public void renderByItem(ItemStack itemStack, ItemDisplayContext ctx, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay)</code>.</p>
 <p>In order to use an BEWLR, the <code>Item</code> must first satisfy the condition that its model returns true for <code>BakedModel#isCustomRenderer</code>. If it does not have one, it will use the default <code>ItemRenderer#getBlockEntityRenderer</code>. Once that returns true, the Item&rsquo;s BEWLR will be accessed for rendering. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

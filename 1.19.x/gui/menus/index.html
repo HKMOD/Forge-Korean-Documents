@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -969,9 +967,9 @@
 <p>Menus are created and removed dynamically and as such are not registry objects. As such, another factory object is registered instead to easily create and refer to the <em>type</em> of the menu. For a menu, these are <code>MenuType</code>s.</p>
 <p><code>MenuType</code>s must be <a href="../../concepts/registries/#methods-for-registering">registered</a>.</p>
 <h3 id="menusupplier"><code>MenuSupplier</code><a class="headerlink" href="#menusupplier" title="Permanent link"> </a></h3>
-<p>A <code>MenuType</code> is created by passing in a <code>MenuSupplier</code> to its constructor. A <code>MenuSupplier</code> represents a function which takes in the id of the container and the inventory of the player viewing the menu, and returns a newly created <a href="#abstractcontainermenu"><code>AbstractContainerMenu</code></a>.</p>
+<p>A <code>MenuType</code> is created by passing in a <code>MenuSupplier</code> and a <code>FeatureFlagSet</code> to its constructor. A <code>MenuSupplier</code> represents a function which takes in the id of the container and the inventory of the player viewing the menu, and returns a newly created <a href="#abstractcontainermenu"><code>AbstractContainerMenu</code></a>.</p>
 <pre class="highlight"><code class="language-java">// For some DeferredRegister&lt;MenuType&lt;?&gt;&gt; REGISTER
-public static final RegistryObject&lt;MenuType&lt;MyMenu&gt;&gt; MY_MENU = REGISTER.register("my_menu", () -&gt; new MenuType(MyMenu::new));
+public static final RegistryObject&lt;MenuType&lt;MyMenu&gt;&gt; MY_MENU = REGISTER.register("my_menu", () -&gt; new MenuType(MyMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
 // In MyMenu, an AbstractContainerMenu subclass
 public MyMenu(int containerId, Inventory playerInv) {

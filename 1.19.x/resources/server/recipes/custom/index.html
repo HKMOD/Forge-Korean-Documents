@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -1058,7 +1056,7 @@ public RecipeSerializer&lt;?&gt; getSerializer() {
 boolean matches(Level level, BlockPos pos);
 
 // Creates the block state to set the block at the specified position to
-BlockState assemble();
+BlockState assemble(RegistryAccess access);
 
 // In some manager class
 public Optional&lt;ExampleRecipe&gt; getRecipeFor(Level level, BlockPos pos) {

@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -1030,10 +1028,16 @@ SingleItemRecipeBuilder builder = SingleItemRecipeBuilder.stonecutting(input, Re
   .save(writer); // Add data to builder</code></pre>
 <h2 id="non-recipebuilder-builders">Non-<code>RecipeBuilder</code> Builders<a class="headerlink" href="#non-recipebuilder-builders" title="Permanent link"> </a></h2>
 <p>Some recipe builders do not implement <code>RecipeBuilder</code> due to lacking features used by all previously mentioned recipes.</p>
-<h3 id="upgraderecipebuilder">UpgradeRecipeBuilder<a class="headerlink" href="#upgraderecipebuilder" title="Permanent link"> </a></h3>
-<p><code>UpgradeRecipeBuilder</code> is used to generate smithing recipes. Additionally, custom upgrade recipes using a serializer like <code>UpgradeRecipe$Serializer</code> can also be data generated using this builder. The builder can be initialized via <code>#smithing</code> or through the constructor respectively. The recipe unlock criteria can be specified before saving.</p>
+<h3 id="smithingtransformrecipebuilder">SmithingTransformRecipeBuilder<a class="headerlink" href="#smithingtransformrecipebuilder" title="Permanent link"> </a></h3>
+<p><code>SmithingTransformRecipeBuilder</code> is used to generate smithing recipes which transform an item. Additionally, custom recipes using a serializer like <code>SmithingTransformRecipe$Serializer</code> can also be data generated using this builder. The builder can be initialized via <code>#smithing</code> or through the constructor respectively. The recipe unlock criteria can be specified before saving.</p>
 <pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
-UpgradeRecipeBuilder builder = UpgradeRecipeBuilder.smithing(base, addition, RecipeCategory.MISC, result)
+SmithingTransformRecipeBuilder builder = SmithingTransformRecipeBuilder.smithing(template, base, addition, RecipeCategory.MISC, result)
+  .unlocks("criteria", criteria) // How the recipe is unlocked
+  .save(writer, name); // Add data to builder</code></pre>
+<h3 id="smithingtrimrecipebuilder">SmithingTrimRecipeBuilder<a class="headerlink" href="#smithingtrimrecipebuilder" title="Permanent link"> </a></h3>
+<p><code>SmithingTrimRecipeBuilder</code> is used to generate smithing recipes for armor trims. Additionally, custom upgrade recipes using a serializer like <code>SmithingTrimRecipe$Serializer</code> can also be data generated using this builder. The builder can be initialized via <code>#smithingTrim</code> or through the constructor respectively. The recipe unlock criteria can be specified before saving.</p>
+<pre class="highlight"><code class="language-java">// In RecipeProvider#buildRecipes(writer)
+SmithingTrimRecipe builder = SmithingTrimRecipe.smithingTrim(template, base, addition, RecipeCategory.MISC)
   .unlocks("criteria", criteria) // How the recipe is unlocked
   .save(writer, name); // Add data to builder</code></pre>
 <h3 id="specialrecipebuilder">SpecialRecipeBuilder<a class="headerlink" href="#specialrecipebuilder" title="Permanent link"> </a></h3>

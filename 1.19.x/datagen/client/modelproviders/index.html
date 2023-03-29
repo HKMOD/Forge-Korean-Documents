@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -1371,8 +1369,13 @@ public JsonObject toJson(JsonObject json) {
 @Override
 public CompletableFuture&lt;?&gt; run(CachedOutput cache) {
   // Populate the model provider
-  this.example.generateAll(cache); // Generate the models
+  CompletableFuture&lt;?&gt; exampleFutures = this.example.generateAll(cache); // Generate the models
+
+  // Run logic and create CompletableFuture(s) for writing files
   // ...
+
+  // Assume we have a new CompletableFuture providerFuture
+  return CompletableFuture.allOf(exampleFutures, providerFuture);
 }</code></pre>
             
         </article>

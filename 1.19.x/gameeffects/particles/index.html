@@ -95,8 +95,6 @@
                             
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.18.x" >1.18.x</option>
                             
-                            <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.2" >1.19.2</option>
-                            
                             <option value="https://hkmod.github.io/Forge-Korean-Documents/1.19.x" selected>1.19.x</option>
                             
                         </select>
@@ -1118,7 +1116,7 @@
 <p>Implementing a custom render type will be left as an exercise to the reader.</p>
 <h3 id="particleprovider">ParticleProvider<a class="headerlink" href="#particleprovider" title="Permanent link"> </a></h3>
 <p>Finally, a particle is usually created via an <code>ParticleProvider</code>. A factory has a single method <code>#createParticle</code> which is used to create a particle given the particle data, client level, position, and movement delta. Since a <code>Particle</code> is not beholden to any particular <code>ParticleType</code>, it can be reused in different factories as necessary.</p>
-<p>An <code>ParticleProvider</code> must be registered by subscribing to the <code>RegisterParticleProvidersEvent</code> on the <strong>mod event bus</strong>. Within the event, the factory can be registered via <code>#register</code> by supplying an instance of the factory to the method.</p>
+<p>An <code>ParticleProvider</code> must be registered by subscribing to the <code>RegisterParticleProvidersEvent</code> on the <strong>mod event bus</strong>. Within the event, the factory can be registered via <code>#registerSpecial</code> by supplying an instance of the factory to the method.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><code>RegisterParticleProvidersEvent</code> should only be called on the client and thus sided off in some isolated client class, referenced by either <code>DistExecutor</code> or <code>@EventBusSubscriber</code>.</p>
@@ -1138,7 +1136,11 @@
   ]
 }</code></pre>
 <p>To reference a particle texture, the subtype of <code>TextureSheetParticle</code> should either take in an <code>SpriteSet</code> or a <code>TextureAtlasSprite</code> obtained from <code>SpriteSet</code>. <code>SpriteSet</code> holds a list of textures which refer to the sprites as defined by our <code>ParticleDescription</code>. <code>SpriteSet</code> has two methods, both of which grab a <code>TextureAtlasSprite</code> in different methods. The first method takes in two integers. The backing implementation allows the sprite to have a texture change as it ages. The second method takes in a <code>Random</code> instance to get a random texture from the sprite set. The sprite can be set within <code>TextureSheetParticle</code> by using one of the helper methods that takes in the <code>SpriteSet</code>: <code>#pickSprite</code> which uses the random method of picking a texture, and <code>#setSpriteFromAge</code> which uses the percentage method of two integers to pick the texture.</p>
-<p>To register these particle textures, a <code>SpriteParticleRegistration</code> needs to be supplied to the <code>RegisterParticleProvidersEvent#register</code> method. This method takes in an <code>SpriteSet</code> holding the associated sprite set for the particle and creates an <code>ParticleProvider</code> to create the particle. The simplest method of implementation can be done by implementing <code>ParticleProvider</code> on some class and having the constructor take in an <code>SpriteSet</code>. Then the <code>SpriteSet</code> can be passed to the particle as normal.</p>
+<p>To register these particle textures, a <code>SpriteParticleRegistration</code> needs to be supplied to the <code>RegisterParticleProvidersEvent#registerSpriteSet</code> method. This method takes in an <code>SpriteSet</code> holding the associated sprite set for the particle and creates an <code>ParticleProvider</code> to create the particle. The simplest method of implementation can be done by implementing <code>ParticleProvider</code> on some class and having the constructor take in an <code>SpriteSet</code>. Then the <code>SpriteSet</code> can be passed to the particle as normal.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are registering a <code>TextureSheetParticle</code> subtype which only contains one texture, then you can supply a <code>ParticleProvider$Sprite</code> instead to the <code>#registerSprite</code> method, which has essentially the same functional interface method as <code>ParticleProvider</code>.</p>
+</div>
 <h2 id="spawning-a-particle">Spawning a Particle<a class="headerlink" href="#spawning-a-particle" title="Permanent link"> </a></h2>
 <p>Particles can be spawned from either level instance. However, each side has a specific way to spawn a particle. If on the <code>ClientLevel</code>, <code>#addParticle</code> can be called to spawn a particle or <code>#addAlwaysVisibleParticle</code> can be called to spawn a particle that is visible from any distance. If on the <code>ServerLevel</code>, <code>#sendParticles</code> can be called to send a packet to the client to spawn the particle. Calling the two <code>ClientLevel</code> methods on the server will result in nothing.</p>
             
