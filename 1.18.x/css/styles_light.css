@@ -232,7 +232,7 @@ html {
 }
 
 body {
-    font-family: "Nanum Gothic Coding", sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
     font-size: 1rem;
     line-height: 1.4;
     color: #373a3c;
@@ -745,8 +745,7 @@ p {
     transition: color 0.2s ease-in-out
 }
 
-.pagination li.pagination-first a:hover, .pagination li.pagination-first a:active, .pagination li.pagination-first a:focus, .pagination li.pagination-last a:hover, .pagination li.pagination-last a:active, .pagination li.
-pagination-last a:focus, .pagination li.pagination-next a:hover, .pagination li.pagination-next a:active, .pagination li.pagination-next a:focus, .pagination li.pagination-prev a:hover, .pagination li.pagination-prev a:active, .pagination li.pagination-prev a:focus {
+.pagination li.pagination-first a:hover, .pagination li.pagination-first a:active, .pagination li.pagination-first a:focus, .pagination li.pagination-last a:hover, .pagination li.pagination-last a:active, .pagination li.pagination-last a:focus, .pagination li.pagination-next a:hover, .pagination li.pagination-next a:active, .pagination li.pagination-next a:focus, .pagination li.pagination-prev a:hover, .pagination li.pagination-prev a:active, .pagination li.pagination-prev a:focus {
     background: none !important;
     color: #aeb4b9 !important
 }
