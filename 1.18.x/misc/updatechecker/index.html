@@ -789,18 +789,18 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#forge-update-checker" class="elem-text">자동 업데이트 확인</a>
+    <a href="#_1" class="elem-text">자동 업데이트 확인</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#getting-started">Getting Started</a></li>
+        <li class="toc-subitem"><a href="#_2">기초 설정</a></li>
         
-        <li class="toc-subitem"><a href="#update-json-format">Update JSON format</a></li>
+        <li class="toc-subitem"><a href="#json">업데이트 JSON 형식</a></li>
         
-        <li class="toc-subitem"><a href="#retrieving-update-check-results">Retrieving Update Check Results</a></li>
+        <li class="toc-subitem"><a href="#_3">업데이트 확인 결과 이용하기</a></li>
         
         
     </ul>
@@ -907,80 +907,82 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="forge-update-checker">Forge Update Checker<a class="headerlink" href="#forge-update-checker" title="Permanent link"> </a></h1>
-<p>Forge provides a very lightweight, opt-in, update-checking framework. If any mods have an available update, it will show a flashing icon on the &lsquo;Mods&rsquo; button of the main menu and mod list along with the respective changelogs. It <em>does not</em> download updates automatically.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"> </a></h2>
-<p>The first thing you want to do is specify the <code>updateJSONURL</code> parameter in your <code>mods.toml</code> file. The value of this parameter should be a valid URL pointing to an update JSON file. This file can be hosted on your own web server, GitHub, or wherever you want as long as it can be reliably reached by all users of your mod.</p>
-<h2 id="update-json-format">Update JSON format<a class="headerlink" href="#update-json-format" title="Permanent link"> </a></h2>
-<p>The JSON itself has a relatively simple format as follows:</p>
+            <h1 id="_1">포지 자동 업데이트 시스템<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>포지는 가벼운 자동 업데이트 프레임워크를 제공합니다. 만약 업데이트가 가능한 모드가 있다면, 메인 메뉴의 &ldquo;모드&rdquo; 버튼과 모드 목록에 아이콘이 표시되고, 변경 사항도 그 옆에 같이 표시됩니다. 하지만 업데이트를 <em>자동으로 설치하진 않습니다</em>.</p>
+<h2 id="_2">기초 설정<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>일단, <code>mods.toml</code>의 <code>updateJSONURL</code>을 변경하셔야 합니다. 이 값은 업데이트 정보를 담고 있는 JSON 파일을 제공하는 올바른 URL이어야 합니다. 이 파일을 언제든지 제공할 수만 있다면, 직접 구축하신 웹 서버, Github 등, 아무 데나 올리셔도 상관없습니다.</p>
+<h2 id="json">업데이트 JSON 형식<a class="headerlink" href="#json" title="Permanent link"> </a></h2>
+<p>업데이트 JSON은 다음과 같은 간단한 형식을 가지고 있습니다:</p>
 <pre class="highlight"><code class="language-js">{
-  "homepage": "&lt;homepage/download page for your mod&gt;",
+  "homepage": "&lt;모드 홈페이지&gt;",
   "&lt;mcversion&gt;": {
-    "&lt;modversion&gt;": "&lt;changelog for this version&gt;", 
-    // List all versions of your mod for the given Minecraft version, along with their changelogs
-    // ...
+    "&lt;modversion&gt;": "&lt;변경 내역&gt;", 
+    "&lt;modversion&gt;": "&lt;변경 내역&gt;", 
+    "&lt;modversion&gt;": "&lt;변경 내역&gt;", 
+    "&lt;modversion&gt;": "&lt;변경 내역&gt;", 
+    //.........
   },
   "promos": {
     "&lt;mcversion&gt;-latest": "&lt;modversion&gt;",
-    // Declare the latest "bleeding-edge" version of your mod for the given Minecraft version
+    // 해당 마인크래프트 버전에서 가장 최신 모드 버전을 선언합니다.
     "&lt;mcversion&gt;-recommended": "&lt;modversion&gt;",
-    // Declare the latest "stable" version of your mod for the given Minecraft version
+    // 해당 마인크래프트 버전에서 안정된 모드 버전을 선언합니다.
     // ...
   }
 }</code></pre>
-<p>This is fairly self-explanatory, but some notes:</p>
+<p>형식이 간단하여 긴 설명이 필요하지 않으나, 알아두셔야 할 점이 몇 가지 있습니다:</p>
 <ul>
 <li>
-<p>The link under <code>homepage</code> is the link the user will be shown when the mod is outdated.</p>
+<p><code>homepage</code>는 모드를 업데이트해야 할 때 사용자에게 표시될 링크입니다.</p>
 </li>
 <li>
-<p>Forge uses an internal algorithm to determine whether one version string of your mod is &ldquo;newer&rdquo; than another. Most versioning schemes should be compatible, but see the <code>ComparableVersion</code> class if you are concerned about whether your scheme is supported. Adherence to <a href="https://semver.org/">semantic versioning</a> is highly recommended.</p>
+<p>포지는 직접 버전 문자열을 비교하는 알고리즘을 구현합니다. 대부분의 버전 형식이랑 호환되지만, 사용하고자 하시는 버전 형식이 제대로 처리될지 확실하게 알고 싶으시다면 <code>ComparableVersion</code>을 참고하여 주세요. 저희는 <a href="https://semver.org/">유의적 버전</a>을 사용하시는 것을 추천드립니다.</p>
 </li>
 <li>
-<p>The changelog string can be separated into lines using <code>\n</code>. Some prefer to include a abbreviated changelog, then link to an external site that provides a full listing of changes.</p>
+<p>변경 내역 문자열은 <code>\n</code>을 사용해 여러 줄로 나눌 수 있습니다. 이때 여기 적는 변경 내역에는 요약본만 적어두고 전체 변경 내역은 다른 사이트에서 참고할 수 있도록 링크를 걸어두실 수도 있습니다.</p>
 </li>
 <li>
-<p>Manually inputting data can be chore. You can configure your <code>build.gradle</code> to automatically update this file when building a release as Groovy has native JSON parsing support. Doing this is left as an exercise to the reader.</p>
+<p>직접 업데이트 JSON 파일을 작성하는 것은 귀찮을 수 있습니다. Groovy는 기본적으로 JSON을 지원하니, <code>build.gradle</code>을 이용해 자동으로 이 JSON 파일을 작성하도록 하실 수도 있습니다. 구체적인 방법은 여러분들에게 숙제로 남겨드리죠. :)</p>
 </li>
-<li>Some examples can be found here for <a href="https://cadiboo.github.io/projects/nocubes/update.json">nocubes</a>, <a href="https://github.com/Corail31/tombstone_lite/blob/master/update.json">Corail Tombstone</a> and <a href="https://github.com/Aeltumn/Chisels-and-Bits-2/blob/master/update.json">Chisels &amp; Bits 2</a>.</li>
+<li>참고할만한 업데이트 JSON 예제들입니다: <a href="https://cadiboo.github.io/projects/nocubes/update.json">nocubes</a>, <a href="https://github.com/Corail31/tombstone_lite/blob/master/update.json">Corail Tombstone</a>, <a href="https://github.com/Aeltumn/Chisels-and-Bits-2/blob/master/update.json">Chisels &amp; Bits 2</a>.</li>
 </ul>
-<h2 id="retrieving-update-check-results">Retrieving Update Check Results<a class="headerlink" href="#retrieving-update-check-results" title="Permanent link"> </a></h2>
-<p>You can retrieve the results of the Forge Update Checker using <code>VersionChecker#getResult(IModInfo)</code>. You can obtain your <code>IModInfo</code> via <code>ModContainer#getModInfo</code>. You can get your <code>ModContainer</code> using <code>ModLoadingContext.get().getActiveContainer()</code> inside your constructor, <code>ModList.get().getModContainerById(&lt;your modId&gt;)</code>, or <code>ModList.get().getModContainerByObject(&lt;your mod instance&gt;)</code>. You can obtain any other mod&rsquo;s <code>ModContainer</code> using <code>ModList.get().getModContainerById(&lt;modId&gt;)</code>. The returned object has a field <code>status</code> which indicates the status of the version check.</p>
+<h2 id="_3">업데이트 확인 결과 이용하기<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>모드 버전 업데이트 확인 결과를 코드에서 이용하시려면 <code>VersionChecker#getResult(IModInfo)</code>를 호출하시면 됩니다. <code>IModInfo</code>는 <code>ModContainer#getModInfo</code>를 통해 얻으실 수 있습니다, 그리고 <code>ModContainer</code>는 모드 메인 클래스의 생성자에서 <code>ModLoadingContext.get().getActiveContainer</code>를 호출하시거나, <code>ModList.get().getModContainerById("모드 아이디")</code>, 또는 <code>ModList.get().getModContainerByObject(모드 메인 클래스 인스턴스)</code>로 얻으실 수 있습니다, 다른 모드의 <code>ModContainer</code>는 해당 모드의 아이디를 이용하여 얻으실 수 있습니다. <code>VersionChecker#getResult</code>가 반환한 객체는 <code>status</code>란 필드가 있는데, 버전 업데이트 확인 결과를 담고 있습니다.</p>
 <table>
 <thead>
 <tr>
 <th align="right">Status</th>
-<th align="left">Description</th>
+<th align="left">설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="right"><code>FAILED</code></td>
-<td align="left">The version checker could not connect to the URL provided.</td>
+<td align="left">버전 업데이트 시스템이 제공된 URL에 접속할 수 없음.</td>
 </tr>
 <tr>
 <td align="right"><code>UP_TO_DATE</code></td>
-<td align="left">The current version is equal to or newer than the latest stable version.</td>
+<td align="left">현재 버전이 최신 안정 버전 이상임.</td>
 </tr>
 <tr>
 <td align="right"><code>OUTDATED</code></td>
-<td align="left">There is a new stable version.</td>
+<td align="left">안정 버전으로 업데이트가 가능함.</td>
 </tr>
 <tr>
 <td align="right"><code>BETA_OUTDATED</code></td>
-<td align="left">There is a new unstable version.</td>
+<td align="left">베타 버전으로 업데이트가 가능함.</td>
 </tr>
 <tr>
 <td align="right"><code>BETA</code></td>
-<td align="left">The current version is equal to or newer than the latest unstable version.</td>
+<td align="left">현재 버전이 최신 베타 버전 이상임.</td>
 </tr>
 <tr>
 <td align="right"><code>PENDING</code></td>
-<td align="left">The result requested has not finished yet, so you should try again in a little bit.</td>
+<td align="left">아직 업데이트 확인이 끝나지 않았음.</td>
 </tr>
 </tbody>
 </table>
-<p>The returned object will also have the target version and any changelog lines as specified in <code>update.json</code>.</p>
+<p><code>VersionChecker#getResult</code>는 업데이트 가능 버전 및 변경 내역 또한 포함하고 있습니다.</p>
             
         </article>
         
