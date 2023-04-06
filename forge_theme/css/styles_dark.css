@@ -1636,7 +1636,7 @@ section.sidebar-nav > ul .table-of-contents .toc-item, section.sidebar-nav > ul 
     color: #a6e22e
 }
 
-.hljs-emphasis {
+.hljs-emphasis, .hljs-comment, .hljs-quote {
     font-style: italic
 }
 
