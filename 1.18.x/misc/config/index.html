@@ -771,18 +771,18 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#configuration" class="elem-text">모드 설정 파일</a>
+    <a href="#_1" class="elem-text">모드 설정 파일</a>
     
     
     <ul class="table-of-contents">
         
         
         
-        <li class="toc-subitem"><a href="#creating-a-configuration">Creating a Configuration</a></li>
+        <li class="toc-subitem"><a href="#_2">설정 파일 만들기</a></li>
         
-        <li class="toc-subitem"><a href="#registering-a-configuration">Registering a Configuration</a></li>
+        <li class="toc-subitem"><a href="#_4">설정 등록하기</a></li>
         
-        <li class="toc-subitem"><a href="#configuration-events">Configuration Events</a></li>
+        <li class="toc-subitem"><a href="#_5">설정 이벤트</a></li>
         
         
     </ul>
@@ -907,188 +907,177 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"> </a></h1>
-<p>Configurations define settings and consumer preferences that can be applied to a mod instance. Forge uses a configuration system using <a href="https://toml.io/">TOML</a> files and read with <a href="https://github.com/TheElectronWill/night-config">NightConfig</a>.</p>
-<h2 id="creating-a-configuration">Creating a Configuration<a class="headerlink" href="#creating-a-configuration" title="Permanent link"> </a></h2>
-<p>A configuration can be created using a subtype of <code>IConfigSpec</code>. Forge implements the type via <code>ForgeConfigSpec</code> and enables its construction through <code>ForgeConfigSpec$Builder</code>. The builder can separate the config values into sections via <code>Builder#push</code> to create a section and <code>Builder#pop</code> to leave a section. Afterwards, the configuration can be built using one of two methods:</p>
+            <h1 id="_1">모드 설정 파일<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p>설정 파일은 모드를 설정할 수 있도록 하고 기본값을 정의합니다. 포지는 설정 파일로 <a href="https://toml.io/ko/v1.0.0">TOML</a>을 사용하며, <a href="https://github.com/TheElectronWill/night-config">NightConfig</a>를 사용하여 설정 파일을 읽습니다.</p>
+<h2 id="_2">설정 파일 만들기<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>설정 파일은 <code>IConfigSpec</code>을 구현하는 것으로 정의할 수 있습니다. 포지는 <code>ForgeConfigSpec</code>에서 해당 인터페이스를 구현하며, <code>ForgeConfigSpec$Builder</code>를 활용해 해당 클래스를 생성합니다. <code>Builder#push</code>를 이용해 새로운 섹션에 들어갈 수 있고, <code>Builder#pop</code>으로 나올 수 있습니다. 이후, 아래 두 메서드를 이용하여 설정을 생성하실 수 있습니다:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Method</th>
-<th align="left">Description</th>
+<th align="left">메서드 이름</th>
+<th align="left">설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><code>build</code></td>
-<td align="left">Creates the <code>ForgeConfigSpec</code>.</td>
+<td align="left"><code>ForgeConfigSpec</code> 생성.</td>
 </tr>
 <tr>
 <td align="left"><code>configure</code></td>
-<td align="left">Creates a pair of the class holding the config values and the <code>ForgeConfigSpec</code>.</td>
+<td align="left">모드 설정 값들을 지니고 있는 클래스 T와 <code>ForgeConfigSpec</code>의 Pair 생성.</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>ForgeConfigSpec$Builder#configure</code> is typically used with a <code>static</code> block and a class that takes in <code>ForgeConfigSpec$Builder</code> as part of its constructor to attach and hold the values:</p>
-<pre class="highlight"><code class="language-java">// In some config class
+<p><code>ForgeConfigSpec$Builder#configure</code>는 일반적으로 <code>static</code>에서 사용되며, 이때 생성자 인자 중 하나로 <code>ForgeConfigSpec$Builder</code>를 받는 클래스 T를 사용합니다:</p>
+<pre class="highlight"><code class="language-java">// 모드 설정 클래스에서
 ExampleConfig(ForgeConfigSpec.Builder builder) {
-  // Define values here in final fields
+  // 모드 설정 값들을 builder로부터 가져와 final 필드에 지정함
 }
 
-// Somewhere the constructor is accessible
+// 모드 설정 클래스를 사용하는 곳에서
 static {
   Pair&lt;ExampleConfig, ForgeConfigSpec&gt; pair = new ForgeConfigSpec.Builder()
     .configure(ExampleConfig::new);
-  // Store pair values in some constant field
+  // 상수 필드에 해당 Pair를 할당함
 }</code></pre>
 </div>
-<p>Each config value can be supplied with additional context to provide additional behavior. Contexts must be defined before the config value is fully built:</p>
+<p>각 설정 값들은 추가 설명 또한 지정받을 수 있습니다. 이러한 추가 설명은 모드 설정을 생성하기 전에 지정해야 합니다:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Method</th>
-<th align="left">Description</th>
+<th align="left">메서드 이름</th>
+<th align="left">설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left"><code>comment</code></td>
-<td align="left">Provides a description of what the config value does. Can provide multiple strings for a multiline comment.</td>
+<td align="left">해당 설정값의 역할을 추가할 때 사용함. 한 줄 또는 여러 줄 가능.</td>
 </tr>
 <tr>
 <td align="left"><code>translation</code></td>
-<td align="left">Provides a translation key for the name of the config value.</td>
+<td align="left">해당 설정값의 번역 키값을 지정함.</td>
 </tr>
 <tr>
 <td align="left"><code>worldRestart</code></td>
-<td align="left">The world must be restarted before the config value can be changed.</td>
+<td align="left">해당 설정값을 적용하기 위해 월드를 다시시작 해야 하는지 지정함.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="configvalue">ConfigValue<a class="headerlink" href="#configvalue" title="Permanent link"> </a></h3>
-<p>Config values can be built with the provided contexts (if defined) using any of the <code>#define</code> methods.</p>
-<p>All config value methods take in at least two components:</p>
+<p>설정값은 <code>#define*</code> 메서드들을 활용해 정의할 수 있습니다. </p>
+<p>이 메서드들은 최소한 아래 두 개를 인자로 받는데:</p>
 <ul>
-<li>A path representing the name of the variable: a <code>.</code> separated string representing the sections the config value is in</li>
-<li>The default value when no valid configuration is present</li>
+<li>해당 설정값의 위치: <code>.</code>으로 구분하며, 설정값이 들어있는 섹션들과 설정값의 이름을 포함함</li>
+<li>올바른 설정 파일이 존재하지 않을 때 사용할 기본값</li>
 </ul>
-<p>The <code>ConfigValue</code> specific methods take in two additional components:</p>
+<p><code>ConfigValue</code> 전용 머세드는 아래 두 개의 추가 구성 요소가 필요한데:</p>
 <ul>
-<li>A validator to make sure the deserialized object is valid</li>
-<li>A class representing the data type of the config value</li>
+<li>비직렬화된 객체가 올바른지 확인하는 검사기</li>
+<li>해당 설정값의 클래스</li>
 </ul>
-<pre class="highlight"><code class="language-java">// For some ForgeConfigSpec$Builder builder
+<pre class="highlight"><code class="language-java">// ForgeConfigSpec$Builder를 사용하는 곳 어딘가
 ConfigValue&lt;T&gt; value = builder.comment("Comment")
   .define("config_value_name", defaultValue);</code></pre>
-<p>The values themselves can be obtained using <code>ConfigValue#get</code>. The values are additionally cached to prevent multiple readings from files.</p>
-<h4 id="additional-config-value-types">Additional Config Value Types<a class="headerlink" href="#additional-config-value-types" title="Permanent link"> </a></h4>
+<p>비직렬화된 설정값은 <code>ConfigValue#get</code>을 활용해 얻을 수 있습니다. 이 값들은 중간에 캐싱되어 파일을 여러 번 읽는 것을 방지합니다. </p>
+<h4 id="_3">유용할 만한 설정값 타입들<a class="headerlink" href="#_3" title="Permanent link"> </a></h4>
 <ul>
-<li><strong>Range Values</strong></li>
-<li>Description: Value must be between the defined bounds</li>
-<li>Class Type: <code>Comparable&lt;T&gt;</code></li>
-<li>Method Name: <code>#defineInRange</code></li>
-<li>Additional Components:<ul>
-<li>The minimum and maximum the config value may be</li>
-<li>A class representing the data type of the config value</li>
+<li><strong>범위가 지정된 값</strong></li>
+<li>설명: 값은 무조건 지정된 범위 안에 있어야 함</li>
+<li>타입: <code>Comparable&lt;T&gt;</code></li>
+<li>메서드 이름: <code>#defineInRange</code></li>
+<li>추가 구성 요소:<ul>
+<li>최소와 최댓값</li>
+<li>설정값을 표현할 수 있는 클래스</li>
 </ul>
 </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>DoubleValue</code>s, <code>IntValue</code>s, and <code>LongValue</code>s are range values which specify the class as <code>Double</code>, <code>Integer</code>, and <code>Long</code> respectively.</p>
+<p>포지는 기본적으로 <code>DoubleValue</code>, <code>IntValue</code>, <code>LongValue</code>를 제공합니다.</p>
 </div>
 <ul>
 <li>
-<p><strong>Whitelisted Values</strong></p>
-</li>
-<li>
-<p>Description: Value must be in supplied collection</p>
-</li>
-<li>Class Type: <code>T</code></li>
-<li>Method Name: <code>#defineInList</code></li>
-<li>
-<p>Additional Components:</p>
+<p><strong>화이트리스트 값</strong></p>
 <ul>
-<li>A collection of the allowed values the configuration can be</li>
+<li>설명: 설정값은 무조건 전달된 리스트 안 객체여야 함</li>
+<li>타입: <code>T</code></li>
+<li>메서드 이름 Name: <code>#defineInList</code></li>
+<li>추가 구성 요소:<ul>
+<li>허용된 설정값들의 리스트</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
-<p><strong>List Values</strong></p>
-</li>
-<li>
-<p>Description: Value is a list of entries</p>
-</li>
-<li>Class Type: <code>List&lt;T&gt;</code></li>
-<li>Method Name: <code>#defineList</code>, <code>#defineListAllowEmpty</code> if list can be empty</li>
-<li>
-<p>Additional Components:</p>
+<p><strong>리스트 값</strong></p>
 <ul>
-<li>A validator to make sure a deserialized element from the list is valid</li>
+<li>설명: 여러 요소를 포함하는 리스트를 값으로 가지는 설정</li>
+<li>타입: <code>List&lt;T&gt;</code></li>
+<li>메서드 이름: <code>#defineList</code>, 빈 리스트를 허용한다면 <code>#defineListAllowEmpty</code></li>
+<li>추가 구성 요소:<ul>
+<li>리스트의 구성 요소가 올바른지 확인하는 검사기</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
-<p><strong>Enum Values</strong></p>
-</li>
-<li>
-<p>Description: An enum value in the supplied collection</p>
-</li>
-<li>Class Type: <code>Enum&lt;T&gt;</code></li>
-<li>Method Name: <code>#defineEnum</code></li>
-<li>
-<p>Additional Components:</p>
+<p><strong>열거형 값</strong></p>
 <ul>
-<li>A getter to convert a string or integer into an enum</li>
-<li>A collection of the allowed values the configuration can be</li>
+<li>설명: An enum value in the supplied collection</li>
+<li>타입: <code>Enum&lt;T&gt;</code></li>
+<li>메서드 이름: <code>#defineEnum</code></li>
+<li>추가 구성 요소:<ul>
+<li>정수, 또는 문자열을 열거형 값 중 하나로 변환해 줄 함수</li>
+<li>허용된 설정값들의 컬렉션</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
-<p><strong>Boolean Values</strong></p>
-</li>
-<li>
-<p>Description: A <code>boolean</code> value</p>
-</li>
-<li>Class Type: <code>Boolean</code></li>
-<li>Method Name: <code>#define</code></li>
+<p><strong>불린 값</strong></p>
+<ul>
+<li>설명: <code>boolean</code> 값</li>
+<li>타입: <code>Boolean</code></li>
+<li>이름: <code>#define</code></li>
 </ul>
-<h2 id="registering-a-configuration">Registering a Configuration<a class="headerlink" href="#registering-a-configuration" title="Permanent link"> </a></h2>
-<p>Once a <code>ForgeConfigSpec</code> has been built, it must be registered to allow Forge to load, track, and sync the configuration settings as required. Configurations should be registered in the mod constructor via <code>ModLoadingContext#registerConfig</code>. A configuration can be registered with a given type representing the side the config belongs to, the <code>ForgeConfigSpec</code>, and optionally a specific file name for the configuration.</p>
-<pre class="highlight"><code class="language-java">// In the mod constructor with a ForgeConfigSpec CONFIG
-ModLoadingContext.get().registerConfig(Type.COMMON, CONFIG);</code></pre>
-<p>Here is a list of the available configuration types:</p>
+</li>
+</ul>
+<h2 id="_4">설정 등록하기<a class="headerlink" href="#_4" title="Permanent link"> </a></h2>
+<p><code>ForgeConfigSpec</code>의 인스턴스를 생성하셨다면 이를 포지에 등록해야 자동으로 불러오고, 추적하고, 동기화할 수 있습니다. 모드 생성자에서 <code>ModLoadingContext#registerConfig</code> 를 호출하여 다음과 같이 설정을 등록하실 수 있습니다, 이때 해당 설정을 사용할 사이드와, 생성하신 <code>ForgeConfigSpec</code>, 그리고 선택 사항으로 설정 파일의 이름을 인자로 전달합니다:</p>
+<pre class="highlight"><code class="language-java">ModLoadingContext.get().registerConfig(Type.COMMON, CONFIG);</code></pre>
+<p>설정 파일을 사용할 수 있는 사이드 목록들:</p>
 <table>
 <thead>
 <tr>
-<th align="center">Type</th>
-<th align="center">Loaded</th>
-<th align="center">Synced to Client</th>
-<th align="center">Client Location</th>
-<th align="center">Server Location</th>
-<th align="left">Default File Suffix</th>
+<th align="center">사이드</th>
+<th align="center">클라이언트와 동기화 되는가?</th>
+<th align="center">클라이언트에서의 파일 위치</th>
+<th align="center">서버에서의 파일 위치</th>
+<th align="left">파일 접미사</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="center">CLIENT</td>
-<td align="center">Client Side Only</td>
-<td align="center">No</td>
+<td align="center">안 함</td>
 <td align="center"><code>.minecraft/config</code></td>
 <td align="center">N/A</td>
 <td align="left"><code>-client</code></td>
 </tr>
 <tr>
 <td align="center">COMMON</td>
-<td align="center">On Both Sides</td>
-<td align="center">No</td>
+<td align="center">안 함</td>
 <td align="center"><code>.minecraft/config</code></td>
 <td align="center"><code>&lt;server_folder&gt;/config</code></td>
 <td align="left"><code>-common</code></td>
 </tr>
 <tr>
 <td align="center">SERVER</td>
-<td align="center">Server Side Only</td>
-<td align="center">Yes</td>
+<td align="center">함</td>
 <td align="center"><code>.minecraft/saves/&lt;level_name&gt;/serverconfig</code></td>
 <td align="center"><code>&lt;server_folder&gt;/world/serverconfig</code></td>
 <td align="left"><code>-server</code></td>
@@ -1097,13 +1086,13 @@ ModLoadingContext.get().registerConfig(Type.COMMON, CONFIG);</code></pre>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Forge documents the <a href="https://github.com/MinecraftForge/MinecraftForge/blob/c3e0b071a268b02537f9d79ef8e7cd9b100db416/fmlcore/src/main/java/net/minecraftforge/fml/config/ModConfig.java#L108-L136">config types</a> within their codebase.</p>
+<p>포지는 사용하는 위 <a href="https://github.com/MinecraftForge/MinecraftForge/blob/c3e0b071a268b02537f9d79ef8e7cd9b100db416/fmlcore/src/main/java/net/minecraftforge/fml/config/ModConfig.java#L108-L136">사이드들</a>을 문서화 합니다.</p>
 </div>
-<h2 id="configuration-events">Configuration Events<a class="headerlink" href="#configuration-events" title="Permanent link"> </a></h2>
-<p>Operations that occur whenever a config is loaded or reloaded can be done using the <code>ModConfigEvent$Loading</code> and <code>ModConfigEvent$Reloading</code> events. The events must be <a href="../../concepts/events/#creating-an-event-handler">registered</a> to the mod event bus.</p>
+<h2 id="_5">설정 이벤트<a class="headerlink" href="#_5" title="Permanent link"> </a></h2>
+<p>설정 파일을 처음으로 불러오거나 다시 불러올 때 이벤트 <code>ModConfigEvent$Loading</code>와 <code>ModConfigEvent$Reloading</code>가 방송됩니다. 이 이벤트들은 <a href="../../concepts/events/#이벤트-핸들러-만들기">모드 버스에서 방송됩니다</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>These events are called for all configurations for the mod; the <code>ModConfig</code> object provided should be used to denote which configuration is being loaded or reloaded.</p>
+<p>해당 이벤트들은 모든 모드에서 방송될 수 있습니다, 제공되는 <code>ModConfig</code>를 이용해서 어떤 모드의 설정이 변경되는지 반드시 구분하도록 하세요.</p>
 </div>
             
         </article>
