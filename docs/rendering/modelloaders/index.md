@@ -1,21 +1,20 @@
-Custom Model Loaders
+커스텀 모델 로더
 ====================
 
-A "model" is simply a shape. It can be a simple cube, it can be several cubes, it can be a truncated icosidodecahedron, or anything in between. Most models you'll see will be in the vanilla JSON format. Models in other formats are loaded into `IModelGeometry`s by an `IModelLoader` at runtime. Forge provides default implementations for WaveFront OBJ files, buckets, composite models, models in different render layers, and a reimplementation of Vanilla's `builtin/generated` item model. Most things do not care about what loaded the model or what format it's in as they are all eventually represented by an `BakedModel` in code.
+"모델"은 단순히 모양일 뿐입니다. 단순한 큐브일 수도 있고, 큐브 여러 개일 수도 있고, 아니면 십이이십면체일 수도 있죠. 바닐라 마인크래프트의 모델 대부분은 JSON 파일 형태로 작성되어 있지만, 그 외의 다른 모델들은 `IModelLoader`가 `IModelGeometry`로 변환해 불러옵니다. 포지는 WaveFront OBJ 파일, 양동이, 여러 모델의 합성, 다른 렌더 레이어를 사용하는 모델 등, 복잡한 모델을 만들 때 유용할 만한 기본 구현을 제공합니다. 또한, 바닐라 마인크래프트의 `builtin/generated` 로직을 재구현합니다. 대부분의 렌더링 로직은 모델이 `BakedModel`로 표현될 수만 있다면, 어디서 누가 어떻게 불러왔는지, 원래 모델 형식은 무엇이었는지 상관하지 않습니다.
 
-WaveFront OBJ Models
+WaveFront OBJ 모델
 --------------------
 
-Forge adds a loader for the `.obj` file format. To use these models, the JSON must reference the `forge:obj` loader. This loader accepts any model location that is in a registered namespace and whose path ends in `.obj`. The `.mtl` file should be placed in the same location with the same name as the `.obj` to be used automatically. The `.mtl` file will probably have to be manually edited to change the paths pointing to textures defined within the JSON. Additionally, the V axis for textures may be flipped depending on the external program that created the model (i.e. V = 0 may be the bottom edge, not the top). This may be rectified in the modelling program itself or done in the model JSON like so:
+포지는 `.obj` 파일을 불러올 수 있는 모델 로더를 제공합니다. 이를 사용하기 위해선, 일단 `forge:obj` 모델 로더를 사용하는 JSON 파일이 있어야 합니다. 이 모델 로더는 등록된 네임 스페이스에 존재하는 모든 `.obj` 파일들을 불러올 수 있습니다. 이때 `.mtl` 파일을 자동으로 사용하기 위해선 `.obj`와 같은 이름에, 같은 폴더에 위치하여야 합니다. 아마 JSON의 텍스쳐 위치를 바꾸신다면 `.mtl` 파일의 텍스쳐 위치도 같이 바꾸셔야 할 것입니다. 또한, 몇몇 모델링 소프트웨어들은 텍스쳐 UV 좌표의 V를 뒤집기도 하는데, 이는 해당 소프트웨어에서 변경하셔도 되고, 아니면 JSON에 V 좌표를 뒤집으라고 지정할 수도 있습니다:
 
 ```js
 {
-  // Add the following line on the same level as a 'model' declaration
   "loader": "forge:obj",
   "flip-v": true,
   "model": "examplemod:models/block/model.obj",
   "textures": {
-    // Can refer to in .mtl using #texture0
+    // .mtl 파일 내에서 #texture0으로 참조할 수 있음
     "texture0": "minecraft:block/dirt",
     "particle": "minecraft:block/dirt"
   }

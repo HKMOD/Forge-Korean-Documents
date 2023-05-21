@@ -35,7 +35,7 @@ nav:
   - 렌더링:
     - 모델 로더:
       - 소개: 'rendering/modelloaders/index.md'
-      - 최적화된 모델: 'rendering/modelloaders/bakedmodel.md'
+      - BakedModel: 'rendering/modelloaders/bakedmodel.md'
       - 시점: 'rendering/modelloaders/perspective.md'
       - 아이템 속성에 따른 동적 텍스쳐 변경: 'rendering/modelloaders/itemoverrides.md'
   - 리소스:
