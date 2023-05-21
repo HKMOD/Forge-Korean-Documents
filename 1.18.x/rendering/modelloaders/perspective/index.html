@@ -434,7 +434,7 @@
         
 <li >
     
-    <a href="../bakedmodel/" class="elem-text">최적화된 모델</a>
+    <a href="../bakedmodel/" class="elem-text">BakedModel</a>
     
     
 </li>
@@ -443,7 +443,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#perspective" class="elem-text">시점</a>
+    <a href="#_1" class="elem-text">시점</a>
     
     
     <ul class="table-of-contents">
@@ -452,9 +452,9 @@
         
         <li class="toc-subitem"><a href="#transformtype">TransformType</a></li>
         
-        <li class="toc-subitem"><a href="#the-vanilla-way">The Vanilla Way</a></li>
+        <li class="toc-subitem"><a href="#_2">바닐라 로직</a></li>
         
-        <li class="toc-subitem"><a href="#the-forge-way">The Forge Way</a></li>
+        <li class="toc-subitem"><a href="#_3">포지 로직</a></li>
         
         
     </ul>
@@ -907,29 +907,33 @@
     <div class="sidebar-sticky-wrapper-content">
         <article class="docs-entry">
             
-            <h1 id="perspective">Perspective<a class="headerlink" href="#perspective" title="Permanent link"> </a></h1>
-<p>When an <a href="../bakedmodel/"><code>BakedModel</code></a> is being rendered as an item, it can apply special handling depending on which perspective it is being rendered in. &ldquo;Perspective&rdquo; means in what context the model is being rendered. The possible perspectives are represented in code by the <code>ItemTransforms$TransformType</code> enum. There are two systems for handling perspective: the deprecated vanilla system, constituted by <code>BakedModel#getTransforms</code>, <code>ItemTransforms</code>, and <code>ItemTransform</code>, and the Forge system, embodied by the method <code>IForgeBakedModel#handlePerspective</code>. The vanilla code is patched to favor using <code>handlePerspective</code> over the vanilla system whenever possible.</p>
+            <h1 id="_1">시점<a class="headerlink" href="#_1" title="Permanent link"> </a></h1>
+<p><a href="../bakedmodel/"><code>BakedModel</code></a>을 아이템으로 렌더링할 때, 아이템을 렌더링하는 시점이 어느 시점이냐에 따라 다르게 렌더링할 수도 있습니다. 이때 &ldquo;시점&rdquo;은 모델을 렌더링하는 맥락을 의미하는데, 마인크래프트에서 사용하는 시점들은 <code>ItemTransforms$TransformType</code>에 열거되어 있습니다. 시점을 다루는 데는 두 가지 방법이 있는데: <code>BakedModel#getTransform</code>, <code>ItemTransforms</code>, 그리고 <code>ItemTransform</code>을 활용하는 마인크래프트 로직을 그대로 활용하시는 것과, 이를 대체하는 포지의 <code>IForgeBakedModel#handlePerspective</code>를 사용하는 것 입니다. 기존 마인크래프트 코드는 가능하면 <code>handlePerspective</code>를 대신 사용하도록 패치되었습니다.</p>
 <h2 id="transformtype"><code>TransformType</code><a class="headerlink" href="#transformtype" title="Permanent link"> </a></h2>
-<p><code>NONE</code> - Unused.</p>
-<p><code>THIRD_PERSON_LEFT_HAND</code>/<code>THIRD_PERSON_RIGHT_HAND</code>/<code>FIRST_PERSON_LEFT_HAND</code>/<code>FIRST_PERSON_RIGHT_HAND</code> - The first person values represent when the player is holding the item in their own hand. The third person values represent when another player is holding the item and the client is looking at them in the 3rd person. Hands are self-explanatory.</p>
-<p><code>HEAD</code> - Represents when any player is wearing the item in the helmet slot (e.g. pumpkins).</p>
-<p><code>GUI</code> - Represents when the item is being rendered in a <code>Screen</code>.</p>
-<p><code>GROUND</code> - Represents when the item is being rendered in the level as an <code>ItemEntity</code>.</p>
-<p><code>FIXED</code> - Used for item frames.</p>
-<h2 id="the-vanilla-way">The Vanilla Way<a class="headerlink" href="#the-vanilla-way" title="Permanent link"> </a></h2>
-<p>The vanilla way of handling perspective is through <code>BakedModel#getTransforms</code>. This method returns an <code>ItemTransforms</code>, which is a simple object that contains various <code>ItemTransform</code>s as <code>public final</code> fields. An <code>ItemTransform</code> represents a rotation, a translation, and a scale to be applied to the model. The <code>ItemTransforms</code> is a container for these, holding one for each of the <code>TransformType</code>s except <code>NONE</code>. In the vanilla implementation, calling <code>#getTransform</code> for <code>NONE</code> results in the default transform, <code>ItemTransform#NO_TRANSFORM</code>.</p>
-<p>The entire vanilla system for handling transforms is deprecated by Forge, and most implementations of <code>BakedModel</code> should simply <code>return ItemTransforms#NO_TRANSFORMS</code> (which is the default implementation) from <code>BakedModel#getTransforms</code>. Instead, they should implement <code>#handlePerspective</code>.</p>
-<h2 id="the-forge-way">The Forge Way<a class="headerlink" href="#the-forge-way" title="Permanent link"> </a></h2>
-<p>The Forge way of handling transforms is <code>#handlePerspective</code>, a method patched into <code>BakedModel</code>. It supersedes the <code>#getTransforms</code> method. Additionally, the class <code>PerspectiveMapWrapper</code> is a simple implementation of an <code>BakedModel</code> with the method; it is a wrapper around other <code>BakedModel</code>s, augmenting them with a <code>Map&lt;TransformType, Transformation&gt;</code> to handle perspective.</p>
+<p><code>NONE</code> - 시점 처리 안 함.</p>
+<p><code>THIRD_PERSON_LEFT_HAND</code>/<code>THIRD_PERSON_RIGHT_HAND</code>/<code>FIRST_PERSON_LEFT_HAND</code>/<code>FIRST_PERSON_RIGHT_HAND</code> - <code>FIRST_PERSON_*</code>은 플레이어가 일인칭에서 손에 아이템을 직접 들고 있을 때, <code>THIRD_PERSON_*</code>은 해당 아이템을 삼인칭으로 관찰할 때 사용됩니다.</p>
+<p><code>HEAD</code> - 플레이어가 아이템을 머리에 착용하고 있는 것을 삼인칭으로 관찰할 때 사용합니다(에: 호박).</p>
+<p><code>GUI</code> - 아이템을 <code>Screen</code> 내에서 렌더링할 때 사용합니다.</p>
+<p><code>GROUND</code> - 아이템을 <code>ItemEntity</code>를 통해 레벨에 렌더링할 때 사용합니다.</p>
+<p><code>FIXED</code> - 아이템 거치대에 렌더링할 때 사용합니다.</p>
+<h2 id="_2">바닐라 로직<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
+<p>마인크래프트는 <code>BakedModel#getTransforms</code>을 통해 시점을 관리합니다. 이 메서드는 <code>ItemTransforms</code>를 반환하는데, 이는 여러 <code>ItemTransform</code>을 <code>public final</code> 필드로 저장하는 객체입니다. <code>ItemTransform</code>은 회전, 이동, 크기 등 모델에 적용할 시점 변환 행렬을 표현합니다. <code>ItemTransforms</code>는 <code>NONE</code>을 제외한 각 시점마다 알맞은 <code>ItemTransform</code>을 저장합니다, 만약 <code>#getTransform</code>에 인자<code>NONE</code>을 전달하신다면 아무런 변형도 가하지 않는 <code>ItemTransform#NO_TRANSFORM</code>이 반환됩니다. </p>
+<p>마인크래프트의 시점 관리 시스템은 전체적으로 포지에 의해 대체되었으며, <code>BakedModel</code>은 <code>#getTransforms</code>로 <code>ItemTransforms#NO_TRANSFORMS</code>를 반환해야 합니다. 그 대신 <code>#handlePerspective</code>를 사용하여 시점 처리를 해야 합니다.</p>
+<h2 id="_3">포지 로직<a class="headerlink" href="#_3" title="Permanent link"> </a></h2>
+<p>포지에선 시점 처리를 <code>#handlePerspective</code>에서 하는데, 이 메서드는 <code>BakedModel</code>에 새로 주입된 메서드이며, 기존의 <code>#getTransforms</code>를 대체합니다.</p>
 <h4 id="bakedmodelhandleperspective"><code>BakedModel#handlePerspective</code><a class="headerlink" href="#bakedmodelhandleperspective" title="Permanent link"> </a></h4>
-<p>Given a <code>TransformType</code> and <code>PoseStack</code>, this method produces an <code>BakedModel</code> to be rendered. Because the returned <code>BakedModel</code> can be a totally new model, this method is more flexible than the vanilla method (e.g. a piece of paper that looks flat in hand but crumpled on the ground).</p>
+<p><code>TransformType</code>과 <code>PoseStack</code>을 인자로 받고, 렌더링할 <code>BakedModel</code>을 반환하는 메서드 입니다. 이때 반환하는 <code>BakedModel</code>은 완전히 새로운 모델이어도 되는데, 이를 통해 기존 마인크래프트 로직보다 더 유연한 시점 처리를 수행할 수 있습니다(예: 손에 들면 평평하지만, 땅에 던지면 구겨지는 종이를 구현할 수 있음). </p>
 <h3 id="perspectivemapwrapper"><code>PerspectiveMapWrapper</code><a class="headerlink" href="#perspectivemapwrapper" title="Permanent link"> </a></h3>
-<p>A wrapper around other <code>BakedModel</code>s, this class delegates to the wrapped model for all <code>BakedModel</code> methods except <code>#handlePerspective</code>, and utilizes a simple <code>Map&lt;TransformType, Transformation&gt;</code> for <code>#handlePerspective</code>. However, the more interesting parts of this class are the static helper methods.</p>
-<h4 id="gettransforms-and-gettransformswithfallback"><code>getTransforms</code> and <code>getTransformsWithFallback</code><a class="headerlink" href="#gettransforms-and-gettransformswithfallback" title="Permanent link"> </a></h4>
-<p>Given an <code>ItemTransforms</code> or an <code>ModelState</code>, this method will extract an <code>ImmutableMap&lt;TransformType, Transformation&gt;</code> from it. To extract this information from an <code>ModelState</code>, each <code>TransformType</code> is passed to <code>#getPartTransformation</code>.</p>
-<p>This is how models should support custom perspective transforms through <code>ModelState</code>. <code>UnbakedModel</code>s should pass the <code>ModelState</code> in <code>#bake</code>. Then the <code>BakedModel</code> can use these custom transforms in <code>#handlePerspective</code>, composing them on top of its own.</p>
+<p><code>BakedModel</code>을 감싸는 wrapper입니다. <code>#handlePerspective</code>를 제외한 모든 메서드 호출을 <code>BakedModel</code>로 위임합니다, 그리고 <code>Map&lt;TransformType, Transformation&gt;</code>을 활용해 <code>#handlePerspective</code>를 처리합니다, 또한 아래와 같이 여러 유용한 정적 메서드들을 제공합니다.</p>
+<h4 id="gettransforms-gettransformswithfallback"><code>getTransforms</code>와 <code>getTransformsWithFallback</code><a class="headerlink" href="#gettransforms-gettransformswithfallback" title="Permanent link"> </a></h4>
+<p><code>ItemTransforms</code>, 또는 <code>ModelState</code>로부터 <code>ImmutableMap&lt;TransformType, Transformation&gt;</code>을 구성하는 메서드 입니다. <code>ModelState</code>가 전달되었을 땐, 각 <code>TransformType</code>을 <code>#getPartTransformation</code>의 인자로 호출하여 알맞은 <code>Transformation</code>을 구성합니다.</p>
+<p>일반적으로 모델들은 <code>ModelState</code>를 이 메서드들에 활용하여 시점 처리를 해야 합니다. <code>UnbakedModel#bake</code>에서 이 메서드를 호출하고, 그렇게 생성한 <code>Map&lt;TransformType, Transformation&gt;</code>을 <code>#bake</code>의 결과인 <code>BakedModel</code>과 합쳐 <code>PerspectiveMapWrapper</code>를 생성하여, 자동으로 <code>#handlePerspective</code>를 처리할 수 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>여기서 말하는 <code>getTransforms</code>는 <code>BakedModel#getTransforms</code>와 다른 것입니다, 여기에서는 정적 메서드 <code>PerspectiveMapWrapper#getTransforms</code>에 대해 다루고 있고, <code>BakedModel#getTransforms</code>는 이전에도 말씀드린 것처럼 포지 로직으로 대체된 마인크래프트 렌더링 로직입니다.</p>
+</div>
 <h4 id="handleperspective"><code>handlePerspective</code><a class="headerlink" href="#handleperspective" title="Permanent link"> </a></h4>
-<p>Given either a map of transforms or an <code>ModelState</code>, an <code>BakedModel</code>, a <code>TransformType</code>, and a <code>PoseStack</code>, this finds the <code>BakedModel</code> for the transform from the map or the <code>ModelState</code>, and then pairs it with the given model. To extract the transform from an <code>ModelState</code>, the <code>TransformType</code> is passed to <code>#getPartTransformation</code>. This method is meant to be a simple implementation of <code>BakedModel#handlePerspective</code>.</p>
+<p><code>ModelState</code> 또는 <code>Map&lt;TransformType, Transformation</code>, <code>BakedModel</code>, <code>TransformType</code>, 그리고 <code>PoseStack</code>을 인자로 전달받으면, 해당 시점에 알맞은 <code>Transformation</code>을 <code>BakedModel</code>, 또는 <code>ModelState</code>로 부터 찾은 이후, 해당 행렬을 전달한 <code>PoseStack</code>에 적용합니다. 이때 <code>ModelState</code>의 경우 위와 동일하게 <code>#getPartTransformation</code>을 사용하여 <code>Transformation</code>을 찾습니다. 이 메서드는 간단하게 <code>BakedModel#handlePerspective</code>를 구현하는 데 사용할 수 있습니다.</p>
             
         </article>
         
