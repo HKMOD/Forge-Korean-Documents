@@ -37,7 +37,7 @@ nav:
       - 소개: 'rendering/modelloaders/index.md'
       - BakedModel: 'rendering/modelloaders/bakedmodel.md'
       - 시점: 'rendering/modelloaders/perspective.md'
-      - 아이템 속성에 따른 동적 텍스쳐 변경: 'rendering/modelloaders/itemoverrides.md'
+      - 아이템 속성에 따른 외관 변경: 'rendering/modelloaders/itemoverrides.md'
   - 리소스:
     - 클라이언트용 애셋:
       - 소개: 'resources/client/index.md'
