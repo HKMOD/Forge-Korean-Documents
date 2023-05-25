@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>아이템 속성에 따른 동적 텍스쳐 변경 - Forge Korean Documentation</title>
+    <title>아이템 속성에 따른 외관 변경 - Forge Korean Documentation</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../../../images/favicon-32x32.png" sizes="32x32">
@@ -452,7 +452,7 @@
         
 <li class="elem-active elem-toc" >
     
-    <a href="#itemoverrides" class="elem-text">아이템 속성에 따른 동적 텍스쳐 변경</a>
+    <a href="#itemoverrides" class="elem-text">아이템 속성에 따른 외관 변경</a>
     
     
     <ul class="table-of-contents">
@@ -464,6 +464,10 @@
         <li class="toc-subitem"><a href="#resolve">resolve</a></li>
         
         <li class="toc-subitem"><a href="#getoverrides">getOverrides</a></li>
+        
+        <li class="toc-subitem"><a href="#_1">바닐라 마인크래프트에서의 아이템 오버라이드</a></li>
+        
+        <li class="toc-subitem"><a href="#itempropertyfunction">ItemPropertyFunction</a></li>
         
         <li class="toc-subitem"><a href="#bakedoverride">BakedOverride</a></li>
         
@@ -910,37 +914,51 @@
         <article class="docs-entry">
             
             <h1 id="itemoverrides"><code>ItemOverrides</code><a class="headerlink" href="#itemoverrides" title="Permanent link"> </a></h1>
-<p><code>ItemOverrides</code> provides a way for an <a href="../bakedmodel/"><code>BakedModel</code></a> to process the state of an <code>ItemStack</code> and return a new <code>BakedModel</code>; thereafter, the returned model replaces the old one. <code>ItemOverrides</code> represents an arbitrary function <code>(BakedModel, ItemStack, ClientLevel, LivingEntity, int)</code> → <code>BakedModel</code>, making it useful for dynamic models. In vanilla, it is used to implement item property overrides.</p>
+<p><code>ItemOverrides</code>는 <a href="../bakedmodel/"><code>BakedModel</code></a>이 <code>ItemStack</code>의 상태에 따라 새로운 <code>BakedModel</code>을 형성할 수 있도록 해 줍니다; 그리고 이렇게 새로 형성한 모델은 기존 모델 대신 렌더링에 사용됩니다. 이 시스템은 아이템 오버라이드라고 불리며, <code>ItemOverrides</code>라는 클래스로 표현됩니다. 이는 당기면 활시위 모양이 바뀌는 활처럼 동적인 모델을 구현할 때 유용합니다.</p>
 <h3 id="itemoverrides_1"><code>ItemOverrides()</code><a class="headerlink" href="#itemoverrides_1" title="Permanent link"> </a></h3>
-<p>Given a list of <code>ItemOverride</code>s, the constructor copies and bakes the list. The baked overrides may be accessed with <code>#getOverrides</code>.</p>
+<p><code>List&lt;ItemOverride&gt;</code>를 전달받으면 <code>ImmutableList&lt;BakedOverride&gt;</code>로 변환합니다, <code>#getOverrides</code>를 호출하여 해당 <code>ImmutableList&lt;BakedOverride&gt;</code>에 접근할 수 있습니다. </p>
 <h3 id="resolve"><code>resolve</code><a class="headerlink" href="#resolve" title="Permanent link"> </a></h3>
-<p>This takes an <code>BakedModel</code>, an <code>ItemStack</code>, a <code>ClientLevel</code>, a <code>LivingEntity</code>, and an <code>int</code> to produce another <code>BakedModel</code> to use for rendering. This is where models can handle the state of their items.</p>
-<p>This should not mutate the level.</p>
+<p><code>BakedModel</code>, <code>ItemStack</code>, <code>ClientLevel</code>, <code>LivingEntity</code>, 그리고 <code>int</code>를 전달받아 렌더링할 때 또 다른 <code>BakedModel</code>을 생성합니다. 아이템 속성에 따라 외관을 바꾸는 작업을 여기서 합니다.</p>
+<p>이때 전달되는 레벨은 변경하지 마세요.</p>
 <h3 id="getoverrides"><code>getOverrides</code><a class="headerlink" href="#getoverrides" title="Permanent link"> </a></h3>
-<p>Returns an immutable list containing all the <a href="#bakedoverride"><code>BakedOverride</code></a>s used by this <code>ItemOverrides</code>. If none are applicable, this returns the empty list.</p>
+<p><code>ItemOverrides</code>가 사용하는 모든 <a href="#bakedoverride"><code>BakedOverride</code></a>를 포함하는 불변 리스트를 반환합니다. 쓰는 것이 없다면 빈 리스트를 반환할 수도 있습니다.</p>
+<h2 id="_1">바닐라 마인크래프트에서의 아이템 오버라이드<a class="headerlink" href="#_1" title="Permanent link"> </a></h2>
+<p>바닐라 마인크래프트는 아이템의 외간에 영향을 끼칠 수 있는 아이템의 속성을 실숫값 하나로 표현하도록 하여 모델 JSON에 정의된 조건에 따라 다른 모델을 선택할 수 있도록 합니다. 예를 들어 활시위를 당긴 시간에 따라 모델을 바꾼다고 한다면, 활시위를 당긴 시간이 해당 실숫값이 될 수 있을 것이고, 아이템의 내구도에 따라 모델이 바뀐다고 한다면 내구도가 해당 실숫값이 될 수 있습니다. 어떻게든 결과로 실숫값이 나오기만 한다면 무엇이 되든 상관없습니다. 이후 마인크래프트는 이 값이 모델 JSON에 정의한 값보다 큰지 비교하며, 만약 JSON의 값보다 더 크다면 다른 모델을 사용합니다.</p>
+<h2 id="itempropertyfunction"><code>ItemPropertyFunction</code><a class="headerlink" href="#itempropertyfunction" title="Permanent link"> </a></h2>
+<p><code>ItemPropertyFunction</code>는 함수 <code>(ItemStack, ClientLevel, LivingEntity, int)</code> -&gt; <code>float</code>를 표현하는 함수형 인터페이스입니다. 아이템의 여러 가지 속성값을 활용해서 하나의 실숫값을 만듭니다. 모든 <code>ItemPropertyFunction</code>는 사전에 <code>ItemProperties#register</code>를 통해 등록되어야 합니다.</p>
 <h2 id="bakedoverride"><code>BakedOverride</code><a class="headerlink" href="#bakedoverride" title="Permanent link"> </a></h2>
-<p>This class represents a vanilla item override, which holds several <code>ItemOverrides$PropertyMatcher</code> for the properties on an item and a model to use in case those matchers are satisfied. They are the objects in the <code>overrides</code> array of a vanilla item JSON model:</p>
+<p>이 클래스는 아이템의 속성을 <code>ItemPropertyFunction</code>를 통해 실수로 변환한 값들과, 조건 만족시 대신 사용할 모델을 담습니다. 해당 클래스의 인스턴스는 <code>ItemStack</code>마다 다릅니다. </p>
+<p>아래는 아이템 오버라이드를 활용하는 모델의 예시입니다
 <pre class="highlight"><code class="language-js">{
-  // Inside a vanilla JSON item model
+  // 모델 JSON 파일 내부
   "overrides": [
+    // 아래 객체는 ItemOverride가 됩니다 
     {
-      // This is an ItemOverride
+      // predicate는 런타임에서 Map&lt;ResourceLocation, Float&gt;를 구성합니다.
       "predicate": {
-        // This is the Map&lt;ResourceLocation, Float&gt;, containing the names of properties and their minimum values
-        "example1:prop": 0.5
+        // predicate는 다수의 ResourceLocation과 실숫값의 쌍으로 이루어져 있습니다. 
+        // 여기서 사용되는 ResourceLocation은 게임이 사전에 등록한 ItemPropertyFunction의 레지스트리 이름입니다
+        // 이 ResourceLocation으로 지정한 ItemPropertyFunction은 이 모델 파일을 사용하는 아이템의 여러 속성들을 하나의 실숫값으로 변환합니다
+        // 그리고 그 실숫값이 0.5보다 크다면 다른 모델을 사용합니다, 여기선 "example1:item/model"을 사용합니다
+        "example1:prop": 0.5,
       },
-      // This is the 'location', or target model, of the override, which is used if the predicate above matches
+      // 위에서 정의한 조건을 만족하면 사용할 모델을 지정합니다
       "model": "example1:item/model"
     },
+    // 아래 객체 또한 ItemOverride가 됩니다
     {
-      // This is another ItemOverride
       "predicate": {
-        "example2:prop": 1
+        "example2:prop": 1,
+        // 이때 여러 개의 ItemPropertyFunction을 지정할 수 있습니다
+        // predicate에 정의된 모든 ItemPropertyFunction을 만족해야만 다른 모델을 사용합니다
+        "example2:prop1": 0.7,
+        "example2:prop2": 0.8,
       },
+      // 위에서 정의한 3개의 조건을 다 만족하면 사용할 모델을 지정합니다
       "model": "example2:item/model"
     }
   ]
-}</code></pre>
+}</code></pre></p>
             
         </article>
         
