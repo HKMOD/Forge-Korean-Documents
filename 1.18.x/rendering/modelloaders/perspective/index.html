@@ -915,7 +915,7 @@
 <p><code>HEAD</code> - 플레이어가 아이템을 머리에 착용하고 있는 것을 삼인칭으로 관찰할 때 사용합니다(에: 호박).</p>
 <p><code>GUI</code> - 아이템을 <code>Screen</code> 내에서 렌더링할 때 사용합니다.</p>
 <p><code>GROUND</code> - 아이템을 <code>ItemEntity</code>를 통해 레벨에 렌더링할 때 사용합니다.</p>
-<p><code>FIXED</code> - 아이템 거치대에 렌더링할 때 사용합니다.</p>
+<p><code>FIXED</code> - 아이템 액자에 렌더링할 때 사용합니다.</p>
 <h2 id="_2">바닐라 로직<a class="headerlink" href="#_2" title="Permanent link"> </a></h2>
 <p>마인크래프트는 <code>BakedModel#getTransforms</code>을 통해 시점을 관리합니다. 이 메서드는 <code>ItemTransforms</code>를 반환하는데, 이는 여러 <code>ItemTransform</code>을 <code>public final</code> 필드로 저장하는 객체입니다. <code>ItemTransform</code>은 회전, 이동, 크기 등 모델에 적용할 시점 변환 행렬을 표현합니다. <code>ItemTransforms</code>는 <code>NONE</code>을 제외한 각 시점마다 알맞은 <code>ItemTransform</code>을 저장합니다, 만약 <code>#getTransform</code>에 인자<code>NONE</code>을 전달하신다면 아무런 변형도 가하지 않는 <code>ItemTransform#NO_TRANSFORM</code>이 반환됩니다. </p>
 <p>마인크래프트의 시점 관리 시스템은 전체적으로 포지에 의해 대체되었으며, <code>BakedModel</code>은 <code>#getTransforms</code>로 <code>ItemTransforms#NO_TRANSFORMS</code>를 반환해야 합니다. 그 대신 <code>#handlePerspective</code>를 사용하여 시점 처리를 해야 합니다.</p>
